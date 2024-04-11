@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Scripts/Managers/cutscene.gd" type="Script" id=1]
+[ext_resource path="res://assets/video/AdviseVideo.ogv" type="VideoStream" id=2]
+[ext_resource path="res://assets/img/Black.png" type="Texture" id=3]
+
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 13.4543, 6.72717 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Control"]
+margin_left = -13.3303
+margin_top = -8.00006
+margin_right = 1914.67
+margin_bottom = 1089.0
+stream = ExtResource( 2 )
+autoplay = true
+script = ExtResource( 1 )
+to_mainMenu = true
+
+[node name="Black" type="Sprite" parent="."]
+position = Vector2( 1700.03, 941.918 )
+scale = Vector2( 0.823481, 0.550081 )
+texture = ExtResource( 3 )
+
+[connection signal="finished" from="Control/VideoPlayer" to="Control/VideoPlayer" method="_on_VideoPlayer_finished"]

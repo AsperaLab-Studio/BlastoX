@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/audio/sfx/Bosses/TheVine_SFX/boss_salarian_liana_growth.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/Scripts/AI/props/TheVine/Vine Gun.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheVine_SFX/boss_salarian_liana_shoot.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/img/sprites/enemy/bosses/obj/the vine/liana_up.png" type="Texture" id=4]
+[ext_resource path="res://scenes/pg/bosses/props/TheVine/Bullet Vine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheVine_SFX/boss_salarian_bloom.ogg" type="AudioStream" id=6]
+
+
+
+[sub_resource type="Animation" id=5]
+resource_name = "growth"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "shoot"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 22.5, 218.054 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+bullet = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 207 )
+texture = ExtResource( 4 )
+hframes = 6
+region_rect = Rect2( 9, 14, 63, 96 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/growth = SubResource( 5 )
+anims/shoot = SubResource( 7 )
+
+[node name="HitBox" type="KinematicBody2D" parent="."]
+position = Vector2( 0, -0.108902 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
+position = Vector2( 0.5, 220.054 )
+shape = SubResource( 6 )
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -4.522
+bus = "SFX"
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -61, 435 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

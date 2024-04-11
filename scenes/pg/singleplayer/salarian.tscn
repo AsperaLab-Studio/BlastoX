@@ -1,0 +1,295 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/img/sprites/enemy/Salarian_Spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=2]
+[ext_resource path="res://assets/Scripts/AI/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/sfx/Enemies/Salarian_SFX/salarian_pain.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/sfx/Enemies/Salarian_SFX/salarian_attack.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/sfx/Enemies/Salarian_SFX/salarian_death.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/img/sprites/VFX/enemyMeleeHittedVFX.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/sprites/VFX/dustCloudVFX.png" type="Texture" id=8]
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.4 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "died"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.284 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "death"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Node2D/dustCloudVFX:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.801, 0.887, 0.974, 1.066, 1.159 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Node2D/dustCloudVFX:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.807, 1.254 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 12, 13 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 4 ]
+}
+
+[sub_resource type="Animation" id=5]
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.29, 0.56, 0.82 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1, 2 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 14.125
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 38.5545, 10 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8.4275, 21.8633 )
+
+[node name="Enemy" type="KinematicBody2D" groups=["enemy", "pausable"]]
+z_index = -1
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 3 )
+moving_speed = 250
+dps = 3
+HP = 1
+rebonuceDistance = 500.0
+rebounce_speed = 700.0
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.4, 1.4 )
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 5
+frame = 9
+region_rect = Rect2( 9, 14, 63, 96 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="meleeHittedVFX" type="Sprite" parent="Node2D"]
+visible = false
+position = Vector2( -2.64833, -7.35167 )
+scale = Vector2( 0.22974, 0.22974 )
+texture = ExtResource( 7 )
+hframes = 2
+frame = 1
+
+[node name="dustCloudVFX" type="Sprite" parent="Node2D"]
+visible = false
+position = Vector2( -3, 60 )
+texture = ExtResource( 8 )
+hframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 1 )
+anims/died = SubResource( 2 )
+anims/hit = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/move = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2, 0 )
+shape = SubResource( 11 )
+
+[node name="AttackDelayTimer" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="AttackCollision" type="Area2D" parent="Pivot"]
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/AttackCollision"]
+position = Vector2( 40, 0 )
+scale = Vector2( 0.600001, 1 )
+shape = SubResource( 8 )
+
+[node name="HitBox" type="Area2D" parent="Pivot"]
+position = Vector2( -9, -1 )
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HitBox"]
+shape = SubResource( 10 )
+
+[node name="HealthDisplay" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="HealthBar" type="TextureProgress" parent="HealthDisplay"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+max_value = 3.0
+value = 3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HealthDisplay"]
+visible = false
+margin_left = -20.1815
+margin_top = -77.7829
+margin_right = 19.8185
+margin_bottom = -63.7829
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="AttackDelayTimer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Pivot/AttackCollision" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Pivot/AttackCollision" to="." method="_on_Area2D_area_exited"]

@@ -1,0 +1,942 @@
+[gd_scene load_steps=51 format=2]
+
+[ext_resource path="res://assets/img/sprites/obj/booble.png" type="Texture" id=1]
+[ext_resource path="res://assets/audio/ost/lvls sub/The Vine soundtrack.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/img/background/sea/sea3.png" type="Texture" id=3]
+[ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=4]
+[ext_resource path="res://assets/Scripts/Player/camera/CameraShake.gd" type="Script" id=5]
+[ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/img/UI/blasto/barra vita.png" type="Texture" id=7]
+[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=8]
+[ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=9]
+[ext_resource path="res://scenes/pg/bosses/salarianBoss.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=11]
+[ext_resource path="res://assets/img/UI/blasto/cornice barra vita.png" type="Texture" id=12]
+[ext_resource path="res://assets/img/UI/bosses/the vine/the vine cornice destra.png" type="Texture" id=13]
+[ext_resource path="res://scenes/tile/ocean/lvl 3 s/ocean3TileBoss.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=15]
+[ext_resource path="res://assets/img/UI/you win cornice.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=17]
+[ext_resource path="res://assets/img/UI/bosses/the vine/barra vita the vine.png" type="Texture" id=18]
+[ext_resource path="res://assets/Scripts/Managers/BossSceneManager.gd" type="Script" id=19]
+[ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=20]
+[ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=22]
+[ext_resource path="res://assets/img/UI/game over cornice.png" type="Texture" id=23]
+[ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=24]
+[ext_resource path="res://assets/img/UI/rating/C.png" type="Texture" id=25]
+[ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=26]
+[ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=29]
+[ext_resource path="res://assets/Scripts/Player/camera/cameraController.gd" type="Script" id=30]
+
+[sub_resource type="StyleBoxFlat" id=41]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=37]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=38]
+bg_color = Color( 0, 0.72549, 0.164706, 1 )
+border_width_top = 18
+border_width_bottom = 23
+border_color = Color( 0.839216, 0, 1, 1 )
+shadow_color = Color( 1, 0.6, 0.6, 0.6 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 15748, 123.529 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1990.15, 120.176 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 1 )
+region = Rect2( 59, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 1 )
+region = Rect2( 118, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 1 )
+region = Rect2( 177, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 1 )
+region = Rect2( 236, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 1 )
+region = Rect2( 295, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 1 )
+region = Rect2( 354, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 1 )
+region = Rect2( 413, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 1 )
+region = Rect2( 472, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 1 )
+region = Rect2( 531, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 1 )
+region = Rect2( 590, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 1 )
+region = Rect2( 649, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 1 )
+region = Rect2( 708, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 1 )
+region = Rect2( 767, 0, 59, 278 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 1 )
+region = Rect2( 826, 0, 59, 278 )
+
+[sub_resource type="SpriteFrames" id=56]
+animations = [ {
+"frames": [ SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 39 ), SubResource( 40 ), SubResource( 54 ), SubResource( 55 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[node name="testing" type="Node2D"]
+position = Vector2( 63, -456 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1020.87 ]
+}
+
+[node name="StageManager" type="Node2D" parent="."]
+position = Vector2( -680, -496 )
+script = ExtResource( 19 )
+next_stage = "defeat vine"
+current_level = "ocean/LevelOceanBoss"
+
+[node name="EnemiesContainer" type="Node" parent="StageManager"]
+
+[node name="SalarianBoss" parent="StageManager/EnemiesContainer" instance=ExtResource( 10 )]
+position = Vector2( 901, 860 )
+delay_after_spear = 2.0
+HP = 10
+shooot_delay = 0.2
+
+[node name="respawnPoint" type="Node2D" parent="StageManager"]
+position = Vector2( 1000, 1826 )
+
+[node name="spearZones" type="Node" parent="StageManager"]
+
+[node name="1" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 139, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/1"]
+position = Vector2( 36, 55 )
+
+[node name="2" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 226, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/2"]
+position = Vector2( 36, 55 )
+
+[node name="3" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 320, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/3"]
+position = Vector2( 36, 55 )
+
+[node name="4" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 412, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/4"]
+position = Vector2( 36, 55 )
+
+[node name="5" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 522, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/5"]
+position = Vector2( 36, 55 )
+
+[node name="6" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 618, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/6"]
+position = Vector2( 36, 55 )
+
+[node name="7" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 722, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/7"]
+position = Vector2( 36, 55 )
+
+[node name="8" type="Node2D" parent="StageManager/spearZones"]
+position = Vector2( 50, 940 )
+
+[node name="1" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( -69, -5 )
+
+[node name="2" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( -70, -43 )
+
+[node name="3" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( 14, -48 )
+
+[node name="7" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( 60, 23 )
+
+[node name="8" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( -22, 35 )
+
+[node name="5" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( -39, -65 )
+
+[node name="6" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( 63, -13 )
+
+[node name="4" type="Position2D" parent="StageManager/spearZones/8"]
+position = Vector2( 36, 55 )
+
+[node name="gunZones" type="Node" parent="StageManager"]
+
+[node name="1" type="Node2D" parent="StageManager/gunZones"]
+position = Vector2( 248, 420 )
+
+[node name="2" type="Position2D" parent="StageManager/gunZones/1"]
+position = Vector2( -13, -20 )
+
+[node name="3" type="Position2D" parent="StageManager/gunZones/1"]
+position = Vector2( 14, 16 )
+
+[node name="4" type="Position2D" parent="StageManager/gunZones/1"]
+position = Vector2( 43, 52 )
+
+[node name="2" type="Node2D" parent="StageManager/gunZones"]
+position = Vector2( 342, 416 )
+
+[node name="1" type="Position2D" parent="StageManager/gunZones/2"]
+position = Vector2( -38, -60 )
+
+[node name="2" type="Position2D" parent="StageManager/gunZones/2"]
+position = Vector2( -13, -20 )
+
+[node name="4" type="Position2D" parent="StageManager/gunZones/2"]
+position = Vector2( 43, 52 )
+
+[node name="3" type="Node2D" parent="StageManager/gunZones"]
+position = Vector2( 438, 420 )
+
+[node name="1" type="Position2D" parent="StageManager/gunZones/3"]
+position = Vector2( -38, -60 )
+
+[node name="3" type="Position2D" parent="StageManager/gunZones/3"]
+position = Vector2( 14, 16 )
+
+[node name="4" type="Position2D" parent="StageManager/gunZones/3"]
+position = Vector2( 43, 52 )
+
+[node name="4" type="Node2D" parent="StageManager/gunZones"]
+position = Vector2( 528, 416 )
+
+[node name="1" type="Position2D" parent="StageManager/gunZones/4"]
+position = Vector2( -38, -60 )
+
+[node name="3" type="Position2D" parent="StageManager/gunZones/4"]
+position = Vector2( 14, 16 )
+
+[node name="4" type="Position2D" parent="StageManager/gunZones/4"]
+position = Vector2( 43, 52 )
+
+[node name="5" type="Node2D" parent="StageManager/gunZones"]
+position = Vector2( 624, 420 )
+
+[node name="1" type="Position2D" parent="StageManager/gunZones/5"]
+position = Vector2( -38, -60 )
+
+[node name="2" type="Position2D" parent="StageManager/gunZones/5"]
+position = Vector2( -13, -20 )
+
+[node name="3" type="Position2D" parent="StageManager/gunZones/5"]
+position = Vector2( 14, 16 )
+
+[node name="6" type="Node2D" parent="StageManager/gunZones"]
+position = Vector2( 624, 418 )
+
+[node name="1" type="Position2D" parent="StageManager/gunZones/6"]
+position = Vector2( -38, -60 )
+
+[node name="3" type="Position2D" parent="StageManager/gunZones/6"]
+position = Vector2( 14, 16 )
+
+[node name="4" type="Position2D" parent="StageManager/gunZones/6"]
+position = Vector2( 43, 52 )
+
+[node name="7" type="Node2D" parent="StageManager/gunZones"]
+position = Vector2( 712, 420 )
+
+[node name="1" type="Position2D" parent="StageManager/gunZones/7"]
+position = Vector2( -38, -60 )
+
+[node name="2" type="Position2D" parent="StageManager/gunZones/7"]
+position = Vector2( -13, -20 )
+
+[node name="4" type="Position2D" parent="StageManager/gunZones/7"]
+position = Vector2( 43, 52 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="GUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 612, 779 )
+
+[node name="GAME OVER" type="Sprite" parent="GUI/UI"]
+visible = false
+position = Vector2( 958.351, 539.915 )
+scale = Vector2( 1.00097, 1.00097 )
+z_index = 1
+texture = ExtResource( 23 )
+
+[node name="WIN" type="Sprite" parent="GUI/UI"]
+visible = false
+position = Vector2( 963.059, 541.221 )
+z_index = 1
+texture = ExtResource( 16 )
+
+[node name="LifesList" type="Node2D" parent="GUI/UI"]
+
+[node name="Blasto" type="Node2D" parent="GUI/UI/LifesList"]
+
+[node name="Ceru1" type="Sprite" parent="GUI/UI/LifesList/Blasto"]
+position = Vector2( 235, 140 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="Ceru2" type="Sprite" parent="GUI/UI/LifesList/Blasto"]
+position = Vector2( 204, 140 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="Ceru3" type="Sprite" parent="GUI/UI/LifesList/Blasto"]
+position = Vector2( 172, 140 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="HealthPlayerContainer" type="Node2D" parent="GUI/UI"]
+script = ExtResource( 9 )
+
+[node name="Blasto" type="Node2D" parent="GUI/UI/HealthPlayerContainer"]
+
+[node name="ConiceBarraVita" type="Sprite" parent="GUI/UI/HealthPlayerContainer/Blasto"]
+position = Vector2( 293.239, 82.7536 )
+scale = Vector2( 0.295394, 0.289558 )
+texture = ExtResource( 12 )
+
+[node name="HealthBar" type="TextureProgress" parent="GUI/UI/HealthPlayerContainer/Blasto"]
+margin_left = 146.0
+margin_top = 57.0
+margin_right = 1507.0
+margin_bottom = 232.0
+rect_scale = Vector2( 0.293, 0.296 )
+max_value = 10.0
+value = 10.0
+texture_progress = ExtResource( 7 )
+
+[node name="HealthBossContainer" type="Node2D" parent="GUI/UI"]
+position = Vector2( 1944, 989.869 )
+script = ExtResource( 29 )
+
+[node name="HealthBar" type="TextureProgress" parent="GUI/UI/HealthBossContainer"]
+margin_left = -961.76
+margin_top = -39.869
+margin_right = -98.76
+margin_bottom = 40.131
+max_value = 10.0
+value = 10.0
+texture_progress = ExtResource( 18 )
+nine_patch_stretch = true
+
+[node name="TheJaw" type="Sprite" parent="GUI/UI/HealthBossContainer"]
+position = Vector2( -531.894, -3.86902 )
+scale = Vector2( 0.602811, 0.530595 )
+texture = ExtResource( 13 )
+
+[node name="Rating" type="Control" parent="GUI/UI"]
+margin_left = 1764.0
+margin_top = 954.0
+margin_right = 1804.0
+margin_bottom = 994.0
+script = ExtResource( 26 )
+rate_list = [ ExtResource( 25 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 15 ) ]
+boss = true
+rate_points = [ 3600, 7200, 10800, 14400 ]
+
+[node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
+visible = false
+scale = Vector2( 0.520833, 0.520833 )
+z_index = 1
+texture = ExtResource( 20 )
+
+[node name="pauseMenu" type="Control" parent="GUI"]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="mainPauseMenu" type="Control" parent="GUI/pauseMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ReturnBtn" type="Button" parent="GUI/pauseMenu/mainPauseMenu"]
+margin_left = 895.843
+margin_top = 370.715
+margin_right = 1080.84
+margin_bottom = 455.715
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/hover = SubResource( 41 )
+custom_styles/normal = SubResource( 42 )
+action_mode = 0
+text = "RETURN"
+
+[node name="RestartLevelBtn" type="Button" parent="GUI/pauseMenu/mainPauseMenu"]
+margin_left = 803.0
+margin_top = 462.0
+margin_right = 1164.0
+margin_bottom = 547.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/hover = SubResource( 41 )
+custom_styles/normal = SubResource( 42 )
+action_mode = 0
+text = "RESTART LEVEL"
+
+[node name="OptionBtn" type="Button" parent="GUI/pauseMenu/mainPauseMenu"]
+margin_left = 886.404
+margin_top = 551.0
+margin_right = 1082.4
+margin_bottom = 636.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/hover = SubResource( 41 )
+custom_styles/normal = SubResource( 42 )
+action_mode = 0
+text = "OPTIONS"
+
+[node name="MainMenuBtn" type="Button" parent="GUI/pauseMenu/mainPauseMenu"]
+margin_left = 844.873
+margin_top = 634.061
+margin_right = 1123.87
+margin_bottom = 719.061
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/hover = SubResource( 41 )
+custom_styles/normal = SubResource( 42 )
+action_mode = 0
+text = "MAIN MENU"
+
+[node name="QuitBtn" type="Button" parent="GUI/pauseMenu/mainPauseMenu"]
+margin_left = 844.873
+margin_top = 723.0
+margin_right = 1123.87
+margin_bottom = 808.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/hover = SubResource( 41 )
+custom_styles/normal = SubResource( 42 )
+action_mode = 0
+text = "QUIT"
+
+[node name="OptionMenu" type="Control" parent="GUI/pauseMenu"]
+visible = false
+margin_left = -4.48981
+margin_top = -204.288
+margin_right = 35.5102
+margin_bottom = -164.288
+
+[node name="backToPauseBtn" type="Button" parent="GUI/pauseMenu/OptionMenu"]
+margin_left = 1003.0
+margin_top = 555.0
+margin_right = 1337.0
+margin_bottom = 651.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/hover = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
+action_mode = 0
+text = "BACK"
+
+[node name="checkFullscreen" type="CheckBox" parent="GUI/pauseMenu/OptionMenu"]
+margin_left = 561.0
+margin_top = 554.0
+margin_right = 819.0
+margin_bottom = 651.0
+mouse_filter = 1
+custom_colors/font_color_disabled = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.72549, 0.164706, 1 )
+custom_fonts/font = ExtResource( 24 )
+text = "FullScreen"
+
+[node name="music" type="Label" parent="GUI/pauseMenu/OptionMenu"]
+margin_left = 561.0
+margin_top = 675.0
+margin_right = 721.0
+margin_bottom = 765.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_fonts/font = ExtResource( 24 )
+text = "MUSIC"
+
+[node name="MusicSlider" type="HSlider" parent="GUI/pauseMenu/OptionMenu"]
+margin_left = 561.0
+margin_top = 732.461
+margin_right = 1339.55
+margin_bottom = 855.459
+custom_styles/slider = SubResource( 38 )
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="sfx" type="Label" parent="GUI/pauseMenu/OptionMenu"]
+margin_left = 561.0
+margin_top = 879.0
+margin_right = 753.0
+margin_bottom = 969.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_fonts/font = ExtResource( 24 )
+text = "EFFECTS"
+
+[node name="SFXSlider" type="HSlider" parent="GUI/pauseMenu/OptionMenu"]
+margin_left = 561.0
+margin_top = 930.0
+margin_right = 1339.55
+margin_bottom = 1053.0
+custom_styles/slider = SubResource( 38 )
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="border" type="Node" parent="." groups=["border"]]
+
+[node name="Top" type="StaticBody2D" parent="border"]
+position = Vector2( 132.312, 444.188 )
+scale = Vector2( 0.58, 0.57 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
+position = Vector2( 15525.4, 415.184 )
+shape = SubResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="border/Top"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top/Area2D"]
+position = Vector2( 15525.4, 415.184 )
+shape = SubResource( 6 )
+
+[node name="Left" type="StaticBody2D" parent="border" groups=["border"]]
+position = Vector2( 386.667, 11.83 )
+rotation = 1.5708
+scale = Vector2( 0.57, 0.58 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
+position = Vector2( 870.27, 780.269 )
+shape = SubResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="border/Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left/Area2D"]
+position = Vector2( 870.27, 780.269 )
+shape = SubResource( 7 )
+
+[node name="Right" type="StaticBody2D" parent="border"]
+position = Vector2( 1932.8, 13.7178 )
+rotation = 1.5708
+scale = Vector2( 0.57, 0.58 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Right"]
+position = Vector2( 870.135, 1606.41 )
+shape = SubResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="border/Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Right/Area2D"]
+position = Vector2( 870.135, 1606.41 )
+shape = SubResource( 7 )
+
+[node name="Bottom" type="StaticBody2D" parent="border"]
+position = Vector2( 3.17841, 556.951 )
+scale = Vector2( 0.58, 0.57 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
+position = Vector2( 14914.6, 812.236 )
+shape = SubResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="border/Bottom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom/Area2D"]
+position = Vector2( 14915.3, 810.945 )
+shape = SubResource( 6 )
+
+[node name="floor" type="Node2D" parent="."]
+position = Vector2( -1689, 509 )
+z_index = -2
+script = ExtResource( 11 )
+increment = 1350
+n_positions = 1
+scenes = [ ExtResource( 14 ) ]
+
+[node name="PlayersList" type="Node2D" parent="."]
+
+[node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
+position = Vector2( 25.4528, 1315 )
+scale = Vector2( 1, 1 )
+boss = true
+
+[node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
+pause_mode = 2
+stream = ExtResource( 2 )
+bus = "Music"
+script = ExtResource( 8 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="background2" type="Node" parent="ParallaxBackground"]
+
+[node name="Sea3" type="Sprite" parent="ParallaxBackground/background2"]
+position = Vector2( 960, 406.25 )
+scale = Vector2( 1, 0.752315 )
+texture = ExtResource( 3 )
+
+[node name="obj" type="Node" parent="ParallaxBackground"]
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 131, 219 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 10
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 663, 224 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 10
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 1157, 165 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 9
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 998, 284 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 8
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 456, 144 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 8
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 297, 278 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 7
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 1361, 401 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 6
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 1508, 258 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 6
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 759, 538 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 6
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 1601, 514 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 5
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 369, 646 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 5
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 63, 532 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 4
+speed_scale = 1.8
+playing = true
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="ParallaxBackground/obj"]
+position = Vector2( 1046, 637 )
+frames = SubResource( 56 )
+animation = "New Anim"
+frame = 4
+speed_scale = 1.8
+playing = true
+
+[node name="obj" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 329, 1208 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = 0
+limit_top = 379
+limit_bottom = 1020
+limit_smoothed = true
+drag_margin_h_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.11
+drag_margin_right = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 30 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="shake" type="Node2D" parent="Camera2D"]
+script = ExtResource( 5 )
+boss = true
+randomShackeStrenght = 10.0
+
+[connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="GUI/pauseMenu" method="_on_OptionBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="GUI/pauseMenu" method="_on_MainMenuBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="GUI/pauseMenu" method="_on_QuitBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="GUI/pauseMenu" method="_on_backToPauseBtn_pressed"]
+[connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="GUI/pauseMenu" method="_on_checkFullscreen_toggled"]
+[connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/MusicSlider" to="GUI/pauseMenu" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="GUI/pauseMenu" method="_on_SFXSlider_value_changed"]
+[connection signal="death" from="PlayersList/Blasto" to="StageManager" method="_on_Blasto_death"]
+[connection signal="update_healthbar" from="PlayersList/Blasto" to="GUI/UI/HealthPlayerContainer" method="_on_Blasto_update_healthbar"]

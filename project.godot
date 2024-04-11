@@ -1,0 +1,362 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://assets/Scripts/Player/Bullet.gd"
+}, {
+"base": "Node2D",
+"class": "BulletGrenade",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheGun/BulletGrenade.gd"
+}, {
+"base": "Node2D",
+"class": "BulletMissile",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheGun/BulletMissile.gd"
+}, {
+"base": "Node2D",
+"class": "BulletRifle",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheGun/BulletRifle.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/Enemy.gd"
+}, {
+"base": "TurianWeapon",
+"class": "Grenade",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheGun/Grenade.gd"
+}, {
+"base": "Position2D",
+"class": "ImpactZone",
+"language": "GDScript",
+"path": "res://assets/Scripts/Environment/ImpactZone.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "KroganBoss",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kroganBoss.gd"
+}, {
+"base": "TurianWeapon",
+"class": "Missile",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheGun/Missile.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://assets/Scripts/Player/Player.gd"
+}, {
+"base": "TurianWeapon",
+"class": "Rifle",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheGun/Rifle.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "SalarianBoss",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/salarianBoss.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "TurianBoss",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/turianBoss.gd"
+}, {
+"base": "Node2D",
+"class": "TurianWeapon",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheGun/TurianWeapon.gd"
+}, {
+"base": "Node2D",
+"class": "VineGun",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheVine/Vine Gun.gd"
+}, {
+"base": "Node2D",
+"class": "VineSpear",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/TheVine/Vine Spear.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "asariBoss",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/asariBoss.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "asariBossAlone",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/asariBossAlone.gd"
+} ]
+_global_script_class_icons={
+"Bullet": "",
+"BulletGrenade": "",
+"BulletMissile": "",
+"BulletRifle": "",
+"Enemy": "",
+"Grenade": "",
+"ImpactZone": "",
+"KroganBoss": "",
+"Missile": "",
+"Player": "",
+"Rifle": "",
+"SalarianBoss": "",
+"TurianBoss": "",
+"TurianWeapon": "",
+"VineGun": "",
+"VineSpear": "",
+"asariBoss": "",
+"asariBossAlone": ""
+}
+
+[application]
+
+config/name="Mass Effect - Blasto X"
+run/main_scene="res://scenes/misc/intro sh.tscn"
+config/icon="res://ico.png"
+config/windows_native_icon="res://ico.ico"
+
+[audio]
+
+mix_rate=48000
+
+[autoload]
+
+Global="*res://assets/Scripts/Global.gd"
+SaveManager="*res://assets/Scripts/SaveManager.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=1920
+window/size/test_height=1080
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+mp3={
+"loop": false,
+"loop_offset": 0
+}
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
+wav={
+"compress/mode": 0,
+"edit/loop_begin": 0,
+"edit/loop_end": -1,
+"edit/loop_mode": 1,
+"edit/normalize": false,
+"edit/trim": false,
+"force/8_bit": false,
+"force/max_rate": false,
+"force/max_rate_hz": 44100,
+"force/mono": false
+}
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777222,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_up_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_down_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+attack1_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":74,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+attack2_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shoot_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":73,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skip={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":86,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+menu_keyboard={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skipBoss={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_up_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
+ ]
+}
+move_down_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
+ ]
+}
+move_left_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+ ]
+}
+move_right_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+ ]
+}
+attack1_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+attack2_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+shoot_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+menu_pad1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+move_up_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":1,"axis_value":-1.0,"script":null)
+ ]
+}
+move_down_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":1,"axis_value":1.0,"script":null)
+ ]
+}
+move_left_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":0,"axis_value":-1.0,"script":null)
+ ]
+}
+move_right_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":0,"axis_value":1.0,"script":null)
+ ]
+}
+attack1_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+attack2_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+shoot_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+menu_pad2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+menu={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ksSecret={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_environment="res://default_env.tres"

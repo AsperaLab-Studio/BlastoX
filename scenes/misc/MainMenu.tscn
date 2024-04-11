@@ -1,0 +1,266 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/Scripts/UI/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/ost/main_menu_team.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/img/mainMenuBackground.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=7]
+[ext_resource path="res://assets/Scripts/UI/PlayMenu.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0.72549, 0.164706, 1 )
+border_width_top = 18
+border_width_bottom = 23
+border_color = Color( 0.839216, 0, 1, 1 )
+shadow_color = Color( 1, 0.6, 0.6, 0.6 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="mainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+bus = "Music"
+script = ExtResource( 2 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 970.519, 539.208 )
+scale = Vector2( 1.20464, 1.20464 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="sfx2" type="Label" parent="."]
+visible = false
+margin_left = 11.5861
+margin_top = 13.2569
+margin_right = 519.586
+margin_bottom = 103.257
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "press l to skip to boss"
+
+[node name="MiscMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+thirdTab = "credits"
+
+[node name="StartBtn" type="Button" parent="MiscMenu"]
+margin_left = 801.0
+margin_top = 513.0
+margin_right = 1135.0
+margin_bottom = 609.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "START GAME"
+
+[node name="OptionsBtn" type="Button" parent="MiscMenu"]
+margin_left = 801.0
+margin_top = 608.0
+margin_right = 1135.0
+margin_bottom = 704.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "OPTIONS"
+
+[node name="CreditsBtn" type="Button" parent="MiscMenu"]
+margin_left = 801.0
+margin_top = 705.0
+margin_right = 1135.0
+margin_bottom = 801.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "CREDITS"
+
+[node name="ExitBtn" type="Button" parent="MiscMenu"]
+margin_left = 801.0
+margin_top = 802.0
+margin_right = 1135.0
+margin_bottom = 898.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "EXIT"
+
+[node name="OptionMenu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+main = true
+
+[node name="ReturnBtn" type="Button" parent="OptionMenu"]
+margin_left = 1003.0
+margin_top = 555.0
+margin_right = 1337.0
+margin_bottom = 651.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "BACK"
+
+[node name="checkFullscreen" type="CheckBox" parent="OptionMenu"]
+margin_left = 561.0
+margin_top = 554.0
+margin_right = 819.0
+margin_bottom = 651.0
+mouse_filter = 1
+custom_colors/font_color_disabled = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.72549, 0.164706, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "FullScreen"
+
+[node name="music" type="Label" parent="OptionMenu"]
+margin_left = 561.0
+margin_top = 675.0
+margin_right = 721.0
+margin_bottom = 765.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "MUSIC"
+
+[node name="MusicSlider" type="HSlider" parent="OptionMenu"]
+margin_left = 561.0
+margin_top = 732.461
+margin_right = 1339.55
+margin_bottom = 855.459
+custom_styles/slider = SubResource( 3 )
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="sfx" type="Label" parent="OptionMenu"]
+margin_left = 561.0
+margin_top = 879.0
+margin_right = 753.0
+margin_bottom = 969.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "EFFECTS"
+
+[node name="SFXSlider" type="HSlider" parent="OptionMenu"]
+margin_left = 561.0
+margin_top = 930.0
+margin_right = 1339.55
+margin_bottom = 1053.0
+custom_styles/slider = SubResource( 3 )
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="PlayMenu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+firstTab = "prologue"
+
+[node name="SingleBtn" type="Button" parent="PlayMenu"]
+margin_left = 801.0
+margin_top = 513.0
+margin_right = 1135.0
+margin_bottom = 609.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "SINGLEPLAYER"
+
+[node name="MultiBtn" type="Button" parent="PlayMenu"]
+visible = false
+margin_left = 801.0
+margin_top = 608.0
+margin_right = 1135.0
+margin_bottom = 704.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "MULTIPLAYER"
+
+[node name="LoadBtn" type="Button" parent="PlayMenu"]
+visible = false
+margin_left = 801.0
+margin_top = 708.0
+margin_right = 1135.0
+margin_bottom = 804.0
+custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
+custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "LOAD GAME"
+
+[node name="BackBtn" type="Button" parent="PlayMenu"]
+margin_left = 801.0
+margin_top = 906.0
+margin_right = 1135.0
+margin_bottom = 1002.0
+custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+action_mode = 0
+text = "BACK"
+
+[connection signal="pressed" from="MiscMenu/StartBtn" to="MiscMenu" method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="MiscMenu/OptionsBtn" to="MiscMenu" method="_on_OptionsBtn_pressed"]
+[connection signal="pressed" from="MiscMenu/CreditsBtn" to="MiscMenu" method="_on_CreditsBtn_pressed"]
+[connection signal="pressed" from="MiscMenu/ExitBtn" to="MiscMenu" method="_on_ExitBtn_pressed"]
+[connection signal="pressed" from="OptionMenu/ReturnBtn" to="OptionMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="toggled" from="OptionMenu/checkFullscreen" to="OptionMenu" method="_on_checkFullscreen_toggled"]
+[connection signal="value_changed" from="OptionMenu/MusicSlider" to="OptionMenu" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="OptionMenu/SFXSlider" to="OptionMenu" method="_on_SFXSlider_value_changed"]
+[connection signal="pressed" from="PlayMenu/SingleBtn" to="PlayMenu" method="_on_SingleBtn_pressed"]
+[connection signal="pressed" from="PlayMenu/MultiBtn" to="PlayMenu" method="_on_MultiBtn_pressed"]
+[connection signal="pressed" from="PlayMenu/LoadBtn" to="PlayMenu" method="_on_LoadBtn_pressed"]
+[connection signal="pressed" from="PlayMenu/BackBtn" to="PlayMenu" method="_on_BackBtn_pressed"]

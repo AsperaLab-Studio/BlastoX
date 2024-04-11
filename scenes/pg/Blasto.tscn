@@ -1,0 +1,395 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/img/sprites/Player/Blasto_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/audio/sfx/Player/Punches_SFX/punch_01.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/img/sprites/VFX/playerRangedHittedVFX.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/sfx/Player/Carnifex_SFX/carnifex_01.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/Scripts/Player/Player.gd" type="Script" id=5]
+[ext_resource path="res://assets/audio/sfx/Player/Blasto_SFX/blasto_hit.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/sfx/Player/Blasto_SFX/blasto_death.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/img/sprites/VFX/playerMeleeHittedVFX.png" type="Texture" id=8]
+[ext_resource path="res://assets/audio/sfx/Player/Blasto_SFX/blasto_ea_lungo_1zic.ogg" type="AudioStream" id=9]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack1"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.11, 0.22 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.22 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("PunchSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0.22 )
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "attack2"
+length = 1.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.48, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.01 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("PunchSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0.05 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "died"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.428672, 0.890033 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "death"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("PunchSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=3]
+step = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15, 16 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("PunchSFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpritePivot/meleeHittedVFX:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.153, 0.273 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpritePivot/meleeHittedVFX:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.159, 0.415 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 9, 10 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 13 ]
+}
+
+[sub_resource type="Animation" id=6]
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("GunSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 16.3888
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 52.9171, 6.82137 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 11.9404, 21.8633 )
+
+[sub_resource type="CapsuleShape2D" id=13]
+
+[node name="Player" type="KinematicBody2D" groups=["pausable", "player"]]
+scale = Vector2( 2.13561, 2.13561 )
+collision_mask = 5
+script = ExtResource( 5 )
+debug_mode = true
+speed = 200
+attack1Cooldown = 0.1
+
+[node name="SpritePivot" type="Position2D" parent="."]
+position = Vector2( 2.38419e-07, 0.46825 )
+
+[node name="Sprite" type="Sprite" parent="SpritePivot"]
+position = Vector2( 9.36501, -1.873 )
+scale = Vector2( 1.4, 1.4 )
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 7
+
+[node name="meleeHittedVFX" type="Sprite" parent="SpritePivot"]
+visible = false
+position = Vector2( -15.9205, -9.365 )
+scale = Vector2( 0.314606, 0.314606 )
+texture = ExtResource( 8 )
+hframes = 2
+frame = 1
+
+[node name="rangedHittedVFX" type="Sprite" parent="SpritePivot"]
+visible = false
+position = Vector2( -17.0911, -9.63888 )
+scale = Vector2( 0.431668, 0.431668 )
+texture = ExtResource( 3 )
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack1 = SubResource( 1 )
+anims/attack2 = SubResource( 14 )
+anims/died = SubResource( 2 )
+anims/hit = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/move = SubResource( 5 )
+anims/shoot = SubResource( 6 )
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 12 )
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Pivot"]
+position = Vector2( 75.3883, 0.936502 )
+
+[node name="AttackCollision" type="Area2D" parent="Pivot"]
+visible = false
+position = Vector2( 69.7693, -1.873 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/AttackCollision"]
+shape = SubResource( 8 )
+
+[node name="PlayerHitBox" type="Area2D" parent="Pivot"]
+visible = false
+position = Vector2( -13.5793, 0.9365 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/PlayerHitBox"]
+position = Vector2( 0, -0.773 )
+shape = SubResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="Pivot" groups=["granade"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area2D"]
+position = Vector2( 0, 8.89676 )
+rotation = 1.5708
+shape = SubResource( 13 )
+
+[node name="GunSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="PunchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="StateLabel" type="Label" parent="."]
+visible = false
+margin_left = -64.6671
+margin_top = -154.607
+margin_right = -24.6671
+margin_bottom = -140.607
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CooldownAttack1Timer" type="Timer" parent="."]
+
+[node name="CooldownAttack2Timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+[connection signal="area_entered" from="Pivot/AttackCollision" to="." method="_on_AttackCollision_area_entered"]
+[connection signal="area_exited" from="Pivot/AttackCollision" to="." method="_on_AttackCollision_area_exited"]
+[connection signal="timeout" from="CooldownAttack1Timer" to="." method="_on_CooldownAttack1Timer_timeout"]
+[connection signal="timeout" from="CooldownAttack2Timer" to="." method="_on_CooldownAttack2Timer_timeout"]

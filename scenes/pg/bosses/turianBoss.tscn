@@ -1,0 +1,343 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_pain.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/Scripts/AI/turianBoss.gd" type="Script" id=3]
+[ext_resource path="res://assets/Scripts/AI/props/TheGun/Missile.gd" type="Script" id=4]
+[ext_resource path="res://assets/Scripts/AI/props/TheGun/Rifle.gd" type="Script" id=5]
+[ext_resource path="res://assets/Scripts/AI/props/TheGun/Grenade.gd" type="Script" id=6]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_death.ogg" type="AudioStream" id=7]
+[ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletRifle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletGranade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletMissile.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_rocket_fire.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_rifle.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_granade_fire.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/img/sprites/enemy/bosses/the_gun_spritesheet.png" type="Texture" id=14]
+
+
+[sub_resource type="Animation" id=2]
+resource_name = "died"
+length = 1.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "death"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "grenade"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 12, 13 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "missile"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "rifle"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="CapsuleShape2D" id=15]
+radius = 19.0
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 8.21375, 21.8633 )
+
+[sub_resource type="StreamTexture" id=22]
+
+[node name="TurianBoss" type="KinematicBody2D" groups=["enemy", "pausable"]]
+z_index = -1
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 3 )
+shoot_delay = 1.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 5.96046e-08, 31 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 14 )
+flip_h = true
+hframes = 3
+vframes = 6
+region_rect = Rect2( 9, 14, 63, 96 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/died = SubResource( 2 )
+anims/grenade = SubResource( 21 )
+anims/hit = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/missile = SubResource( 18 )
+anims/rifle = SubResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1, 0 )
+shape = SubResource( 15 )
+
+[node name="AttackDelayTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2( -8.5, 0 )
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 13.5, 0 )
+shape = SubResource( 14 )
+
+[node name="HealthDisplay" type="Node2D" parent="."]
+
+[node name="HealthBar" type="TextureProgress" parent="HealthDisplay"]
+margin_right = 40.0
+margin_bottom = 40.0
+max_value = 3.0
+value = 3.0
+
+[node name="Label" type="Label" parent="HealthDisplay"]
+visible = false
+margin_left = -20.1815
+margin_top = -77.7829
+margin_right = 19.8185
+margin_bottom = -63.7829
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 1.588
+bus = "SFX"
+
+[node name="PositionGrenade" type="Position2D" parent="."]
+position = Vector2( -120, 0 )
+
+[node name="PositionRifle" type="Position2D" parent="."]
+position = Vector2( -65, -26 )
+
+[node name="PositionMissile" type="Position2D" parent="."]
+position = Vector2( -120, 0 )
+
+[node name="Rifle" type="Node2D" parent="."]
+script = ExtResource( 5 )
+bullet = ExtResource( 8 )
+numberOfBullets = 3
+shootingAmplitude = 16.0
+
+[node name="Grenade" type="Node2D" parent="."]
+script = ExtResource( 6 )
+bullet = ExtResource( 9 )
+zonesAmount = 6
+explosionDamage = 3
+
+[node name="Missile" type="Node2D" parent="."]
+script = ExtResource( 4 )
+bullet = ExtResource( 10 )
+
+[node name="TurianSpritesheet07" type="Sprite" parent="."]
+position = Vector2( -256, 64 )
+texture = SubResource( 22 )
+hframes = 3
+vframes = 6
+frame = 5
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="AttackDelayTimer" to="." method="_on_Timer_timeout"]

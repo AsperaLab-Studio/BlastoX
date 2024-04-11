@@ -1,0 +1,367 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/img/sprites/enemy/bosses/the_vine_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheVine_SFX/boss_salarian_pain.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/Scripts/AI/salarianBoss.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheVine_SFX/boss_salarian_attack.ogg" type="AudioStream" id=4]
+[ext_resource path="res://scenes/pg/bosses/props/TheVine/Vine Gun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/pg/bosses/props/TheVine/Vine Spear.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheVine_SFX/boss_salarian_death.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheVine_SFX/boss_salarian_push.ogg" type="AudioStream" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+length = 0.85
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "do_knockback"
+} ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("SFX")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0.35 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "died"
+length = 1.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "death"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "gun"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.65, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15, 16 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "knockback"
+length = 0.85
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "do_knockback"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0.35 )
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "spear"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.65, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+
+[sub_resource type="CapsuleShape2D" id=15]
+radius = 19.0
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 8.21375, 21.8633 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 84.1665, 10 )
+
+[node name="SalarianBoss" type="KinematicBody2D" groups=["enemy", "pausable"]]
+z_index = -1
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 3 )
+vine_spear = ExtResource( 6 )
+vine_gun = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.772251, 21 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+flip_h = true
+hframes = 3
+vframes = 7
+frame = 5
+region_rect = Rect2( 9, 14, 63, 96 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 1 )
+anims/died = SubResource( 2 )
+anims/gun = SubResource( 17 )
+anims/hit = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/knockback = SubResource( 18 )
+anims/spear = SubResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 0 )
+shape = SubResource( 15 )
+
+[node name="AttackDelayTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2( -8.5, 0 )
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 13.5, 0 )
+shape = SubResource( 14 )
+
+[node name="Pivot" type="Node2D" parent="."]
+scale = Vector2( -1, 1 )
+
+[node name="AttackCollision" type="Area2D" parent="Pivot"]
+position = Vector2( 12.3744, 0 )
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/AttackCollision"]
+position = Vector2( 59.1256, 0 )
+scale = Vector2( 0.600001, 1 )
+shape = SubResource( 8 )
+
+[node name="HealthDisplay" type="Node2D" parent="."]
+
+[node name="HealthBar" type="TextureProgress" parent="HealthDisplay"]
+margin_right = 40.0
+margin_bottom = 40.0
+max_value = 3.0
+value = 3.0
+
+[node name="Label" type="Label" parent="HealthDisplay"]
+visible = false
+margin_left = -20.1815
+margin_top = -77.7829
+margin_right = 19.8185
+margin_bottom = -63.7829
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 1.588
+bus = "SFX"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="AttackDelayTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
+[connection signal="area_entered" from="Pivot/AttackCollision" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Pivot/AttackCollision" to="." method="_on_Area2D_area_exited"]
