@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=1]
-[ext_resource path="res://pxArt.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/UI/blasto/cornice barra vita.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/UI/you win cornice.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/UI/bosses/the gun/the gun cornice destra.png" type="Texture" id=5]
@@ -541,49 +541,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 39 )
-frame = 8
+frame = 3
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 8
+frame = 3
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 8
+frame = 3
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 8
+frame = 3
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 8
+frame = 3
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 8
+frame = 3
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 8
+frame = 3
 playing = true
 
 [node name="obj" type="Node" parent="."]

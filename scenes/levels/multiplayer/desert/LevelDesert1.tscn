@@ -19,7 +19,7 @@
 [ext_resource path="res://scenes/pg/multiplayer/asari.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/img/frontground/lvl desert/desert1 door.png" type="Texture" id=18]
 [ext_resource path="res://scenes/pg/multiplayer/krogan.tscn" type="PackedScene" id=19]
-[ext_resource path="res://pxArt.png" type="Texture" id=20]
+[ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=20]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=21]
 [ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=22]
 [ext_resource path="res://assets/img/UI/cerulean star/icona numero vite.png" type="Texture" id=23]
@@ -37,6 +37,7 @@
 [ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=35]
 [ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=36]
 [ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=37]
+
 
 
 [sub_resource type="RectangleShape2D" id=1]

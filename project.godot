@@ -123,7 +123,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mass Effect - Blasto X"
-run/main_scene="res://scenes/misc/intro sh.tscn"
+run/main_scene="res://scenes/misc/MainMenu.tscn"
 config/icon="res://ico.png"
 config/windows_native_icon="res://ico.ico"
 

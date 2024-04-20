@@ -1,11 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl desert/tileset/lv2-d/LV2-D Fore.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/frontground/lvl desert/tileset/lv2-d/LV2-D Back.png" type="Texture" id=2]
-[ext_resource path="res://pxArt.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/frontground/obj/LV2-D OBJ.png" type="Texture" id=5]
+[ext_resource path="res://assets/Scripts/Environment/DestroyObj.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.7187, 2.01658 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.6001, 0.868036 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20.6001, 0.868036 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 27.7187, 2.01658 )
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 67.975, -15.0824 )
+position = Vector2( 401, -18 )
 
 [node name="pxArt" type="Sprite" parent="."]
 visible = false
@@ -15,57 +30,206 @@ texture = ExtResource( 3 )
 
 [node name="LV1-D T-STR" type="Sprite" parent="."]
 position = Vector2( 216.025, 103.082 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 3
 frame = 1
 
 [node name="LV1-D T-STR2" type="Sprite" parent="."]
 position = Vector2( 608.025, 103.082 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 3
 frame = 1
 
 [node name="LV1-D T-STR3" type="Sprite" parent="."]
 position = Vector2( 1000.03, 103.082 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 3
 frame = 2
 
 [node name="LV1-D T-STR4" type="Sprite" parent="."]
 position = Vector2( 1392.03, 103.082 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 3
 
 [node name="LV1-D T-STR5" type="Sprite" parent="."]
 position = Vector2( 1779.03, 103.082 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 3
 
 [node name="tileset 2d walls2" type="Sprite" parent="."]
 position = Vector2( 128.025, -167.918 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
 
 [node name="tileset 2d walls3" type="Sprite" parent="."]
 position = Vector2( 519.025, -167.918 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
 
 [node name="tileset 2d walls4" type="Sprite" parent="."]
 position = Vector2( 910.025, -167.918 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 
 [node name="tileset 2d walls5" type="Sprite" parent="."]
 position = Vector2( 1301.03, -167.918 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
 
 [node name="tileset 2d walls6" type="Sprite" parent="."]
 position = Vector2( 1692.03, -167.918 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
+
+[node name="LV 1-D T-OBJ7" type="Sprite" parent="."]
+position = Vector2( 332.025, -9.56778 )
+z_index = -2
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 5
+frame = 12
+script = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ7/StaticBody2D"]
+position = Vector2( -23.29, -41.7024 )
+shape = SubResource( 1 )
+
+[node name="LV 1-D T-OBJ8" type="Sprite" parent="."]
+position = Vector2( 1228.02, -9.56778 )
+z_index = -2
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 5
+frame = 8
+script = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ8/StaticBody2D"]
+position = Vector2( 0.670486, -41.7024 )
+shape = SubResource( 1 )
+
+[node name="LV2-D OBJ4" type="Sprite" parent="."]
+position = Vector2( 850.025, -41.9176 )
+scale = Vector2( 1.88333, 1.88333 )
+z_index = -2
+texture = ExtResource( 5 )
+hframes = 5
+frame = 1
+
+[node name="LV2-D OBJ5" type="Sprite" parent="."]
+position = Vector2( 1668.03, -42.5678 )
+scale = Vector2( 1.88333, 1.88333 )
+z_index = -2
+texture = ExtResource( 5 )
+hframes = 5
+frame = 3
+
+[node name="LV2-D OBJ10" type="Sprite" parent="."]
+position = Vector2( 839.025, -48.9176 )
+scale = Vector2( 1.88333, 1.88333 )
+z_index = -2
+texture = ExtResource( 5 )
+hframes = 5
+frame = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV2-D OBJ10"]
+position = Vector2( 51.9998, 45.7323 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV2-D OBJ10/StaticBody2D"]
+position = Vector2( -35.7803, -44.8843 )
+shape = SubResource( 2 )
+
+[node name="LV2-D OBJ9" type="Sprite" parent="."]
+position = Vector2( 1696, -30 )
+rotation = 1.57079
+scale = Vector2( 1.88333, 1.88333 )
+z_index = -2
+texture = ExtResource( 5 )
+hframes = 5
+frame = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV2-D OBJ9"]
+position = Vector2( 28.1415, 21.7595 )
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV2-D OBJ9/StaticBody2D"]
+position = Vector2( 8.34521, -33.9823 )
+shape = SubResource( 3 )
+
+[node name="LV 1-D T-OBJ15" type="Sprite" parent="."]
+position = Vector2( 245, 146.447 )
+z_index = 3
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 5
+frame = 1
+script = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ15/StaticBody2D"]
+position = Vector2( -0.390175, -44.8843 )
+shape = SubResource( 4 )
+
+[node name="LV 1-D T-OBJ16" type="Sprite" parent="."]
+position = Vector2( 720.278, 143.478 )
+z_index = 3
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 5
+frame = 9
+script = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ16/StaticBody2D"]
+position = Vector2( -0.328857, -44.8843 )
+shape = SubResource( 4 )
+
+[node name="LV 1-D T-OBJ3" type="Sprite" parent="."]
+position = Vector2( 1241.17, 148.61 )
+z_index = 3
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 5
+frame = 3
+script = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ3/StaticBody2D"]
+position = Vector2( -0.328857, -44.8843 )
+shape = SubResource( 4 )
+
+[node name="LV 1-D T-OBJ4" type="Sprite" parent="."]
+position = Vector2( 1353.17, 147.61 )
+z_index = 3
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 5
+frame = 4
+script = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ4"]
+position = Vector2( -22.0486, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ4/StaticBody2D"]
+position = Vector2( -0.328857, -44.8843 )
+shape = SubResource( 4 )

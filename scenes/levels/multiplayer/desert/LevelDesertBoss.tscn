@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=17]
 [ext_resource path="res://assets/img/UI/bosses/the jaw/barra vita the jaw balanced.png" type="Texture" id=18]
 [ext_resource path="res://assets/Scripts/Managers/BossSceneManager.gd" type="Script" id=19]
-[ext_resource path="res://pxArt.png" type="Texture" id=20]
+[ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=20]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=21]
 [ext_resource path="res://assets/img/UI/cerulean star/cerulean star cornice vita.png" type="Texture" id=22]
 [ext_resource path="res://assets/img/UI/game over cornice.png" type="Texture" id=23]
@@ -35,6 +35,7 @@
 [ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=33]
 [ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=34]
 [ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=35]
+
 
 [sub_resource type="StyleBoxFlat" id=41]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )

@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl desert/tileset/lv3-d/LV3-D Fore.png" type="Texture" id=1]
-[ext_resource path="res://pxArt.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/frontground/lvl desert/tileset/lv3-d/LV3-D Back.png" type="Texture" id=3]
+
 
 [node name="node" type="Node2D"]
 position = Vector2( -2.47624, 8.66089 )
