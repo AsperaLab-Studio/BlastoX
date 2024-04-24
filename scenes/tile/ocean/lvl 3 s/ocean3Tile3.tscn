@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv3-a/LV3-A Back.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv3-a/LV3-A Fore.png" type="Texture" id=2]
 [ext_resource path="res://assets/Scripts/Environment/DestroyObj.gd" type="Script" id=3]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=4]
+[ext_resource path="res://scenes/tile/objects/SmallBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
@@ -85,21 +86,6 @@ script = ExtResource( 3 )
 position = Vector2( 0.670486, -41.7024 )
 shape = SubResource( 1 )
 
-[node name="LV 1-D T-OBJ8" type="Sprite" parent="."]
-position = Vector2( 670, 10 )
-z_index = -2
-texture = ExtResource( 4 )
-hframes = 3
-vframes = 5
-frame = 9
-script = ExtResource( 3 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ8/StaticBody2D"]
-position = Vector2( 0.670486, -41.7024 )
-shape = SubResource( 1 )
-
 [node name="LV 1-D T-OBJ15" type="Sprite" parent="."]
 position = Vector2( 956, 159.969 )
 z_index = 3
@@ -114,3 +100,6 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ15/StaticBody2D"]
 position = Vector2( -0.390175, -44.8843 )
 shape = SubResource( 2 )
+
+[node name="SmallBox" parent="." instance=ExtResource( 5 )]
+position = Vector2( 854, 1 )

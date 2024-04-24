@@ -1,21 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv1-a/LV1-A Back.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv1-a/LV1-A Fore.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=3]
 [ext_resource path="res://assets/Scripts/Environment/DestroyObj.gd" type="Script" id=4]
+[ext_resource path="res://scenes/tile/objects/SmallBoxBigBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tile/objects/BigBox.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 50.5, 1.51645 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 54.5, 2 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 39.5481, 2.01658 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -40, -24 )
@@ -112,48 +105,10 @@ script = ExtResource( 4 )
 position = Vector2( -0.390175, -44.8843 )
 shape = SubResource( 1 )
 
-[node name="LV 1-D T-OBJ16" type="Sprite" parent="Node2D"]
-position = Vector2( 745.278, 154.868 )
+[node name="SmallBoxBigBox" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 1224, 158 )
 z_index = 3
-texture = ExtResource( 3 )
-hframes = 3
-vframes = 5
-frame = 9
-script = ExtResource( 4 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/LV 1-D T-OBJ16"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/LV 1-D T-OBJ16/StaticBody2D"]
-position = Vector2( -0.778198, -45.3844 )
-shape = SubResource( 2 )
-
-[node name="LV 1-D T-OBJ4" type="Sprite" parent="Node2D"]
-position = Vector2( 1161, 154 )
+[node name="BigBox" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 644, 155 )
 z_index = 3
-texture = ExtResource( 3 )
-hframes = 3
-vframes = 5
-frame = 3
-script = ExtResource( 4 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/LV 1-D T-OBJ4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/LV 1-D T-OBJ4/StaticBody2D"]
-position = Vector2( 4.5, -46 )
-shape = SubResource( 3 )
-
-[node name="LV 1-D T-OBJ5" type="Sprite" parent="Node2D"]
-position = Vector2( 1273, 153 )
-z_index = 3
-texture = ExtResource( 3 )
-hframes = 3
-vframes = 5
-frame = 4
-script = ExtResource( 4 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/LV 1-D T-OBJ5"]
-position = Vector2( -22.0486, 0 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/LV 1-D T-OBJ5/StaticBody2D"]
-position = Vector2( 11.5005, -44.8843 )
-shape = SubResource( 4 )

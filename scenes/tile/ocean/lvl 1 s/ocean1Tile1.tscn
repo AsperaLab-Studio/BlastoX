@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv1-a/LV1-A Back.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv1-a/LV1-A Fore.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=3]
 [ext_resource path="res://assets/Scripts/Environment/DestroyObj.gd" type="Script" id=4]
+[ext_resource path="res://scenes/tile/objects/SmallBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 46.6683, 2.01658 )
@@ -11,57 +12,59 @@ extents = Vector2( 46.6683, 2.01658 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50.5, 1.51645 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 54.5, 2 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 39.5481, 2.01658 )
-
 [node name="Node2D" type="Node2D"]
 position = Vector2( -40, -24 )
 
 [node name="LV1-D T-HRL" type="Sprite" parent="."]
 position = Vector2( 211, -159 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 
 [node name="LV1-D T-HRL2" type="Sprite" parent="."]
 position = Vector2( 552, -159 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
 
 [node name="LV1-D T-HRL3" type="Sprite" parent="."]
 position = Vector2( 893, -159 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 frame = 3
 
 [node name="LV1-D T-HRL4" type="Sprite" parent="."]
 position = Vector2( 1234, -159 )
+z_index = -2
 texture = ExtResource( 1 )
 hframes = 4
 frame = 1
 
 [node name="LV1-D T-STR" type="Sprite" parent="."]
 position = Vector2( 298, 113 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 5
 
 [node name="LV1-D T-STR2" type="Sprite" parent="."]
 position = Vector2( 639, 113 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 5
 frame = 1
 
 [node name="LV1-D T-STR3" type="Sprite" parent="."]
 position = Vector2( 980, 113 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 5
 frame = 4
 
 [node name="LV1-D T-STR4" type="Sprite" parent="."]
 position = Vector2( 1321, 113 )
+z_index = -2
 texture = ExtResource( 2 )
 hframes = 5
 frame = 2
@@ -112,31 +115,8 @@ script = ExtResource( 4 )
 position = Vector2( -0.778198, -45.3844 )
 shape = SubResource( 2 )
 
-[node name="LV 1-D T-OBJ4" type="Sprite" parent="Node2D"]
-position = Vector2( 1161, 3.132 )
-texture = ExtResource( 3 )
-hframes = 3
-vframes = 5
-frame = 10
-script = ExtResource( 4 )
+[node name="SmallBox" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 1274, 4 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/LV 1-D T-OBJ4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/LV 1-D T-OBJ4/StaticBody2D"]
-position = Vector2( 4.5, -46 )
-shape = SubResource( 3 )
-
-[node name="LV 1-D T-OBJ5" type="Sprite" parent="Node2D"]
-position = Vector2( 1273, 3.132 )
-texture = ExtResource( 3 )
-hframes = 3
-vframes = 5
-frame = 10
-script = ExtResource( 4 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D/LV 1-D T-OBJ5"]
-position = Vector2( -22.0486, 0 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/LV 1-D T-OBJ5/StaticBody2D"]
-position = Vector2( 11.5005, -44.8843 )
-shape = SubResource( 4 )
+[node name="SmallBox2" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 1100, 4 )
