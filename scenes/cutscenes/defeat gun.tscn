@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/video/defeat gun.ogv" type="VideoStream" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=4]
 [ext_resource path="res://assets/fonts/Quickzag-rOzO.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=6]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -25,6 +26,18 @@ bank = {
 "Name": "MAIN"
 }
 load_on = 3
+
+[node name="AkState" type="Node" parent="Audio"]
+script = ExtResource( 7 )
+state_group = {
+"Id": 1927797142,
+"Name": "MUSICTRIGGER"
+}
+state_value = {
+"Id": 748895195,
+"Name": "NONE"
+}
+trigger_on = 3
 
 [node name="AkEvent2D" type="Node2D" parent="Audio"]
 script = ExtResource( 4 )

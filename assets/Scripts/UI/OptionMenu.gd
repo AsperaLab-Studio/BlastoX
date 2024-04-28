@@ -108,11 +108,3 @@ func _on_RestartLevelBtn_pressed():
 	var stageManager = get_parent().get_parent().get_child(0)
 	get_tree().paused = !get_tree().paused
 	get_tree().change_scene("res://scenes/levels/" + Global.dirType + stageManager.current_level + ".tscn")
-
-
-func _on_pauseMenu_visibility_changed():
-	if visible == true:
-		Wwise.set_pause_mode(2)
-		Wwise.set_state_id(AK.STATES.MUSICPAUSE.GROUP, AK.STATES.MUSICPAUSE.STATE.PAUSE)
-	else:
-		Wwise.set_state_id(AK.STATES.MUSICPAUSE.GROUP, AK.STATES.MUSICPAUSE.STATE.RESUME)

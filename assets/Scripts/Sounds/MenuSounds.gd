@@ -106,12 +106,3 @@ func _on_backToPauseBtn_pressed():
 
 func _on_backToPauseBtn_mouse_entered():
 	OverSound()
-
-func _on_pauseMenu_visibility_changed():
-	if visible == true:
-		Wwise.set_pause_mode(2)
-		Wwise.set_state_id(AK.STATES.MUSICPAUSE.GROUP, AK.STATES.MUSICPAUSE.STATE.PAUSE)
-		ButtonSound()
-	else:
-		Wwise.set_state_id(AK.STATES.MUSICPAUSE.GROUP, AK.STATES.MUSICPAUSE.STATE.RESUME)
-		OverSound()
