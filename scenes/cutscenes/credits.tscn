@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/video/credits.ogv" type="VideoStream" id=1]
-[ext_resource path="res://assets/audio/ost/credits.ogg" type="AudioStream" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=2]
 [ext_resource path="res://assets/Scripts/Managers/cutscene.gd" type="Script" id=3]
-[ext_resource path="res://assets/Scripts/Managers/audioProloguer.gd" type="Script" id=4]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=4]
 [ext_resource path="res://assets/fonts/Quickzag-rOzO.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -14,6 +15,29 @@ font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 13.4543, 6.72717 )
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="AkBank" type="Node" parent="Audio"]
+script = ExtResource( 4 )
+bank = {
+"Id": 3161908922,
+"Name": "MAIN"
+}
+load_on = 3
+
+[node name="AkEvent2D" type="Node2D" parent="Audio"]
+script = ExtResource( 6 )
+event = {
+"Id": 3022074870,
+"Name": "CREDITS PLAY MUSIC"
+}
+trigger_on = 3
+stop_on = 2
+callback_flag = 4
+
+[node name="AkListener2D" type="Node2D" parent="Audio"]
+script = ExtResource( 2 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
@@ -52,11 +76,5 @@ custom_colors/font_color = Color( 1, 1, 1, 0.192157 )
 custom_fonts/font = SubResource( 1 )
 text = "press \"V\" button to skip"
 align = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-volume_db = -15.128
-bus = "Music"
-script = ExtResource( 4 )
 
 [connection signal="finished" from="Control/VideoPlayer" to="Control/VideoPlayer" method="_on_VideoPlayer_finished"]

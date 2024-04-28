@@ -1,0 +1,48 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1927797142	MusicTrigger			\Default Work Unit\MusicTrigger	
+	3502235852	MusicPause			\Default Work Unit\MusicPause	
+
+State	ID	Name	State Group			Notes
+	748895195	None	MusicTrigger			
+	1593864692	Defeat	MusicTrigger			
+	2244230815	Safe_Zone	MusicTrigger			
+	2716678721	Victory	MusicTrigger			
+	2764240573	Combat	MusicTrigger			
+	748895195	None	MusicPause			
+	953277036	Resume	MusicPause			
+	3092587493	Pause	MusicPause			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	60617919	Pause	MusicPause	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Gameplay		
+	129923376	Defeat	MusicTrigger	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Gameplay		
+	461432548	Victory	MusicTrigger	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Gameplay		
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1127857866	Music_Slider			\Default Work Unit\Music_Slider	
+	4140634290	SFX_Slider			\Default Work Unit\SFX_Slider	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	89505537	Gameplay			\Default Work Unit\Master Audio Bus\SFX\Gameplay	
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	779278001	death			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\death	
+	923090826	next_area			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\next_area	
+	1116398592	hit			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\hit	
+	2032028959	jaw_earthquake			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\jaw_earthquake	
+	2264234380	jaw_charge			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\jaw_charge	
+	2276611188	auto_ducking			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking	
+	3768541028	attacks			\Default Work Unit\Master Audio Bus\SFX\Gameplay\attacks	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	1396213152	Gameplay_Reverb			\Default Work Unit\Master Audio Bus\SFX\Gameplay\Gameplay_Reverb	
+	3420137967	Menu_Reverb			\Default Work Unit\Master Audio Bus\SFX\Gameplay\Menu_Reverb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1402859112	Menu_Verb	Wwise RoomVerb			
+	2224135639	Level_Verb	Wwise RoomVerb			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

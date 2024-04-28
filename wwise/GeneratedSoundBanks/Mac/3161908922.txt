@@ -1,0 +1,266 @@
+Event	ID	Name			Wwise Object Path	Notes
+	108846699	blasto_attack_electric			\Default Work Unit\blasto_attack_electric	
+	203922817	jaw_charge_start			\Default Work Unit\jaw_charge_start	
+	339355518	ocean_play_main_music			\Default Work Unit\ocean_play_main_music	
+	362522750	gameover_play_music			\Default Work Unit\gameover_play_music	
+	405565217	salarian_attack			\Default Work Unit\salarian_attack	
+	434562478	jaw_death			\Default Work Unit\jaw_death	
+	440684361	turian_death			\Default Work Unit\turian_death	
+	509704602	ocean_play_music			\Default Work Unit\ocean_play_music	
+	553065750	krogan_death			\Default Work Unit\krogan_death	
+	781605932	asari_attack			\Default Work Unit\asari_attack	
+	923090826	next_area			\Default Work Unit\next_area	
+	960940028	jaw_attack			\Default Work Unit\jaw_attack	
+	1048498120	menu_button_pressed			\Default Work Unit\menu_button_pressed	
+	1092296013	menu_play_music			\Default Work Unit\menu_play_music	
+	1165879959	vine_plant_shoot			\Default Work Unit\vine_plant_shoot	
+	1251247560	turian_hit			\Default Work Unit\turian_hit	
+	1343477887	blasto_attack			\Default Work Unit\blasto_attack	
+	1387614411	desert_play_music			\Default Work Unit\desert_play_music	
+	1405004590	ocean_play_boss_music			\Default Work Unit\ocean_play_boss_music	
+	1815802421	turian_attack			\Default Work Unit\turian_attack	
+	2032028959	jaw_earthquake			\Default Work Unit\jaw_earthquake	
+	2170400111	blasto_death			\Default Work Unit\blasto_death	
+	2184510782	blasto_hit			\Default Work Unit\blasto_hit	
+	2255747255	krogan_hit			\Default Work Unit\krogan_hit	
+	2359455101	desert_play_main_music			\Default Work Unit\desert_play_main_music	
+	2365232478	asari_death			\Default Work Unit\asari_death	
+	2369939213	desert_play_boss_music			\Default Work Unit\desert_play_boss_music	
+	2397774794	cutscene_play_music			\Default Work Unit\cutscene_play_music	
+	2504136357	vine_knockback			\Default Work Unit\vine_knockback	
+	2677732815	asari_hit			\Default Work Unit\asari_hit	
+	2785341881	menu_mouse_over			\Default Work Unit\menu_mouse_over	
+	2816955807	jaw_hit			\Default Work Unit\jaw_hit	
+	2895845717	vine_plant_grow_up			\Default Work Unit\vine_plant_grow_up	
+	3022074870	credits_play_music			\Default Work Unit\credits_play_music	
+	3201417669	salarian_death			\Default Work Unit\salarian_death	
+	3224572430	vine_plant_grow_down			\Default Work Unit\vine_plant_grow_down	
+	3379541511	blasto_attack_shoot			\Default Work Unit\blasto_attack_shoot	
+	3656616932	salarian_hit			\Default Work Unit\salarian_hit	
+	3793263743	vine_hit			\Default Work Unit\vine_hit	
+	4128209780	krogan_attack			\Default Work Unit\krogan_attack	
+	4175176572	jaw_charghe_end			\Default Work Unit\jaw_charghe_end	
+	4202733843	jaw_charge_mid			\Default Work Unit\jaw_charge_mid	
+	4280871310	vine_death			\Default Work Unit\vine_death	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1927797142	MusicTrigger			\Default Work Unit\MusicTrigger	
+	3502235852	MusicPause			\Default Work Unit\MusicPause	
+
+State	ID	Name	State Group			Notes
+	748895195	None	MusicTrigger			
+	1593864692	Defeat	MusicTrigger			
+	2244230815	Safe_Zone	MusicTrigger			
+	2716678721	Victory	MusicTrigger			
+	2764240573	Combat	MusicTrigger			
+	748895195	None	MusicPause			
+	953277036	Resume	MusicPause			
+	3092587493	Pause	MusicPause			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	6332444	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_A\Drums_160bpm_8beats_SEC1_Var1		
+	24400809	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Drums_146bpm_8beats_Var1_Intro		
+	34469172	Victory	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss		
+	138982580	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_B\Square1_160bpm_8beats_SEC1_Var1		
+	152591929	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_A\Square2_160bpm_8beats_SEC1_Var1		
+	186300282	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_A\Drums_157bpm_18beats_Var1		
+	202620270	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_B\Square2_160bpm_16beats_SEC1_Var2		
+	205412307	Victory	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Desert		
+	250915395	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Drums_146bpm_15beats_Var1_Intro		
+	258413597	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\SquareHold_159bpm_34beats_Var1		
+	273346971	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\SquareWave_157bpm_18beats_Var1		
+	281257512	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\SquareArp_159bpm_34beats_Var1		
+	326466318	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_C\Drums_157bpm_18beats_Var1		
+	339968971	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Sine_146bpm_8beats_Var1_Intro		
+	340408056	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro_Loop\Farfisa_146bpm_15beats_Var1_Intro		
+	349582329	Defeat	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Desert		
+	358601566	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_C\Drums_160bpm_16beats_SEC1_Var2		
+	370267207	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Intro\Drums_159bpm_24beats_Intro		
+	381360618	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\Drums_159bpm_34beats_Var1		
+	409621591	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\PCM_159bpm_34beats_Var1		
+	417369413	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_B\Drums_160bpm_16beats_SEC1_Var2		
+	436767102	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro\Saw_146bpm_8beats_Var1_Intro		
+	462646089	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Farfisa_146bpm_15beats_Var1_Intro		
+	463158553	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro\Drums_146bpm_8beats_Var1_Intro		
+	501669030	Victory	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss		
+	525177145	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_B\Sine2_151bpm_16beats_SEC2_Var1		
+	529774486	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Saw_146bpm_8beats_Var1_Intro		
+	562393573	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_B\Sine1_151bpm_16beats_SEC2_Var1		
+	635790212	Defeat	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss		
+	639152695	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_A\TriangWave_157bpm_18beats_Var1		
+	643350302	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro\Sine_146bpm_8beats_Var1_Intro		
+	724815064	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_A\SquareWave_157bpm_18beats_Var1		
+	796653529	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_C\TriangWave_157bpm_18beats_Var1		
+	807465102	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Drums_151bpm_16beats_SEC1_Var1		
+	811506207	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert_Transition\Drums_146bpm_2beats_Trans		
+	821631887	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Lead_151bpm_16beats_SEC1_Var1		
+	845295225	Defeat	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Ocean		
+	845907670	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_A\Square1_160bpm_8beats_SEC1_Var1		
+	855220051	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Drums_157bpm_18beats_Var1		
+	860913908	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Intro\Square_159bpm_24beats_Intro		
+	861802484	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_C\Drums_151bpm_16beats_SEC1_Var1		
+	887223708	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro_Loop\Drums_146bpm_15beats_Var1_Intro		
+	959207081	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_B\Drums_151bpm_16beats_SEC2_Var1		
+	975977982	Defeat	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss		
+	1017801589	Victory	MusicTrigger	\Interactive Music Hierarchy\Default Work Unit\Ocean		
+	1039366589	Pause	MusicPause	\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_C\Lead_151bpm_16beats_SEC1_Var1		
+
+Modulator Time	ID	Name			Wwise Object Path	Notes
+	869231127	Charge			\Default Work Unit\Charge	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	529910	Drums_146bpm_2beats_Trans	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_146bpm_2beats_Trans_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Transition\Drums_146bpm_2beats_Trans		391584
+	10331457	Bass_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_157bpm_18beats_Var4_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Bass_157bpm_18beats_Var1		2708932
+	16503182	Bass_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_157bpm_18beats_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Bass_157bpm_18beats_Var1		2708996
+	50656336	vine_hit_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_Pain_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\vine_hit\vine_hit_02		99856
+	54396663	Drums_159bpm_34beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Mainsection\Drums_159bpm_34beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\Drums_159bpm_34beats_Var1		4717008
+	64664951	salarian_death_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Salarian_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Salarian\salarian_death\salarian_death_02		115684
+	70071800	blasto_attack_electric	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\blasto_attack_electric_75DE97C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blasto\blasto_attack_electric		103292
+	74116801	Cutscene	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Cutscene_13448159.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cutscene		3638054
+	78367596	Bass_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_146bpm_8beats_Var3_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Bass_146bpm_8beats_Var1_Intro		1309088
+	78828070	Bass_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Bass_151bpm_16beats_SEC1_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Bass_151bpm_16beats_SEC1_Var1		2487344
+	80720681	Sine_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Sine_146bpm_8beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro\Sine_146bpm_8beats_Var1_Intro		1440160
+	82575238	SquareWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\SquareWave_157bpm_18beats_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\SquareWave_157bpm_18beats_Var1		2708996
+	84753949	Bass_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_146bpm_8beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro\Bass_146bpm_8beats_Var1_Intro		1309088
+	85672130	SSC_146bpm_4beats_Trans	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Transition\SSC_146bpm_4beats_Trans_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Transition\SSC_146bpm_4beats_Trans		631554
+	101960814	PCM_159bpm_34beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Mainsection\PCM_159bpm_34beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\PCM_159bpm_34beats_Var1		4717008
+	111794383	Drums_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_114bpm_24beats_Var02_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_A\Drums_114bpm_24beats_Var01		4992132
+	120610167	Pulse_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Pulse_114bpm_24beats_Var02_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_A\Pulse_114bpm_24beats_Var01		4992132
+	120784556	PCM_159bpm_24beats_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\PCM_159bpm_24beats_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Intro\PCM_159bpm_24beats_Intro		3537360
+	125472727	Bass_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_160bpm_16beats_SEC1_Var4_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_C\Bass_160bpm_16beats_SEC1_Var2		2357264
+	130382283	Square2_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Square2_160bpm_16beats_SEC1_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_B\Square2_160bpm_16beats_SEC1_Var2		2357328
+	141037040	TheJaw_Pain	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_Pain_688F0AC4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_hit\TheJaw_Pain		56214
+	147685657	Sine_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Sine_146bpm_8beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Sine_146bpm_8beats_Var1_Intro		1440160
+	170246256	turian_hit_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Turian_Hurt_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Turian\turian_hit\turian_hit_01		98484
+	177164356	turian_hit_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Turian_Hurt_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Turian\turian_hit\turian_hit_02		87052
+	181485881	SSC_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\SSC_146bpm_15beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\SSC_146bpm_15beats_Var1_Intro		2225232
+	186136590	Bass_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_157bpm_18beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Bass_157bpm_18beats_Var1		2708996
+	187779727	salarian_hit_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Salarian_Hurt_1_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Salarian\salarian_hit\salarian_hit_01		8860
+	190285408	Saw_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Saw_146bpm_8beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro\Saw_146bpm_8beats_Var1_Intro		1440160
+	190591817	Pulse_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Pulse_114bpm_24beats_Var01_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Intro\Pulse_114bpm_24beats_Var01		4850684
+	191988298	Drums_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Drums_151bpm_16beats_SEC1_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Drums_151bpm_16beats_SEC1_Var1		2487344
+	208653305	Lead_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Lead_151bpm_16beats_SEC1_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Lead_151bpm_16beats_SEC1_Var1		2749488
+	213291684	Farfisa_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Farfisa_146bpm_15beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Farfisa_146bpm_15beats_Var1_Intro		2225232
+	220920929	Farfisa_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Farfisa_146bpm_15beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Farfisa_146bpm_15beats_Var1_Intro		2225232
+	230371065	SquareWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\SquareWave_157bpm_18beats_Var4_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\SquareWave_157bpm_18beats_Var1		2708932
+	246289132	SquareArp_159bpm_34beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Mainsection\SquareArp_159bpm_34beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\SquareArp_159bpm_34beats_Var1		4979152
+	246925947	SSC_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\SSC_146bpm_15beats_Var3_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\SSC_146bpm_15beats_Var1_Intro		2225232
+	268480373	Bass_159bpm_24beats_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Bass_159bpm_24beats_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Intro\Bass_159bpm_24beats_Intro		3537360
+	269230183	Bass_151bpm_16beats_SEC2_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Bass_151bpm_16beats_SEC2_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_B\Bass_151bpm_16beats_SEC2_Var1		2487344
+	269553334	Square_146bpm_4beats_Trans	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Transition\Square_146bpm_4beats_Trans_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Transition\Square_146bpm_4beats_Trans		652384
+	270783161	TheJaw_Melee	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_Melee_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_attack\TheJaw_Melee		6762
+	277068223	Lead_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Lead_151bpm_16beats_SEC1_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_C\Lead_151bpm_16beats_SEC1_Var1		2749488
+	284642979	Bass_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_160bpm_16beats_SEC1_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_C\Bass_160bpm_16beats_SEC1_Var2		2357328
+	288753623	turian_attack_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Turian_Hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Turian\turian_attack\turian_attack_02		57744
+	291266225	krogan_hit_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Krogan_Pain_1_76ACA45F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Krogan\krogan_hit\krogan_hit_02		62722
+	291818240	Sine_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Sine_146bpm_8beats_Var3_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Sine_146bpm_8beats_Var1_Intro		1440160
+	295306034	Drums_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_157bpm_18beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Drums_157bpm_18beats_Var1		2708996
+	297666351	Drums_159bpm_24beats_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Drums_159bpm_24beats_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Intro\Drums_159bpm_24beats_Intro		3537360
+	326274177	EchoSquare_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\EchoSquare_114bpm_24beats_Var02_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_A\EchoSquare_114bpm_24beats_Var01		5134796
+	345413369	Bass_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Bass_151bpm_16beats_SEC1_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Bass_151bpm_16beats_SEC1_Var1		2487344
+	354546661	Bass_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_157bpm_18beats_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Bass_157bpm_18beats_Var1		2708996
+	359953739	Drums_160bpm_8beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_160bpm_8beats_SEC1_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_A\Drums_160bpm_8beats_SEC1_Var1		1177680
+	367103396	vine_death	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_Death_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\vine_death		8862
+	375374430	SquareHold_159bpm_34beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Mainsection\SquareHold_159bpm_34beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\SquareHold_159bpm_34beats_Var1		4717008
+	376785801	salarian_attack_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Salarian_Hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Salarian\salarian_attack\salarian_attack_02		74476
+	383395911	EchoSquare_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\EchoSquare_114bpm_24beats_Var03_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_A\EchoSquare_114bpm_24beats_Var01		5277460
+	383666501	Bass_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Bass_151bpm_16beats_SEC1_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Bass_151bpm_16beats_SEC1_Var1		2487344
+	411829240	Square1_160bpm_8beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Square1_160bpm_16beats_SEC1_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_B\Square1_160bpm_8beats_SEC1_Var1		2619472
+	421570111	Bass_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_114bpm_24beats_Var02_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_A\Bass_114bpm_24beats_Var01		4850686
+	424646652	salarian_death_special	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Salarian_Death_Special_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Salarian\salarian_death\salarian_death_special		216144
+	433737940	asari_death_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Asari_Death_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Asari\asari_death\asari_death_01		112112
+	434899562	krogan_death_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Krogan_Death_B20D504A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Krogan\krogan_death\krogan_death_01		78126
+	434914832	Farfisa_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Farfisa_146bpm_15beats_Var3_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Farfisa_146bpm_15beats_Var1_Intro		2225232
+	455554793	salarian_hit_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Salarian_Hurt_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Salarian\salarian_hit\salarian_hit_02		7479
+	468362828	jaw_charge_mid	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_ChargeSteps_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_charge\jaw_charge_mid		79976
+	479506601	Lose_112bpm_8beats	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Lose_112bpm_8beats_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\GameOver\Defeat\Defeat_112bpm_8beats\Lose_112bpm_8beats		1963080
+	479695179	Saw_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Saw_146bpm_8beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Saw_146bpm_8beats_Var1_Intro		1571232
+	488298735	menu_mouse_over	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Selezione SFX_B64AB67C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\menu_mouse_over		12938
+	494554852	Drums_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Drums_146bpm_15beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro_Loop\Drums_146bpm_15beats_Var1_Intro		2225232
+	497294975	Square1_160bpm_8beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Square1_160bpm_16beats_SEC1_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_B\Square1_160bpm_8beats_SEC1_Var1		2619472
+	505063809	salarian_death_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Salarian_Death_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Salarian\salarian_death\salarian_death_01		119104
+	506815580	TheJaw_Earthquake1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_Earthquake1_B488CD10.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_earthquake\TheJaw_Earthquake1		285862
+	513034443	Drums_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_146bpm_8beats_Var3_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Drums_146bpm_8beats_Var1_Intro		1309088
+	529669070	plant_grow_up_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_PlantGrowthUp_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\plant_grow_up\plant_grow_up_01		83836
+	530189470	Drums_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_160bpm_16beats_SEC1_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_C\Drums_160bpm_16beats_SEC1_Var2		2357328
+	532635487	Bass_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_160bpm_16beats_SEC1_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_C\Bass_160bpm_16beats_SEC1_Var2		2357328
+	535090288	Drums_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_114bpm_24beats_Var03_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_A\Drums_114bpm_24beats_Var01		4992132
+	538428245	Square_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Square_146bpm_15beats_Var3_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Square_146bpm_15beats_Var1_Intro		2225232
+	540479182	jaw_charge_start	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\charge_start_C7A42C13.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_charge\jaw_charge_start		51344
+	548273777	plant_grow_up_03	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_PlantGrowthUp_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\plant_grow_up\plant_grow_up_03		154260
+	556907126	plant_load	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_PlantShoot_0D967A07.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\plant_shoot\plant_load		92344
+	563365831	TriangWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TriangWave_157bpm_18beats_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_A\TriangWave_157bpm_18beats_Var1		2641720
+	571519495	Square2_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Square2_160bpm_16beats_SEC1_Var4_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_B\Square2_160bpm_16beats_SEC1_Var2		2619408
+	576531700	Blasto_Death	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Blasto_Death_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blasto\blasto_death\Blasto_Death		22806
+	600286783	plant_grow_up_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_PlantGrowthUp_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\plant_grow_up\plant_grow_up_02		118888
+	610709990	salarian_attack_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Salarian_Hit_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Salarian\salarian_attack\salarian_attack_01		57768
+	614913155	TriangWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TriangWave_157bpm_18beats_Var4_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_A\TriangWave_157bpm_18beats_Var1		2708932
+	618500623	TriangWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TriangWave_157bpm_18beats_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_A\TriangWave_157bpm_18beats_Var1		2708996
+	644490089	TheJaw_Earthquake	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_Earthquake_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_earthquake\TheJaw_Earthquake		39992
+	649853388	Drums_146bpm_4beats_Trans	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Transition\Drums_146bpm_4beats_Trans_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Transition\Drums_146bpm_4beats_Trans		652384
+	650777107	Lead_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Lead_151bpm_16beats_SEC1_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Lead_151bpm_16beats_SEC1_Var1		2749488
+	651147191	turian_death_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Turian_Death_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Turian\turian_death\turian_death_01		138492
+	651670037	Blasto_Pain_1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Blasto_Pain_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blasto\blasto_hit\Blasto_Pain_1		156244
+	651810435	Drums_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Drums_151bpm_16beats_SEC1_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Drums_151bpm_16beats_SEC1_Var1		2487344
+	652904214	Bass_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_114bpm_24beats_Var01_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Intro\Bass_114bpm_24beats_Var01		4992132
+	654661834	menu_button_pressed	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Scorrimento SFX_856AC20C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\menu_button_pressed		10980
+	655212990	Credits	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Crediti_13448159.wem		\Actor-Mixer Hierarchy\Default Work Unit\Credits		4418622
+	662951955	Drums_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_146bpm_8beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Drums_146bpm_8beats_Var1_Intro		1309088
+	664290624	asari_attack_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Asari_Hit_C6B06586.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Asari\asari_attack\asari_attack_02		65632
+	664654215	Win_112bpm_8beats	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Win_112bpm_8beats_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\GameOver\Victory\Victory_112bpm_8beats\Win_112bpm_8beats		2094264
+	681005085	TriangWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TriangWave_157bpm_18beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_A\TriangWave_157bpm_18beats_Var1		2708996
+	681631620	SquareWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\SquareWave_157bpm_18beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\SquareWave_157bpm_18beats_Var1		2708996
+	683335489	vine_hit_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_Pain_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\vine_hit\vine_hit_01		103744
+	683910457	Square_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Square_146bpm_15beats_Var4_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Square_146bpm_15beats_Var1_Intro		2209570
+	685133311	Bass_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_114bpm_24beats_Var03_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_A\Bass_114bpm_24beats_Var01		4850684
+	698099617	asari_attack_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Asari_Hit_1_6FFF7F88.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Asari\asari_attack\asari_attack_01		57776
+	699931811	jaw_death	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_Death_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_death		16180
+	700153028	asari_death_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Asari_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Asari\asari_death\asari_death_02		133344
+	703875748	EchoSquare_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\EchoSquare_114bpm_24beats_Var01_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Intro\EchoSquare_114bpm_24beats_Var01		5277460
+	724930924	krogan_attack_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Krogan_Hit_A918E6C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Krogan\krogan_attack\krogan_attack_01		64250
+	738058413	TheJaw_Melee_1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_Melee_1_B5C3F710.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_attack\TheJaw_Melee_1		6019
+	738404990	Farfisa_146bpm_4beats_Trans	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Transition\Farfisa_146bpm_4beats_Trans_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Transition\Farfisa_146bpm_4beats_Trans		631554
+	741114476	Drums_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_157bpm_18beats_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Drums_157bpm_18beats_Var1		2708996
+	741401470	plant_shoot	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_PlantShoot_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\plant_shoot\plant_shoot		37212
+	748558749	krogan_hit_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Krogan_Pain_04A54A20.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Krogan\krogan_hit\krogan_hit_01		44504
+	759876276	krogan_death_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Krogan_Death_1_2A584E11.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Krogan\krogan_death\krogan_death_02		75070
+	773557607	Bass_160bpm_8beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_160bpm_8beats_SEC1_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_A\Bass_160bpm_8beats_SEC1_Var1		1177680
+	776841863	Next_Area	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\NextLevel_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Next_Area		13821
+	779131553	Square_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Square_146bpm_15beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Square_146bpm_15beats_Var1_Intro		2225232
+	824239921	asari_hit_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Asari_Hurt_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Asari\asari_hit\asari_hit_01		74928
+	828016130	blasto_attack_shoot	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\blasto_attack_shoot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blasto\blasto_attack_shoot		152144
+	842083637	Square_159bpm_24beats_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Square_159bpm_24beats_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Intro\Square_159bpm_24beats_Intro		3668432
+	856789115	vine_knockback	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_Knockback_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\vine_knockback		120504
+	858908446	Sine1_151bpm_16beats_SEC2_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Sine1_151bpm_16beats_SEC2_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_B\Sine1_151bpm_16beats_SEC2_Var1		2749488
+	862998868	TheJaw_Pain_1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheJaw_Pain_1_597D9EC9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_hit\TheJaw_Pain_1		51330
+	873558436	blasto_attack	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\blasto_attack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blasto\blasto_attack		69968
+	880060666	Drums_151bpm_16beats_SEC2_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Drums_151bpm_16beats_SEC2_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_B\Drums_151bpm_16beats_SEC2_Var1		2487344
+	881476376	Square1_160bpm_8beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Square1_160bpm_8beats_SEC1_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_A\Square1_160bpm_8beats_SEC1_Var1		1439824
+	908616660	Drums_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_157bpm_18beats_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Drums_157bpm_18beats_Var1		2708996
+	909193409	Drums_114bpm_24beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_114bpm_24beats_Var01_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Intro\Drums_114bpm_24beats_Var01		4992132
+	917706819	Sine2_151bpm_16beats_SEC2_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Sine2_151bpm_16beats_SEC2_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_B\Sine2_151bpm_16beats_SEC2_Var1		2487344
+	918092539	Square2_160bpm_8beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Square2_160bpm_8beats_SEC1_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_A\Square2_160bpm_8beats_SEC1_Var1		1439824
+	920312746	Drums_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_146bpm_8beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro\Drums_146bpm_8beats_Var1_Intro		1309088
+	933889380	Square_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Square_146bpm_15beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Square_146bpm_15beats_Var1_Intro		2209570
+	950261896	Bass_146bpm_2beats_Trans	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_146bpm_2beats_Trans_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Transition\Bass_146bpm_2beats_Trans		391584
+	955700104	Drums_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_157bpm_18beats_Var4_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\Drums_157bpm_18beats_Var1		2708932
+	958198027	plant_grow_down_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_PlantGrowthDown_1_A6ACC5D3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\plant_grow_down\plant_grow_down_02		123784
+	960000762	Blasto_Pain	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Blasto_Pain_E5ADD1ED.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blasto\blasto_hit\Blasto_Pain		155404
+	966018975	Bass_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Bass_146bpm_8beats_Var2_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Bass_146bpm_8beats_Var1_Intro		1309088
+	974791290	krogan_attack_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Krogan_Hit_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Krogan\krogan_attack\krogan_attack_02		48810
+	986107003	Saw_146bpm_8beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Saw_146bpm_8beats_Var3_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Safe_Zone\Intro_Loop\Saw_146bpm_8beats_Var1_Intro		1571232
+	993215685	plant_grow_down_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\TheVine_PlantGrowthDown_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Vine\plant_grow_down\plant_grow_down_01		160296
+	994098824	jaw_charge_end	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\charge_end_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Bosses\The Jaw\jaw_charge\jaw_charge_end		144144
+	994099388	Blasto_Death_1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Blasto_Death_1_36DF9909.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blasto\blasto_death\Blasto_Death_1		23336
+	1011049950	SSC_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\SSC_146bpm_15beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\SSC_146bpm_15beats_Var1_Intro		2225232
+	1012994847	Drums_146bpm_15beats_Var1_Intro	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Intro\Drums_146bpm_15beats_Var1_Intro_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Safe_Zone\Intro\Drums_146bpm_15beats_Var1_Intro		2225232
+	1026891249	Drums_151bpm_16beats_SEC1_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\MainSection\Drums_151bpm_16beats_SEC1_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean\Main_Section\Section_A\Drums_151bpm_16beats_SEC1_Var1		2487344
+	1029542451	turian_death_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Turian_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Turian\turian_death\turian_death_02		125744
+	1038191666	EchoSaw_114bpm_25beats_Var01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\EchoSaw_114bpm_25beats_Var01_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Section_C\EchoSaw_114bpm_25beats_Var01		5277460
+	1040950207	Drums_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_160bpm_16beats_SEC1_Var3_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_C\Drums_160bpm_16beats_SEC1_Var2		2357328
+	1042665136	turian_attack_01	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Turian_Hit_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Turian\turian_attack\turian_attack_01		50344
+	1043363006	Bass_159bpm_34beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Mainsection\Bass_159bpm_34beats_Var1_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert_Boss\Section_A\Bass_159bpm_34beats_Var1		4717008
+	1058901543	asari_hit_02	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Asari_Hurt_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Asari\asari_hit\asari_hit_02		52144
+	1060274405	Drums_160bpm_16beats_SEC1_Var2	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\Drums_160bpm_16beats_SEC1_Var4_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Desert\Main_Section\Section_C\Drums_160bpm_16beats_SEC1_Var2		2357264
+	1061637881	SquareWave_157bpm_18beats_Var1	Y:\Documents\Progetti\WwiseProjects\Blasto-X\.cache\iOS\SFX\SquareWave_157bpm_18beats_Var2_E0B2C827.wem		\Interactive Music Hierarchy\Default Work Unit\Ocean_Boss\Section_B\SquareWave_157bpm_18beats_Var1		2708996
+
