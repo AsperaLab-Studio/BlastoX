@@ -98,6 +98,11 @@ _global_script_classes=[ {
 "class": "asariBossAlone",
 "language": "GDScript",
 "path": "res://assets/Scripts/AI/asariBossAlone.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "kronusBoss3",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kronusBoss3.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -117,7 +122,8 @@ _global_script_class_icons={
 "VineGun": "",
 "VineSpear": "",
 "asariBoss": "",
-"asariBossAlone": ""
+"asariBossAlone": "",
+"kronusBoss3": ""
 }
 
 [application]

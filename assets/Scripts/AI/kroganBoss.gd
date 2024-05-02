@@ -16,12 +16,15 @@ onready var UIHealthBar: Node2D = get_parent().get_parent().get_parent().get_nod
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
 enum STATE {CHASE, ATTACK, SHAKE, CHARGE_START, CHARGE_MID, CHARGE_END, WAIT, IDLE, HIT, DIED}
 
+export var SPEED_VARS := "--------------------"
 export(int) var death_speed := 150
 export(int) var moving_speed := 50
 export(int) var charge_speed := 100
+export var DAMAGE_VARS := "--------------------"
 export(int) var dps := 10
 export(int) var dpsCharge := 20
 export(int) var HP := 5
+export var DURATIONS_VARS := "--------------------"
 export(float) var ShakeDuration := 5.0
 export(float) var ShakeDeelay := 5.0
 export(float) var ChargeDeelay := 5.0
