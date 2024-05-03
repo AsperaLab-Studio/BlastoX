@@ -9,31 +9,30 @@ onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
 onready var collition_area2d : CollisionShape2D = $Pivot/AttackCollision/CollisionShape2D
 onready var attack_area2d : Area2D = $Pivot/AttackCollision
 onready var UIHealthBar: Node2D = $UI/HealthContainer
+onready var cooldown: Timer = $Cooldown
 
 enum STATE {IDLE, CHASE, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED}
 
 export var GENERAL_VARS := "--------------------"
 export(int) var death_speed := 150
 export(int) var move_speed := 150
-export(int) var dps_shotgun := 2
-export(int) var dps_lavastomp := 3
-export(int) var dps_punch := 1
 export(int) var hp := 5
-export var wait_time_attack := 2
+export(float) var wait_time_attack := 2.0
 
 export var SHOTGUN_VARS := "--------------------"
+export(int) var dps_shotgun := 2
 export(int) var numberOfBullets
 export(float) var shootingAmplitude
 onready var spawnRifle : Position2D = $PositionRifle
 export(PackedScene) var bullet
 
-export var ATTACKS_VARS := "--------------------"
-export(int) var dps := 10
-export(int) var HP := 5
-export(PackedScene) var vine_spear
-export(float) var shooot_delay
-onready var spear_list_pos: Array = get_parent().get_parent().get_node("spearZones").get_children()
-onready var cooldown: Timer = $Cooldown
+export var LAVA_COLUMN_VARS := "--------------------"
+export(int) var dps_lavastomp := 3
+export(PackedScene) var lava_column
+onready var lava_column_list_pos: Array = get_parent().get_parent().get_node("spearZones").get_children()
+
+export var PUNCH_VARS := "--------------------"
+export(int) var dps_punch := 1
 
 var current_state = STATE.IDLE
 var actual_target: Player = null
@@ -42,15 +41,8 @@ var near_player: bool = false
 var healthBar = null
 var amount = 0
 var paused = false
-var areaCollided = null
 var targetList = null
-var actual_dps
 var direction : Vector2 
-var movement
-
-var targetPos: Vector2
-var oneTime = false
-var jumpPos: Vector2
 
 var sceneManager = null
 
@@ -71,25 +63,29 @@ func _process(_delta: float) -> void:
 		match current_state:
 			STATE.IDLE:
 				anim_player.play("idle")
-				current_state = STATE.PUNCH
+				current_state = STATE.SHOTGUN
+
+			STATE.HIT:
+				anim_player.play("hit")
+
 			STATE.CHASE:
 				anim_player.play("move")
 				if !near_player:
 					move_towards(actual_target.global_position, move_speed)
 				else:
-					current_state = STATE.WAIT
-
-			STATE.HIT:
-				anim_player.play("hit")
+					current_state = STATE.PUNCH
 
 			STATE.PUNCH:
-				if near_player:
+				if near_player && !actual_target.invincible:
 					anim_player.play("punch")
 				
 				near_player = false
 					
 				if anim_player.current_animation != "punch":
 					current_state = STATE.IDLE
+
+			STATE.SHOTGUN:
+				anim_player.play("shotgun")
 
 			STATE.DIED:
 				collision_shape_body.disabled = true
@@ -132,10 +128,6 @@ func move_towards(target: Vector2, speed):
 		move_and_slide(velocity * speed)
 
 
-func move_sprint(_movement):
-	global_position += _movement
-
-
 func flip_sprite(target: Vector2):
 	if target:
 		if global_position.y > target.y:
@@ -158,7 +150,24 @@ func flip_sprite(target: Vector2):
 func attack():
 	for area in attack_area2d.get_overlapping_areas():
 		if area.owner.is_in_group("player"):
-			actual_target.hit(actual_dps, "melee", self)
+			actual_target.hit(dps_punch, "melee", self)
+
+
+func shoot():
+	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
+	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
+	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+	
+	var i = 0
+	for n in numberOfBullets:
+		var bullet_instance = bullet.instance()
+		var angleOffset = shootingAmplitude/2 - deltaAngle * i
+		bullet_instance.rotate(angle + deg2rad(angleOffset))
+		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
+		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
+		bullet_instance.set_global_position(spawnRifle.get_global_position())
+		i+=1
+
 
 func death():
 	queue_free()
@@ -180,3 +189,7 @@ func _on_AttackCollision_area_entered(area):
 	if area.owner.is_in_group("player") && current_state == STATE.SPRINT:
 		current_state = STATE.ATTACK
 		near_player = true
+
+
+func _on_Cooldown_timeout():
+	pass # Replace with function body.
