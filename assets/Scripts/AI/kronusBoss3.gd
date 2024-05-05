@@ -21,12 +21,12 @@ export(float) var wait_time_attack := 2.0
 
 export var SHOTGUN_VARS := "--------------------"
 export(int) var dps_shotgun := 2
-export(int) var numberOfBullets
-export(float) var shootingAmplitude
+export(int) var numberOfBullets  := 5
+export(float) var shootingAmplitude  := 30.0
 onready var spawnRifle : Position2D = $PositionRifle
 export(PackedScene) var bullet
 
-export var LAVA_COLUMN_VARS := "--------------------"
+export var LAVA_STOMP_VARS := "--------------------"
 export(int) var dps_lavastomp := 3
 export(PackedScene) var lava_column
 onready var lava_column_list_pos: Array = get_parent().get_parent().get_node("spearZones").get_children()
@@ -86,6 +86,10 @@ func _process(_delta: float) -> void:
 
 			STATE.SHOTGUN:
 				anim_player.play("shotgun")
+
+			STATE.LAVASTOMP:
+				pass
+
 
 			STATE.DIED:
 				collision_shape_body.disabled = true
