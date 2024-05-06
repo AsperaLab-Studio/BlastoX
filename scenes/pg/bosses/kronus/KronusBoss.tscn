@@ -289,21 +289,8 @@ z_index = -1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 7 )
-GENERAL_VARS = null
-death_speed = null
-move_speed = null
-hp = null
-wait_time_attack = null
-SHOTGUN_VARS = null
-dps_shotgun = null
-numberOfBullets = null
-shootingAmplitude = null
 bullet = ExtResource( 8 )
-LAVA_STOMP_VARS = null
-dps_lavastomp = null
 lava_column = ExtResource( 12 )
-PUNCH_VARS = null
-dps_punch = null
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 8, -6 )
@@ -379,7 +366,6 @@ max_value = 3.0
 value = 3.0
 
 [node name="Label" type="Label" parent="HealthDisplay"]
-visible = false
 margin_left = -20.1815
 margin_top = -77.7829
 margin_right = 19.8185
@@ -412,6 +398,8 @@ texture = ExtResource( 11 )
 
 [node name="PositionRifle" type="Position2D" parent="."]
 position = Vector2( -67, -17 )
+
+[node name="LavaColumnContainer" type="Node" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

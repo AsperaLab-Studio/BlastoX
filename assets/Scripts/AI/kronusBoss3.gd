@@ -17,7 +17,6 @@ export var GENERAL_VARS := "--------------------"
 export(int) var death_speed := 150
 export(int) var move_speed := 150
 export(int) var hp := 5
-export(float) var wait_time_attack := 2.0
 
 export var SHOTGUN_VARS := "--------------------"
 export(int) var dps_shotgun := 2
@@ -25,12 +24,17 @@ export(int) var numberOfBullets  := 5
 export(float) var shootingAmplitude  := 30.0
 onready var spawnRifle : Position2D = $PositionRifle
 export(PackedScene) var bullet
+export(float) var wait_after_shotgun_attack := 2.0
 
 export var LAVA_STOMP_VARS := "--------------------"
 export(int) var dps_lavastomp := 3
 export(PackedScene) var lava_column
 onready var lava_column_list_pos: Array = get_parent().get_parent().get_node("spearZones").get_children()
-var onEnter = false
+onready var lava_container: Node = get_node("LavaColumnContainer")
+var temp_list: Array
+var onEnter = true
+export(float) var wait_after_lavastomp_attack := 2.0
+var rng
 
 export var PUNCH_VARS := "--------------------"
 export(int) var dps_punch := 1
@@ -53,6 +57,7 @@ func _ready():
 	anim_player.play("idle")
 	healthBar = UIHealthBar
 	
+	rng = RandomNumberGenerator.new()
 	sceneManager = get_parent().get_parent()
 
 func _process(_delta: float) -> void:
@@ -64,7 +69,6 @@ func _process(_delta: float) -> void:
 		match current_state:
 			STATE.IDLE:
 				anim_player.play("idle")
-				current_state = STATE.SHOTGUN
 
 			STATE.HIT:
 				anim_player.play("hit")
@@ -89,14 +93,41 @@ func _process(_delta: float) -> void:
 				anim_player.play("shotgun")
 
 			STATE.LAVASTOMP:
-			if onEnter == true:
-				if attack_type == 1:
-					anim_player.play("gun")
-				else:
-					anim_player.play("spear")
-				#anim_player.play("vine")
-				just_changed = false
+				var actual_zone: int
 
+				if onEnter == true:
+					anim_player.play("lavastomp")
+					onEnter = false
+					for lava in lava_column_list_pos:
+						temp_list.append(lava)
+
+				elif (anim_player.current_animation != "lavastomp" && 
+						temp_list.size() <= lava_column_list_pos.size() && temp_list.size() > 0 &&
+						lava_container.get_child_count() == 0):
+					randomize()
+					actual_zone = int(rand_range(0, temp_list.size()-1))
+
+					var i = 1
+
+					for pos in temp_list[actual_zone].get_children():
+						var actual_lava_column_instance = lava_column.instance()
+
+						if pos.name == "1" || pos.name == "2":
+							actual_lava_column_instance.z_index = -2
+						else:
+							actual_lava_column_instance.z_index = 3
+						
+						lava_container.add_child(actual_lava_column_instance)
+						actual_lava_column_instance.global_transform = pos.global_transform
+						i = i + 1
+
+					temp_list.remove(actual_zone)
+
+				elif temp_list.size() == 0 && lava_container.get_child_count() == 0:
+					cooldown.wait_time = wait_after_lavastomp_attack
+					cooldown.start()
+					onEnter = true
+					current_state = STATE.IDLE
 
 			STATE.DIED:
 				collision_shape_body.disabled = true
@@ -197,8 +228,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 		current_state = STATE.IDLE
 
 func _on_AttackCollision_area_entered(area):
-	if area.owner.is_in_group("player") && current_state == STATE.SPRINT:
-		current_state = STATE.ATTACK
+	if area.owner.is_in_group("player"):
 		near_player = true
 
 
