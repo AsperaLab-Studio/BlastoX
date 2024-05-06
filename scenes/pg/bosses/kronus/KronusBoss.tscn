@@ -36,12 +36,9 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "attack"
-} ]
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("SFX")
@@ -171,12 +168,9 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "attack"
-} ]
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("SFX")
@@ -295,8 +289,21 @@ z_index = -1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 7 )
+GENERAL_VARS = null
+death_speed = null
+move_speed = null
+hp = null
+wait_time_attack = null
+SHOTGUN_VARS = null
+dps_shotgun = null
+numberOfBullets = null
+shootingAmplitude = null
 bullet = ExtResource( 8 )
+LAVA_STOMP_VARS = null
+dps_lavastomp = null
 lava_column = ExtResource( 12 )
+PUNCH_VARS = null
+dps_punch = null
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 8, -6 )
@@ -305,7 +312,7 @@ texture = ExtResource( 5 )
 flip_h = true
 hframes = 3
 vframes = 9
-frame = 9
+frame = 12
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="Node2D" type="Node2D" parent="."]

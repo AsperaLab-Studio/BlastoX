@@ -30,6 +30,7 @@ export var LAVA_STOMP_VARS := "--------------------"
 export(int) var dps_lavastomp := 3
 export(PackedScene) var lava_column
 onready var lava_column_list_pos: Array = get_parent().get_parent().get_node("spearZones").get_children()
+var onEnter = false
 
 export var PUNCH_VARS := "--------------------"
 export(int) var dps_punch := 1
@@ -88,7 +89,13 @@ func _process(_delta: float) -> void:
 				anim_player.play("shotgun")
 
 			STATE.LAVASTOMP:
-				pass
+			if onEnter == true:
+				if attack_type == 1:
+					anim_player.play("gun")
+				else:
+					anim_player.play("spear")
+				#anim_player.play("vine")
+				just_changed = false
 
 
 			STATE.DIED:
