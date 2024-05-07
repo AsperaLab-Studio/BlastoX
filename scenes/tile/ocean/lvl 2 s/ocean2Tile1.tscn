@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv2-a/LV2-A Back.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/frontground/lvl sea/tileset/lv2-a/LV2-A Fore.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=3]
-[ext_resource path="res://assets/Scripts/Environment/DestroyObj.gd" type="Script" id=4]
 [ext_resource path="res://scenes/tile/objects/BigBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -77,7 +76,6 @@ texture = ExtResource( 3 )
 hframes = 3
 vframes = 5
 frame = 1
-script = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ2"]
 
@@ -92,7 +90,6 @@ texture = ExtResource( 3 )
 hframes = 3
 vframes = 5
 frame = 12
-script = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ3"]
 
@@ -107,7 +104,6 @@ texture = ExtResource( 3 )
 hframes = 3
 vframes = 5
 frame = 1
-script = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ15"]
 
