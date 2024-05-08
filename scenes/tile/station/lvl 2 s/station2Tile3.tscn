@@ -4,8 +4,9 @@
 [ext_resource path="res://assets/img/frontground/lvl station/tileset/lv2-s/LV2-S BACK.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/frontground/obj/LV2-S OBJ.png" type="Texture" id=4]
-[ext_resource path="res://scenes/tile/objects/SmallBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/tile/objects/BigBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/tile/environment/objects/SmallBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tile/environment/objects/BigBox.tscn" type="PackedScene" id=6]
+
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 28.5, 2.5 )

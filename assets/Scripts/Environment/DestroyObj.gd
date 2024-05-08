@@ -14,20 +14,21 @@ var spawned: bool = false
 
 func _ready():
 	initial_frame = sprite.frame
+	rng = RandomNumberGenerator.new()
 
 func _process(_delta):
 	if sprite.frame == initial_frame + 2 && spawned == false:
 		collider.disabled = true
-		rng = RandomNumberGenerator.new()
-		randomize()
-		var obj = int(rand_range(0, 2))
-		if obj != 2:
+		rng.randomize()
+		var obj = int(rand_range(0, 5))
+		if obj < powerups_list.size():
 			var obj_instance = powerups_list[obj].instance()
-			obj_instance.transform = pos.transform
-			owner.add_child(obj_instance)
-			spawned = true
+			obj_instance.position = pos.position
+			add_child(obj_instance)
+			spawned = true	
 			static_collider.disabled = true
+			print("spawned")
 		
 
-func hit(dps, type, source):
+func hit(dps, _type, _source):
 	sprite.frame = sprite.frame + dps

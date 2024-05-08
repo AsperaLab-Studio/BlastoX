@@ -6,21 +6,21 @@
 [ext_resource path="res://assets/img/frontground/obj/LV2-M OBJ 01.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/frontground/obj/LV2-M OBJ 02.png" type="Texture" id=6]
 [ext_resource path="res://scenes/tile/metro/lvl 2 m/Wall_PH_Glass.png" type="Texture" id=7]
-[ext_resource path="res://scenes/tile/objects/SmallBoxBigBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/tile/environment/objects/SmallBoxBigBox.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1870.69, 285.783 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 1968.31, 291.611 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1968.31, 293.072 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 127.414, 190.088 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 1990.15, 120.176 )
 
 [node name="Node2D" type="Node2D"]
@@ -259,11 +259,17 @@ position = Vector2( -0.390175, -44.8843 )
 shape = SubResource( 1 )
 
 [node name="SmallBoxBigBox" parent="Node2D" instance=ExtResource( 8 )]
-position = Vector2( 733, 161 )
+position = Vector2( 733, 153 )
 z_index = 2
 
+[node name="WallPhGlass" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.490196 )
+position = Vector2( 1193.5, -68.2616 )
+scale = Vector2( 2.5, 1.47684 )
+z_index = 5
+texture = ExtResource( 7 )
+
 [node name="border" type="Node2D" parent="."]
-visible = false
 position = Vector2( 148, -820 )
 
 [node name="Top" type="StaticBody2D" parent="border"]
@@ -274,7 +280,7 @@ collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
 position = Vector2( 1698.02, 482.173 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Bottom" type="StaticBody2D" parent="border"]
 position = Vector2( 0, 639 )
@@ -283,8 +289,9 @@ collision_layer = 2
 collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
-position = Vector2( 1904.1, 843.656 )
-shape = SubResource( 7 )
+position = Vector2( 1904.1, 842.195 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
 
 [node name="Bottom2" type="StaticBody2D" parent="border"]
 position = Vector2( 1956, 861 )
@@ -294,7 +301,7 @@ collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom2"]
 position = Vector2( -22.4133, -5.26315 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="Left" type="StaticBody2D" parent="border"]
 position = Vector2( 60, 0 )
@@ -305,11 +312,4 @@ collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
 position = Vector2( 870.27, 0 )
-shape = SubResource( 9 )
-
-[node name="WallPhGlass" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.490196 )
-position = Vector2( 1193.5, -68.2616 )
-scale = Vector2( 2.5, 1.47684 )
-z_index = 5
-texture = ExtResource( 7 )
+shape = SubResource( 5 )

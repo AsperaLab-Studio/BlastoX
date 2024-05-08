@@ -3,7 +3,8 @@
 [ext_resource path="res://assets/img/frontground/lvl metro/tileset/lv1-m/LV1-M FORE.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/frontground/lvl metro/tileset/lv1-m/LV1-M BACK.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=3]
-[ext_resource path="res://scenes/tile/objects/SmallBoxBigBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tile/environment/objects/SmallBoxBigBox.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
