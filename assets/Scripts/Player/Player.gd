@@ -31,7 +31,7 @@ enum STATE {IDLE, MOVE, KNOCKBACK, ATTACK1, ATTACK2, HIT, SHOOT, SHAKE, WIN, DIE
 export(bool) var isPlayerTwo: bool = false
 export(int) var speed: int = 300
 export(int) var damage: int = 1
-export(int) var HP: int = 20
+export(int) var hp: int = 10
 export(bool) var moving: bool = false
 export(bool) var boss: bool = false
 export(Vector2) var direction: = Vector2.ZERO
@@ -42,6 +42,8 @@ export(float) var rebounce_speed := 700.0
 
 export var attack1Cooldown: float = 1.0
 export var attack2Cooldown: float = 1.0
+
+var current_hp = hp
 
 var current_state = STATE.IDLE
 var sceneManager = null
@@ -225,7 +227,8 @@ func hit(dps, type, source):
 				sceneManager.hit += 1
 			if current_state != STATE.HIT || current_state != STATE.DIED:
 				current_state = STATE.HIT
-				emit_signal("update_healthbar", dps)
+				current_hp = current_hp - dps
+				emit_signal("update_healthbar", current_hp)
 		
 	
 
@@ -252,7 +255,8 @@ func removeLife():
 func respawn():
 	removeLife()
 	current_state = STATE.IDLE
-	emit_signal("update_healthbar", -HP)
+	emit_signal("update_healthbar", hp)
+	current_hp = hp
 
 func KO():
 	removeLife()
@@ -298,7 +302,7 @@ func _on_AreaGo_area_entered(area: Area2D) -> void:
 	
 
 func _on_HealthBar_value_changed(value: float) -> void:
-	if value <= 0:
+	if current_hp <= 0:
 		current_state = STATE.DIED
 	
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/img/sprites/obj/wind.png" type="Texture" id=1]
 [ext_resource path="res://assets/audio/ost/lvls desert/lvl 2-desert.ogg" type="AudioStream" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://assets/img/frontground/lvl desert/desert1 door.png" type="Texture" id=18]
 [ext_resource path="res://scenes/pg/singleplayer/asari.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=20]
+[ext_resource path="res://scenes/tile/environment/borders.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=22]
 [ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=23]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=24]
@@ -90,15 +91,6 @@ border_width_top = 18
 border_width_bottom = 23
 border_color = Color( 0.839216, 0, 1, 1 )
 shadow_color = Color( 1, 0.6, 0.6, 0.6 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 15745.8, 285.783 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 1990.15, 120.176 )
-
-[sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 7890.29, 291.611 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
@@ -829,39 +821,6 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="border" type="Node" parent="."]
-
-[node name="Top" type="StaticBody2D" parent="border"]
-position = Vector2( 121.151, 320.426 )
-scale = Vector2( 0.58, 0.57 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
-position = Vector2( 15527.8, 482.173 )
-shape = SubResource( 6 )
-
-[node name="Left" type="StaticBody2D" parent="border"]
-position = Vector2( 386.667, 11.83 )
-rotation = 1.5708
-scale = Vector2( 0.57, 0.58 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
-position = Vector2( 870.27, 780.269 )
-shape = SubResource( 7 )
-
-[node name="Bottom" type="StaticBody2D" parent="border"]
-position = Vector2( 0, 626.875 )
-scale = Vector2( 0.58, 0.57 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
-position = Vector2( 7826.08, 843.656 )
-shape = SubResource( 22 )
-
 [node name="PlayersList" type="Node2D" parent="."]
 
 [node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
@@ -993,6 +952,8 @@ __meta__ = {
 
 [node name="shake" type="Node2D" parent="Camera2D"]
 script = ExtResource( 31 )
+
+[node name="borders" parent="." instance=ExtResource( 21 )]
 
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
