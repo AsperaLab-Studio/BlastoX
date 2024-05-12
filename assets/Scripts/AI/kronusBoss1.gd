@@ -31,7 +31,7 @@ var targetList = null
 
 var sceneManager = null
 
-var stompFree: bool = false
+var stompFree: bool = true
 
 func _ready():
 	anim_player.play("idle")
