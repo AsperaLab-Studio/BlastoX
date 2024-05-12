@@ -11,12 +11,14 @@ onready var attack_area2d : Area2D = $Pivot/AttackCollision
 onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var cooldown: Timer = $Cooldown
 
-enum STATE {IDLE, CHASE, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED}
+enum STATE {IDLE, CHASE, CHOOSE_RANGED, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED}
 
 export var GENERAL_VARS := "--------------------"
 export(int) var death_speed := 150
 export(int) var move_speed := 150
 export(int) var hp := 5
+export(float) var wait_attack := 2.0
+export(float) var range_chase := 2.0
 
 export var SHOTGUN_VARS := "--------------------"
 export(int) var dps_shotgun := 2
@@ -24,7 +26,6 @@ export(int) var numberOfBullets  := 5
 export(float) var shootingAmplitude  := 30.0
 onready var spawnRifle : Position2D = $PositionRifle
 export(PackedScene) var bullet
-export(float) var wait_after_shotgun_attack := 2.0
 
 export var LAVA_STOMP_VARS := "--------------------"
 export(int) var dps_lavastomp := 3
@@ -33,7 +34,6 @@ onready var lava_column_list_pos: Array = get_parent().get_parent().get_node("sp
 onready var lava_container: Node = get_node("LavaColumnContainer")
 var temp_list: Array
 var onEnter = true
-export(float) var wait_after_lavastomp_attack := 2.0
 var rng
 
 export var PUNCH_VARS := "--------------------"
@@ -42,7 +42,13 @@ export(int) var dps_punch := 1
 var current_state = STATE.IDLE
 var actual_target: Player = null
 var directionPlayer = Vector2()
+
+var STATE_FLAGS := "--------------------"
 var near_player: bool = false
+var ended_punch: bool = false
+var hitted: bool = false
+var can_ranged: bool = false
+
 var healthBar = null
 var amount = 0
 var paused = false
@@ -64,6 +70,8 @@ func _process(_delta: float) -> void:
 	gp = global_position
 	actual_target = select_target()
 	
+	choose_state()
+
 	if(!paused):
 
 		match current_state:
@@ -77,8 +85,6 @@ func _process(_delta: float) -> void:
 				anim_player.play("move")
 				if !near_player:
 					move_towards(actual_target.global_position, move_speed)
-				else:
-					current_state = STATE.PUNCH
 
 			STATE.PUNCH:
 				if near_player && !actual_target.invincible:
@@ -87,7 +93,10 @@ func _process(_delta: float) -> void:
 				near_player = false
 					
 				if anim_player.current_animation != "punch":
-					current_state = STATE.IDLE
+					ended_punch = true
+			
+			STATE.CHOOSE_RANGED:
+				pass
 
 			STATE.SHOTGUN:
 				anim_player.play("shotgun")
@@ -124,8 +133,9 @@ func _process(_delta: float) -> void:
 					temp_list.remove(actual_zone)
 
 				elif temp_list.size() == 0 && lava_container.get_child_count() == 0:
-					cooldown.wait_time = wait_after_lavastomp_attack
+					cooldown.wait_time = wait_attack
 					cooldown.start()
+					can_ranged = false
 					onEnter = true
 					current_state = STATE.IDLE
 
@@ -156,10 +166,8 @@ func select_target() -> Player:
 func hit(dpsTaken, attackType, source) -> void:
 	healthBar.update_healthbar(dpsTaken)
 	amount = amount + dpsTaken
-	if amount >= hp:
-		current_state = STATE.DIED
-	else:
-		current_state = STATE.HIT
+	hitted = true
+	
 
 
 func move_towards(target: Vector2, speed):
@@ -209,6 +217,11 @@ func shoot():
 		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
 		bullet_instance.set_global_position(spawnRifle.get_global_position())
 		i+=1
+	
+	cooldown.wait_time = wait_attack
+	cooldown.start()
+	can_ranged = false
+	current_state = STATE.IDLE
 
 
 func death():
@@ -225,7 +238,7 @@ func choose_array_numb(array):
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "hit":
-		current_state = STATE.IDLE
+		hitted = false
 
 func _on_AttackCollision_area_entered(area):
 	if area.owner.is_in_group("player"):
@@ -233,4 +246,24 @@ func _on_AttackCollision_area_entered(area):
 
 
 func _on_Cooldown_timeout():
-	pass # Replace with function body.
+	can_ranged = true
+
+
+func choose_state():
+	current_state = STATE.IDLE
+	if hitted:
+		if amount >= hp:
+			current_state = STATE.DIED
+		else:
+			current_state = STATE.HIT
+	elif near_player:
+		current_state = STATE.PUNCH
+	elif !near_player:
+		var distance = global_position.distance_to(actual_target.global_position)
+		if distance <= range_chase:
+			current_state = STATE.CHASE
+		else:
+			current_state = STATE.CHOOSE_RANGED			
+	elif ended_punch:
+		current_state = STATE.IDLE
+	
