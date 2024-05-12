@@ -7,6 +7,8 @@ onready var attack_delay_timer: Timer = $AttackDelayTimer
 onready var anim_player : AnimationPlayer = $AnimationPlayer
 onready var collision_shape : CollisionShape2D = $HitBox/CollisionShape2D
 onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
+onready var invincibility_timer = $InvincibilityTimer
+onready var invincible = false
 
 onready var UIHealthBar: Node2D = get_parent().get_parent().get_parent().get_node("GUI/UI/HealthBossContainer")
 
@@ -101,12 +103,13 @@ func select_target() -> Player:
 
 
 func hit(dpsTaken, attackType, source) -> void:
-	healthBar.update_healthbar(dpsTaken)
-	amount = amount + dpsTaken
-	if amount >= HP:
-		current_state = STATE.DIED
-	else:
-		current_state = STATE.HIT
+	if invincible == false:
+		healthBar.update_healthbar(dpsTaken)
+		amount = amount + dpsTaken
+		if amount >= HP:
+			current_state = STATE.DIED
+		else:
+			current_state = STATE.HIT
 
 func shoot():
 	selectedWeapon.shoot(actual_target)
@@ -171,3 +174,11 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "hit":
 		current_state = STATE.IDLE
 		
+func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
+	if anim_name == "hit":
+		invincibility_timer.start(1)
+		invincible = true
+		
+func _on_InvincibilityTimer_timeout() -> void:
+	invincible = false
+	

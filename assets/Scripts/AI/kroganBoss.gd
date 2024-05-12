@@ -14,6 +14,8 @@ onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
 onready var collition_area2d : CollisionShape2D = $Pivot/AttackCollision/CollisionShape2D
 onready var UIHealthBar: Node2D = get_parent().get_parent().get_parent().get_node("GUI/UI/HealthBossContainer")
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
+onready var invincibility_timer = $InvincibilityTimer
+onready var invincible = false
 enum STATE {CHASE, ATTACK, SHAKE, CHARGE_START, CHARGE_MID, CHARGE_END, WAIT, IDLE, HIT, DIED}
 
 export(int) var death_speed := 150
@@ -166,12 +168,13 @@ func select_target() -> Player:
 
 func hit(dpsTaken, attackType, source) -> void:
 	if (current_state != STATE.CHARGE_START && current_state != STATE.CHARGE_MID && current_state != STATE.CHARGE_END):
-		healthBar.update_healthbar(dpsTaken)
-		amount = amount + dpsTaken
-		if amount >= HP:
-			current_state = STATE.DIED
-		else:
-			current_state = STATE.HIT
+		if invincible == false:
+			healthBar.update_healthbar(dpsTaken)
+			amount = amount + dpsTaken
+			if amount >= HP:
+				current_state = STATE.DIED
+			else:
+				current_state = STATE.HIT
 		
 
 func shake(): 
@@ -281,7 +284,10 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "hit":
 		current_state = STATE.CHASE
 		
-	
+func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
+	if anim_name == "hit":
+		invincibility_timer.start(1)
+		invincible = true
 
 func _on_TimerShake_timeout():
 	set_state_idle()
@@ -294,3 +300,7 @@ func _on_CooldownShakeTimer_timeout():
 
 func _on_CooldownChargeTimer_timeout():
 	chargeFree = true
+
+func _on_InvincibilityTimer_timeout() -> void:
+	invincible = false
+	
