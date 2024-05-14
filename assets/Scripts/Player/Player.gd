@@ -129,8 +129,8 @@ func _process(_delta: float) -> void:
 			STATE.ATTACK2:
 				anim_player.play("attack2")
 			STATE.JUMP:
-				#anim_player.plat()
-				jump(jumping)
+				#anim_player.play()
+				jump()
 			STATE.HIT:
 				anim_player.play("hit")
 			STATE.KNOCKBACK:
@@ -153,7 +153,7 @@ func _process(_delta: float) -> void:
 			STATE.SHOOT:
 				anim_player.play("shoot")
 			STATE.MOVE:
-				moving()
+				move()
 				anim_player.play("move")
 				
 				if !direction:
@@ -180,7 +180,7 @@ func attack():
 			enemy.hit(damage, "melee", actualAttackType)
 		
 	
-func moving():
+func move():
 	if direction.x < 0:
 		if pivot.scale.x > 0:
 			pivot.scale.x = - pivot.scale.x	
@@ -191,6 +191,7 @@ func moving():
 			spritePivot.scale.x = -spritePivot.scale.x
 	move_and_slide(direction * speed)
 
+
 func shoot():
 	var bullet_instance = bullet.instance()
 	if spritePivot.scale.x < 0 == true:
@@ -200,16 +201,17 @@ func shoot():
 	owner.add_child(bullet_instance)
 	bullet_instance.global_transform = position2d.global_transform
 	
-func jump(jumping):
+
+func jump():
 	switchLayers(true)
-	moving()
+	move()
 	if jumping:
-		spritePivot.position = lerp(spritePivot.position, spritePivot.position - Vector2(0, jump_highness), jump_duration)
+		spritePivot.position = lerp(Vector2.ZERO, - Vector2(0, jump_highness), jump_duration)
 		if spritePivot.position.y == -jump_highness:
 			jumping = false
 	
 	else:
-		spritePivot.position = lerp(spritePivot.position, spritePivot.position + Vector2(0, jump_highness), jump_duration)
+		spritePivot.position = lerp(Vector2.ZERO, + Vector2(0, jump_highness), jump_duration)
 		if spritePivot.position.y == 0:
 			switchLayers(false)
 			current_state = STATE.IDLE
@@ -292,9 +294,11 @@ func respawn():
 	emit_signal("update_healthbar", hp)
 	current_hp = hp
 
+
 func KO():
 	removeLife()
 	queue_free()
+
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if current_state != STATE.DIED:
