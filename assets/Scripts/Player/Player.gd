@@ -40,7 +40,8 @@ export(Vector2) var orientation: = Vector2.RIGHT
 export(float) var rebonuce_distance := 500.0
 export(float) var rebounce_speed := 700.0
 export(float) var jump_highness := 100.0
-export(float) var jump_duration := 1.5
+export(float) var jump_duration := 0.7
+
 
 export var attack1Cooldown: float = 1.0
 export var attack2Cooldown: float = 1.0
@@ -60,6 +61,8 @@ var lifesList
 var lifeCount: int
 
 var actualAttackType: int
+
+var current_time: float = 0.0
 
 func _ready() -> void:
 	anim_player.play("idle")
@@ -115,6 +118,7 @@ func _process(_delta: float) -> void:
 					
 				if Input.is_action_just_pressed(inputManager[8]):
 					jumping = true
+					invincible = true
 					current_state = STATE.JUMP
 				
 				if direction && current_state != STATE.JUMP:
@@ -205,15 +209,20 @@ func shoot():
 func jump(delta):
 	switchLayers(true)
 	move()
+	current_time += delta
+	var t = current_time / jump_duration
 	if jumping:
-		spritePivot.position = lerp(Vector2.ZERO,- Vector2(0, jump_highness), 1)
-		if spritePivot.position.y == -jump_highness:
+		spritePivot.position = lerp(Vector2.ZERO,- Vector2(0, jump_highness), t)
+		if spritePivot.position.y <= -jump_highness:
+			current_time = 0.0
 			jumping = false
 	
 	else:
-		spritePivot.position = lerp(Vector2.ZERO, + Vector2(0, jump_highness), jump_duration * delta)
-		if spritePivot.position.y == 0:
+		spritePivot.position = lerp(- Vector2(0, jump_highness), Vector2.ZERO, t)
+		if spritePivot.position.y >= 0:
 			switchLayers(false)
+			current_time = 0.0
+			invincible = false
 			current_state = STATE.IDLE
 
 func pause():
