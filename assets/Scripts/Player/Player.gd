@@ -40,7 +40,7 @@ export(Vector2) var orientation: = Vector2.RIGHT
 export(float) var rebonuce_distance := 500.0
 export(float) var rebounce_speed := 700.0
 export(float) var jump_highness := 100.0
-export(float) var jump_duration := 0.5
+export(float) var jump_duration := 1.5
 
 export var attack1Cooldown: float = 1.0
 export var attack2Cooldown: float = 1.0
@@ -114,8 +114,8 @@ func _process(_delta: float) -> void:
 					current_state = STATE.SHOOT
 					
 				if Input.is_action_just_pressed(inputManager[8]):
-					current_state = STATE.JUMP
 					jumping = true
+					current_state = STATE.JUMP
 				
 				if direction && current_state != STATE.JUMP:
 					current_state = STATE.MOVE
@@ -130,7 +130,7 @@ func _process(_delta: float) -> void:
 				anim_player.play("attack2")
 			STATE.JUMP:
 				#anim_player.play()
-				jump()
+				jump(_delta)
 			STATE.HIT:
 				anim_player.play("hit")
 			STATE.KNOCKBACK:
@@ -202,16 +202,16 @@ func shoot():
 	bullet_instance.global_transform = position2d.global_transform
 	
 
-func jump():
+func jump(delta):
 	switchLayers(true)
 	move()
 	if jumping:
-		spritePivot.position = lerp(Vector2.ZERO, - Vector2(0, jump_highness), jump_duration)
+		spritePivot.position = lerp(Vector2.ZERO,- Vector2(0, jump_highness), 1)
 		if spritePivot.position.y == -jump_highness:
 			jumping = false
 	
 	else:
-		spritePivot.position = lerp(Vector2.ZERO, + Vector2(0, jump_highness), jump_duration)
+		spritePivot.position = lerp(Vector2.ZERO, + Vector2(0, jump_highness), jump_duration * delta)
 		if spritePivot.position.y == 0:
 			switchLayers(false)
 			current_state = STATE.IDLE
