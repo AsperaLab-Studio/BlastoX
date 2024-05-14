@@ -239,8 +239,8 @@ func pause():
 func knockback():
 	current_state = STATE.KNOCKBACK
 
-func switchLayers(jumping):
-	if jumping:
+func switchLayers(jump):
+	if jump:
 		set_collision_layer_bit(4, true)
 		set_collision_layer_bit(0, false)
 		set_collision_mask_bit(2, false)
@@ -306,8 +306,8 @@ func removeLife():
 func respawn():
 	removeLife()
 	current_state = STATE.IDLE
-	emit_signal("update_healthbar", hp)
 	current_hp = hp
+	emit_signal("update_healthbar", hp)
 
 
 func KO():
