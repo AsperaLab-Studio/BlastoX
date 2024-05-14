@@ -360,6 +360,8 @@ stream = ExtResource( 8 )
 volume_db = 1.588
 bus = "SFX"
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="AttackDelayTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
