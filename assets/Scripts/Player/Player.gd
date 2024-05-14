@@ -40,7 +40,7 @@ export(Vector2) var orientation: = Vector2.RIGHT
 export(float) var rebonuce_distance := 500.0
 export(float) var rebounce_speed := 700.0
 export(float) var jump_highness := 100.0
-export(float) var jump_duration := 0.7
+export(float) var jump_duration := 0.45
 
 
 export var attack1Cooldown: float = 1.0
@@ -133,7 +133,7 @@ func _process(_delta: float) -> void:
 			STATE.ATTACK2:
 				anim_player.play("attack2")
 			STATE.JUMP:
-				#anim_player.play()
+				anim_player.play("jump")
 				jump(_delta)
 			STATE.HIT:
 				anim_player.play("hit")
@@ -157,11 +157,16 @@ func _process(_delta: float) -> void:
 			STATE.SHOOT:
 				anim_player.play("shoot")
 			STATE.MOVE:
-				move()
-				anim_player.play("move")
-				
-				if !direction:
-					current_state = STATE.IDLE
+				if Input.is_action_just_pressed(inputManager[8]):
+					jumping = true
+					invincible = true
+					current_state = STATE.JUMP
+				else:
+					move()
+					anim_player.play("move")
+					
+					if !direction:
+						current_state = STATE.IDLE
 					
 				
 			STATE.DIED:
@@ -270,7 +275,7 @@ func hit(dps, type, source):
 				if sceneManager.points > 0:
 					sceneManager.points -= 20
 				sceneManager.hit += 1
-			if current_state != STATE.HIT || current_state != STATE.DIED:
+			if current_state != STATE.HIT || current_state != STATE.DIED || current_state != STATE.JUMP:
 				current_state = STATE.HIT
 				current_hp = current_hp - dps
 				emit_signal("update_healthbar", current_hp)
