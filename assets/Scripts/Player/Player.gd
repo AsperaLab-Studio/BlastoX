@@ -212,6 +212,7 @@ func shoot():
 	
 
 func jump(delta):
+	invincible = true
 	switchLayers(true)
 	move()
 	current_time += delta
@@ -275,7 +276,7 @@ func hit(dps, type, source):
 				if sceneManager.points > 0:
 					sceneManager.points -= 20
 				sceneManager.hit += 1
-			if current_state != STATE.HIT || current_state != STATE.DIED || current_state != STATE.JUMP:
+			if current_state != STATE.HIT || current_state != STATE.DIED:
 				current_state = STATE.HIT
 				current_hp = current_hp - dps
 				emit_signal("update_healthbar", current_hp)
