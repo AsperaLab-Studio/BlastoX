@@ -17,7 +17,7 @@ extents = Vector2( 7891.81, 278.05 )
 position = Vector2( 121.151, 321.426 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
 position = Vector2( 15527.8, 482.173 )
@@ -28,7 +28,7 @@ position = Vector2( 386.667, 12.83 )
 rotation = 1.5708
 scale = Vector2( 0.57, 0.58 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
 position = Vector2( 870.27, 780.269 )
@@ -38,9 +38,8 @@ shape = SubResource( 2 )
 position = Vector2( 0, 627.875 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
 position = Vector2( 7824.56, 857.217 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )

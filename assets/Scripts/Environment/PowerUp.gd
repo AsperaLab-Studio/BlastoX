@@ -14,9 +14,12 @@ func _on_Area2D_area_entered(area:Area2D):
 			POWER_UP_TYPE.GUN:
 				pass
 			POWER_UP_TYPE.MEDIKIT:
-				if area.owner.current_hp + amount <= area.owner.hp:
+				if area.owner.current_hp + amount >= area.owner.hp:
+					area.owner.current_hp = area.owner.hp
+				else:
 					area.owner.current_hp = area.owner.current_hp + amount
-					area.owner.emit_signal("update_healthbar", area.owner.current_hp)
-					queue_free()
+					
+				area.owner.emit_signal("update_healthbar", area.owner.current_hp)
+				queue_free()
 		
 		

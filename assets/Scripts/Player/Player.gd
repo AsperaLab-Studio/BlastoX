@@ -26,7 +26,7 @@ onready var phisicBody: CollisionShape2D = $CollisionShape2D
 #test
 export var debug_mode : bool
 
-enum STATE {IDLE, MOVE, KNOCKBACK, ATTACK1, ATTACK2, HIT, SHOOT, SHAKE, WIN, DIED}
+enum STATE {IDLE, MOVE, KNOCKBACK, ATTACK1, ATTACK2, JUMP, HIT, SHOOT, SHAKE, WIN, DIED}
 
 export(bool) var isPlayerTwo: bool = false
 export(int) var speed: int = 300
@@ -39,6 +39,9 @@ export(Vector2) var orientation: = Vector2.RIGHT
 
 export(float) var rebonuce_distance := 500.0
 export(float) var rebounce_speed := 700.0
+export(float) var jump_highness := 100.0
+export(float) var jump_duration := 0.45
+
 
 export var attack1Cooldown: float = 1.0
 export var attack2Cooldown: float = 1.0
@@ -51,12 +54,15 @@ var paused = false
 
 var canAttack1 = true
 var canAttack2 = true
+var jumping = false
 
 var inputManager
 var lifesList
 var lifeCount: int
 
 var actualAttackType: int
+
+var current_time: float = 0.0
 
 func _ready() -> void:
 	anim_player.play("idle")
@@ -110,7 +116,12 @@ func _process(_delta: float) -> void:
 				if Input.is_action_just_pressed(inputManager[6]):
 					current_state = STATE.SHOOT
 					
-				if direction:
+				if Input.is_action_just_pressed(inputManager[8]):
+					jumping = true
+					invincible = true
+					current_state = STATE.JUMP
+				
+				if direction && current_state != STATE.JUMP:
 					current_state = STATE.MOVE
 					
 				else:
@@ -121,6 +132,9 @@ func _process(_delta: float) -> void:
 				anim_player.play("attack1")
 			STATE.ATTACK2:
 				anim_player.play("attack2")
+			STATE.JUMP:
+				anim_player.play("jump")
+				jump(_delta)
 			STATE.HIT:
 				anim_player.play("hit")
 			STATE.KNOCKBACK:
@@ -143,21 +157,16 @@ func _process(_delta: float) -> void:
 			STATE.SHOOT:
 				anim_player.play("shoot")
 			STATE.MOVE:
-				if direction.x < 0:
-					if pivot.scale.x > 0:
-						pivot.scale.x = - pivot.scale.x	
-						spritePivot.scale.x = -spritePivot.scale.x	
-				if direction.x > 0:
-					if pivot.scale.x < 0:
-						pivot.scale.x = - pivot.scale.x
-						spritePivot.scale.x = -spritePivot.scale.x	
-
+				if Input.is_action_just_pressed(inputManager[8]):
+					jumping = true
+					invincible = true
+					current_state = STATE.JUMP
+				else:
+					move()
+					anim_player.play("move")
 					
-				move_and_slide(direction * speed)
-				anim_player.play("move")
-				
-				if !direction:
-					current_state = STATE.IDLE
+					if !direction:
+						current_state = STATE.IDLE
 					
 				
 			STATE.DIED:
@@ -180,6 +189,17 @@ func attack():
 			enemy.hit(damage, "melee", actualAttackType)
 		
 	
+func move():
+	if direction.x < 0:
+		if pivot.scale.x > 0:
+			pivot.scale.x = - pivot.scale.x	
+			spritePivot.scale.x = -spritePivot.scale.x	
+	elif direction.x > 0:
+		if pivot.scale.x < 0:
+			pivot.scale.x = - pivot.scale.x
+			spritePivot.scale.x = -spritePivot.scale.x
+	move_and_slide(direction * speed)
+
 
 func shoot():
 	var bullet_instance = bullet.instance()
@@ -191,6 +211,26 @@ func shoot():
 	bullet_instance.global_transform = position2d.global_transform
 	
 
+func jump(delta):
+	invincible = true
+	switchLayers(true)
+	move()
+	current_time += delta
+	var t = current_time / jump_duration
+	if jumping:
+		spritePivot.position = lerp(Vector2.ZERO,- Vector2(0, jump_highness), t)
+		if spritePivot.position.y <= -jump_highness:
+			current_time = 0.0
+			jumping = false
+	
+	else:
+		spritePivot.position = lerp(- Vector2(0, jump_highness), Vector2.ZERO, t)
+		if spritePivot.position.y >= 0:
+			switchLayers(false)
+			current_time = 0.0
+			invincible = false
+			current_state = STATE.IDLE
+
 func pause():
 	anim_player.stop()
 	set_process(false)
@@ -199,6 +239,17 @@ func pause():
 func knockback():
 	current_state = STATE.KNOCKBACK
 
+func switchLayers(jump):
+	if jump:
+		set_collision_layer_bit(4, true)
+		set_collision_layer_bit(0, false)
+		set_collision_mask_bit(2, false)
+		set_collision_mask_bit(0, false)
+	else:
+		set_collision_layer_bit(4, false)
+		set_collision_layer_bit(0, true)
+		set_collision_mask_bit(2, true)
+		set_collision_mask_bit(0, true)
 
 func move_rebounce(target: Vector2, rebounceSpeed):
 	if target:
@@ -255,12 +306,14 @@ func removeLife():
 func respawn():
 	removeLife()
 	current_state = STATE.IDLE
-	emit_signal("update_healthbar", hp)
 	current_hp = hp
+	emit_signal("update_healthbar", hp)
+
 
 func KO():
 	removeLife()
 	queue_free()
+
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if current_state != STATE.DIED:
@@ -329,3 +382,4 @@ func _on_CooldownAttack2Timer_timeout():
 	cooldownAttack2_timer.wait_time = attack2Cooldown
 	cooldownAttack2_timer.one_shot = true
 	cooldownAttack2_timer.start()
+
