@@ -26,7 +26,7 @@ onready var phisicBody: CollisionShape2D = $CollisionShape2D
 #test
 export var debug_mode : bool
 
-enum STATE {IDLE, MOVE, KNOCKBACK, ATTACK1, ATTACK2, HIT, SHOOT, SHAKE, WIN, DIED}
+enum STATE {IDLE, MOVE, KNOCKBACK, ATTACK1, ATTACK2, JUMP, HIT, SHOOT, SHAKE, WIN, DIED}
 
 export(bool) var isPlayerTwo: bool = false
 export(int) var speed: int = 300
@@ -39,6 +39,8 @@ export(Vector2) var orientation: = Vector2.RIGHT
 
 export(float) var rebonuce_distance := 500.0
 export(float) var rebounce_speed := 700.0
+export(float) var jump_highness := 100.0
+export(float) var jump_duration := 0.5
 
 export var attack1Cooldown: float = 1.0
 export var attack2Cooldown: float = 1.0
@@ -51,6 +53,7 @@ var paused = false
 
 var canAttack1 = true
 var canAttack2 = true
+var jumping = false
 
 var inputManager
 var lifesList
@@ -110,7 +113,11 @@ func _process(_delta: float) -> void:
 				if Input.is_action_just_pressed(inputManager[6]):
 					current_state = STATE.SHOOT
 					
-				if direction:
+				if Input.is_action_just_pressed(inputManager[8]):
+					current_state = STATE.JUMP
+					jumping = true
+				
+				if direction && current_state != STATE.JUMP:
 					current_state = STATE.MOVE
 					
 				else:
@@ -121,6 +128,9 @@ func _process(_delta: float) -> void:
 				anim_player.play("attack1")
 			STATE.ATTACK2:
 				anim_player.play("attack2")
+			STATE.JUMP:
+				#anim_player.plat()
+				jump(jumping)
 			STATE.HIT:
 				anim_player.play("hit")
 			STATE.KNOCKBACK:
@@ -143,17 +153,7 @@ func _process(_delta: float) -> void:
 			STATE.SHOOT:
 				anim_player.play("shoot")
 			STATE.MOVE:
-				if direction.x < 0:
-					if pivot.scale.x > 0:
-						pivot.scale.x = - pivot.scale.x	
-						spritePivot.scale.x = -spritePivot.scale.x	
-				if direction.x > 0:
-					if pivot.scale.x < 0:
-						pivot.scale.x = - pivot.scale.x
-						spritePivot.scale.x = -spritePivot.scale.x	
-
-					
-				move_and_slide(direction * speed)
+				moving()
 				anim_player.play("move")
 				
 				if !direction:
@@ -180,6 +180,16 @@ func attack():
 			enemy.hit(damage, "melee", actualAttackType)
 		
 	
+func moving():
+	if direction.x < 0:
+		if pivot.scale.x > 0:
+			pivot.scale.x = - pivot.scale.x	
+			spritePivot.scale.x = -spritePivot.scale.x	
+	elif direction.x > 0:
+		if pivot.scale.x < 0:
+			pivot.scale.x = - pivot.scale.x
+			spritePivot.scale.x = -spritePivot.scale.x
+	move_and_slide(direction * speed)
 
 func shoot():
 	var bullet_instance = bullet.instance()
@@ -190,6 +200,19 @@ func shoot():
 	owner.add_child(bullet_instance)
 	bullet_instance.global_transform = position2d.global_transform
 	
+func jump(jumping):
+	switchLayers(true)
+	moving()
+	if jumping:
+		spritePivot.position = lerp(spritePivot.position, spritePivot.position - Vector2(0, jump_highness), jump_duration)
+		if spritePivot.position.y == -jump_highness:
+			jumping = false
+	
+	else:
+		spritePivot.position = lerp(spritePivot.position, spritePivot.position + Vector2(0, jump_highness), jump_duration)
+		if spritePivot.position.y == 0:
+			switchLayers(false)
+			current_state = STATE.IDLE
 
 func pause():
 	anim_player.stop()
@@ -199,6 +222,17 @@ func pause():
 func knockback():
 	current_state = STATE.KNOCKBACK
 
+func switchLayers(jumping):
+	if jumping:
+		set_collision_layer_bit(4, true)
+		set_collision_layer_bit(0, false)
+		set_collision_mask_bit(2, false)
+		set_collision_mask_bit(0, false)
+	else:
+		set_collision_layer_bit(4, false)
+		set_collision_layer_bit(0, true)
+		set_collision_mask_bit(2, true)
+		set_collision_mask_bit(0, true)
 
 func move_rebounce(target: Vector2, rebounceSpeed):
 	if target:
@@ -329,3 +363,4 @@ func _on_CooldownAttack2Timer_timeout():
 	cooldownAttack2_timer.wait_time = attack2Cooldown
 	cooldownAttack2_timer.one_shot = true
 	cooldownAttack2_timer.start()
+

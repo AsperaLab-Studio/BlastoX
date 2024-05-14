@@ -293,7 +293,6 @@ speed = 200
 attack1Cooldown = 0.1
 
 [node name="SpritePivot" type="Position2D" parent="."]
-position = Vector2( 2.38419e-07, 0.46825 )
 
 [node name="Sprite" type="Sprite" parent="SpritePivot"]
 position = Vector2( 9.36501, -1.873 )
