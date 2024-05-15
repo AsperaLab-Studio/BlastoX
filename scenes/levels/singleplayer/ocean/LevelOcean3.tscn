@@ -171,7 +171,7 @@ totalFightPhases = 3
 position = Vector2( 8936, 1272 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StageManager/MovingWall"]
 position = Vector2( 0.000293732, 56.1404 )
@@ -609,6 +609,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
+frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -833,7 +834,7 @@ value = 1.0
 [node name="PlayersList" type="Node2D" parent="."]
 
 [node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
-position = Vector2( 25.4528, 1232.18 )
+position = Vector2( 7, 1317 )
 scale = Vector2( 1, 1 )
 
 [node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
@@ -872,7 +873,7 @@ texture = ExtResource( 3 )
 position = Vector2( 131, 2.00002 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 7
+frame = 5
 speed_scale = 1.8
 playing = true
 
@@ -880,7 +881,7 @@ playing = true
 position = Vector2( 663, 224 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 7
+frame = 5
 speed_scale = 1.8
 playing = true
 
@@ -888,7 +889,7 @@ playing = true
 position = Vector2( 1157, -52 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 6
+frame = 4
 speed_scale = 1.8
 playing = true
 
@@ -896,7 +897,7 @@ playing = true
 position = Vector2( 998, 284 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 5
+frame = 3
 speed_scale = 1.8
 playing = true
 
@@ -904,7 +905,7 @@ playing = true
 position = Vector2( 456, -73 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 5
+frame = 3
 speed_scale = 1.8
 playing = true
 
@@ -912,7 +913,7 @@ playing = true
 position = Vector2( 297, 278 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 4
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -920,7 +921,7 @@ playing = true
 position = Vector2( 1361, 401 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -928,7 +929,7 @@ playing = true
 position = Vector2( 1508, 41 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -936,7 +937,7 @@ playing = true
 position = Vector2( 759, 538 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -944,7 +945,6 @@ playing = true
 position = Vector2( 1601, 514 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -952,7 +952,6 @@ playing = true
 position = Vector2( 369, 646 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -960,7 +959,7 @@ playing = true
 position = Vector2( 63, 532 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
+frame = 14
 speed_scale = 1.8
 playing = true
 
@@ -968,7 +967,7 @@ playing = true
 position = Vector2( 1046, 637 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
+frame = 14
 speed_scale = 1.8
 playing = true
 

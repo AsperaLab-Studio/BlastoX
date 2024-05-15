@@ -106,7 +106,7 @@ totalFightPhases = 3
 position = Vector2( 8936, 1272 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StageManager/MovingWall"]
 position = Vector2( 0.000293732, 56.1404 )
@@ -544,7 +544,6 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 2
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -769,7 +768,7 @@ value = 1.0
 [node name="PlayersList" type="Node2D" parent="."]
 
 [node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
-position = Vector2( 25.4528, 1232.18 )
+position = Vector2( -12, 1312 )
 scale = Vector2( 1, 1 )
 
 [node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]

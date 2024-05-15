@@ -6,7 +6,7 @@ onready var collider: CollisionShape2D = $Sprite/Area2D/CollisionShape2D
 onready var static_collider: CollisionShape2D = $Sprite/StaticBody2D/CollisionShape2D
 onready var pos: Position2D = $Position2D
 export(int) var hp_box := 2
-export(Array, PackedScene) var powerups_list
+export(Array, PackedScene) var powerups_list	
 
 var initial_frame
 var rng
@@ -21,7 +21,9 @@ func _process(_delta):
 		collider.disabled = true
 		rng.randomize()
 		var obj = int(rand_range(0, 5))
-		if obj < powerups_list.size():
+		obj = randf() * (2 - 0) + 0
+		obj = stepify(obj, 1)
+		if obj == 0:
 			var obj_instance = powerups_list[obj].instance()
 			obj_instance.position = pos.position
 			add_child(obj_instance)
