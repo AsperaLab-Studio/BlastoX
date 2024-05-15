@@ -139,6 +139,8 @@ func _process(_delta: float) -> void:
 				
 			STATE.ATTACK1:
 				match(attack1count):
+					0:
+						current_state = STATE.IDLE
 					1:
 						anim_player.play("attack11")
 					2:

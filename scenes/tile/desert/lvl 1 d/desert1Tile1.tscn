@@ -176,7 +176,7 @@ position = Vector2( -0.390175, -44.8843 )
 shape = SubResource( 1 )
 
 [node name="BigBox2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1849, -12 )
+position = Vector2( 1849, -1 )
 z_index = -2
 
 [node name="SmallBoxBigBox" parent="." instance=ExtResource( 6 )]

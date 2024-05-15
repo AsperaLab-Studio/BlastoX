@@ -399,7 +399,7 @@ script = ExtResource( 5 )
 debug_mode = true
 speed = 200
 attack1Cooldown = 0.1
-comboRestart = 0.5
+comboRestart = 0.3
 
 [node name="SpritePivot" type="Position2D" parent="."]
 
