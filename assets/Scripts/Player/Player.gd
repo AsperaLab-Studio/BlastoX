@@ -11,6 +11,7 @@ onready var pivot: Node2D = $Pivot
 
 onready var cooldownAttack1_timer: Timer = $CooldownAttack1Timer
 onready var cooldownAttack2_timer: Timer = $CooldownAttack2Timer
+onready var combo_timer: Timer = $ComboTimer
 
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var bullet = preload("res://scenes/pg/Bullet.tscn")
@@ -43,8 +44,9 @@ export(float) var jump_highness := 100.0
 export(float) var jump_duration := 0.45
 
 
-export var attack1Cooldown: float = 1.0
-export var attack2Cooldown: float = 1.0
+export(float) var attack1Cooldown:= 1.0
+export(float)  var attack2Cooldown:= 1.0
+export(float)  var comboRestart:= 1.0
 
 var current_hp = hp
 
@@ -54,6 +56,7 @@ var paused = false
 
 var canAttack1 = true
 var canAttack2 = true
+var attack1count = 0
 var jumping = false
 
 var inputManager
@@ -108,6 +111,12 @@ func _process(_delta: float) -> void:
 					current_state = STATE.ATTACK1
 					actualAttackType = 1
 					canAttack1 = false
+
+					if attack1count + 1 > 3:
+						attack1count = 1
+					else:
+						attack1count = attack1count + 1
+
 				if Input.is_action_just_pressed(inputManager[5]) && canAttack2 == true:
 					current_state = STATE.ATTACK2
 					actualAttackType = 2
@@ -129,7 +138,17 @@ func _process(_delta: float) -> void:
 					
 				
 			STATE.ATTACK1:
-				anim_player.play("attack1")
+				match(attack1count):
+					1:
+						anim_player.play("attack11")
+					2:
+						anim_player.play("attack12")
+					3:
+						anim_player.play("attack13")
+
+				combo_timer.wait_time = comboRestart
+				combo_timer.one_shot = true
+				combo_timer.start()
 			STATE.ATTACK2:
 				anim_player.play("attack2")
 			STATE.JUMP:
@@ -317,9 +336,15 @@ func KO():
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if current_state != STATE.DIED:
-		if anim_name == "attack1":
+		if anim_name == "attack11":
 			current_state = STATE.IDLE
 
+		if anim_name == "attack12":
+			current_state = STATE.IDLE
+
+		if anim_name == "attack13":
+			current_state = STATE.IDLE
+		
 		if anim_name == "attack2":
 			current_state = STATE.IDLE
 		
@@ -370,11 +395,10 @@ func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
 
 
 func _on_CooldownAttack1Timer_timeout():
-	canAttack1 = true;
+	canAttack1 = true
 	cooldownAttack1_timer.wait_time = attack1Cooldown
 	cooldownAttack1_timer.one_shot = true
 	cooldownAttack1_timer.start()
-
 
 
 func _on_CooldownAttack2Timer_timeout():
@@ -383,3 +407,6 @@ func _on_CooldownAttack2Timer_timeout():
 	cooldownAttack2_timer.one_shot = true
 	cooldownAttack2_timer.start()
 
+
+func _on_ComboTimer_timeout():
+	attack1count = 0
