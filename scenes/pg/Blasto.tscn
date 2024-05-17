@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/img/sprites/Player/Blasto_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/audio/sfx/Player/Punches_SFX/punch_01.ogg" type="AudioStream" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/img/sprites/VFX/playerMeleeHittedVFX.png" type="Texture" id=8]
 [ext_resource path="res://assets/audio/sfx/Player/Blasto_SFX/blasto_ea_lungo_1zic.ogg" type="AudioStream" id=9]
 [ext_resource path="res://assets/audio/sfx/Player/Blasto_SFX/Blasto_Jump.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/sfx/Player/Blasto_SFX/Blasto_Land.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack11"
@@ -328,8 +329,16 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
+} ],
+"times": PoolRealArray( 0, 0.82 )
 }
 
 [sub_resource type="Animation" id=5]
@@ -493,7 +502,7 @@ rotation = 1.5708
 shape = SubResource( 13 )
 
 [node name="GunSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 bus = "SFX"
 
 [node name="PunchSFX" type="AudioStreamPlayer" parent="."]

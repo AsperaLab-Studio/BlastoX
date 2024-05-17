@@ -470,49 +470,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 39 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 6
+frame = 8
 playing = true
 
 [node name="obj" type="Node" parent="."]
@@ -555,6 +555,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj2"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj2/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -570,6 +571,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj11"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj11/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -585,6 +587,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj6"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj6/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -600,6 +603,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj3"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj3/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -615,6 +619,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj4"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj4/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -630,6 +635,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj5"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj5/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -645,6 +651,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj7"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj7/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -660,6 +667,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj8"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj8/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -675,6 +683,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj9"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj9/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -690,6 +699,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj10"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj10/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -705,6 +715,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj22"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj22/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -720,6 +731,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj12"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj12/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -735,6 +747,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj13"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj13/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -750,6 +763,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj15"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj15/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -765,6 +779,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj16"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj16/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -780,6 +795,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj17"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj17/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -795,6 +811,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj18"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj18/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -810,6 +827,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj20"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj20/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
@@ -825,6 +843,7 @@ vframes = 5
 frame = 9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/Lv1-DObj21"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Lv1-DObj21/StaticBody2D"]
 position = Vector2( 1.85715, 0.232544 )
