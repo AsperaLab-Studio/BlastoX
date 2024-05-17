@@ -9,7 +9,7 @@ extents = Vector2( 1990.15, 120.176 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7891.81, 278.05 )
 
-[node name="Node" type="Node"]
+[node name="Border" type="Node"]
 
 [node name="border" type="Node" parent="."]
 
