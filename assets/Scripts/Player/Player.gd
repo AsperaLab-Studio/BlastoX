@@ -5,7 +5,8 @@ signal update_healthbar
 signal death
 
 onready var collision_shape : CollisionShape2D = $Pivot/PlayerHitBox/CollisionShape2D
-onready var sprite: Sprite = $Sprite
+onready var sprite: Sprite = $SpritePivot/Sprite
+onready var shadow: Sprite = $SpritePivot/Shadow
 onready var attack_collision: Area2D = $Pivot/AttackCollision
 onready var pivot: Node2D = $Pivot
 
@@ -237,20 +238,33 @@ func jump(delta):
 	switchLayers(true)
 	move()
 	current_time += delta
-	var t = current_time / jump_duration
-	if jumping:
-		spritePivot.position = lerp(Vector2.ZERO,- Vector2(0, jump_highness), t)
-		if spritePivot.position.y <= -jump_highness:
-			current_time = 0.0
-			jumping = false
+
+	if sprite.frame >= 10:
+		shadow.visible = true
 	
-	else:
-		spritePivot.position = lerp(- Vector2(0, jump_highness), Vector2.ZERO, t)
-		if spritePivot.position.y >= 0:
-			switchLayers(false)
-			current_time = 0.0
-			invincible = false
-			current_state = STATE.IDLE
+	if sprite.frame == 10:
+		shadow.frame = 13
+	elif sprite.frame == 11:
+		shadow.frame = 14
+	
+
+	var t = current_time / jump_duration
+	if sprite.frame >= 10:
+		if jumping:
+			sprite.position = lerp(Vector2.ZERO,- Vector2(0, jump_highness), t)
+			if sprite.position.y <= -jump_highness:
+				current_time = 0.0
+				jumping = false
+		
+		else:
+			sprite.position = lerp(- Vector2(0, jump_highness), Vector2.ZERO, t)
+			if sprite.position.y >= 0:
+				switchLayers(false)
+				current_time = 0.0
+				invincible = false
+				shadow.visible = false
+				shadow.frame = 13
+				current_state = STATE.IDLE
 
 func pause():
 	anim_player.stop()

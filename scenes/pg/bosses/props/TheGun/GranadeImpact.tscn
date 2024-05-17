@@ -7,7 +7,6 @@
 [ext_resource path="res://assets/img/sprites/enemy/bosses/obj/the gun/impactState1.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/sprites/enemy/bosses/obj/the gun/impactState2.png" type="Texture" id=6]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 74.0

@@ -19,8 +19,8 @@ rotation = 3.14159
 scale = Vector2( 2.14571, 1.88281 )
 texture = ExtResource( 1 )
 hframes = 3
-vframes = 7
-frame = 17
+vframes = 11
+frame = 29
 
 [node name="BulletArea" type="Area2D" parent="."]
 position = Vector2( 0, -1 )
