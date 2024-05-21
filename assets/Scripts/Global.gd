@@ -46,6 +46,9 @@ var player1_input
 var player2_input
 
 func _process(_delta):
+	isMultiplayer = true
+	var x = Input.get_joy_name(0)
+	var y = Input.get_joy_name(1)
 	if Input.get_connected_joypads().size() > 0:
 		multiplayerReady = true
 	

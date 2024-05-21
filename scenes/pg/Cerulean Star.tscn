@@ -417,6 +417,7 @@ scale = Vector2( 2.13561, 2.13561 )
 collision_mask = 5
 script = ExtResource( 5 )
 debug_mode = true
+isPlayerTwo = true
 speed = 200
 attack1Cooldown = 0.1
 comboRestart = 0.3

@@ -630,7 +630,6 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 2
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -652,20 +651,20 @@ position = Vector2( 172, 140 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 22 )
 
-[node name="Cerulian Star" type="Node2D" parent="GUI/UI/LifesList"]
+[node name="Ceru" type="Node2D" parent="GUI/UI/LifesList"]
 position = Vector2( 700, 0 )
 
-[node name="Ceru1" type="Sprite" parent="GUI/UI/LifesList/Cerulian Star"]
+[node name="Ceru1" type="Sprite" parent="GUI/UI/LifesList/Ceru"]
 position = Vector2( 235, 140 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 38 )
 
-[node name="Ceru2" type="Sprite" parent="GUI/UI/LifesList/Cerulian Star"]
+[node name="Ceru2" type="Sprite" parent="GUI/UI/LifesList/Ceru"]
 position = Vector2( 204, 140 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 38 )
 
-[node name="Ceru3" type="Sprite" parent="GUI/UI/LifesList/Cerulian Star"]
+[node name="Ceru3" type="Sprite" parent="GUI/UI/LifesList/Ceru"]
 position = Vector2( 172, 140 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 38 )
@@ -690,15 +689,15 @@ max_value = 10.0
 value = 10.0
 texture_progress = ExtResource( 7 )
 
-[node name="Cerulian Star" type="Node2D" parent="GUI/UI/HealthPlayerContainer"]
+[node name="Ceru" type="Node2D" parent="GUI/UI/HealthPlayerContainer"]
 position = Vector2( 700, 0 )
 
-[node name="ConiceBarraVita" type="Sprite" parent="GUI/UI/HealthPlayerContainer/Cerulian Star"]
+[node name="ConiceBarraVita" type="Sprite" parent="GUI/UI/HealthPlayerContainer/Ceru"]
 position = Vector2( 293.239, 82.7536 )
 scale = Vector2( 0.295394, 0.289558 )
 texture = ExtResource( 39 )
 
-[node name="HealthBar" type="TextureProgress" parent="GUI/UI/HealthPlayerContainer/Cerulian Star"]
+[node name="HealthBar" type="TextureProgress" parent="GUI/UI/HealthPlayerContainer/Ceru"]
 margin_left = 146.0
 margin_top = 57.0
 margin_right = 1507.0
@@ -897,7 +896,7 @@ position = Vector2( -489, 52 )
 position = Vector2( 491, 1265 )
 scale = Vector2( 1, 1 )
 
-[node name="Player" parent="PlayersList" instance=ExtResource( 36 )]
+[node name="Ceru" parent="PlayersList" instance=ExtResource( 36 )]
 position = Vector2( 569, 1218 )
 scale = Vector2( 1, 1 )
 
@@ -960,49 +959,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 19 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1045,11 +1044,12 @@ position = Vector2( 174, 1439 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SmallBox"]
 position = Vector2( 7, -86 )
 frames = SubResource( 34 )
+frame = 1
 playing = true
 
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
-[connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Cerulian Star/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
+[connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Ceru/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="GUI/pauseMenu" method="_on_OptionBtn_pressed"]
@@ -1061,5 +1061,6 @@ playing = true
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="GUI/pauseMenu" method="_on_SFXSlider_value_changed"]
 [connection signal="death" from="PlayersList/Blasto" to="StageManager" method="_on_Blasto_death"]
 [connection signal="update_healthbar" from="PlayersList/Blasto" to="GUI/UI/HealthPlayerContainer" method="_on_Blasto_update_healthbar"]
-[connection signal="update_healthbar" from="PlayersList/Player" to="GUI/UI/HealthPlayerContainer" method="_on_Ceru_Star_update_healthbar"]
+[connection signal="death" from="PlayersList/Ceru" to="StageManager" method="_on_Ceru_Star_death"]
+[connection signal="update_healthbar" from="PlayersList/Ceru" to="GUI/UI/HealthPlayerContainer" method="_on_Ceru_Star_update_healthbar"]
 [connection signal="area_entered" from="Commands/StaticBody2D" to="Commands" method="_on_StaticBody2D_area_entered"]
