@@ -10,6 +10,10 @@ onready var StompCooldown_timer : Timer = $StompCooldownTimer
 onready var Stomp_timer : Timer = $StompTimer
 onready var UIHealthBar: Node2D = get_parent().get_parent().get_parent().get_node("GUI/UI/HealthBossContainer")
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
+
+onready var missile : KronusMissile = $Missile
+onready var spawnMissile : Position2D = $MissilePos
+
 enum STATE {IDLE, HIT, DIED, STOMP, SHOTGUN, MISSILES}
 
 export var GENERAL_VARS := "____________________"
@@ -19,7 +23,7 @@ export(int) var HP := 5
 export(int) var stompDuration := 2
 export(int) var stompDelay := 5
 
-var current_state = STATE.STOMP
+var current_state = STATE.MISSILES
 var actual_target: Player = null
 var directionPlayer = Vector2()
 var near_player: bool = false
@@ -50,7 +54,6 @@ func _process(_delta: float) -> void:
 				if stompFree:
 					current_state = STATE.STOMP
 			
-			
 			STATE.HIT:
 				anim_player.play("hit")
 			
@@ -59,6 +62,10 @@ func _process(_delta: float) -> void:
 				if stompFree:
 					stomp()
 			
+			STATE.MISSILES:
+				if !actual_target.invincible:
+					missile.shoot(actual_target)
+					current_state = STATE.IDLE
 			
 			STATE.DIED:
 				collision_shape_body.disabled = true
