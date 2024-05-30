@@ -64,8 +64,9 @@ func _process(_delta: float) -> void:
 			
 			STATE.MISSILES:
 				if !actual_target.invincible:
+					missile.position2d = spawnMissile
 					missile.shoot(actual_target)
-					current_state = STATE.IDLE
+					#current_state = STATE.IDLE
 			
 			STATE.DIED:
 				collision_shape_body.disabled = true
