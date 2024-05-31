@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/pg/singleplayer/salarian.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/ost/lvls station/lvl 1-station.ogg" type="AudioStream" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/tile/station/lvl 1 s/station1Tile1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/img/UI/you win cornice.png" type="Texture" id=15]
 [ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=16]
+[ext_resource path="res://scenes/tile/environment/borders.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/img/frontground/lvl desert/desert1 door.png" type="Texture" id=18]
 [ext_resource path="res://scenes/pg/singleplayer/asari.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/tile/station/lvl 1 s/station1Tile3.tscn" type="PackedScene" id=20]
@@ -84,15 +85,6 @@ border_width_bottom = 23
 border_color = Color( 0.839216, 0, 1, 1 )
 shadow_color = Color( 1, 0.6, 0.6, 0.6 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 15745.8, 285.783 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 1990.15, 120.176 )
-
-[sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 7890.29, 291.611 )
-
 [sub_resource type="RectangleShape2D" id=33]
 extents = Vector2( 10, 136.5 )
 
@@ -114,7 +106,7 @@ totalFightPhases = 3
 position = Vector2( 8936, 1272 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StageManager/MovingWall"]
 position = Vector2( 0.000293732, 56.1404 )
@@ -552,7 +544,6 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -774,43 +765,10 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="border" type="Node" parent="."]
-
-[node name="Top" type="StaticBody2D" parent="border"]
-position = Vector2( 121.151, 321.426 )
-scale = Vector2( 0.58, 0.57 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
-position = Vector2( 15527.8, 482.173 )
-shape = SubResource( 6 )
-
-[node name="Left" type="StaticBody2D" parent="border"]
-position = Vector2( 386.667, 12.83 )
-rotation = 1.5708
-scale = Vector2( 0.57, 0.58 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
-position = Vector2( 870.27, 780.269 )
-shape = SubResource( 7 )
-
-[node name="Bottom" type="StaticBody2D" parent="border"]
-position = Vector2( 0, 639 )
-scale = Vector2( 0.58, 0.57 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
-position = Vector2( 7826.08, 843.656 )
-shape = SubResource( 22 )
-
 [node name="PlayersList" type="Node2D" parent="."]
 
 [node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
-position = Vector2( 25.4528, 1232.18 )
+position = Vector2( -12, 1312 )
 scale = Vector2( 1, 1 )
 
 [node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
@@ -868,6 +826,8 @@ position = Vector2( 126, 178 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Commands/StaticBody2D"]
 position = Vector2( -4, 14.5 )
 shape = SubResource( 33 )
+
+[node name="borders" parent="." instance=ExtResource( 17 )]
 
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]

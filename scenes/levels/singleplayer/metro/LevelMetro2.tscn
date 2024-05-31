@@ -97,7 +97,7 @@ heightLevel = 550
 position = Vector2( 2391, 1177 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StageManager/MovingWall"]
 position = Vector2( 0.000293732, 56.1404 )
@@ -390,6 +390,8 @@ scale = Vector2( 0.58, 0.57 )
 
 [node name="EnemiesContainer" type="Node" parent="StageManager"]
 
+[node name="FadingSystem" parent="." instance=ExtResource( 27 )]
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="GUI"]
@@ -490,6 +492,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 2.89441, 2.84451 )
 frames = SubResource( 32 )
+frame = 2
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -711,12 +714,10 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="FadingSystem" parent="." instance=ExtResource( 27 )]
-
 [node name="PlayersList" type="Node2D" parent="."]
 
 [node name="Blasto" parent="PlayersList" instance=ExtResource( 23 )]
-position = Vector2( 105, 1289 )
+position = Vector2( 62, 1334 )
 scale = Vector2( 1, 1 )
 
 [node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
@@ -767,6 +768,7 @@ script = ExtResource( 17 )
 [connection signal="fading" from="StageManager" to="FadingSystem" method="_on_StageManager_fading"]
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo2" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
+[connection signal="black_screen" from="FadingSystem" to="StageManager" method="_on_FadingSystem_black_screen"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
@@ -777,6 +779,5 @@ script = ExtResource( 17 )
 [connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="GUI/pauseMenu" method="_on_checkFullscreen_toggled"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/MusicSlider" to="GUI/pauseMenu" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="GUI/pauseMenu" method="_on_SFXSlider_value_changed"]
-[connection signal="black_screen" from="FadingSystem" to="StageManager" method="_on_FadingSystem_black_screen"]
 [connection signal="death" from="PlayersList/Blasto" to="StageManager" method="_on_Blasto_death"]
 [connection signal="update_healthbar" from="PlayersList/Blasto" to="GUI/UI/HealthPlayerContainer" method="_on_Blasto_update_healthbar"]

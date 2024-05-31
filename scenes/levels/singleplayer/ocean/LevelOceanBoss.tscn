@@ -1,13 +1,13 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://assets/img/sprites/obj/booble.png" type="Texture" id=1]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/ost/lvls sub/The Vine soundtrack.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/img/background/sea/sea3.png" type="Texture" id=3]
 [ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=4]
 [ext_resource path="res://assets/Scripts/Player/camera/CameraShake.gd" type="Script" id=5]
 [ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/img/UI/blasto/barra vita.png" type="Texture" id=7]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=8]
+[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=8]
 [ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=9]
 [ext_resource path="res://scenes/pg/bosses/salarianBoss.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=11]
@@ -20,14 +20,12 @@
 [ext_resource path="res://assets/img/UI/bosses/the vine/barra vita the vine.png" type="Texture" id=18]
 [ext_resource path="res://assets/Scripts/Managers/BossSceneManager.gd" type="Script" id=19]
 [ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=20]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=21]
+[ext_resource path="res://scenes/tile/environment/borders.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=22]
 [ext_resource path="res://assets/img/UI/game over cornice.png" type="Texture" id=23]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=24]
 [ext_resource path="res://assets/img/UI/rating/C.png" type="Texture" id=25]
 [ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=26]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=27]
-[ext_resource path="res://assets/Scripts/Sounds/LevelSounds.gd" type="Script" id=28]
 [ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=29]
 [ext_resource path="res://assets/Scripts/Player/camera/cameraController.gd" type="Script" id=30]
 
@@ -49,9 +47,6 @@ border_width_top = 18
 border_width_bottom = 23
 border_color = Color( 0.839216, 0, 1, 1 )
 shadow_color = Color( 1, 0.6, 0.6, 0.6 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 15748, 123.529 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 1990.15, 120.176 )
@@ -129,41 +124,6 @@ position = Vector2( 63, -456 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 1020.87 ]
 }
-
-[node name="Audio" type="Node2D" parent="."]
-script = ExtResource( 28 )
-
-[node name="AkBank" type="Node" parent="Audio"]
-script = ExtResource( 8 )
-bank = {
-"Id": 3161908922,
-"Name": "MAIN"
-}
-load_on = 3
-
-[node name="AkState" type="Node" parent="Audio"]
-script = ExtResource( 21 )
-state_group = {
-"Id": 1927797142,
-"Name": "MUSICTRIGGER"
-}
-state_value = {
-"Id": 2764240573,
-"Name": "COMBAT"
-}
-trigger_on = 3
-
-[node name="AkEvent2D" type="Node2D" parent="Audio"]
-script = ExtResource( 27 )
-event = {
-"Id": 1405004590,
-"Name": "OCEAN PLAY BOSS MUSIC"
-}
-trigger_on = 3
-stop_on = 2
-
-[node name="AkListener2D" type="Node2D" parent="Audio"]
-script = ExtResource( 2 )
 
 [node name="StageManager" type="Node2D" parent="."]
 position = Vector2( -680, -496 )
@@ -736,73 +696,24 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="border" type="Node" parent="." groups=["border"]]
+[node name="Border" parent="." instance=ExtResource( 21 )]
 
-[node name="Top" type="StaticBody2D" parent="border"]
-position = Vector2( 132.312, 444.188 )
-scale = Vector2( 0.58, 0.57 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
-position = Vector2( 15525.4, 415.184 )
-shape = SubResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="border/Top"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top/Area2D"]
-position = Vector2( 15525.4, 415.184 )
-shape = SubResource( 6 )
-
-[node name="Left" type="StaticBody2D" parent="border" groups=["border"]]
-position = Vector2( 386.667, 11.83 )
-rotation = 1.5708
-scale = Vector2( 0.57, 0.58 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
-position = Vector2( 870.27, 780.269 )
-shape = SubResource( 7 )
-
-[node name="Area2D" type="Area2D" parent="border/Left"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left/Area2D"]
-position = Vector2( 870.27, 780.269 )
-shape = SubResource( 7 )
-
-[node name="Right" type="StaticBody2D" parent="border"]
+[node name="Right" type="StaticBody2D" parent="Border"]
 position = Vector2( 1932.8, 13.7178 )
 rotation = 1.5708
 scale = Vector2( 0.57, 0.58 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/Right"]
 position = Vector2( 870.135, 1606.41 )
 shape = SubResource( 7 )
 
-[node name="Area2D" type="Area2D" parent="border/Right"]
+[node name="Area2D" type="Area2D" parent="Border/Right"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Right/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/Right/Area2D"]
 position = Vector2( 870.135, 1606.41 )
 shape = SubResource( 7 )
-
-[node name="Bottom" type="StaticBody2D" parent="border"]
-position = Vector2( 3.17841, 556.951 )
-scale = Vector2( 0.58, 0.57 )
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
-position = Vector2( 14914.6, 812.236 )
-shape = SubResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="border/Bottom"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom/Area2D"]
-position = Vector2( 14915.3, 810.945 )
-shape = SubResource( 6 )
 
 [node name="floor" type="Node2D" parent="."]
 position = Vector2( -1689, 509 )
@@ -819,6 +730,12 @@ position = Vector2( 25.4528, 1315 )
 scale = Vector2( 1, 1 )
 boss = true
 
+[node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
+pause_mode = 2
+stream = ExtResource( 2 )
+bus = "Music"
+script = ExtResource( 8 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="background2" type="Node" parent="ParallaxBackground"]
@@ -834,7 +751,7 @@ texture = ExtResource( 3 )
 position = Vector2( 131, 219 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 5
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -842,7 +759,7 @@ playing = true
 position = Vector2( 663, 224 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 5
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -850,7 +767,7 @@ playing = true
 position = Vector2( 1157, 165 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 4
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -858,7 +775,6 @@ playing = true
 position = Vector2( 998, 284 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
 speed_scale = 1.8
 playing = true
 
@@ -866,7 +782,6 @@ playing = true
 position = Vector2( 456, 144 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
 speed_scale = 1.8
 playing = true
 
@@ -874,7 +789,7 @@ playing = true
 position = Vector2( 297, 278 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 2
+frame = 14
 speed_scale = 1.8
 playing = true
 
@@ -882,7 +797,7 @@ playing = true
 position = Vector2( 1361, 401 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
+frame = 13
 speed_scale = 1.8
 playing = true
 
@@ -890,7 +805,7 @@ playing = true
 position = Vector2( 1508, 258 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
+frame = 13
 speed_scale = 1.8
 playing = true
 
@@ -898,7 +813,7 @@ playing = true
 position = Vector2( 759, 538 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
+frame = 13
 speed_scale = 1.8
 playing = true
 
@@ -906,6 +821,7 @@ playing = true
 position = Vector2( 1601, 514 )
 frames = SubResource( 56 )
 animation = "New Anim"
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -913,6 +829,7 @@ playing = true
 position = Vector2( 369, 646 )
 frames = SubResource( 56 )
 animation = "New Anim"
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -920,7 +837,7 @@ playing = true
 position = Vector2( 63, 532 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 11
 speed_scale = 1.8
 playing = true
 
@@ -928,7 +845,7 @@ playing = true
 position = Vector2( 1046, 637 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 11
 speed_scale = 1.8
 playing = true
 
@@ -958,10 +875,7 @@ script = ExtResource( 5 )
 boss = true
 randomShackeStrenght = 10.0
 
-[connection signal="visibility_changed" from="GUI/UI/GAME OVER" to="Audio" method="_on_GAME_OVER_visibility_changed"]
-[connection signal="visibility_changed" from="GUI/UI/WIN" to="Audio" method="_on_WIN_visibility_changed"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
-[connection signal="visibility_changed" from="GUI/pauseMenu" to="Audio" method="_on_pauseMenu_visibility_changed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="GUI/pauseMenu" method="_on_OptionBtn_pressed"]

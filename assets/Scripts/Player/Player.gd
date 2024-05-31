@@ -5,12 +5,14 @@ signal update_healthbar
 signal death
 
 onready var collision_shape : CollisionShape2D = $Pivot/PlayerHitBox/CollisionShape2D
-onready var sprite: Sprite = $Sprite
+onready var sprite: Sprite = $SpritePivot/Sprite
+onready var shadow: Sprite = $SpritePivot/Shadow
 onready var attack_collision: Area2D = $Pivot/AttackCollision
 onready var pivot: Node2D = $Pivot
 
 onready var cooldownAttack1_timer: Timer = $CooldownAttack1Timer
 onready var cooldownAttack2_timer: Timer = $CooldownAttack2Timer
+onready var combo_timer: Timer = $ComboTimer
 
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var bullet = preload("res://scenes/pg/Bullet.tscn")
@@ -26,12 +28,12 @@ onready var phisicBody: CollisionShape2D = $CollisionShape2D
 #test
 export var debug_mode : bool
 
-enum STATE {IDLE, MOVE, KNOCKBACK, ATTACK1, ATTACK2, HIT, SHOOT, SHAKE, WIN, DIED}
+enum STATE {IDLE, MOVE, KNOCKBACK, ATTACK1, ATTACK2, JUMP, HIT, SHOOT, SHAKE, WIN, DIED}
 
 export(bool) var isPlayerTwo: bool = false
 export(int) var speed: int = 300
 export(int) var damage: int = 1
-export(int) var HP: int = 20
+export(int) var hp: int = 10
 export(bool) var moving: bool = false
 export(bool) var boss: bool = false
 export(Vector2) var direction: = Vector2.ZERO
@@ -39,9 +41,15 @@ export(Vector2) var orientation: = Vector2.RIGHT
 
 export(float) var rebonuce_distance := 500.0
 export(float) var rebounce_speed := 700.0
+export(float) var jump_highness := 100.0
+export(float) var jump_duration := 0.45
 
-export var attack1Cooldown: float = 1.0
-export var attack2Cooldown: float = 1.0
+
+export(float) var attack1Cooldown:= 1.0
+export(float)  var attack2Cooldown:= 1.0
+export(float)  var comboRestart:= 1.0
+
+var current_hp = hp
 
 var current_state = STATE.IDLE
 var sceneManager = null
@@ -49,12 +57,16 @@ var paused = false
 
 var canAttack1 = true
 var canAttack2 = true
+var attack1count = 0
+var jumping = false
 
 var inputManager
 var lifesList
 var lifeCount: int
 
 var actualAttackType: int
+
+var current_time: float = 0.0
 
 func _ready() -> void:
 	anim_player.play("idle")
@@ -100,6 +112,12 @@ func _process(_delta: float) -> void:
 					current_state = STATE.ATTACK1
 					actualAttackType = 1
 					canAttack1 = false
+
+					if attack1count + 1 > 3:
+						attack1count = 1
+					else:
+						attack1count = attack1count + 1
+
 				if Input.is_action_just_pressed(inputManager[5]) && canAttack2 == true:
 					current_state = STATE.ATTACK2
 					actualAttackType = 2
@@ -108,7 +126,12 @@ func _process(_delta: float) -> void:
 				if Input.is_action_just_pressed(inputManager[6]):
 					current_state = STATE.SHOOT
 					
-				if direction:
+				if Input.is_action_just_pressed(inputManager[8]):
+					jumping = true
+					invincible = true
+					current_state = STATE.JUMP
+				
+				if direction && current_state != STATE.JUMP:
 					current_state = STATE.MOVE
 					
 				else:
@@ -116,9 +139,24 @@ func _process(_delta: float) -> void:
 					
 				
 			STATE.ATTACK1:
-				anim_player.play("attack1")
+				match(attack1count):
+					0:
+						current_state = STATE.IDLE
+					1:
+						anim_player.play("attack11")
+					2:
+						anim_player.play("attack12")
+					3:
+						anim_player.play("attack13")
+
+				combo_timer.wait_time = comboRestart
+				combo_timer.one_shot = true
+				combo_timer.start()
 			STATE.ATTACK2:
 				anim_player.play("attack2")
+			STATE.JUMP:
+				anim_player.play("jump")
+				jump(_delta)
 			STATE.HIT:
 				anim_player.play("hit")
 			STATE.KNOCKBACK:
@@ -141,21 +179,16 @@ func _process(_delta: float) -> void:
 			STATE.SHOOT:
 				anim_player.play("shoot")
 			STATE.MOVE:
-				if direction.x < 0:
-					if pivot.scale.x > 0:
-						pivot.scale.x = - pivot.scale.x	
-						spritePivot.scale.x = -spritePivot.scale.x	
-				if direction.x > 0:
-					if pivot.scale.x < 0:
-						pivot.scale.x = - pivot.scale.x
-						spritePivot.scale.x = -spritePivot.scale.x	
-
+				if Input.is_action_just_pressed(inputManager[8]):
+					jumping = true
+					invincible = true
+					current_state = STATE.JUMP
+				else:
+					move()
+					anim_player.play("move")
 					
-				move_and_slide(direction * speed)
-				anim_player.play("move")
-				
-				if !direction:
-					current_state = STATE.IDLE
+					if !direction:
+						current_state = STATE.IDLE
 					
 				
 			STATE.DIED:
@@ -178,6 +211,17 @@ func attack():
 			enemy.hit(damage, "melee", actualAttackType)
 		
 	
+func move():
+	if direction.x < 0:
+		if pivot.scale.x > 0:
+			pivot.scale.x = - pivot.scale.x	
+			spritePivot.scale.x = -spritePivot.scale.x	
+	elif direction.x > 0:
+		if pivot.scale.x < 0:
+			pivot.scale.x = - pivot.scale.x
+			spritePivot.scale.x = -spritePivot.scale.x
+	move_and_slide(direction * speed)
+
 
 func shoot():
 	var bullet_instance = bullet.instance()
@@ -189,6 +233,39 @@ func shoot():
 	bullet_instance.global_transform = position2d.global_transform
 	
 
+func jump(delta):
+	invincible = true
+	switchLayers(true)
+	move()
+	current_time += delta
+
+	if sprite.frame >= 10:
+		shadow.visible = true
+	
+	if sprite.frame == 10:
+		shadow.frame = 13
+	elif sprite.frame == 11:
+		shadow.frame = 14
+	
+
+	var t = current_time / jump_duration
+	if sprite.frame >= 10:
+		if jumping:
+			sprite.position = lerp(Vector2.ZERO,- Vector2(0, jump_highness), t)
+			if sprite.position.y <= -jump_highness:
+				current_time = 0.0
+				jumping = false
+		
+		else:
+			sprite.position = lerp(- Vector2(0, jump_highness), Vector2.ZERO, t)
+			if sprite.position.y >= 0:
+				switchLayers(false)
+				current_time = 0.0
+				invincible = false
+				shadow.visible = false
+				shadow.frame = 13
+				current_state = STATE.IDLE
+
 func pause():
 	anim_player.stop()
 	set_process(false)
@@ -197,6 +274,17 @@ func pause():
 func knockback():
 	current_state = STATE.KNOCKBACK
 
+func switchLayers(jump):
+	if jump:
+		set_collision_layer_bit(4, true)
+		set_collision_layer_bit(0, false)
+		set_collision_mask_bit(2, false)
+		set_collision_mask_bit(0, false)
+	else:
+		set_collision_layer_bit(4, false)
+		set_collision_layer_bit(0, true)
+		set_collision_mask_bit(2, true)
+		set_collision_mask_bit(0, true)
 
 func move_rebounce(target: Vector2, rebounceSpeed):
 	if target:
@@ -225,7 +313,8 @@ func hit(dps, type, source):
 				sceneManager.hit += 1
 			if current_state != STATE.HIT || current_state != STATE.DIED:
 				current_state = STATE.HIT
-				emit_signal("update_healthbar", dps)
+				current_hp = current_hp - dps
+				emit_signal("update_healthbar", current_hp)
 		
 	
 
@@ -252,17 +341,26 @@ func removeLife():
 func respawn():
 	removeLife()
 	current_state = STATE.IDLE
-	emit_signal("update_healthbar", -HP)
+	current_hp = hp
+	emit_signal("update_healthbar", hp)
+
 
 func KO():
 	removeLife()
 	queue_free()
 
+
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if current_state != STATE.DIED:
-		if anim_name == "attack1":
+		if anim_name == "attack11":
 			current_state = STATE.IDLE
 
+		if anim_name == "attack12":
+			current_state = STATE.IDLE
+
+		if anim_name == "attack13":
+			current_state = STATE.IDLE
+		
 		if anim_name == "attack2":
 			current_state = STATE.IDLE
 		
@@ -298,7 +396,7 @@ func _on_AreaGo_area_entered(area: Area2D) -> void:
 	
 
 func _on_HealthBar_value_changed(value: float) -> void:
-	if value <= 0:
+	if current_hp <= 0:
 		current_state = STATE.DIED
 	
 
@@ -313,11 +411,10 @@ func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
 
 
 func _on_CooldownAttack1Timer_timeout():
-	canAttack1 = true;
+	canAttack1 = true
 	cooldownAttack1_timer.wait_time = attack1Cooldown
 	cooldownAttack1_timer.one_shot = true
 	cooldownAttack1_timer.start()
-
 
 
 func _on_CooldownAttack2Timer_timeout():
@@ -325,3 +422,7 @@ func _on_CooldownAttack2Timer_timeout():
 	cooldownAttack2_timer.wait_time = attack2Cooldown
 	cooldownAttack2_timer.one_shot = true
 	cooldownAttack2_timer.start()
+
+
+func _on_ComboTimer_timeout():
+	attack1count = 0

@@ -18,7 +18,7 @@ export(int) var death_speed := 150
 export(int) var moving_speed := 50
 export(int) var dps := 10
 export(int) var HP := 5
-export(float) var rebonuceDistance := 5.0
+export(float) var rebonuceDistance := 80.0
 export(float) var rebounce_speed := 5.0
 export(bool) var group = false
 
@@ -50,20 +50,12 @@ func _process(_delta: float) -> void:
 	
 	match current_state:
 		STATE.HIT:
-			anim_player.play("hit")
+			if actualAttackTypeReceived != 2:
+				anim_player.play("hit")
 			
 			if actualAttackTypeReceived == 2:
-				var pos = Vector2()
-				pos.y = global_position.y
-				
-				if global_position.x > actual_target.global_position.x:
-					pos.x = global_position.x + rebonuceDistance
-				else:
-					pos.x = global_position.x - rebonuceDistance
-			
-				print("layers active: ",  collision_layer)
-				print("masks active: ",  collision_mask)
-				move_rebounce(pos, rebounce_speed)
+				anim_player.play("knockback")
+				knockback()
 				
 		STATE.CHASE:
 			anim_player.play("move")
@@ -131,6 +123,22 @@ func select_target() -> Player:
 
 
 
+func knockback():
+	switchLayers(true)
+
+	var pos = Vector2()
+	pos.y = global_position.y
+	
+	if global_position.x > actual_target.global_position.x:
+		pos.x = global_position.x + rebonuceDistance
+	else:
+		pos.x = global_position.x - rebonuceDistance
+
+	print("layers active: ",  collision_layer)
+	print("masks active: ",  collision_mask)
+	move_rebounce(pos, rebounce_speed)
+
+
 func hit(dpsTaken, attackType, source) -> void:
 	healthBar.update_healthbar(dpsTaken)
 	amount = amount + dpsTaken
@@ -140,7 +148,9 @@ func hit(dpsTaken, attackType, source) -> void:
 		current_state = STATE.HIT
 		if attackType == "melee":
 			actualAttackTypeReceived = source
-		switchLayers(true)
+		else:
+			actualAttackTypeReceived = -1
+		
 		
 	
 func switchLayers(hitting):
@@ -212,7 +222,7 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 	
 	if(area.owner.is_in_group("enemy")):
 		var otherSprite: Sprite = area.owner.get_node("Sprite")
-		if(sprite.flip_h == otherSprite.flip_h):
+		if(sprite.flip_h == otherSprite.flip_h && current_state != STATE.HIT):
 			current_state = STATE.IDLE
 			near_enemy = true
 		
@@ -236,6 +246,8 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "attack":
 		current_state = STATE.CHASE
 	if anim_name == "hit":
+		current_state = STATE.CHASE
+	if anim_name == "knockback":
 		switchLayers(false)
 		current_state = STATE.CHASE
 		

@@ -15,6 +15,7 @@ var playerKeyboard_input = [
 	"attack2_keyboard",
 	"shoot_keyboard",
 	"menu_keyboard",
+	"jump_keyboard",
 ]
 
 var playerPad1_input = [
@@ -26,6 +27,7 @@ var playerPad1_input = [
 	"attack2_pad1",
 	"shoot_pad1",
 	"menu_pad1",
+	"jump_pad1",
 ]
 
 var playerPad2_input = [
@@ -37,6 +39,7 @@ var playerPad2_input = [
 	"attack2_pad2",
 	"shoot_pad2",
 	"menu_pad2",
+	"jump_pad2",
 ]
 
 var player1_input

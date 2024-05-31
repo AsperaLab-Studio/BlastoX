@@ -10,6 +10,8 @@ onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
 onready var collition_area2d : CollisionShape2D = $Pivot/AttackCollision/CollisionShape2D
 onready var UIHealthBar: Node2D = get_parent().get_parent().get_parent().get_node("GUI/UI/HealthBossContainer")
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
+onready var invincibility_timer = $InvincibilityTimer
+onready var invincible = false
 
 onready var spear_list_pos: Array = get_parent().get_parent().get_node("spearZones").get_children()
 onready var gun_list_pos: Array = get_parent().get_parent().get_node("gunZones").get_children()
@@ -165,13 +167,15 @@ func select_target() -> Player:
 
 func hit(dpsTaken, attackType, source) -> void:
 	if not source is Bullet: 
-		healthBar.update_healthbar(dpsTaken)
-		amount = amount + dpsTaken
-		if amount >= HP:
-			current_state = STATE.DIED
-		else:
-			current_state = STATE.HIT
-			
+		if invincible == false:
+			invincible = true
+			healthBar.update_healthbar(dpsTaken)
+			amount = amount + dpsTaken
+			if amount >= HP:
+				current_state = STATE.DIED
+			else:
+				current_state = STATE.HIT
+				
 func do_knockback():
 	actual_target.knockback()
 	choosed_pos = 0
@@ -240,5 +244,11 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "knockback":
 		current_state = STATE.IDLE
 		
+func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
+	if anim_name == "hit":
+		invincibility_timer.start(1)
+		invincible = true
 
-
+func _on_InvincibilityTimer_timeout() -> void:
+	invincible = false
+	

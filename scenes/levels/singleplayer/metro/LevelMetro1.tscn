@@ -93,7 +93,7 @@ extents = Vector2( 15745.8, 285.783 )
 extents = Vector2( 1990.15, 120.176 )
 
 [sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 7890.29, 291.611 )
+extents = Vector2( 7889.22, 287.958 )
 
 [sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 141.353, 89 )
@@ -119,7 +119,7 @@ totalFightPhases = 3
 position = Vector2( 8936, 1272 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StageManager/MovingWall"]
 position = Vector2( 0.000293732, 56.1404 )
@@ -577,7 +577,6 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 1
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -830,7 +829,7 @@ collision_layer = 2
 collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
-position = Vector2( 7826.08, 843.656 )
+position = Vector2( 7827.59, 852.333 )
 shape = SubResource( 22 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="border"]
@@ -844,7 +843,7 @@ shape = SubResource( 34 )
 [node name="PlayersList" type="Node2D" parent="."]
 
 [node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
-position = Vector2( 129, 1120 )
+position = Vector2( 187, 1216 )
 scale = Vector2( 1, 1 )
 
 [node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
