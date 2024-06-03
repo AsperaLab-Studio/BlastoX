@@ -11,7 +11,7 @@ onready var attack_area2d : Area2D = $Pivot/AttackCollision
 onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var cooldown: Timer = $Cooldown
 
-enum STATE {IDLE, CHASE, CHOOSE_RANGED, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED}
+enum STATE {IDLE, CHASE, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED}
 
 export var GENERAL_VARS := "--------------------"
 export(int) var death_speed := 150
@@ -48,12 +48,14 @@ var near_player: bool = false
 var ended_punch: bool = false
 var hitted: bool = false
 var can_ranged: bool = false
+var is_ranged: bool = false
 
 var healthBar = null
 var amount = 0
 var paused = false
 var targetList = null
 var direction : Vector2 
+var prevRangedState : int = STATE.LAVASTOMP
 
 var sceneManager = null
 
@@ -94,9 +96,6 @@ func _process(_delta: float) -> void:
 					
 				if anim_player.current_animation != "punch":
 					ended_punch = true
-			
-			STATE.CHOOSE_RANGED:
-				pass
 
 			STATE.SHOTGUN:
 				anim_player.play("shotgun")
@@ -119,16 +118,17 @@ func _process(_delta: float) -> void:
 					var i = 1
 
 					for pos in temp_list[actual_zone].get_children():
-						var actual_lava_column_instance = lava_column.instance()
+						if (global_position.distance_to(pos.global_position) >= 100):
+							var actual_lava_column_instance = lava_column.instance()
 
-						if pos.name == "1" || pos.name == "2":
-							actual_lava_column_instance.z_index = -2
-						else:
-							actual_lava_column_instance.z_index = 3
-						
-						lava_container.add_child(actual_lava_column_instance)
-						actual_lava_column_instance.global_transform = pos.global_transform
-						i = i + 1
+							if pos.name == "1" || pos.name == "2":
+								actual_lava_column_instance.z_index = -2
+							else:
+								actual_lava_column_instance.z_index = 3
+							
+							lava_container.add_child(actual_lava_column_instance)
+							actual_lava_column_instance.global_transform = pos.global_transform
+							i = i + 1
 
 					temp_list.remove(actual_zone)
 
@@ -136,8 +136,8 @@ func _process(_delta: float) -> void:
 					cooldown.wait_time = wait_attack
 					cooldown.start()
 					can_ranged = false
+					is_ranged = false
 					onEnter = true
-					current_state = STATE.IDLE
 
 			STATE.DIED:
 				collision_shape_body.disabled = true
@@ -221,7 +221,7 @@ func shoot():
 	cooldown.wait_time = wait_attack
 	cooldown.start()
 	can_ranged = false
-	current_state = STATE.IDLE
+	is_ranged = false
 
 
 func death():
@@ -250,7 +250,8 @@ func _on_Cooldown_timeout():
 
 
 func choose_state():
-	current_state = STATE.IDLE
+	if !can_ranged:
+		current_state = STATE.IDLE
 	if hitted:
 		if amount >= hp:
 			current_state = STATE.DIED
@@ -262,8 +263,17 @@ func choose_state():
 		var distance = global_position.distance_to(actual_target.global_position)
 		if distance <= range_chase:
 			current_state = STATE.CHASE
+			is_ranged = false
 		else:
-			current_state = STATE.CHOOSE_RANGED			
+			if can_ranged && (current_state != STATE.SHOTGUN || current_state != STATE.LAVASTOMP):
+				if !is_ranged:
+					is_ranged = true
+					if prevRangedState == STATE.LAVASTOMP:
+						current_state = STATE.SHOTGUN
+						prevRangedState = STATE.SHOTGUN
+					else:
+						current_state = STATE.LAVASTOMP
+						prevRangedState = STATE.LAVASTOMP
 	elif ended_punch:
 		current_state = STATE.IDLE
 	

@@ -117,8 +117,11 @@ current_level = "ocean/LevelOceanBoss"
 [node name="EnemiesContainer" type="Node" parent="StageManager"]
 
 [node name="kronusBoss3" parent="StageManager/EnemiesContainer" instance=ExtResource( 10 )]
-position = Vector2( 758, 852 )
-numberOfBullets = 11
+position = Vector2( 567, 822 )
+move_speed = 50
+wait_attack = 1.5
+range_chase = 300.0
+shootingAmplitude = 45.0
 
 [node name="respawnPoint" type="Node2D" parent="StageManager"]
 position = Vector2( 1000, 1750 )
@@ -531,7 +534,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 43 )
-frame = 6
+frame = 9
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -539,7 +542,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 6
+frame = 9
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -547,7 +550,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 6
+frame = 9
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -555,7 +558,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 6
+frame = 9
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -563,7 +566,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 6
+frame = 9
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -571,7 +574,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 6
+frame = 9
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -579,7 +582,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 6
+frame = 9
 playing = true
 
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
