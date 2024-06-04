@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/img/frontground/lvl volcanic/tileset/Floor_PH_B.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( -40, -24 )
+
+[node name="LV1-D T-STR" type="Sprite" parent="."]
+position = Vector2( 324, 112 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="LV1-D T-STR2" type="Sprite" parent="."]
+position = Vector2( 665, 112 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="LV1-D T-STR3" type="Sprite" parent="."]
+position = Vector2( 1006, 112 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="LV1-D T-STR4" type="Sprite" parent="."]
+position = Vector2( 1347, 112 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
