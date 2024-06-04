@@ -1,6 +1,6 @@
 class_name KronusMissile
 extends Node2D
-
+signal HasShootMissile
 
 var position2d : Position2D
 export(PackedScene) var bullet
@@ -22,6 +22,7 @@ func shoot(player):
 	bullet_instance.direction = t2
 	get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.set_global_position(position2d.get_global_position())
+	emit_signal("HasShootMissile")
 
 func powFunctionSum(value1 : float, value2 : float, base : float) -> float:
 	return (pow(value1, base) + pow(value2, base))

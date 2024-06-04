@@ -352,7 +352,7 @@ bus = "SFX"
 
 [node name="StompTimer" type="Timer" parent="."]
 
-[node name="StompCooldownTimer" type="Timer" parent="."]
+[node name="AttackCooldownTimer" type="Timer" parent="."]
 
 [node name="Missile" type="Node2D" parent="."]
 script = ExtResource( 8 )
@@ -362,4 +362,5 @@ bullet = ExtResource( 9 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="StompTimer" to="." method="_on_StompTimer_timeout"]
-[connection signal="timeout" from="StompCooldownTimer" to="." method="_on_StompCooldownTimer_timeout"]
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_AttackCooldownTimer_timeout"]
+[connection signal="HasShootMissile" from="Missile" to="." method="_on_Missile_HasShootMissile"]

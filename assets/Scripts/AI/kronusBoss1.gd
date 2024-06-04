@@ -6,24 +6,38 @@ onready var pivot: Node2D = $Pivot
 onready var anim_player : AnimationPlayer = $AnimationPlayer
 onready var collision_shape : CollisionShape2D = $HitBox/CollisionShape2D
 onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
-onready var StompCooldown_timer : Timer = $StompCooldownTimer
-onready var Stomp_timer : Timer = $StompTimer
 onready var UIHealthBar: Node2D = get_parent().get_parent().get_parent().get_node("GUI/UI/HealthBossContainer")
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
-
-onready var missile : KronusMissile = $Missile
-onready var spawnMissile : Position2D = $MissilePos
+onready var AttackCooldown_timer : Timer = $StompCooldownTimer
 
 enum STATE {IDLE, HIT, DIED, STOMP, SHOTGUN, MISSILES}
 
 export var GENERAL_VARS := "____________________"
-
 export(int) var dps := 10
 export(int) var HP := 5
+export(float) var wait_attack := 2.0
+
+export var SHOTGUN_VARS := "--------------------"
+export(int) var dps_shotgun := 2
+export(int) var numberOfBullets  := 5
+export(float) var shootingAmplitude  := 30.0
+onready var spawnRifle : Position2D = $PositionRifle
+export(PackedScene) var bullet
+export(float) var shotgunCooldown := 3
+
+export var MISSILES_VARS := "____________________"
+onready var missile : KronusMissile = $Missile
+onready var spawnMissile : Position2D = $MissilePos
+export(float) var missilesCooldown := 3
+
+export var STOMP_VARS := "--------------------"
+onready var Stomp_timer : Timer = $StompTimer
 export(int) var stompDuration := 2
 export(int) var stompDelay := 5
 
-var current_state = STATE.MISSILES
+
+var current_state = STATE.IDLE
+var last_state = STATE.IDLE
 var actual_target: Player = null
 var directionPlayer = Vector2()
 var near_player: bool = false
@@ -36,6 +50,8 @@ var targetList = null
 var sceneManager = null
 
 var stompFree: bool = true
+var canMissile: bool = true
+var canShotgun: bool = true
 
 func _ready():
 	anim_player.play("idle")
@@ -60,13 +76,27 @@ func _process(_delta: float) -> void:
 			
 			STATE.STOMP:
 				if stompFree:
+					last_state = STATE.STOMP
 					stomp()
 			
 			STATE.MISSILES:
 				if !actual_target.invincible:
-					missile.position2d = spawnMissile
-					missile.shoot(actual_target)
-					#current_state = STATE.IDLE
+					if canMissile:
+						canMissile = false
+						last_state = STATE.MISSILES
+						missile.position2d = spawnMissile
+						missile.shoot(actual_target)
+					else:
+						current_state = STATE.IDLE
+			
+			STATE.SHOTGUN:
+				if !actual_target.invincible:
+					if canShotgun:
+						canShotgun = false
+						last_state = STATE.SHOTGUN
+						shotgun_shoot()
+					else:
+						current_state = STATE.IDLE
 			
 			STATE.DIED:
 				collision_shape_body.disabled = true
@@ -100,7 +130,6 @@ func hit(dpsTaken, attackType, source) -> void:
 		else:
 			current_state = STATE.HIT
 
-
 func stomp(): 
 	stompFree = false
 	Stomp_timer.wait_time = stompDuration
@@ -110,10 +139,7 @@ func stomp():
 	for target in targetList:
 		target.paused = true
 	Stomp_timer.start()
-	StompCooldown_timer.wait_time = stompDelay
-	StompCooldown_timer.one_shot = true
-	StompCooldown_timer.start()
-
+	start_attack_cooldown(stompDelay)
 
 func set_state_idle():
 	camera.smoothing_speed = 0
@@ -121,10 +147,44 @@ func set_state_idle():
 	for target in targetList:
 		target.paused = false
 
+func shotgun_shoot():
+	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
+	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
+	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+	
+	var i = 0
+	for n in numberOfBullets:
+		var bullet_instance = bullet.instance()
+		var angleOffset = shootingAmplitude/2 - deltaAngle * i
+		bullet_instance.rotate(angle + deg2rad(angleOffset))
+		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
+		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
+		bullet_instance.set_global_position(spawnRifle.get_global_position())
+		i+=1
+	start_attack_cooldown(shotgunCooldown)
 
 func _on_StompTimer_timeout():
 	set_state_idle()
 
+func _on_Missile_HasShootMissile():
+	start_attack_cooldown(missilesCooldown)
 
-func _on_StompCooldownTimer_timeout():
-	stompFree = true
+func start_attack_cooldown(value):
+	AttackCooldown_timer.wait_time = value
+	AttackCooldown_timer.one_shot = true
+	AttackCooldown_timer.start()
+	current_state = STATE.IDLE
+
+func _on_AttackCooldownTimer_timeout():
+	choose_state()
+
+func choose_state():
+	if last_state == STATE.STOMP:
+		stompFree = true
+		current_state = STATE.STOMP
+	elif last_state == STATE.MISSILES:
+		canMissile = true
+		current_state = STATE.MISSILES
+	elif last_state == STATE.SHOTGUN:
+		canShotgun = true
+		current_state = STATE.SHOTGUN
