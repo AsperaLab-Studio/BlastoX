@@ -14,7 +14,6 @@
 [ext_resource path="res://assets/img/UI/blasto/cornice barra vita.png" type="Texture" id=12]
 [ext_resource path="res://assets/img/UI/bosses/the jaw/the jaw cornice destra.png" type="Texture" id=13]
 [ext_resource path="res://scenes/tile/desert/lvl 3 d/desert3TileBoss.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/tile/environment/borders.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/img/UI/you win cornice.png" type="Texture" id=16]
 [ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=17]
 [ext_resource path="res://assets/img/UI/bosses/the jaw/barra vita the jaw.png" type="Texture" id=18]
@@ -50,6 +49,9 @@ border_color = Color( 0.839216, 0, 1, 1 )
 shadow_color = Color( 1, 0.6, 0.6, 0.6 )
 
 [sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 15748, 123.529 )
+
+[sub_resource type="RectangleShape2D" id=44]
 extents = Vector2( 1990.15, 120.176 )
 
 [sub_resource type="AtlasTexture" id=8]
@@ -380,23 +382,72 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="Border" parent="." instance=ExtResource( 15 )]
+[node name="border" type="Node" parent="."]
 
-[node name="Right" type="StaticBody2D" parent="Border"]
+[node name="Top" type="StaticBody2D" parent="border"]
+position = Vector2( 132.312, 444.188 )
+scale = Vector2( 0.58, 0.57 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
+position = Vector2( 15525.4, 415.184 )
+shape = SubResource( 43 )
+
+[node name="Area2D" type="Area2D" parent="border/Top"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top/Area2D"]
+position = Vector2( 15525.4, 415.184 )
+shape = SubResource( 43 )
+
+[node name="Left" type="StaticBody2D" parent="border"]
+position = Vector2( 386.667, 11.83 )
+rotation = 1.5708
+scale = Vector2( 0.57, 0.58 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
+position = Vector2( 870.27, 780.269 )
+shape = SubResource( 44 )
+
+[node name="Area2D" type="Area2D" parent="border/Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left/Area2D"]
+position = Vector2( 870.27, 780.269 )
+shape = SubResource( 44 )
+
+[node name="Right" type="StaticBody2D" parent="border"]
 position = Vector2( 1932.8, 13.7178 )
 rotation = 1.5708
 scale = Vector2( 0.57, 0.58 )
 collision_layer = 2
-collision_mask = 29
+collision_mask = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Right"]
 position = Vector2( 870.135, 1606.41 )
+shape = SubResource( 44 )
+
+[node name="Area2D" type="Area2D" parent="border/Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Right/Area2D"]
+position = Vector2( 870.135, 1606.41 )
+shape = SubResource( 44 )
+
+[node name="Bottom" type="StaticBody2D" parent="border"]
+position = Vector2( 3.17841, 556.951 )
+scale = Vector2( 0.58, 0.57 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
+position = Vector2( 14914.6, 812.236 )
 shape = SubResource( 43 )
 
-[node name="Area2D" type="Area2D" parent="Border/Right"]
+[node name="Area2D" type="Area2D" parent="border/Bottom"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/Right/Area2D"]
-position = Vector2( 870.135, 1606.41 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom/Area2D"]
+position = Vector2( 14915.3, 810.945 )
 shape = SubResource( 43 )
 
 [node name="floor" type="Node2D" parent="."]
@@ -410,7 +461,7 @@ scenes = [ ExtResource( 14 ) ]
 [node name="PlayersList" type="Node2D" parent="."]
 
 [node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
-position = Vector2( 25.4528, 1232.18 )
+position = Vector2( 25.4528, 1279 )
 scale = Vector2( 1, 1 )
 boss = true
 
@@ -458,42 +509,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 39 )
+frame = 7
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
+frame = 7
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
+frame = 7
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
+frame = 7
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
+frame = 7
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
+frame = 7
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
+frame = 7
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
