@@ -17,7 +17,7 @@ export(int) var dps := 10
 export(int) var HP := 5
 export(float) var wait_attack := 2.0
 
-export var SHOTGUN_VARS := "--------------------"
+export var SHOTGUN_VARS := "____________________"
 export(int) var dps_shotgun := 2
 export(int) var numberOfBullets  := 5
 export(float) var shootingAmplitude  := 30.0
@@ -30,14 +30,13 @@ onready var missile : KronusMissile = $Missile
 onready var spawnMissile : Position2D = $MissilePos
 export(float) var missilesCooldown := 3
 
-export var STOMP_VARS := "--------------------"
+export var STOMP_VARS := "____________________"
 onready var Stomp_timer : Timer = $StompTimer
 export(int) var stompDuration := 2
 export(int) var stompDelay := 5
 
 
 var current_state = STATE.IDLE
-var last_state = STATE.IDLE
 var actual_target: Player = null
 var directionPlayer = Vector2()
 var near_player: bool = false
@@ -53,6 +52,8 @@ var stompFree: bool = true
 var canMissile: bool = true
 var canShotgun: bool = true
 
+var attackCounter = 0
+
 func _ready():
 	anim_player.play("idle")
 	healthBar = UIHealthBar
@@ -67,8 +68,7 @@ func _process(_delta: float) -> void:
 		match current_state:
 			
 			STATE.IDLE:
-				if stompFree:
-					current_state = STATE.STOMP
+				pass
 			
 			STATE.HIT:
 				anim_player.play("hit")
@@ -76,14 +76,14 @@ func _process(_delta: float) -> void:
 			
 			STATE.STOMP:
 				if stompFree:
-					last_state = STATE.STOMP
+					updateCounter()
 					stomp()
 			
 			STATE.MISSILES:
 				if !actual_target.invincible:
 					if canMissile:
 						canMissile = false
-						last_state = STATE.MISSILES
+						updateCounter()
 						missile.position2d = spawnMissile
 						missile.shoot(actual_target)
 					else:
@@ -93,7 +93,7 @@ func _process(_delta: float) -> void:
 				if !actual_target.invincible:
 					if canShotgun:
 						canShotgun = false
-						last_state = STATE.SHOTGUN
+						updateCounter()
 						shotgun_shoot()
 					else:
 						current_state = STATE.IDLE
@@ -178,13 +178,17 @@ func start_attack_cooldown(value):
 func _on_AttackCooldownTimer_timeout():
 	choose_state()
 
+func updateCounter():
+	attackCounter += 1
+	
+
 func choose_state():
-	if last_state == STATE.STOMP:
-		stompFree = true
-		current_state = STATE.STOMP
-	elif last_state == STATE.MISSILES:
-		canMissile = true
-		current_state = STATE.MISSILES
-	elif last_state == STATE.SHOTGUN:
+	if (attackCounter % 2 == 0):
 		canShotgun = true
 		current_state = STATE.SHOTGUN
+	elif (attackCounter % 3 == 0):
+		canMissile = true
+		current_state = STATE.MISSILES
+	else:
+		stompFree = true
+		current_state = STATE.STOMP
