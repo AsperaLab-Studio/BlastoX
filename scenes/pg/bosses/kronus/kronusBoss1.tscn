@@ -101,6 +101,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "choose_state"
+} ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "missiles"
@@ -124,7 +138,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -154,7 +168,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2 ),
+"times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -185,14 +199,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.44, 0.45 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.44 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "stomp"
-}, {
-"args": [  ],
-"method": "updateCounter"
 } ]
 }
 
@@ -239,6 +250,9 @@ shape = SubResource( 14 )
 
 [node name="Pivot" type="Node2D" parent="."]
 
+[node name="MissilePos" type="Position2D" parent="Pivot"]
+position = Vector2( 53, -14 )
+
 [node name="HealthDisplay" type="Node2D" parent="."]
 
 [node name="HealthBar" type="TextureProgress" parent="HealthDisplay"]
@@ -248,7 +262,6 @@ max_value = 3.0
 value = 3.0
 
 [node name="Label" type="Label" parent="HealthDisplay"]
-visible = false
 margin_left = -20.1815
 margin_top = -77.7829
 margin_right = 19.8185
@@ -265,8 +278,6 @@ bus = "SFX"
 [node name="Missile" type="Node2D" parent="."]
 script = ExtResource( 8 )
 bullet = ExtResource( 9 )
-
-[node name="MissilePos" type="Position2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
