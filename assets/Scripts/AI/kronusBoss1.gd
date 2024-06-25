@@ -6,9 +6,9 @@ onready var pivot: Node2D = $Pivot
 onready var anim_player : AnimationPlayer = $AnimationPlayer
 onready var collision_shape : CollisionShape2D = $HitBox/CollisionShape2D
 onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
-onready var UIHealthBar: Node2D = get_parent().get_parent().get_parent().get_node("GUI/UI/HealthBossContainer")
+onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
-onready var AttackCooldown_timer : Timer = $StompCooldownTimer
+onready var AttackCooldown_timer : Timer = $AttackCooldownTimer
 
 enum STATE {IDLE, HIT, DIED, STOMP, SHOTGUN, MISSILES}
 
@@ -21,7 +21,7 @@ export var SHOTGUN_VARS := "____________________"
 export(int) var dps_shotgun := 2
 export(int) var numberOfBullets  := 5
 export(float) var shootingAmplitude  := 30.0
-onready var spawnRifle : Position2D = $PositionRifle
+onready var spawnRifle : Position2D = $MissilePos
 export(PackedScene) var bullet
 export(float) var shotgunCooldown := 3
 
@@ -68,35 +68,19 @@ func _process(_delta: float) -> void:
 		match current_state:
 			
 			STATE.IDLE:
-				pass
+				choose_state()
 			
 			STATE.HIT:
 				anim_player.play("hit")
 			
-			
 			STATE.STOMP:
-				if stompFree:
-					updateCounter()
-					stomp()
+				anim_player.play("stomp")
 			
 			STATE.MISSILES:
-				if !actual_target.invincible:
-					if canMissile:
-						canMissile = false
-						updateCounter()
-						missile.position2d = spawnMissile
-						missile.shoot(actual_target)
-					else:
-						current_state = STATE.IDLE
+				anim_player.play("missiles")
 			
 			STATE.SHOTGUN:
-				if !actual_target.invincible:
-					if canShotgun:
-						canShotgun = false
-						updateCounter()
-						shotgun_shoot()
-					else:
-						current_state = STATE.IDLE
+				anim_player.play("shotgun")
 			
 			STATE.DIED:
 				collision_shape_body.disabled = true
@@ -122,13 +106,12 @@ func select_target() -> Player:
 
 
 func hit(dpsTaken, attackType, source) -> void:
-	if (current_state != STATE.CHARGE_START && current_state != STATE.CHARGE_MID && current_state != STATE.CHARGE_END):
-		healthBar.update_healthbar(dpsTaken)
-		amount = amount + dpsTaken
-		if amount >= HP:
-			current_state = STATE.DIED
-		else:
-			current_state = STATE.HIT
+	healthBar.update_healthbar(dpsTaken)
+	amount = amount + dpsTaken
+	if amount >= HP:
+		current_state = STATE.DIED
+	else:
+		current_state = STATE.HIT
 
 func stomp(): 
 	stompFree = false
@@ -163,6 +146,10 @@ func shotgun_shoot():
 		i+=1
 	start_attack_cooldown(shotgunCooldown)
 
+func missile_shoot():
+	missile.position2d = spawnMissile
+	missile.shoot(actual_target)
+
 func _on_StompTimer_timeout():
 	set_state_idle()
 
@@ -173,10 +160,9 @@ func start_attack_cooldown(value):
 	AttackCooldown_timer.wait_time = value
 	AttackCooldown_timer.one_shot = true
 	AttackCooldown_timer.start()
-	current_state = STATE.IDLE
 
 func _on_AttackCooldownTimer_timeout():
-	choose_state()
+	current_state = STATE.IDLE
 
 func updateCounter():
 	attackCounter += 1
