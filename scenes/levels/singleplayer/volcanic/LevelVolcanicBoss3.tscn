@@ -162,6 +162,14 @@ position = Vector2( 227, 959 )
 [node name="4" type="Position2D" parent="StageManager/spearZones/3"]
 position = Vector2( 278, 1002 )
 
+[node name="bossPoints" type="Node" parent="StageManager"]
+
+[node name="left" type="Position2D" parent="StageManager/bossPoints"]
+position = Vector2( 838, 857 )
+
+[node name="right" type="Position2D" parent="StageManager/bossPoints"]
+position = Vector2( 109, 857 )
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="GUI"]
@@ -513,7 +521,7 @@ randomShackeStrenght = 10.0
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 43 )
-frame = 2
+frame = 5
 playing = true
 
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]

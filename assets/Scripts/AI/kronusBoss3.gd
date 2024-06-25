@@ -43,6 +43,9 @@ var current_state = STATE.IDLE
 var actual_target: Player = null
 var directionPlayer = Vector2()
 
+var BACK_JUMP := "--------------------"
+onready var boss_list_points: Array = get_parent().get_parent().get_node("bossPoints").get_children()
+
 var STATE_FLAGS := "--------------------"
 var near_player: bool = false
 var ended_punch: bool = false
@@ -92,6 +95,8 @@ func _process(_delta: float) -> void:
 					move_towards(actual_target.global_position, move_speed)
 
 			STATE.BACKJUMP:
+				
+
 				ended_back = true
 
 			STATE.PUNCH:
