@@ -11,7 +11,7 @@ onready var attack_area2d : Area2D = $Pivot/AttackCollision
 onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var cooldown: Timer = $Cooldown
 
-enum STATE {IDLE, CHASE, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED}
+enum STATE {IDLE, CHASE, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED, BACKJUMP}
 
 export var GENERAL_VARS := "--------------------"
 export(int) var death_speed := 150
@@ -49,6 +49,8 @@ var ended_punch: bool = false
 var hitted: bool = false
 var can_ranged: bool = false
 var is_ranged: bool = false
+var ended_back: bool = false
+var previous_state 
 
 var healthBar = null
 var amount = 0
@@ -72,6 +74,7 @@ func _process(_delta: float) -> void:
 	gp = global_position
 	actual_target = select_target()
 	
+	previous_state = current_state
 	choose_state()
 
 	if(!paused):
@@ -87,6 +90,9 @@ func _process(_delta: float) -> void:
 				anim_player.play("move")
 				if !near_player:
 					move_towards(actual_target.global_position, move_speed)
+
+			STATE.BACKJUMP:
+				ended_back = true
 
 			STATE.PUNCH:
 				if near_player && !actual_target.invincible:
@@ -265,15 +271,18 @@ func choose_state():
 			current_state = STATE.CHASE
 			is_ranged = false
 		else:
-			if can_ranged && (current_state != STATE.SHOTGUN || current_state != STATE.LAVASTOMP):
-				if !is_ranged:
-					is_ranged = true
-					if prevRangedState == STATE.LAVASTOMP:
-						current_state = STATE.SHOTGUN
-						prevRangedState = STATE.SHOTGUN
-					else:
-						current_state = STATE.LAVASTOMP
-						prevRangedState = STATE.LAVASTOMP
+			if previous_state != STATE.CHASE || ended_back:
+				if can_ranged && (current_state != STATE.SHOTGUN || current_state != STATE.LAVASTOMP):
+					if !is_ranged:
+						is_ranged = true
+						if prevRangedState == STATE.LAVASTOMP:
+							current_state = STATE.SHOTGUN
+							prevRangedState = STATE.SHOTGUN
+						else:
+							current_state = STATE.LAVASTOMP
+							prevRangedState = STATE.LAVASTOMP
+			else:
+				current_state = STATE.BACKJUMP
 	elif ended_punch:
 		current_state = STATE.IDLE
 	
