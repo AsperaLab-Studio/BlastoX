@@ -32,11 +32,12 @@ export(float) var missilesCooldown := 3
 
 export var STOMP_VARS := "____________________"
 onready var Stomp_timer : Timer = $StompTimer
+onready var StompCooldown_timer : Timer = $StompCooldownTimer
 export(int) var stompDuration := 2
 export(int) var stompDelay := 5
 
 
-var current_state = STATE.IDLE
+var current_state = STATE.STOMP
 var actual_target: Player = null
 var directionPlayer = Vector2()
 var near_player: bool = false
@@ -45,6 +46,7 @@ var amount = 0
 var paused = false
 var areaCollided = null
 var targetList = null
+var stompFree: bool = true
 
 var sceneManager = null
 
@@ -63,13 +65,20 @@ func _process(_delta: float) -> void:
 		match current_state:
 			
 			STATE.IDLE:
-				anim_player.play("idle")
-			
+				#anim_player.play("idle")
+				current_state == STATE.MISSILES
 			STATE.HIT:
 				anim_player.play("hit")
 			
 			STATE.STOMP:
-				anim_player.play("stomp")
+				if Stomp_timer.is_stopped() && stompFree:
+					anim_player.play("stomp")
+				if anim_player.current_animation != "stomp":
+					current_state = STATE.IDLE
+#				if stompFree:
+#					anim_player.play("stomp")
+#				else:
+#					current_state == STATE.IDLE
 			
 			STATE.MISSILES:
 				anim_player.play("missiles")
@@ -127,6 +136,7 @@ func hit(dpsTaken, attackType, source) -> void:
 		current_state = STATE.HIT
 
 func stomp(): 
+	stompFree = false
 	Stomp_timer.wait_time = stompDuration
 	Stomp_timer.one_shot = true
 	camera.smoothing_speed = 5
@@ -134,6 +144,9 @@ func stomp():
 	for target in targetList:
 		target.paused = true
 	Stomp_timer.start()
+	StompCooldown_timer.wait_time = 5.0
+	StompCooldown_timer.one_shot = true
+	StompCooldown_timer.start()
 
 func set_state_idle():
 	camera.smoothing_speed = 0
@@ -162,7 +175,6 @@ func missile_shoot():
 	missile.shoot(actual_target)
 
 func _on_StompTimer_timeout():
-	current_state == STATE.IDLE
 	set_state_idle()
 
 func _on_Missile_HasShootMissile():
@@ -188,3 +200,7 @@ func choose_state():
 		current_state = STATE.MISSILES
 #	else:
 #		current_state = STATE.STOMP
+
+
+func _on_StompCooldownTimer_timeout():
+	stompFree == true
