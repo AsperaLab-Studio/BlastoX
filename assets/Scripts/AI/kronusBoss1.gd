@@ -37,7 +37,7 @@ export(int) var stompDuration := 2
 export(int) var stompDelay := 5
 
 
-var current_state = STATE.STOMP
+var current_state = STATE.IDLE
 var actual_target: Player = null
 var directionPlayer = Vector2()
 var near_player: bool = false
@@ -194,12 +194,12 @@ func updateCounter():
 	
 
 func choose_state():
-	if (!attackCounter % 2 == 0):
+	if stompFree:
+		current_state = STATE.STOMP
+	elif (!attackCounter % 3 == 0):
 		current_state = STATE.SHOTGUN
 	else:
 		current_state = STATE.MISSILES
-#	else:
-#		current_state = STATE.STOMP
 
 
 func _on_StompCooldownTimer_timeout():
