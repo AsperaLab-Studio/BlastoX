@@ -287,6 +287,7 @@ func choose_state():
 							current_state = STATE.LAVASTOMP
 							prevRangedState = STATE.LAVASTOMP
 			else:
+				ended_back = false
 				current_state = STATE.BACKJUMP
 	elif ended_punch:
 		current_state = STATE.IDLE
