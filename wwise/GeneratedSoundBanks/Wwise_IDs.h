@@ -40,6 +40,9 @@ namespace AK
         static const AkUniqueID MENU_BUTTON_PRESSED = 1048498120U;
         static const AkUniqueID MENU_MOUSE_OVER = 2785341881U;
         static const AkUniqueID MENU_PLAY_MUSIC = 1092296013U;
+        static const AkUniqueID METRO_PLAY_BOSS_MUSIC = 2992688183U;
+        static const AkUniqueID METRO_PLAY_MAIN_MUSIC = 644196139U;
+        static const AkUniqueID METRO_PLAY_MUSIC = 408155869U;
         static const AkUniqueID NEXT_AREA = 923090826U;
         static const AkUniqueID OCEAN_PLAY_BOSS_MUSIC = 1405004590U;
         static const AkUniqueID OCEAN_PLAY_MAIN_MUSIC = 339355518U;
@@ -47,6 +50,9 @@ namespace AK
         static const AkUniqueID SALARIAN_ATTACK = 405565217U;
         static const AkUniqueID SALARIAN_DEATH = 3201417669U;
         static const AkUniqueID SALARIAN_HIT = 3656616932U;
+        static const AkUniqueID STATION_PLAY_BOSS_MUSIC = 3962179328U;
+        static const AkUniqueID STATION_PLAY_MAIN_MUSIC = 1053954892U;
+        static const AkUniqueID STATION_PLAY_MUSIC = 2703159004U;
         static const AkUniqueID TURIAN_ATTACK = 1815802421U;
         static const AkUniqueID TURIAN_DEATH = 440684361U;
         static const AkUniqueID TURIAN_HIT = 1251247560U;
