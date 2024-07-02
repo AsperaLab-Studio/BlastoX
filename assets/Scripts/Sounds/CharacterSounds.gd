@@ -23,6 +23,10 @@ func HitSound():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
 	Wwise.post_event_id(AK.EVENTS.BLASTO_HIT, self.get_parent())
 
+func JumpSound():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.BLASTO_JUMP, self.get_parent())
+
 
 # Enemies
 

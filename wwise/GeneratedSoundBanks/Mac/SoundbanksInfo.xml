@@ -42,7 +42,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2146656538">
+		<SoundBank Id="3161908922" Language="SFX" Hash="4100983725">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>3161908922.bnk</Path>
@@ -194,74 +194,6 @@
 						<File Id="1043363006" Language="SFX">
 							<ShortName>Mainsection\Bass_159bpm_34beats_Var1.wav</ShortName>
 							<Path>SFX/Mainsection/Bass_159bpm_34beats_Var1_E0B2C827.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2359455101" Name="desert_play_main_music" ObjectPath="\Events\Default Work Unit\desert_play_main_music">
-					<IncludedMemoryFiles>
-						<File Id="529910" Language="SFX">
-							<ShortName>Drums_146bpm_2beats_Trans.wav</ShortName>
-							<Path>SFX/Drums_146bpm_2beats_Trans_E0B2C827.wem</Path>
-						</File>
-						<File Id="125472727" Language="SFX">
-							<ShortName>Bass_160bpm_16beats_SEC1_Var4.wav</ShortName>
-							<Path>SFX/Bass_160bpm_16beats_SEC1_Var4_E0B2C827.wem</Path>
-						</File>
-						<File Id="130382283" Language="SFX">
-							<ShortName>Square2_160bpm_16beats_SEC1_Var2.wav</ShortName>
-							<Path>SFX/Square2_160bpm_16beats_SEC1_Var2_E0B2C827.wem</Path>
-						</File>
-						<File Id="284642979" Language="SFX">
-							<ShortName>Bass_160bpm_16beats_SEC1_Var3.wav</ShortName>
-							<Path>SFX/Bass_160bpm_16beats_SEC1_Var3_E0B2C827.wem</Path>
-						</File>
-						<File Id="359953739" Language="SFX">
-							<ShortName>Drums_160bpm_8beats_SEC1_Var1.wav</ShortName>
-							<Path>SFX/Drums_160bpm_8beats_SEC1_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="411829240" Language="SFX">
-							<ShortName>Square1_160bpm_16beats_SEC1_Var2.wav</ShortName>
-							<Path>SFX/Square1_160bpm_16beats_SEC1_Var2_E0B2C827.wem</Path>
-						</File>
-						<File Id="497294975" Language="SFX">
-							<ShortName>Square1_160bpm_16beats_SEC1_Var3.wav</ShortName>
-							<Path>SFX/Square1_160bpm_16beats_SEC1_Var3_E0B2C827.wem</Path>
-						</File>
-						<File Id="530189470" Language="SFX">
-							<ShortName>Drums_160bpm_16beats_SEC1_Var2.wav</ShortName>
-							<Path>SFX/Drums_160bpm_16beats_SEC1_Var2_E0B2C827.wem</Path>
-						</File>
-						<File Id="532635487" Language="SFX">
-							<ShortName>Bass_160bpm_16beats_SEC1_Var2.wav</ShortName>
-							<Path>SFX/Bass_160bpm_16beats_SEC1_Var2_E0B2C827.wem</Path>
-						</File>
-						<File Id="571519495" Language="SFX">
-							<ShortName>Square2_160bpm_16beats_SEC1_Var4.wav</ShortName>
-							<Path>SFX/Square2_160bpm_16beats_SEC1_Var4_E0B2C827.wem</Path>
-						</File>
-						<File Id="773557607" Language="SFX">
-							<ShortName>Bass_160bpm_8beats_SEC1_Var1.wav</ShortName>
-							<Path>SFX/Bass_160bpm_8beats_SEC1_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="881476376" Language="SFX">
-							<ShortName>Square1_160bpm_8beats_SEC1_Var1.wav</ShortName>
-							<Path>SFX/Square1_160bpm_8beats_SEC1_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="918092539" Language="SFX">
-							<ShortName>Square2_160bpm_8beats_SEC1_Var1.wav</ShortName>
-							<Path>SFX/Square2_160bpm_8beats_SEC1_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="950261896" Language="SFX">
-							<ShortName>Bass_146bpm_2beats_Trans.wav</ShortName>
-							<Path>SFX/Bass_146bpm_2beats_Trans_E0B2C827.wem</Path>
-						</File>
-						<File Id="1040950207" Language="SFX">
-							<ShortName>Drums_160bpm_16beats_SEC1_Var3.wav</ShortName>
-							<Path>SFX/Drums_160bpm_16beats_SEC1_Var3_E0B2C827.wem</Path>
-						</File>
-						<File Id="1060274405" Language="SFX">
-							<ShortName>Drums_160bpm_16beats_SEC1_Var4.wav</ShortName>
-							<Path>SFX/Drums_160bpm_16beats_SEC1_Var4_E0B2C827.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -623,66 +555,6 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2992688183" Name="metro_play_boss_music" ObjectPath="\Events\Default Work Unit\metro_play_boss_music"/>
-				<Event Id="644196139" Name="metro_play_main_music" ObjectPath="\Events\Default Work Unit\metro_play_main_music">
-					<IncludedMemoryFiles>
-						<File Id="5380462" Language="SFX">
-							<ShortName>Bass_112bpm_8beats_Main_Var1.wav</ShortName>
-							<Path>SFX/Bass_112bpm_8beats_Main_Var1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="48792539" Language="SFX">
-							<ShortName>Drums_112bpm_2beats_Intro.wav</ShortName>
-							<Path>SFX/Drums_112bpm_2beats_Intro_D79FB2B7.wem</Path>
-						</File>
-						<File Id="68395651" Language="SFX">
-							<ShortName>Lead_112bpm_16beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Lead_112bpm_16beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="173183163" Language="SFX">
-							<ShortName>Sine_112bpm_16beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Sine_112bpm_16beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="287257653" Language="SFX">
-							<ShortName>Drums_112bpm_16beats_Main_Var3.wav</ShortName>
-							<Path>SFX/Drums_112bpm_16beats_Main_Var3_D79FB2B7.wem</Path>
-						</File>
-						<File Id="342587765" Language="SFX">
-							<ShortName>Bass_112bpm_16beats_Main_Var3.wav</ShortName>
-							<Path>SFX/Bass_112bpm_16beats_Main_Var3_D79FB2B7.wem</Path>
-						</File>
-						<File Id="402677011" Language="SFX">
-							<ShortName>Drums_112bpm_16beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Drums_112bpm_16beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="433805718" Language="SFX">
-							<ShortName>Drums_112bpm_8beats_Main_Var1.wav</ShortName>
-							<Path>SFX/Drums_112bpm_8beats_Main_Var1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="461647819" Language="SFX">
-							<ShortName>Sine_112bpm_16beats_Main_Var3.wav</ShortName>
-							<Path>SFX/Sine_112bpm_16beats_Main_Var3_D79FB2B7.wem</Path>
-						</File>
-						<File Id="601281915" Language="SFX">
-							<ShortName>Bass_112bpm_2beats_Intro.wav</ShortName>
-							<Path>SFX/Bass_112bpm_2beats_Intro_D79FB2B7.wem</Path>
-						</File>
-						<File Id="842549490" Language="SFX">
-							<ShortName>Lead_112bpm_16beats_Main_Var3.wav</ShortName>
-							<Path>SFX/Lead_112bpm_16beats_Main_Var3_D79FB2B7.wem</Path>
-						</File>
-						<File Id="891284696" Language="SFX">
-							<ShortName>Bass_112bpm_16beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Bass_112bpm_16beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="948092111" Language="SFX">
-							<ShortName>Lead_112bpm_8beats_Main_Var1.wav</ShortName>
-							<Path>SFX/Lead_112bpm_8beats_Main_Var1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="1043356977" Language="SFX">
-							<ShortName>Lead_112bpm_2beats_Intro.wav</ShortName>
-							<Path>SFX/Lead_112bpm_2beats_Intro_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="408155869" Name="metro_play_music" ObjectPath="\Events\Default Work Unit\metro_play_music">
 					<IncludedMemoryFiles>
 						<File Id="5380462" Language="SFX">
@@ -860,81 +732,6 @@
 							<Path>SFX/SquareWave_157bpm_18beats_Var2_E0B2C827.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="339355518" Name="ocean_play_main_music" ObjectPath="\Events\Default Work Unit\ocean_play_main_music">
-					<IncludedMemoryFiles>
-						<File Id="78828070" Language="SFX">
-							<ShortName>MainSection\Bass_151bpm_16beats_SEC1_Var2.wav</ShortName>
-							<Path>SFX/MainSection/Bass_151bpm_16beats_SEC1_Var2_E0B2C827.wem</Path>
-						</File>
-						<File Id="85672130" Language="SFX">
-							<ShortName>Transition\SSC_146bpm_4beats_Trans.wav</ShortName>
-							<Path>SFX/Transition/SSC_146bpm_4beats_Trans_E0B2C827.wem</Path>
-						</File>
-						<File Id="191988298" Language="SFX">
-							<ShortName>MainSection\Drums_151bpm_16beats_SEC1_Var3.wav</ShortName>
-							<Path>SFX/MainSection/Drums_151bpm_16beats_SEC1_Var3_E0B2C827.wem</Path>
-						</File>
-						<File Id="208653305" Language="SFX">
-							<ShortName>MainSection\Lead_151bpm_16beats_SEC1_Var3.wav</ShortName>
-							<Path>SFX/MainSection/Lead_151bpm_16beats_SEC1_Var3_E0B2C827.wem</Path>
-						</File>
-						<File Id="269230183" Language="SFX">
-							<ShortName>MainSection\Bass_151bpm_16beats_SEC2_Var1.wav</ShortName>
-							<Path>SFX/MainSection/Bass_151bpm_16beats_SEC2_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="269553334" Language="SFX">
-							<ShortName>Transition\Square_146bpm_4beats_Trans.wav</ShortName>
-							<Path>SFX/Transition/Square_146bpm_4beats_Trans_E0B2C827.wem</Path>
-						</File>
-						<File Id="277068223" Language="SFX">
-							<ShortName>MainSection\Lead_151bpm_16beats_SEC1_Var2.wav</ShortName>
-							<Path>SFX/MainSection/Lead_151bpm_16beats_SEC1_Var2_E0B2C827.wem</Path>
-						</File>
-						<File Id="345413369" Language="SFX">
-							<ShortName>MainSection\Bass_151bpm_16beats_SEC1_Var3.wav</ShortName>
-							<Path>SFX/MainSection/Bass_151bpm_16beats_SEC1_Var3_E0B2C827.wem</Path>
-						</File>
-						<File Id="383666501" Language="SFX">
-							<ShortName>MainSection\Bass_151bpm_16beats_SEC1_Var1.wav</ShortName>
-							<Path>SFX/MainSection/Bass_151bpm_16beats_SEC1_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="649853388" Language="SFX">
-							<ShortName>Transition\Drums_146bpm_4beats_Trans.wav</ShortName>
-							<Path>SFX/Transition/Drums_146bpm_4beats_Trans_E0B2C827.wem</Path>
-						</File>
-						<File Id="650777107" Language="SFX">
-							<ShortName>MainSection\Lead_151bpm_16beats_SEC1_Var1.wav</ShortName>
-							<Path>SFX/MainSection/Lead_151bpm_16beats_SEC1_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="651810435" Language="SFX">
-							<ShortName>MainSection\Drums_151bpm_16beats_SEC1_Var2.wav</ShortName>
-							<Path>SFX/MainSection/Drums_151bpm_16beats_SEC1_Var2_E0B2C827.wem</Path>
-						</File>
-						<File Id="738404990" Language="SFX">
-							<ShortName>Transition\Farfisa_146bpm_4beats_Trans.wav</ShortName>
-							<Path>SFX/Transition/Farfisa_146bpm_4beats_Trans_E0B2C827.wem</Path>
-						</File>
-						<File Id="858908446" Language="SFX">
-							<ShortName>MainSection\Sine1_151bpm_16beats_SEC2_Var1.wav</ShortName>
-							<Path>SFX/MainSection/Sine1_151bpm_16beats_SEC2_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="880060666" Language="SFX">
-							<ShortName>MainSection\Drums_151bpm_16beats_SEC2_Var1.wav</ShortName>
-							<Path>SFX/MainSection/Drums_151bpm_16beats_SEC2_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="917706819" Language="SFX">
-							<ShortName>MainSection\Sine2_151bpm_16beats_SEC2_Var1.wav</ShortName>
-							<Path>SFX/MainSection/Sine2_151bpm_16beats_SEC2_Var1_E0B2C827.wem</Path>
-						</File>
-						<File Id="1026891249" Language="SFX">
-							<ShortName>MainSection\Drums_151bpm_16beats_SEC1_Var1.wav</ShortName>
-							<Path>SFX/MainSection/Drums_151bpm_16beats_SEC1_Var1_E0B2C827.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-					<ActionSetState>
-						<ActionSetStateEntry Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\MusicTrigger\Combat"/>
-					</ActionSetState>
 				</Event>
 				<Event Id="509704602" Name="ocean_play_music" ObjectPath="\Events\Default Work Unit\ocean_play_music">
 					<IncludedMemoryFiles>
@@ -1135,65 +932,6 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3962179328" Name="station_play_boss_music" ObjectPath="\Events\Default Work Unit\station_play_boss_music"/>
-				<Event Id="1053954892" Name="station_play_main_music" ObjectPath="\Events\Default Work Unit\station_play_main_music">
-					<IncludedMemoryFiles>
-						<File Id="49177610" Language="SFX">
-							<ShortName>Sfx_156bpm_32beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Sfx_156bpm_32beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="113652576" Language="SFX">
-							<ShortName>Lead_156bpm_16beats_Main_Var1.wav</ShortName>
-							<Path>SFX/Lead_156bpm_16beats_Main_Var1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="136305509" Language="SFX">
-							<ShortName>Bass_156bpm_32beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Bass_156bpm_32beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="214469969" Language="SFX">
-							<ShortName>Bass_156bpm_4beats_Link.wav</ShortName>
-							<Path>SFX/Bass_156bpm_4beats_Link_D79FB2B7.wem</Path>
-						</File>
-						<File Id="387524531" Language="SFX">
-							<ShortName>Drums_156bpm_32beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Drums_156bpm_32beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="603198863" Language="SFX">
-							<ShortName>Bass_156bpm_16beats_Main_Var3.wav</ShortName>
-							<Path>SFX/Bass_156bpm_16beats_Main_Var3_D79FB2B7.wem</Path>
-						</File>
-						<File Id="692367739" Language="SFX">
-							<ShortName>Lead_156bpm_32beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Lead_156bpm_32beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="728062307" Language="SFX">
-							<ShortName>Drums_156bpm_16beats_Main_Var3.wav</ShortName>
-							<Path>SFX/Drums_156bpm_16beats_Main_Var3_D79FB2B7.wem</Path>
-						</File>
-						<File Id="732782623" Language="SFX">
-							<ShortName>Pad_156bpm_32beats_Main_Var2.wav</ShortName>
-							<Path>SFX/Pad_156bpm_32beats_Main_Var2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="793377606" Language="SFX">
-							<ShortName>Sfx_156bpm_16beats_Main_Var3.wav</ShortName>
-							<Path>SFX/Sfx_156bpm_16beats_Main_Var3_D79FB2B7.wem</Path>
-						</File>
-						<File Id="820854580" Language="SFX">
-							<ShortName>Drums_156bpm_16beats_Main_Var1.wav</ShortName>
-							<Path>SFX/Drums_156bpm_16beats_Main_Var1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="1011917791" Language="SFX">
-							<ShortName>Bass_156bpm_16beats_Main_Var1.wav</ShortName>
-							<Path>SFX/Bass_156bpm_16beats_Main_Var1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="1050580590" Language="SFX">
-							<ShortName>Drums_156bpm_4beats_Link.wav</ShortName>
-							<Path>SFX/Drums_156bpm_4beats_Link_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-					<ActionSetState>
-						<ActionSetStateEntry Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\MusicTrigger\Combat"/>
-					</ActionSetState>
-				</Event>
 				<Event Id="2703159004" Name="station_play_music" ObjectPath="\Events\Default Work Unit\station_play_music">
 					<IncludedMemoryFiles>
 						<File Id="49177610" Language="SFX">
@@ -1402,9 +1140,6 @@
 					</States>
 				</StateGroup>
 				<StateGroup Id="2244230815" Name="Safe_Zone" ObjectPath="\States\Default Work Unit\MusicTrigger\Safe_Zone" GUID="{79199A5B-A4C0-4509-A52F-E03D226BA0CF}">
-					<States/>
-				</StateGroup>
-				<StateGroup Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\MusicTrigger\Combat" GUID="{EFE9A17D-6624-4C7D-9FE0-CCE49C1426AA}">
 					<States/>
 				</StateGroup>
 			</StateGroups>

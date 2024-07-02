@@ -1,7 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	108846699	blasto_attack_electric			\Default Work Unit\blasto_attack_electric	
 	203922817	jaw_charge_start			\Default Work Unit\jaw_charge_start	
-	339355518	ocean_play_main_music			\Default Work Unit\ocean_play_main_music	
 	362522750	gameover_play_music			\Default Work Unit\gameover_play_music	
 	405565217	salarian_attack			\Default Work Unit\salarian_attack	
 	408155869	metro_play_music			\Default Work Unit\metro_play_music	
@@ -9,12 +8,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	440684361	turian_death			\Default Work Unit\turian_death	
 	509704602	ocean_play_music			\Default Work Unit\ocean_play_music	
 	553065750	krogan_death			\Default Work Unit\krogan_death	
-	644196139	metro_play_main_music			\Default Work Unit\metro_play_main_music	
 	781605932	asari_attack			\Default Work Unit\asari_attack	
 	923090826	next_area			\Default Work Unit\next_area	
 	960940028	jaw_attack			\Default Work Unit\jaw_attack	
 	1048498120	menu_button_pressed			\Default Work Unit\menu_button_pressed	
-	1053954892	station_play_main_music			\Default Work Unit\station_play_main_music	
 	1092296013	menu_play_music			\Default Work Unit\menu_play_music	
 	1165879959	vine_plant_shoot			\Default Work Unit\vine_plant_shoot	
 	1251247560	turian_hit			\Default Work Unit\turian_hit	
@@ -26,7 +23,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	2170400111	blasto_death			\Default Work Unit\blasto_death	
 	2184510782	blasto_hit			\Default Work Unit\blasto_hit	
 	2255747255	krogan_hit			\Default Work Unit\krogan_hit	
-	2359455101	desert_play_main_music			\Default Work Unit\desert_play_main_music	
 	2365232478	asari_death			\Default Work Unit\asari_death	
 	2369939213	desert_play_boss_music			\Default Work Unit\desert_play_boss_music	
 	2397774794	cutscene_play_music			\Default Work Unit\cutscene_play_music	

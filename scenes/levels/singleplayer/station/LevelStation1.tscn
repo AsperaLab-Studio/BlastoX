@@ -1,13 +1,13 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scenes/pg/singleplayer/salarian.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/audio/ost/lvls station/lvl 1-station.ogg" type="AudioStream" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=2]
 [ext_resource path="res://scenes/pg/singleplayer/turian group.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/img/UI/game over cornice.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/UI/go.png" type="Texture" id=5]
 [ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/img/UI/blasto/barra vita.png" type="Texture" id=7]
-[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=8]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=8]
 [ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=9]
 [ext_resource path="res://assets/Scripts/Managers/SceneManager.gd" type="Script" id=10]
 [ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=11]
@@ -20,9 +20,11 @@
 [ext_resource path="res://assets/img/frontground/lvl desert/desert1 door.png" type="Texture" id=18]
 [ext_resource path="res://scenes/pg/singleplayer/asari.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/tile/station/lvl 1 s/station1Tile3.tscn" type="PackedScene" id=20]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=21]
 [ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=22]
 [ext_resource path="res://assets/Scripts/Player/Commands.gd" type="Script" id=23]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=24]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=25]
 [ext_resource path="res://assets/img/UI/commandsSingleplayer.png" type="Texture" id=26]
 [ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=27]
 [ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=28]
@@ -31,6 +33,8 @@
 [ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=31]
 [ext_resource path="res://assets/img/UI/rating/C.png" type="Texture" id=32]
 [ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=33]
+[ext_resource path="res://assets/Scripts/Sounds/LevelSounds.gd" type="Script" id=34]
+[ext_resource path="res://assets/Scripts/Sounds/MenuSounds.gd" type="Script" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 89.7126, 98.8925 )
@@ -93,6 +97,44 @@ position = Vector2( 63, -456 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 1020.87 ]
 }
+
+[node name="Audio" type="Node2D" parent="."]
+script = ExtResource( 34 )
+
+[node name="AkBank" type="Node" parent="Audio"]
+script = ExtResource( 2 )
+bank = {
+"Id": 3161908922,
+"Name": "MAIN"
+}
+load_on = 3
+
+[node name="AkState" type="Node" parent="Audio"]
+script = ExtResource( 8 )
+state_group = {
+"Id": 1927797142,
+"Name": "MUSICTRIGGER"
+}
+state_value = {
+"Id": 2244230815,
+"Name": "SAFE_ZONE"
+}
+trigger_on = 3
+
+[node name="AkEvent2D" type="Node2D" parent="Audio"]
+script = ExtResource( 21 )
+event = {
+"Id": 2703159004,
+"Name": "STATION PLAY MUSIC"
+}
+trigger_on = 3
+stop_on = 2
+
+[node name="AkListener2D" type="Node2D" parent="Audio"]
+script = ExtResource( 25 )
+
+[node name="AudioMenu" type="Node2D" parent="Audio"]
+script = ExtResource( 35 )
 
 [node name="StageManager" type="Node2D" parent="."]
 position = Vector2( -680, -496 )
@@ -544,6 +586,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
+frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -771,13 +814,6 @@ value = 1.0
 position = Vector2( -12, 1312 )
 scale = Vector2( 1, 1 )
 
-[node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
-pause_mode = 2
-stream = ExtResource( 2 )
-volume_db = 2.0
-bus = "Music"
-script = ExtResource( 8 )
-
 [node name="floor" type="Node2D" parent="."]
 position = Vector2( -2410, 509 )
 z_index = -2
@@ -830,16 +866,35 @@ shape = SubResource( 33 )
 [node name="borders" parent="." instance=ExtResource( 17 )]
 
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
+[connection signal="visibility_changed" from="GUI/UI/GAME OVER" to="Audio" method="_on_GAME_OVER_visibility_changed"]
+[connection signal="visibility_changed" from="GUI/UI/WIN" to="Audio" method="_on_WIN_visibility_changed"]
+[connection signal="visibility_changed" from="GUI/UI/Go" to="Audio" method="_on_Go_visibility_changed"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
+[connection signal="visibility_changed" from="GUI/pauseMenu" to="Audio" method="_on_pauseMenu_visibility_changed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="Audio/AudioMenu" method="_on_ReturnBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="Audio/AudioMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="Audio/AudioMenu" method="_on_RestartLevelBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="Audio/AudioMenu" method="_on_RestartLevelBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="Audio/AudioMenu" method="_on_OptionBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="GUI/pauseMenu" method="_on_OptionBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="Audio/AudioMenu" method="_on_OptionBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="Audio/AudioMenu" method="_on_MainMenuBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="GUI/pauseMenu" method="_on_MainMenuBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="Audio/AudioMenu" method="_on_MainMenuBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="Audio/AudioMenu" method="_on_QuitBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="GUI/pauseMenu" method="_on_QuitBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="Audio/AudioMenu" method="_on_backToPauseBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="GUI/pauseMenu" method="_on_backToPauseBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="Audio/AudioMenu" method="_on_backToPauseBtn_pressed"]
 [connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="GUI/pauseMenu" method="_on_checkFullscreen_toggled"]
+[connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="Audio/AudioMenu" method="_on_checkFullscreen_toggled"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/MusicSlider" to="GUI/pauseMenu" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/MusicSlider" to="Audio/AudioMenu" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="GUI/pauseMenu" method="_on_SFXSlider_value_changed"]
+[connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="Audio/AudioMenu" method="_on_SFXSlider_value_changed"]
 [connection signal="death" from="PlayersList/Blasto" to="StageManager" method="_on_Blasto_death"]
 [connection signal="update_healthbar" from="PlayersList/Blasto" to="GUI/UI/HealthPlayerContainer" method="_on_Blasto_update_healthbar"]
 [connection signal="area_entered" from="Commands/StaticBody2D" to="Commands" method="_on_StaticBody2D_area_entered"]
+[connection signal="area_entered" from="Commands/StaticBody2D" to="Audio" method="_on_StaticBody2D_area_entered"]

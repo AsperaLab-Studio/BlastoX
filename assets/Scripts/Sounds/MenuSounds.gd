@@ -35,10 +35,10 @@ func _on_ExitBtn_mouse_entered():
 
 #OptionMenu
 
-func _on_ReturnBtn_pressed():
+func _on_backToPauseBtn_pressed():
 	ButtonSound()
 
-func _on_ReturnBtn_mouse_entered():
+func _on_backToPauseBtn_mouse_entered():
 	OverSound()
 
 func _on_checkFullscreen_toggled(button_pressed):
@@ -80,6 +80,12 @@ func _on_BackBtn_mouse_entered():
 
 # PauseMenu
 
+func _on_ReturnBtn_pressed():
+	ButtonSound()
+
+func _on_ReturnBtn_mouse_entered():
+	OverSound()
+
 func _on_RestartLevelBtn_pressed():
 	ButtonSound()
 
@@ -99,10 +105,4 @@ func _on_MainMenuBtn_mouse_entered():
 	OverSound()
 
 func _on_QuitBtn_mouse_entered():
-	OverSound()
-
-func _on_backToPauseBtn_pressed():
-	ButtonSound()
-
-func _on_backToPauseBtn_mouse_entered():
 	OverSound()

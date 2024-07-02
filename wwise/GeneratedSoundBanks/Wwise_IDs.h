@@ -24,7 +24,6 @@ namespace AK
         static const AkUniqueID CREDITS_PLAY_MUSIC = 3022074870U;
         static const AkUniqueID CUTSCENE_PLAY_MUSIC = 2397774794U;
         static const AkUniqueID DESERT_PLAY_BOSS_MUSIC = 2369939213U;
-        static const AkUniqueID DESERT_PLAY_MAIN_MUSIC = 2359455101U;
         static const AkUniqueID DESERT_PLAY_MUSIC = 1387614411U;
         static const AkUniqueID GAMEOVER_PLAY_MUSIC = 362522750U;
         static const AkUniqueID JAW_ATTACK = 960940028U;
@@ -41,17 +40,14 @@ namespace AK
         static const AkUniqueID MENU_MOUSE_OVER = 2785341881U;
         static const AkUniqueID MENU_PLAY_MUSIC = 1092296013U;
         static const AkUniqueID METRO_PLAY_BOSS_MUSIC = 2992688183U;
-        static const AkUniqueID METRO_PLAY_MAIN_MUSIC = 644196139U;
         static const AkUniqueID METRO_PLAY_MUSIC = 408155869U;
         static const AkUniqueID NEXT_AREA = 923090826U;
         static const AkUniqueID OCEAN_PLAY_BOSS_MUSIC = 1405004590U;
-        static const AkUniqueID OCEAN_PLAY_MAIN_MUSIC = 339355518U;
         static const AkUniqueID OCEAN_PLAY_MUSIC = 509704602U;
         static const AkUniqueID SALARIAN_ATTACK = 405565217U;
         static const AkUniqueID SALARIAN_DEATH = 3201417669U;
         static const AkUniqueID SALARIAN_HIT = 3656616932U;
         static const AkUniqueID STATION_PLAY_BOSS_MUSIC = 3962179328U;
-        static const AkUniqueID STATION_PLAY_MAIN_MUSIC = 1053954892U;
         static const AkUniqueID STATION_PLAY_MUSIC = 2703159004U;
         static const AkUniqueID TURIAN_ATTACK = 1815802421U;
         static const AkUniqueID TURIAN_DEATH = 440684361U;
