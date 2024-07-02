@@ -36,6 +36,20 @@ tracks/1/keys = {
 "method": "attack"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.12 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AttackMeleeSound"
+} ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "attack12"
@@ -299,7 +313,6 @@ attack1Cooldown = 0.1
 comboRestart = 0.3
 
 [node name="Audio" type="Node2D" parent="."]
-scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
 [node name="SpritePivot" type="Position2D" parent="."]
@@ -319,7 +332,7 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 11
-frame = 9
+frame = 6
 
 [node name="meleeHittedVFX" type="Sprite" parent="SpritePivot"]
 visible = false

@@ -81,6 +81,7 @@ func TurianDeath():
 
 # Bosses
 
+# - The Jaw
 func JawDeath():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
 	Wwise.post_event_id(AK.EVENTS.JAW_DEATH, self.get_parent())
@@ -109,6 +110,7 @@ func JawChargeEnd():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
 	Wwise.post_event_id(AK.EVENTS.JAW_CHARGHE_END, self.get_parent())
 
+# -- The Vine
 func VineDeath():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
 	Wwise.post_event_id(AK.EVENTS.VINE_DEATH, self.get_parent())
@@ -132,3 +134,7 @@ func VineShoot():
 func VinePush():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
 	Wwise.post_event_id(AK.EVENTS.VINE_KNOCKBACK, self.get_parent())
+
+# --- The Gun
+
+# ---- The Legs

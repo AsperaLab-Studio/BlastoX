@@ -42,7 +42,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="4100983725">
+		<SoundBank Id="3161908922" Language="SFX" Hash="4042928493">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>3161908922.bnk</Path>
@@ -348,9 +348,6 @@
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
-					<ActionSetState>
-						<ActionSetStateEntry Id="2244230815" Name="Safe_Zone" ObjectPath="\States\Default Work Unit\MusicTrigger\Safe_Zone"/>
-					</ActionSetState>
 				</Event>
 				<Event Id="362522750" Name="gameover_play_music" ObjectPath="\Events\Default Work Unit\gameover_play_music">
 					<IncludedMemoryFiles>
@@ -887,9 +884,6 @@
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
-					<ActionSetState>
-						<ActionSetStateEntry Id="2244230815" Name="Safe_Zone" ObjectPath="\States\Default Work Unit\MusicTrigger\Safe_Zone"/>
-					</ActionSetState>
 				</Event>
 				<Event Id="405565217" Name="salarian_attack" ObjectPath="\Events\Default Work Unit\salarian_attack">
 					<IncludedMemoryFiles>
