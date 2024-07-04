@@ -21,21 +21,21 @@ func _on_GAME_OVER_visibility_changed():
 	if GAME_OVER.visible == true:
 		Wwise.set_state_id(AK.STATES.MUSICTRIGGER.GROUP, AK.STATES.MUSICTRIGGER.STATE.DEFEAT)
 		Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-		Wwise.post_event_id(AK.EVENTS.GAMEOVER_PLAY_MUSIC, self.get_parent())	
+		Wwise.post_event_id(AK.EVENTS.GAMEOVER_PLAY_MUSIC, self.get_parent())
 
 func _on_WIN_visibility_changed():
 	if WIN.visible == true:
 		Wwise.set_state_id(AK.STATES.MUSICTRIGGER.GROUP, AK.STATES.MUSICTRIGGER.STATE.VICTORY)
 		Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-		Wwise.post_event_id(AK.EVENTS.GAMEOVER_PLAY_MUSIC, self.get_parent())	
+		Wwise.post_event_id(AK.EVENTS.GAMEOVER_PLAY_MUSIC, self.get_parent())
 
 func _on_pauseMenu_visibility_changed():
 	if pauseMenu.visible == true:
 		Wwise.set_pause_mode(2)
 		Wwise.set_state_id(AK.STATES.MUSICPAUSE.GROUP, AK.STATES.MUSICPAUSE.STATE.PAUSE)
 		Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-		Wwise.post_event_id(AK.EVENTS.MENU_BUTTON_PRESSED, self.get_parent())	
+		Wwise.post_event_id(AK.EVENTS.MENU_BUTTON_PRESSED, self.get_parent())
 	else:
 		Wwise.set_state_id(AK.STATES.MUSICPAUSE.GROUP, AK.STATES.MUSICPAUSE.STATE.RESUME)
 		Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-		Wwise.post_event_id(AK.EVENTS.MENU_MOUSE_OVER, self.get_parent())	
+		Wwise.post_event_id(AK.EVENTS.MENU_MOUSE_OVER, self.get_parent())

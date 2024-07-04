@@ -3,9 +3,17 @@ extends Node2D
 
 # Blasto
 
-func AttackMeleeSound():
+func AttackMeleeSound01():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.BLASTO_ATTACK, self.get_parent())
+	Wwise.post_event_id(AK.EVENTS.BLASTO_ATTACK_01, self.get_parent())
+
+func AttackMeleeSound02():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.BLASTO_ATTACK_02, self.get_parent())
+
+func AttackMeleeSound03():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.BLASTO_ATTACK_03, self.get_parent())
 
 func AttackElectricSound():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
@@ -138,3 +146,35 @@ func VinePush():
 # --- The Gun
 
 # ---- The Legs
+
+func LegLand():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_LAND, self.get_parent())
+
+func LegJump():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_JUMP, self.get_parent())
+
+func LegSprint():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_SPRINT, self.get_parent())
+
+func LegAttack():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_ATTACK, self.get_parent())
+
+func Leg01Death():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_01_DEATH, self.get_parent())
+
+func Leg01Pain():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_01_PAIN, self.get_parent())
+
+func Leg02Death():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_02_DEATH, self.get_parent())
+
+func Leg02Pain():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.LEG_02_PAIN, self.get_parent())

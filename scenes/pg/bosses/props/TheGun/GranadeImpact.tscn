@@ -80,12 +80,11 @@ scale = Vector2( 1.68421, 1.68421 )
 texture = ExtResource( 1 )
 
 [node name="explosion" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -32 )
 scale = Vector2( 2.09375, 2.09375 )
 texture = ExtResource( 2 )
 hframes = 6
-frame = 5
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 0, -74 )

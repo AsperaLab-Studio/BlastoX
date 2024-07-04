@@ -43,11 +43,11 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.12 ),
+"times": PoolRealArray( 0.13 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "AttackMeleeSound"
+"method": "AttackMeleeSound01"
 } ]
 }
 
@@ -81,6 +81,20 @@ tracks/1/keys = {
 "method": "attack"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AttackMeleeSound02"
+} ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "attack13"
@@ -110,6 +124,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "attack"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.16 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AttackMeleeSound03"
 } ]
 }
 
@@ -143,6 +171,20 @@ tracks/1/keys = {
 "method": "attack"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AttackElectricSound"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "died"
@@ -171,6 +213,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "death"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "DeathSound"
 } ]
 }
 
@@ -212,6 +268,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("Audio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.27 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "HitSound"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.8
@@ -245,6 +315,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 9, 10, 11 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "JumpSound"
+} ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -291,6 +375,20 @@ tracks/1/keys = {
 "method": "shoot"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AttackShootSound"
+} ]
+}
 
 [sub_resource type="CapsuleShape2D" id=12]
 radius = 16.3888
@@ -332,15 +430,13 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 11
-frame = 6
+frame = 18
 
 [node name="meleeHittedVFX" type="Sprite" parent="SpritePivot"]
-visible = false
 position = Vector2( -15.9205, -9.365 )
 scale = Vector2( 0.314606, 0.314606 )
 texture = ExtResource( 8 )
 hframes = 2
-frame = 1
 
 [node name="rangedHittedVFX" type="Sprite" parent="SpritePivot"]
 visible = false
