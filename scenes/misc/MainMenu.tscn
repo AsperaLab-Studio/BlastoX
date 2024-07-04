@@ -41,9 +41,6 @@ bank = {
 }
 load_on = 3
 
-[node name="AkListener2D" type="Node2D" parent="Audio"]
-script = ExtResource( 4 )
-
 [node name="AkEvent2D" type="Node2D" parent="Audio"]
 script = ExtResource( 3 )
 event = {
@@ -52,6 +49,9 @@ event = {
 }
 trigger_on = 3
 stop_on = 2
+
+[node name="AkListener2D" type="Node2D" parent="Audio"]
+script = ExtResource( 4 )
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 970.519, 539.208 )

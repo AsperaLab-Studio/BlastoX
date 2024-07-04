@@ -144,9 +144,31 @@ func VinePush():
 	Wwise.post_event_id(AK.EVENTS.VINE_KNOCKBACK, self.get_parent())
 
 # --- The Gun
+func GunDeath():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.GUN_DEATH, self.get_parent())
+
+func GunHit():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.GUN_HIT, self.get_parent())
+
+func GunRifle():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.GUN_RIFLE, self.get_parent())
+
+func GunRocket():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.GUN_ROCKET, self.get_parent())
+
+func GunGranade():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.GUN_GRANADE, self.get_parent())
+
+func GunExplosion():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.GUN_EXPLOSION, self.get_parent())
 
 # ---- The Legs
-
 func LegLand():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
 	Wwise.post_event_id(AK.EVENTS.LEG_LAND, self.get_parent())
