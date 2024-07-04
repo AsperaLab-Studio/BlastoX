@@ -65,8 +65,8 @@ func _process(_delta: float) -> void:
 		match current_state:
 			
 			STATE.IDLE:
-				#anim_player.play("idle")
-				current_state == STATE.MISSILES
+				anim_player.play("idle")
+			
 			STATE.HIT:
 				anim_player.play("hit")
 			
@@ -75,10 +75,6 @@ func _process(_delta: float) -> void:
 					anim_player.play("stomp")
 				if anim_player.current_animation != "stomp":
 					current_state = STATE.IDLE
-#				if stompFree:
-#					anim_player.play("stomp")
-#				else:
-#					current_state == STATE.IDLE
 			
 			STATE.MISSILES:
 				anim_player.play("missiles")
@@ -196,7 +192,7 @@ func updateCounter():
 func choose_state():
 	if stompFree:
 		current_state = STATE.STOMP
-	elif (!attackCounter % 3 == 0):
+	elif (!attackCounter % 2 == 0):
 		current_state = STATE.SHOTGUN
 	else:
 		current_state = STATE.MISSILES
