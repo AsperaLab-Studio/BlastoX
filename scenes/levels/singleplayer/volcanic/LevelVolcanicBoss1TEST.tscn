@@ -484,7 +484,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 43 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -492,7 +492,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -500,7 +500,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -508,7 +508,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -516,7 +516,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -524,7 +524,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
@@ -532,7 +532,7 @@ modulate = Color( 0.858824, 0, 0, 1 )
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 43 )
-frame = 3
+frame = 10
 playing = true
 
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
