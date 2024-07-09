@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/img/sprites/enemy/the_vine_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_hit_01.ogg" type="AudioStream" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://assets/Scripts/AI/props/Kronus/KronusMissile.gd" type="Script" id=8]
 [ext_resource path="res://scenes/pg/bosses/props/Kronus/KronusMissileBullet.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=10]
+[ext_resource path="res://scenes/pg/Bullet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/pg/bosses/props/TheVine/Vine Spear.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=2]
 resource_name = "died"
@@ -218,6 +220,8 @@ z_index = -1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 3 )
+bullet = ExtResource( 11 )
+lava_column = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.772251, -20.8911 )

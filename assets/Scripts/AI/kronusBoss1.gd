@@ -37,6 +37,7 @@ onready var Stomp_timer : Timer = $StompTimer
 onready var StompCooldown_timer : Timer = $StompCooldownTimer
 export(int) var stompDuration := 2
 export(int) var stompDelay := 5
+export(int) var stompCooldown := 5
 
 
 var current_state = STATE.IDLE
@@ -89,9 +90,9 @@ func _process(_delta: float) -> void:
 				collision_shape.disabled = true
 				
 				anim_player.play("died")
-				emit_signal("hasDied")
+
 				
-		#$HealthDisplay/Label.text = STATE.keys()[current_state]
+		$HealthDisplay/Label.text = STATE.keys()[current_state]
 		
 	else:
 		anim_player.stop()
@@ -134,6 +135,10 @@ func hit(dpsTaken, attackType, source) -> void:
 	else:
 		current_state = STATE.HIT
 
+func death():
+	emit_signal("hasDied")
+	queue_free()
+	
 func stomp(): 
 	stompFree = false
 	Stomp_timer.wait_time = stompDuration
@@ -143,7 +148,7 @@ func stomp():
 	for target in targetList:
 		target.paused = true
 	Stomp_timer.start()
-	StompCooldown_timer.wait_time = 5.0
+	StompCooldown_timer.wait_time = stompCooldown
 	StompCooldown_timer.one_shot = true
 	StompCooldown_timer.start()
 
@@ -154,19 +159,19 @@ func set_state_idle():
 		target.paused = false
 
 func shotgun_shoot():
-#	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
-#	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
-#	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
-#
-#	var i = 0
-#	for n in numberOfBullets:
-#		var bullet_instance = bullet.instance()
-#		var angleOffset = shootingAmplitude/2 - deltaAngle * i
-#		bullet_instance.rotate(angle + deg2rad(angleOffset))
-#		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
-#		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
-#		bullet_instance.set_global_position(spawnRifle.get_global_position())
-#		i+=1
+	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
+	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
+	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+
+	var i = 0
+	for n in numberOfBullets:
+		var bullet_instance = bullet.instance()
+		var angleOffset = shootingAmplitude/2 - deltaAngle * i
+		bullet_instance.rotate(angle + deg2rad(angleOffset))
+		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
+		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
+		bullet_instance.set_global_position(spawnRifle.get_global_position())
+		i+=1
 	start_attack_cooldown(shotgunCooldown)
 
 func missile_shoot():
@@ -195,9 +200,9 @@ func updateCounter():
 func choose_state():
 	if stompFree:
 		current_state = STATE.STOMP
-	elif (!attackCounter % 2 == 0) && !stompFree:
+	elif (!attackCounter % 2 == 0):
 		current_state = STATE.SHOTGUN
-	elif !stompFree:
+	else:
 		current_state = STATE.MISSILES
 
 

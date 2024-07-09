@@ -34,7 +34,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -251,7 +251,7 @@ shape = SubResource( 14 )
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="MissilePos" type="Position2D" parent="Pivot"]
-position = Vector2( 53, -14 )
+position = Vector2( 99, 0 )
 
 [node name="HealthDisplay" type="Node2D" parent="."]
 
