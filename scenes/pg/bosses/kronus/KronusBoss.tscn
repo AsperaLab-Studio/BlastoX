@@ -391,6 +391,7 @@ texture_progress = ExtResource( 9 )
 nine_patch_stretch = true
 
 [node name="TheLeg1" type="Sprite" parent="UI/HealthContainer"]
+modulate = Color( 0, 1, 0, 1 )
 position = Vector2( -939.471, 20 )
 scale = Vector2( 0.383589, 0.343705 )
 texture = ExtResource( 11 )

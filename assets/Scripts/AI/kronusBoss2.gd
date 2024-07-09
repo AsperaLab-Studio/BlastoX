@@ -1,6 +1,8 @@
 class_name kronusBoss2
 extends KinematicBody2D
 
+signal hasDied
+
 onready var sprite: Sprite = $Sprite
 onready var pivot: Node2D = $Pivot
 onready var anim_player : AnimationPlayer = $AnimationPlayer
@@ -53,6 +55,7 @@ var targetList = null
 var sceneManager = null
 
 var attackCounter = 0
+var canShootMissiles = true
 
 func _ready():
 	healthBar = UIHealthBar
@@ -111,7 +114,9 @@ func _process(_delta: float) -> void:
 
 			
 			STATE.MISSILES:
-				anim_player.play("missile")
+				if canShootMissiles:
+					anim_player.play("missile")
+					canShootMissiles = false
 			
 			STATE.SHOTGUN:
 				anim_player.play("shotgun")
@@ -211,9 +216,15 @@ func updateCounter():
 	
 
 func choose_state():
-	if (!attackCounter % 2 == 0):
+	if (attackCounter % 2 == 0):
+		canShootMissiles = true
 		current_state = STATE.MISSILES
-	elif (!attackCounter % 3 == 0):
+	elif (attackCounter % 3 == 0):
 		current_state = STATE.SHOTGUN
 	else:
 		current_state = STATE.LAVASTOMP
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if (anim_name == "hit"):
+		current_state == STATE.IDLE

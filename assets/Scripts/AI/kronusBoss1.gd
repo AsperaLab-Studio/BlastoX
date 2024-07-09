@@ -10,6 +10,8 @@ onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
 onready var AttackCooldown_timer : Timer = $AttackCooldownTimer
 
+signal hasDied
+
 enum STATE {IDLE, HIT, DIED, STOMP, SHOTGUN, MISSILES}
 
 export var GENERAL_VARS := "____________________"
@@ -87,8 +89,9 @@ func _process(_delta: float) -> void:
 				collision_shape.disabled = true
 				
 				anim_player.play("died")
+				emit_signal("hasDied")
 				
-		$HealthDisplay/Label.text = STATE.keys()[current_state]
+		#$HealthDisplay/Label.text = STATE.keys()[current_state]
 		
 	else:
 		anim_player.stop()
@@ -192,11 +195,16 @@ func updateCounter():
 func choose_state():
 	if stompFree:
 		current_state = STATE.STOMP
-	elif (!attackCounter % 2 == 0):
+	elif (!attackCounter % 2 == 0) && !stompFree:
 		current_state = STATE.SHOTGUN
-	else:
+	elif !stompFree:
 		current_state = STATE.MISSILES
 
 
 func _on_StompCooldownTimer_timeout():
 	stompFree == true
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if (anim_name == "hit"):
+		current_state == STATE.IDLE
