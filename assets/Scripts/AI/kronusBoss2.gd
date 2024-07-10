@@ -1,8 +1,6 @@
 class_name kronusBoss2
 extends KinematicBody2D
 
-signal hasDied
-
 onready var sprite: Sprite = $Sprite
 onready var pivot: Node2D = $Pivot
 onready var anim_player : AnimationPlayer = $AnimationPlayer
@@ -56,6 +54,7 @@ var sceneManager = null
 
 var attackCounter = 0
 var canShootMissiles = true
+var canShootShotgun = true
 
 func _ready():
 	healthBar = UIHealthBar
@@ -170,27 +169,38 @@ func hit(dpsTaken, attackType, source) -> void:
 	else:
 		current_state = STATE.HIT
 
+func death():
+	var phaseChanger : kronusPhaseManager = get_parent()
+	phaseChanger.change_to_third_phase()
+	queue_free()
+
+
 func set_state_idle():
 	camera.smoothing_speed = 0
 	camera.get_child(0).shaked = false
 	for target in targetList:
 		target.paused = false
 
-func shotgun_shoot():
-	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
-	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
-	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+func stop_hit():
+	current_state = STATE.IDLE
 
-	var i = 0
-	for n in numberOfBullets:
-		var bullet_instance = bullet.instance()
-		var angleOffset = shootingAmplitude/2 - deltaAngle * i
-		bullet_instance.rotate(angle + deg2rad(angleOffset))
-		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
-		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
-		bullet_instance.set_global_position(spawnRifle.get_global_position())
-		i+=1
-	start_attack_cooldown(shotgunCooldown)
+func shotgun_shoot():
+	if canShootShotgun:
+		canShootShotgun = false
+		var deltaAngle = shootingAmplitude/(numberOfBullets -1)
+		var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
+		var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+
+		var i = 0
+		for n in numberOfBullets:
+			var bullet_instance = bullet.instance()
+			var angleOffset = shootingAmplitude/2 - deltaAngle * i
+			bullet_instance.rotate(angle + deg2rad(angleOffset))
+			bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
+			get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
+			bullet_instance.set_global_position(spawnRifle.get_global_position())
+			i+=1
+		start_attack_cooldown(shotgunCooldown)
 
 func missile_shoot():
 	missile.position2d = spawnMissile
@@ -220,6 +230,7 @@ func choose_state():
 		canShootMissiles = true
 		current_state = STATE.MISSILES
 	elif (attackCounter % 3 == 0):
+		canShootShotgun = true
 		current_state = STATE.SHOTGUN
 	else:
 		current_state = STATE.LAVASTOMP

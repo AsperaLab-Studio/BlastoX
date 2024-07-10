@@ -1,3 +1,4 @@
+class_name kronusPhaseManager
 extends Node
 
 export(PackedScene) var kronus2
@@ -13,3 +14,8 @@ func _on_KronusBoss_hasDied():
 	var spawnPos = get_child(0).global_position
 	get_child(0).visible = false
 	change_phase(kronus2, spawnPos)
+
+func change_to_third_phase():
+	var spawnPos = get_child(0).global_position
+	get_child(0).visible = false
+	change_phase(kronus3, spawnPos)
