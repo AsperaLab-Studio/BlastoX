@@ -24,7 +24,7 @@ export var SHOTGUN_VARS := "--------------------"
 export(int) var dps_shotgun := 2
 export(int) var numberOfBullets  := 5
 export(float) var shootingAmplitude  := 30.0
-onready var spawnRifle : Position2D = $PositionRifle
+onready var spawnRifle : Position2D = $Pivot/PositionRifle
 export(PackedScene) var bullet
 
 export var LAVA_STOMP_VARS := "--------------------"
@@ -45,6 +45,8 @@ var directionPlayer = Vector2()
 
 var BACK_JUMP := "--------------------"
 onready var boss_list_points: Array = get_parent().get_parent().get_node("bossPoints").get_children()
+var targetBackJump
+export(int) var back_speed := 250
 
 var STATE_FLAGS := "--------------------"
 var near_player: bool = false
@@ -52,7 +54,8 @@ var ended_punch: bool = false
 var hitted: bool = false
 var can_ranged: bool = false
 var is_ranged: bool = false
-var ended_back: bool = false
+var ended_back: bool = true
+var bullet_right: bool = false
 var previous_state 
 
 var healthBar = null
@@ -95,9 +98,24 @@ func _process(_delta: float) -> void:
 					move_towards(actual_target.global_position, move_speed)
 
 			STATE.BACKJUMP:
-				
+				anim_player.play("move")
+				if onEnter:
+					var d1 = abs(actual_target.global_position.x - boss_list_points[0].global_position.x)
+					var d2 = abs(actual_target.global_position.x - boss_list_points[1].global_position.x)
 
-				ended_back = true
+					if d1 <= d2:
+						targetBackJump = boss_list_points[1].global_position
+					else:
+						targetBackJump = boss_list_points[0].global_position
+
+					onEnter = false
+				else:
+					var velocity = global_position.direction_to(targetBackJump)
+					move_and_slide(velocity * back_speed)
+				
+				if global_position.distance_to(targetBackJump) < 5:
+					ended_back = true
+					onEnter = true
 
 			STATE.PUNCH:
 				if near_player && !actual_target.invincible:
@@ -117,6 +135,7 @@ func _process(_delta: float) -> void:
 				if onEnter == true:
 					anim_player.play("lavastomp")
 					onEnter = false
+					temp_list.clear()
 					for lava in lava_column_list_pos:
 						temp_list.append(lava)
 
@@ -202,10 +221,13 @@ func flip_sprite(target: Vector2):
 			sprite.flip_h = true
 			if pivot.scale.x > 0:
 				pivot.scale.x = - pivot.scale.x
+			bullet_right = false
 		elif velocity.x > 0:
 			sprite.flip_h = false
 			if pivot.scale.x < 0:
 				pivot.scale.x = - pivot.scale.x
+			bullet_right = true
+
 
 
 func attack():
@@ -222,6 +244,10 @@ func shoot():
 	var i = 0
 	for n in numberOfBullets:
 		var bullet_instance = bullet.instance()
+		if bullet_right:
+			bullet_instance.rotation_degrees = 0
+		else:
+			bullet_instance.rotation_degrees = 180
 		var angleOffset = shootingAmplitude/2 - deltaAngle * i
 		bullet_instance.rotate(angle + deg2rad(angleOffset))
 		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
@@ -275,8 +301,9 @@ func choose_state():
 		if distance <= range_chase:
 			current_state = STATE.CHASE
 			is_ranged = false
+			onEnter = true
 		else:
-			if previous_state != STATE.CHASE || ended_back:
+			if previous_state != STATE.CHASE && ended_back:
 				if can_ranged && (current_state != STATE.SHOTGUN || current_state != STATE.LAVASTOMP):
 					if !is_ranged:
 						is_ranged = true

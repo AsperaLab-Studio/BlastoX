@@ -356,6 +356,9 @@ position = Vector2( 33.6256, 0 )
 scale = Vector2( 0.600001, 1 )
 shape = SubResource( 8 )
 
+[node name="PositionRifle" type="Position2D" parent="Pivot"]
+position = Vector2( 67, -17 )
+
 [node name="HealthDisplay" type="Node2D" parent="."]
 
 [node name="HealthBar" type="TextureProgress" parent="HealthDisplay"]
@@ -394,9 +397,6 @@ nine_patch_stretch = true
 position = Vector2( -939.471, 20 )
 scale = Vector2( 0.383589, 0.343705 )
 texture = ExtResource( 11 )
-
-[node name="PositionRifle" type="Position2D" parent="."]
-position = Vector2( -67, -17 )
 
 [node name="LavaColumnContainer" type="Node" parent="."]
 

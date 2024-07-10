@@ -237,7 +237,6 @@ margin_bottom = 994.0
 script = ExtResource( 26 )
 rate_list = [ ExtResource( 25 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 15 ) ]
 boss = true
-rate_points = [ 3600, 7200, 10800, 14400 ]
 
 [node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
 visible = false
@@ -521,7 +520,7 @@ randomShackeStrenght = 10.0
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 43 )
-frame = 8
+frame = 10
 playing = true
 
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]

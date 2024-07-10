@@ -16,13 +16,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if sprite.frame == initialFrame + 1:
+	if sprite.frame == initialFrame:
 		collision_shape.disabled = false
 	if anim_player.current_animation != "growth":
 		queue_free()
 	
 
 func _on_HitBox_body_entered(body:Node):
-	if body.owner.is_in_group("player"):
+	if body.is_in_group("player"):
 		(body as Player).hit(dps, "spear", self)
 	queue_free()
