@@ -4,7 +4,7 @@ extends KinematicBody2D
 onready var sprite: Sprite = $Sprite
 onready var pivot: Node2D = $Pivot
 onready var anim_player : AnimationPlayer = $AnimationPlayer
-onready var collision_shape : CollisionShape2D = $HitBox/CollisionShape2D
+onready var collision_shape : CollisionShape2D = $Pivot/HitBox/CollisionShape2D
 onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
 onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")

@@ -6,7 +6,7 @@ signal hasDied
 onready var sprite: Sprite = $Sprite
 onready var pivot: Node2D = $Pivot
 onready var anim_player : AnimationPlayer = $AnimationPlayer
-onready var collision_shape : CollisionShape2D = $HitBox/CollisionShape2D
+onready var collision_shape : CollisionShape2D = $Pivot/HitBox/CollisionShape2D
 onready var collision_shape_body : CollisionShape2D = $CollisionShape2D
 onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var camera: Camera2D = get_parent().get_parent().get_parent().get_node("Camera2D")
@@ -177,19 +177,19 @@ func set_state_idle():
 		target.paused = false
 
 func shotgun_shoot():
-#	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
-#	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
-#	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
-#
-#	var i = 0
-#	for n in numberOfBullets:
-#		var bullet_instance = bullet.instance()
-#		var angleOffset = shootingAmplitude/2 - deltaAngle * i
-#		bullet_instance.rotate(angle + deg2rad(angleOffset))
-#		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
-#		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
-#		bullet_instance.set_global_position(spawnRifle.get_global_position())
-#		i+=1
+	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
+	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
+	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+
+	var i = 0
+	for n in numberOfBullets:
+		var bullet_instance = bullet.instance()
+		var angleOffset = shootingAmplitude/2 - deltaAngle * i
+		bullet_instance.rotate(angle + deg2rad(angleOffset))
+		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
+		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
+		bullet_instance.set_global_position(spawnRifle.get_global_position())
+		i+=1
 	start_attack_cooldown(shotgunCooldown)
 
 func missile_shoot():

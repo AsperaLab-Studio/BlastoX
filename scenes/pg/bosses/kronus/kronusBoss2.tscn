@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/Scripts/AI/props/Kronus/KronusMissile.gd" type="Script" id=8]
 [ext_resource path="res://scenes/pg/bosses/props/Kronus/KronusMissileBullet.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=10]
-[ext_resource path="res://scenes/pg/Bullet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletRifle.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/pg/bosses/props/TheVine/Vine Spear.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=2]
@@ -189,7 +189,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.9 ),
+"times": PoolRealArray( 0, 0.9, 1.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 9, 10, 11 ]
@@ -201,11 +201,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 1.7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "shootShotgun"
+"method": "shotgun_shoot"
 } ]
 }
 
@@ -229,7 +229,7 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 9
-frame = 12
+frame = 9
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -244,16 +244,18 @@ anims/shotgun = SubResource( 17 )
 position = Vector2( -1, 0 )
 shape = SubResource( 15 )
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="Pivot" type="Node2D" parent="."]
+scale = Vector2( -1, 1 )
+
+[node name="MissilePos" type="Position2D" parent="Pivot"]
+position = Vector2( 120, 1 )
+
+[node name="HitBox" type="Area2D" parent="Pivot"]
 position = Vector2( -8.5, 0 )
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HitBox"]
 shape = SubResource( 14 )
-
-[node name="Pivot" type="Node2D" parent="."]
-
-[node name="MissilePos" type="Position2D" parent="Pivot"]
 
 [node name="HealthDisplay" type="Node2D" parent="."]
 
