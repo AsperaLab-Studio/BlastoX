@@ -105,6 +105,6 @@ func _on_CommandBtn_pressed():
 	visible = false
 
 func _on_RestartLevelBtn_pressed():
-	var stageManager = get_parent().get_parent().get_child(0)
+	var stageManager = get_parent().get_parent().get_node("StageManager")
 	get_tree().paused = !get_tree().paused
 	get_tree().change_scene("res://scenes/levels/" + Global.dirType + stageManager.current_level + ".tscn")
