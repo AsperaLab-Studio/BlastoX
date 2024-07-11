@@ -5,7 +5,6 @@
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=3]
 [ext_resource path="res://scenes/tile/environment/objects/SmallBox.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 46.6683, 2.01658 )
 
@@ -88,6 +87,7 @@ shape = SubResource( 1 )
 
 [node name="LV 1-D T-OBJ15" type="Sprite" parent="Node2D"]
 position = Vector2( 270, 1.96901 )
+z_index = -2
 texture = ExtResource( 3 )
 hframes = 3
 vframes = 5
@@ -101,6 +101,7 @@ shape = SubResource( 1 )
 
 [node name="LV 1-D T-OBJ16" type="Sprite" parent="Node2D"]
 position = Vector2( 745.278, -1 )
+z_index = -2
 texture = ExtResource( 3 )
 hframes = 3
 vframes = 5
@@ -114,6 +115,8 @@ shape = SubResource( 2 )
 
 [node name="SmallBox" parent="Node2D" instance=ExtResource( 5 )]
 position = Vector2( 1274, 4 )
+z_index = -2
 
 [node name="SmallBox2" parent="Node2D" instance=ExtResource( 5 )]
 position = Vector2( 1100, 4 )
+z_index = -2
