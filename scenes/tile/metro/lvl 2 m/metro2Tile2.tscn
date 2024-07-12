@@ -349,6 +349,7 @@ z_index = 2
 
 [node name="SmallBox2" parent="Node2D" instance=ExtResource( 8 )]
 position = Vector2( 707, 2 )
+z_index = -2
 
 [node name="WallPhGlass" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.490196 )
@@ -378,7 +379,6 @@ collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
 position = Vector2( 1904.1, 842.195 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="Bottom2" type="StaticBody2D" parent="border"]
