@@ -52,6 +52,7 @@ var sceneManager = null
 var just_changed = false
 var actual_zone
 var choosed_pos = -1
+var vine_shield: bool = false
 
 func _ready():
 	anim_player.play("idle")
@@ -113,7 +114,7 @@ func _process(_delta: float) -> void:
 				elif anim_player.current_animation != "gun" && anim_player.current_animation != "spear":
 					if choosed_pos == -1:
 						randomize()
-						actual_zone = int(rand_range(0, actual_list_pos.size()-1))
+						actual_zone = int(rand_range(0, actual_list_pos.size()-2))
 						
 					var i = 1
 
@@ -179,6 +180,7 @@ func hit(dpsTaken, attackType, source) -> void:
 func do_knockback():
 	actual_target.knockback()
 	choosed_pos = 0
+	vine_shield = true
 
 func move_towards(target: Vector2, speed):
 	if target:

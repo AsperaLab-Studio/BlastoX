@@ -13,6 +13,8 @@ onready var collition_area2d : CollisionShape2D = $Pivot/AttackCollision/Collisi
 onready var attack_area2d : Area2D = $Pivot/AttackCollision
 onready var jump_position2D : Position2D = $JumpPosition
 onready var UIHealthBar: Node2D = $UI/HealthContainer
+onready var invincibility_timer = $InvincibilityTimer
+onready var invincible = false
 
 enum STATE {ATTACK, JUMP, FLOATING, LANDING, SPRINT, IDLE, HIT, DIED,   PREPARE_SPRINT, START_SPRINT, RUNNING, DO_HIT, JUMP_ASCENDING, JUMP_FALL, PREPARE_ATTACK}
 
@@ -358,3 +360,12 @@ func set_idle_with_timer():
 	idle_wait_timer.stop()
 	idle_wait_timer.wait_time = wait_time_attack
 	idle_wait_timer.start()
+
+func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
+	if anim_name == "hit":
+		invincibility_timer.start(1)
+		invincible = true
+
+func _on_InvincibilityTimer_timeout() -> void:
+	invincible = false
+	
