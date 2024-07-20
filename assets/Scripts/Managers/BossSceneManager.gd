@@ -15,6 +15,7 @@ onready var game_over: Sprite = get_parent().get_node("GUI/UI/GAME OVER")
 onready var win = get_parent().get_node("GUI/UI/WIN")
 onready var menu = get_parent().get_node("GUI/menu")
 onready var respawnPoint = get_node("respawnPoint")
+onready var kill = 0
 
 var menuShowed = false
 var players

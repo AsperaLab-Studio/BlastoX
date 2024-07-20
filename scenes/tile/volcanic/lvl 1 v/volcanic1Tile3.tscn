@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl volcanic/tileset/Floor_PH_B.png" type="Texture" id=1]
+[ext_resource path="res://scenes/tile/volcanic/lvl 1 v/Wall_PH_F.png" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -40, -24 )
@@ -11,19 +12,42 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="LV1-D T-STR2" type="Sprite" parent="."]
-position = Vector2( 665, 112 )
+position = Vector2( 716, 112 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
 
 [node name="LV1-D T-STR3" type="Sprite" parent="."]
-position = Vector2( 1006, 112 )
+position = Vector2( 1108, 112 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 1
 
 [node name="LV1-D T-STR4" type="Sprite" parent="."]
-position = Vector2( 1347, 112 )
+position = Vector2( 1496, 112 )
 texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="WallPhF" type="Sprite" parent="."]
+position = Vector2( 236, -159 )
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="WallPhF2" type="Sprite" parent="."]
+position = Vector2( 627, -159 )
+texture = ExtResource( 2 )
+hframes = 4
+frame = 1
+
+[node name="WallPhF3" type="Sprite" parent="."]
+position = Vector2( 1018, -159 )
+texture = ExtResource( 2 )
+hframes = 4
+frame = 2
+
+[node name="WallPhF4" type="Sprite" parent="."]
+position = Vector2( 1409, -159 )
+texture = ExtResource( 2 )
 hframes = 4
 frame = 3
