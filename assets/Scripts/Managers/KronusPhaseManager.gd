@@ -19,3 +19,5 @@ func change_to_third_phase():
 	var spawnPos = get_child(0).global_position
 	get_child(0).visible = false
 	change_phase(kronus3, spawnPos)
+	get_parent().get_node("lava pool/floor2").visible = true
+	get_parent().get_node("lava pool/StaticBody2D/CollisionShape2D").disabled = true

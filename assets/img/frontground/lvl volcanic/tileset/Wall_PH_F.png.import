@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wall_PH_F.png-20d6c92c5ed9d6e99900ffc65e29d437.stex"
+path="res://.import/Wall_PH_F.png-e4709a80cd30222b0e2c0e6ef12d3ec3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/tile/volcanic/lvl 1 v/Wall_PH_F.png"
-dest_files=[ "res://.import/Wall_PH_F.png-20d6c92c5ed9d6e99900ffc65e29d437.stex" ]
+source_file="res://assets/img/frontground/lvl volcanic/tileset/Wall_PH_F.png"
+dest_files=[ "res://.import/Wall_PH_F.png-e4709a80cd30222b0e2c0e6ef12d3ec3.stex" ]
 
 [params]
 

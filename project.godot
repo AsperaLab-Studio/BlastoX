@@ -127,7 +127,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "kronusPhaseManager",
 "language": "GDScript",
-"path": "res://scenes/levels/singleplayer/volcanic/KronusPhaseManager.gd"
+"path": "res://assets/Scripts/Managers/KronusPhaseManager.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
