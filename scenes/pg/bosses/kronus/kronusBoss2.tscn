@@ -234,6 +234,7 @@ z_index = -1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 3 )
+HP = 10
 bullet = ExtResource( 11 )
 lava_column = ExtResource( 12 )
 
