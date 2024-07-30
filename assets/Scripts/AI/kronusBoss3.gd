@@ -294,6 +294,11 @@ func choose_state():
 			current_state = STATE.DIED
 		else:
 			current_state = STATE.HIT
+
+		if is_ranged == true:
+			is_ranged = false
+		if onEnter == false:
+			onEnter = true
 	elif near_player:
 		current_state = STATE.PUNCH
 	elif !near_player:
