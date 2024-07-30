@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/Scripts/Managers/GroupManager.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( -65, 0 )
 script = ExtResource( 2 )
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
