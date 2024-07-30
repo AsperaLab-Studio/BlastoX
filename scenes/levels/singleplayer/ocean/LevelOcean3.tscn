@@ -212,55 +212,55 @@ scale = Vector2( 0.58, 0.57 )
 [node name="0" type="Node" parent="StageManager/EnemiesSpawn/0"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 141.321, 866.724 )
+position = Vector2( 150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 438.611, 924.672 )
+position = Vector2( 350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 955.147, 939.328 )
+position = Vector2( 1150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 1352, 872 )
+position = Vector2( 1350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn/0"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 181.8, 867.276 )
+position = Vector2( 150, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 603.407, 959.48 )
+position = Vector2( 350, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 902.211, 967.45 )
+position = Vector2( 1150, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 1403.19, 887.64 )
+position = Vector2( 1350, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn/0"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 181.8, 818 )
+position = Vector2( 150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 603.407, 847.904 )
+position = Vector2( 350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 902.211, 855.874 )
+position = Vector2( 1150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 1403.19, 776.064 )
+position = Vector2( 1350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn"]
@@ -268,55 +268,55 @@ scale = Vector2( 0.58, 0.57 )
 [node name="0" type="Node" parent="StageManager/EnemiesSpawn/1"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 1760, 784 )
+position = Vector2( 1650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 1944, 904 )
+position = Vector2( 1850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 2656, 888 )
+position = Vector2( 2650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 2808, 800 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
+position = Vector2( 2850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn/1"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 1641.49, 866.7 )
+position = Vector2( 1650, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 2063.09, 958.907 )
+position = Vector2( 1850, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 2361.9, 966.867 )
+position = Vector2( 2650, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 2862.87, 887.064 )
+position = Vector2( 2850, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn/1"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 1641.49, 866.7 )
+position = Vector2( 1650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 2063.09, 958.907 )
+position = Vector2( 1850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 2361.9, 966.867 )
+position = Vector2( 2650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 2862.87, 887.064 )
+position = Vector2( 2850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn"]
@@ -324,55 +324,55 @@ scale = Vector2( 0.58, 0.57 )
 [node name="0" type="Node" parent="StageManager/EnemiesSpawn/2"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 3256, 808 )
+position = Vector2( 3150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 3456, 904 )
+position = Vector2( 3350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 4152, 904 )
+position = Vector2( 4150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 4233.9, 852.699 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
+position = Vector2( 4350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn/2"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 3235.82, 840.7 )
+position = Vector2( 3150, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 3444.81, 958.762 )
+position = Vector2( 3350, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 4049.99, 955.402 )
+position = Vector2( 4150, 900 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 4209, 853.337 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
+position = Vector2( 4350, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn/2"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 3235.82, 840.7 )
+position = Vector2( 3150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 3444.81, 958.762 )
+position = Vector2( 3350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 4049.99, 955.402 )
+position = Vector2( 4150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 4209, 853.337 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
+position = Vector2( 4350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Node" parent="StageManager/EnemiesSpawn"]
@@ -667,7 +667,6 @@ margin_right = 1804.0
 margin_bottom = 994.0
 script = ExtResource( 33 )
 rate_list = [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 27 ) ]
-rate_points = [ 1200, 2400, 3600, 4800 ]
 
 [node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
 visible = false
@@ -873,7 +872,7 @@ texture = ExtResource( 3 )
 position = Vector2( 131, 2.00002 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 5
+frame = 4
 speed_scale = 1.8
 playing = true
 
@@ -881,7 +880,7 @@ playing = true
 position = Vector2( 663, 224 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 5
+frame = 4
 speed_scale = 1.8
 playing = true
 
@@ -889,7 +888,7 @@ playing = true
 position = Vector2( 1157, -52 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 4
+frame = 3
 speed_scale = 1.8
 playing = true
 
@@ -897,7 +896,7 @@ playing = true
 position = Vector2( 998, 284 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -905,7 +904,7 @@ playing = true
 position = Vector2( 456, -73 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -913,7 +912,7 @@ playing = true
 position = Vector2( 297, 278 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 2
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -921,7 +920,6 @@ playing = true
 position = Vector2( 1361, 401 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -929,7 +927,6 @@ playing = true
 position = Vector2( 1508, 41 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -937,7 +934,6 @@ playing = true
 position = Vector2( 759, 538 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -945,6 +941,7 @@ playing = true
 position = Vector2( 1601, 514 )
 frames = SubResource( 56 )
 animation = "New Anim"
+frame = 14
 speed_scale = 1.8
 playing = true
 
@@ -952,6 +949,7 @@ playing = true
 position = Vector2( 369, 646 )
 frames = SubResource( 56 )
 animation = "New Anim"
+frame = 14
 speed_scale = 1.8
 playing = true
 
@@ -959,7 +957,7 @@ playing = true
 position = Vector2( 63, 532 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 13
 speed_scale = 1.8
 playing = true
 
@@ -967,7 +965,7 @@ playing = true
 position = Vector2( 1046, 637 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 13
 speed_scale = 1.8
 playing = true
 
