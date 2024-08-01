@@ -23,6 +23,7 @@ func _process(_delta):
 	
 
 func _on_HitBox_body_entered(body:Node):
-	if body.is_in_group("player"):
-		(body as Player).hit(dps, "spear", self)
-	queue_free()
+	if body.is_in_group("player") || body.is_in_group("enemy"):
+		if body.is_in_group("player"):
+			(body as Player).hit(dps, "spear", self)
+		queue_free()

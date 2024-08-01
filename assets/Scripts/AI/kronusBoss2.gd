@@ -80,6 +80,7 @@ func _process(_delta: float) -> void:
 				if onEnter == true:
 					anim_player.play("lavastomp")
 					onEnter = false
+					temp_list.clear()
 					for lava in lava_column_list_pos:
 						temp_list.append(lava)
 
