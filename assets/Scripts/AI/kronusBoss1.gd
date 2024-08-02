@@ -39,6 +39,11 @@ export(int) var stompDuration := 2
 export(int) var stompDelay := 5
 export(int) var stompCooldown := 5
 
+export var FLAGS := "____________________"
+var hitted: bool = false
+var canStomp: bool = true
+var canShoot: bool = true
+var lastAttack = STATE.SHOTGUN
 
 var current_state = STATE.IDLE
 var actual_target: Player = null
@@ -49,12 +54,8 @@ var amount = 0
 var paused = false
 var areaCollided = null
 var targetList = null
-var stompFree: bool = true
 
 var sceneManager = null
-
-var attackCounter = 0
-var canShootShotgun = true
 
 func _ready():
 	healthBar = UIHealthBar
@@ -64,6 +65,7 @@ func _ready():
 func _process(_delta: float) -> void:
 	actual_target = select_target()
 	flip_sprite(actual_target.global_position)
+	choose_state()
 	
 	if(!paused):
 		match current_state:
@@ -75,10 +77,7 @@ func _process(_delta: float) -> void:
 				anim_player.play("hit")
 			
 			STATE.STOMP:
-				if Stomp_timer.is_stopped() && stompFree:
-					anim_player.play("stomp")
-				if anim_player.current_animation != "stomp":
-					current_state = STATE.IDLE
+				anim_player.play("stomp")
 			
 			STATE.MISSILES:
 				anim_player.play("missiles")
@@ -129,19 +128,15 @@ func flip_sprite(target: Vector2):
 
 
 func hit(dpsTaken, attackType, source) -> void:
+	hitted = true
 	healthBar.update_healthbar(dpsTaken)
 	amount = amount + dpsTaken
-	if amount >= HP:
-		current_state = STATE.DIED
-	else:
-		current_state = STATE.HIT
 
 func death():
 	emit_signal("hasDied")
 	queue_free()
 	
 func stomp(): 
-	stompFree = false
 	Stomp_timer.wait_time = stompDuration
 	Stomp_timer.one_shot = true
 	camera.smoothing_speed = 5
@@ -158,29 +153,29 @@ func set_state_idle():
 	camera.get_child(0).shaked = false
 	for target in targetList:
 		target.paused = false
+	canStomp = false
 
-func stop_hit():
-	current_state = STATE.IDLE
 
 func shotgun_shoot():
-	if canShootShotgun:
-		canShootShotgun = false
-		var deltaAngle = shootingAmplitude/(numberOfBullets -1)
-		var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
-		var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+	canShoot = false
+	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
+	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
+	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
 
-		var i = 0
-		for n in numberOfBullets:
-			var bullet_instance = bullet.instance()
-			var angleOffset = shootingAmplitude/2 - deltaAngle * i
-			bullet_instance.rotate(angle + deg2rad(angleOffset))
-			bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
-			get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
-			bullet_instance.set_global_position(spawnRifle.get_global_position())
-			i+=1
-		start_attack_cooldown(shotgunCooldown)
+	var i = 0
+	for n in numberOfBullets:
+		var bullet_instance = bullet.instance()
+		var angleOffset = shootingAmplitude/2 - deltaAngle * i
+		bullet_instance.rotate(angle + deg2rad(angleOffset))
+		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
+		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
+		bullet_instance.set_global_position(spawnRifle.get_global_position())
+		i+=1
+	lastAttack = STATE.SHOTGUN
+	start_attack_cooldown(shotgunCooldown)
 
 func missile_shoot():
+	canShoot = false
 	missile.position2d = spawnMissile
 	missile.shoot(actual_target)
 
@@ -188,35 +183,48 @@ func _on_StompTimer_timeout():
 	set_state_idle()
 
 func _on_Missile_HasShootMissile():
+	lastAttack = STATE.MISSILES
 	start_attack_cooldown(missilesCooldown)
 
 func start_attack_cooldown(value):
 	AttackCooldown_timer.wait_time = value
 	AttackCooldown_timer.one_shot = true
 	AttackCooldown_timer.start()
-	updateCounter()
 
 func _on_AttackCooldownTimer_timeout():
-	current_state = STATE.IDLE
-
-func updateCounter():
-	attackCounter += 1
+	canShoot = true
 	
 
-func choose_state():
-	if stompFree:
-		current_state = STATE.STOMP
-	elif (!attackCounter % 2 == 0):
-		canShootShotgun = true
-		current_state = STATE.SHOTGUN
-	else:
-		current_state = STATE.MISSILES
+#func old_choose_state():
+#	if stompFree:
+#		current_state = STATE.STOMP
+#	elif (!attackCounter % 2 == 0):
+#		canShootShotgun = true
+#		current_state = STATE.SHOTGUN
+#	else:
+#		current_state = STATE.MISSILES
 
 
 func _on_StompCooldownTimer_timeout():
-	stompFree == true
+	canStomp = true
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if (anim_name == "hit"):
-		current_state == STATE.IDLE
+		hitted = false
+
+func choose_state():
+	if hitted:
+		if amount >= HP:
+			current_state = STATE.DIED
+		else:
+			current_state = STATE.HIT
+	elif canStomp:
+		current_state = STATE.STOMP
+	elif canShoot:
+		if lastAttack == STATE.MISSILES:
+			current_state = STATE.SHOTGUN
+		elif lastAttack == STATE.SHOTGUN:
+			current_state = STATE.MISSILES
+	elif !canShoot && !canStomp:
+		current_state = STATE.IDLE
