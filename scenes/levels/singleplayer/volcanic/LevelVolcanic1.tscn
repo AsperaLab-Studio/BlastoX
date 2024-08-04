@@ -1,7 +1,7 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_19.png" type="Texture" id=1]
-[ext_resource path="res://assets/audio/ost/lvls sub/lvl 1-sub.ogg" type="AudioStream" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_20.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/UI/game over cornice.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/UI/go.png" type="Texture" id=5]
@@ -23,7 +23,7 @@
 [ext_resource path="res://scenes/pg/singleplayer/krogan.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/pg/singleplayer/turian.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=23]
-[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=24]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=24]
 [ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=25]
 [ext_resource path="res://assets/img/UI/rating/C.png" type="Texture" id=26]
 [ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=27]
@@ -50,6 +50,9 @@
 [ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_11.png" type="Texture" id=48]
 [ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_18.png" type="Texture" id=49]
 [ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_14.png" type="Texture" id=50]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=51]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=52]
+[ext_resource path="res://assets/Scripts/Sounds/LevelSounds.gd" type="Script" id=53]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 89.7126, 98.8925 )
@@ -129,6 +132,37 @@ position = Vector2( 63, -456 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 1020.87 ]
 }
+
+[node name="Audio" type="Node2D" parent="."]
+script = ExtResource( 53 )
+
+[node name="AkBank" type="Node" parent="Audio"]
+script = ExtResource( 2 )
+bank = {
+"Id": 3161908922,
+"Name": "MAIN"
+}
+load_on = 3
+
+[node name="AkState" type="Node" parent="Audio"]
+script = ExtResource( 51 )
+state_group = {
+"Id": 1927797142,
+"Name": "MUSICTRIGGER"
+}
+state_value = {
+"Id": 2244230815,
+"Name": "SAFE_ZONE"
+}
+trigger_on = 3
+
+[node name="AkEvent2D" type="Node2D" parent="Audio"]
+script = ExtResource( 52 )
+trigger_on = 3
+stop_on = 2
+
+[node name="AkListener2D" type="Node2D" parent="Audio"]
+script = ExtResource( 24 )
 
 [node name="StageManager" type="Node2D" parent="."]
 position = Vector2( -680, -496 )
@@ -580,7 +614,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -638,7 +672,6 @@ margin_right = 1804.0
 margin_bottom = 994.0
 script = ExtResource( 9 )
 rate_list = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 32 ), ExtResource( 30 ) ]
-rate_points = [ 1200, 2400, 3600, 4800 ]
 
 [node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
 visible = false
@@ -841,13 +874,6 @@ shape = SubResource( 22 )
 position = Vector2( 25.4528, 1232.18 )
 scale = Vector2( 1, 1 )
 
-[node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
-pause_mode = 2
-stream = ExtResource( 2 )
-volume_db = 2.0
-bus = "Music"
-script = ExtResource( 24 )
-
 [node name="floor" type="Node2D" parent="."]
 position = Vector2( -2407.87, 509 )
 z_index = -2
@@ -868,7 +894,7 @@ texture = ExtResource( 28 )
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 34 )
-frame = 2
+frame = 19
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -906,7 +932,11 @@ position = Vector2( -4, 14.5 )
 shape = SubResource( 33 )
 
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
+[connection signal="visibility_changed" from="GUI/UI/GAME OVER" to="Audio" method="_on_GAME_OVER_visibility_changed"]
+[connection signal="visibility_changed" from="GUI/UI/WIN" to="Audio" method="_on_WIN_visibility_changed"]
+[connection signal="visibility_changed" from="GUI/UI/Go" to="Audio" method="_on_Go_visibility_changed"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
+[connection signal="visibility_changed" from="GUI/pauseMenu" to="Audio" method="_on_pauseMenu_visibility_changed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="GUI/pauseMenu" method="_on_OptionBtn_pressed"]
@@ -918,4 +948,5 @@ shape = SubResource( 33 )
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="GUI/pauseMenu" method="_on_SFXSlider_value_changed"]
 [connection signal="death" from="PlayersList/Blasto" to="StageManager" method="_on_Blasto_death"]
 [connection signal="update_healthbar" from="PlayersList/Blasto" to="GUI/UI/HealthPlayerContainer" method="_on_Blasto_update_healthbar"]
+[connection signal="area_entered" from="Commands/StaticBody2D" to="Audio" method="_on_StaticBody2D_area_entered"]
 [connection signal="area_entered" from="Commands/StaticBody2D" to="Commands" method="_on_StaticBody2D_area_entered"]
