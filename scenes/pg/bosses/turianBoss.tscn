@@ -1,17 +1,17 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_pain.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/gun_rifle_01.oggvorbis.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/gun_rocket.oggvorbis.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/Scripts/AI/turianBoss.gd" type="Script" id=3]
 [ext_resource path="res://assets/Scripts/AI/props/TheGun/Missile.gd" type="Script" id=4]
 [ext_resource path="res://assets/Scripts/AI/props/TheGun/Rifle.gd" type="Script" id=5]
 [ext_resource path="res://assets/Scripts/AI/props/TheGun/Grenade.gd" type="Script" id=6]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_death.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/gun_pain.oggvorbis.ogg" type="AudioStream" id=7]
 [ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletRifle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletGranade.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletMissile.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_rocket_fire.ogg" type="AudioStream" id=11]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_rifle.ogg" type="AudioStream" id=12]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/boss_turian_granade_fire.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/gun_death.oggvorbis.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheGun_SFX/gun_granade.oggvorbis.ogg" type="AudioStream" id=12]
 [ext_resource path="res://assets/img/sprites/enemy/bosses/the_gun_spritesheet.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=2]
@@ -45,7 +45,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Gun_Death_SFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -54,7 +54,7 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 7 )
+"stream": ExtResource( 11 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -89,7 +89,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Gun_Granade_SFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -98,9 +98,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 13 )
+"stream": ExtResource( 12 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.05 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -118,7 +118,7 @@ tracks/0/keys = {
 "values": [ 12, 13 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("SFX")
+tracks/1/path = NodePath("Audio/Gun_Pain_SFX")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -127,7 +127,7 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 2 )
+"stream": ExtResource( 7 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -179,7 +179,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Gun_Rocket_SFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -188,9 +188,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 11 )
+"stream": ExtResource( 2 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=20]
@@ -224,7 +224,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Gun_Rifle_SFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -233,9 +233,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 12 )
+"stream": ExtResource( 1 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.3 )
 }
 
 [sub_resource type="CapsuleShape2D" id=15]
@@ -260,7 +260,7 @@ texture = ExtResource( 14 )
 flip_h = true
 hframes = 3
 vframes = 6
-frame = 15
+frame = 5
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -302,11 +302,6 @@ margin_top = -77.7829
 margin_right = 19.8185
 margin_bottom = -63.7829
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = 1.588
-bus = "SFX"
-
 [node name="PositionGrenade" type="Position2D" parent="."]
 position = Vector2( -120, 0 )
 
@@ -340,6 +335,26 @@ vframes = 6
 frame = 5
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Gun_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 11 )
+volume_db = -12.0
+
+[node name="Gun_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 7 )
+volume_db = -12.0
+
+[node name="Gun_Rifle_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 1 )
+
+[node name="Gun_Rocket_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 2 )
+
+[node name="Gun_Granade_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 12 )
+volume_db = -6.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

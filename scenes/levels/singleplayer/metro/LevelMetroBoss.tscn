@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=2]
@@ -17,13 +17,11 @@
 [ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=15]
 [ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=16]
 [ext_resource path="res://assets/Scripts/Player/camera/CameraShake.gd" type="Script" id=17]
-[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=18]
 [ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=19]
 [ext_resource path="res://scenes/pg/bosses/Asari/asariBoss1.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/Scripts/Player/camera/cameraController.gd" type="Script" id=21]
 [ext_resource path="res://scenes/pg/bosses/Asari/asariBoss2.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/img/sprites/obj/wind.png" type="Texture" id=23]
-[ext_resource path="res://assets/audio/ost/lvls city/The Legs soundtrack.ogg" type="AudioStream" id=24]
 [ext_resource path="res://assets/img/background/desert/Desert1.png" type="Texture" id=25]
 [ext_resource path="res://scenes/tile/metro/lvl 3 m/metro3TileBoss.tscn" type="PackedScene" id=26]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=27]
@@ -206,7 +204,6 @@ margin_bottom = 994.0
 script = ExtResource( 1 )
 rate_list = [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 7 ) ]
 boss = true
-rate_points = [ 3600, 7200, 10800, 14400 ]
 
 [node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
 visible = false
@@ -405,12 +402,6 @@ position = Vector2( 159, 1386 )
 scale = Vector2( 1, 1 )
 boss = true
 
-[node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
-pause_mode = 2
-stream = ExtResource( 24 )
-bus = "Music"
-script = ExtResource( 18 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
 
@@ -450,49 +441,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 39 )
-frame = 4
+frame = 9
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 9
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 9
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 9
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 9
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 9
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 9
 playing = true
 
 [node name="obj" type="Node" parent="."]

@@ -49,7 +49,7 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 5 )
 } ],
 "times": PoolRealArray( 0.25 )
 }
@@ -118,9 +118,9 @@ tracks/4/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 6 )
 } ],
-"times": PoolRealArray( 0.19 )
+"times": PoolRealArray( 0.183 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -148,9 +148,9 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 4 )
 } ],
-"times": PoolRealArray( 0.2 )
+"times": PoolRealArray( -0.014 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -228,7 +228,7 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 5
-frame = 12
+frame = 13
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -308,14 +308,17 @@ margin_bottom = -63.7829
 
 [node name="Krogan_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 6 )
+volume_db = -4.5
 bus = "SFX"
 
 [node name="Krogan_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 4 )
+volume_db = -4.5
 bus = "SFX"
 
 [node name="Krogan_Attack_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 5 )
+volume_db = -4.5
 bus = "SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

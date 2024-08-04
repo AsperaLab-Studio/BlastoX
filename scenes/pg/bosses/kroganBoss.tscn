@@ -1,14 +1,17 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/img/sprites/enemy/bosses/the_jaw_spritesheet.png" type="Texture" id=1]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_hit_01.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/charge_start.oggvorbis.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/Scripts/AI/kroganBoss.gd" type="Script" id=3]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_attack.ogg" type="AudioStream" id=4]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_attack_earthquake.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_attack_charge.ogg" type="AudioStream" id=6]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_death.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/TheJaw_ChargeSteps.oggvorbis.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/charge_end.oggvorbis.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/TheJaw_Death.oggvorbis.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/TheJaw_Earthquake1.oggvorbis.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/img/sprites/VFX/dustCloudVFX.png" type="Texture" id=8]
 [ext_resource path="res://assets/img/sprites/VFX/enemyMeleeHittedVFX.png" type="Texture" id=9]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/TheJaw_Pain.oggvorbis.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/TheJaw_Melee.oggvorbis.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/TheJaw_Earthquake.oggvorbis.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=10]
 resource_name = "ChargeEnd"
@@ -25,6 +28,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 10, 9 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Audio/Jaw_Charge_SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.05 )
 }
 
 [sub_resource type="Animation" id=11]
@@ -45,7 +62,7 @@ tracks/0/keys = {
 "values": [ 10, 11 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("SFX")
+tracks/1/path = NodePath("Audio/Jaw_Charge_SFX")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -54,9 +71,9 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 6 )
+"stream": ExtResource( 4 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.15 )
 }
 
 [sub_resource type="Animation" id=12]
@@ -89,6 +106,20 @@ tracks/1/keys = {
 "method": "ChargeStart"
 } ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Audio/Jaw_Charge_SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
@@ -120,7 +151,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Jaw_Attack_SFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -129,9 +160,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 4 )
+"stream": ExtResource( 11 )
 } ],
-"times": PoolRealArray( 0.4 )
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -165,7 +196,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Jaw_Death_SFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -174,7 +205,7 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 7 )
+"stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -194,16 +225,16 @@ tracks/0/keys = {
 "values": [ 15, 16 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("SFX")
+tracks/1/path = NodePath("Audio/Jaw_Pain_SFX")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.0576171,
+"end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 2 )
+"stream": ExtResource( 10 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -271,43 +302,47 @@ tracks/1/keys = {
 "method": "shake"
 } ]
 }
-tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/dustCloudVFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 5 )
-} ],
-"times": PoolRealArray( 2.02 )
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Node2D/dustCloudVFX:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 2, 2.13, 2.26, 2.39, 2.52 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4 ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Node2D/dustCloudVFX:visible")
+tracks/3/type = "value"
+tracks/3/path = NodePath("Node2D/dustCloudVFX:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2, 2.67 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Audio/Jaw_Earthquake_SFX")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 2, 2.67 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 1, 1.77 )
 }
 
 [sub_resource type="CapsuleShape2D" id=15]
@@ -334,7 +369,7 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 7
-frame = 10
+frame = 14
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -415,11 +450,24 @@ margin_top = -77.7829
 margin_right = 19.8185
 margin_bottom = -63.7829
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-bus = "SFX"
-
 [node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Jaw_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 6 )
+
+[node name="Jaw_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 10 )
+
+[node name="Jaw_Attack_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 11 )
+
+[node name="Jaw_Charge_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 2 )
+
+[node name="Jaw_Earthquake_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 7 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

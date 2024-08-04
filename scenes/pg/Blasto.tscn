@@ -53,8 +53,12 @@ tracks/2/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
 } ],
-"times": PoolRealArray( 0.14 )
+"times": PoolRealArray( 0.01, 0.011 )
 }
 
 [sub_resource type="Animation" id=17]
@@ -98,8 +102,12 @@ tracks/2/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
 } ],
-"times": PoolRealArray( 0.11 )
+"times": PoolRealArray( 0.01, 0.011 )
 }
 
 [sub_resource type="Animation" id=16]
@@ -143,8 +151,12 @@ tracks/2/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
 } ],
-"times": PoolRealArray( 0.12 )
+"times": PoolRealArray( 0.01, 0.011 )
 }
 
 [sub_resource type="Animation" id=14]
@@ -187,9 +199,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 6 )
 } ],
-"times": PoolRealArray( 0.22 )
+"times": PoolRealArray( 0.56 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -231,9 +243,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 7 )
 } ],
-"times": PoolRealArray( 0.2 )
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -285,8 +297,12 @@ tracks/3/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
 } ],
-"times": PoolRealArray( 0.11 )
+"times": PoolRealArray( 0.022, 0.034 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -332,9 +348,9 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 9 )
 } ],
-"times": PoolRealArray( 0.11 )
+"times": PoolRealArray( 0.04 )
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("Audio/Blasto_Land_SFX")
@@ -346,9 +362,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 4 )
 } ],
-"times": PoolRealArray( 0.86 )
+"times": PoolRealArray( 0.77 )
 }
 
 [sub_resource type="Animation" id=5]
@@ -405,9 +421,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 2 )
 } ],
-"times": PoolRealArray( 0.5 )
+"times": PoolRealArray( 0.45 )
 }
 
 [sub_resource type="CapsuleShape2D" id=12]
@@ -447,7 +463,7 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 11
-frame = 18
+frame = 20
 
 [node name="meleeHittedVFX" type="Sprite" parent="SpritePivot"]
 visible = false
@@ -534,39 +550,48 @@ wait_time = 0.05
 
 [node name="Blasto_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 7 )
+volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 10 )
+volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Jump_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 9 )
+volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Land_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 4 )
+volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Shoot_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 2 )
+volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Special_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 6 )
+volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Attack01_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 11 )
+volume_db = -4.5
 bus = "SFX"
 
 [node name="Blasto_Attack02_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 11 )
+volume_db = -4.5
 pitch_scale = 1.37
 bus = "SFX"
 
 [node name="Blasto_Attack03_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 11 )
+volume_db = -4.5
 pitch_scale = 1.75
 bus = "SFX"
 
