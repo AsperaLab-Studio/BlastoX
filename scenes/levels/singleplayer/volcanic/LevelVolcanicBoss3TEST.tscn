@@ -91,11 +91,8 @@ current_level = "ocean/LevelOceanBoss"
 [node name="EnemiesContainer" type="Node" parent="StageManager"]
 
 [node name="kronusBoss3" parent="StageManager/EnemiesContainer" instance=ExtResource( 10 )]
-position = Vector2( 838, 857 )
-move_speed = 50
-wait_attack = 1.5
+position = Vector2( 825, 849 )
 range_chase = 300.0
-shootingAmplitude = 45.0
 
 [node name="respawnPoint" type="Node2D" parent="StageManager"]
 position = Vector2( 1000, 1750 )
@@ -520,7 +517,7 @@ randomShackeStrenght = 10.0
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 43 )
-frame = 10
+frame = 17
 playing = true
 
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]

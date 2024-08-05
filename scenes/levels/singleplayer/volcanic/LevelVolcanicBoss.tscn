@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://scenes/tile/volcanic/lvl 1 v/volcanic1TileBoss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/ost/lvls sub/The Vine soundtrack.ogg" type="AudioStream" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://assets/Scripts/Managers/KronusPhaseManager.gd" type="Script" id=10]
 [ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=11]
 [ext_resource path="res://assets/img/UI/blasto/cornice barra vita.png" type="Texture" id=12]
-[ext_resource path="res://scenes/pg/bosses/kronus/kronusBoss1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_2.png" type="Texture" id=14]
 [ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=15]
 [ext_resource path="res://assets/img/UI/you win cornice.png" type="Texture" id=16]
@@ -100,8 +99,8 @@ script = ExtResource( 10 )
 kronus2 = ExtResource( 21 )
 kronus3 = ExtResource( 18 )
 
-[node name="KronusBoss" parent="StageManager/EnemiesContainer" instance=ExtResource( 13 )]
-position = Vector2( 806, 879 )
+[node name="kronusBoss3" parent="StageManager/EnemiesContainer" instance=ExtResource( 18 )]
+position = Vector2( 833, 860 )
 
 [node name="respawnPoint" type="Node2D" parent="StageManager"]
 position = Vector2( 932, 1818 )
@@ -179,7 +178,6 @@ position = Vector2( 109, 857 )
 [node name="lava pool" type="Node" parent="StageManager"]
 
 [node name="floor2" type="Node2D" parent="StageManager/lava pool"]
-visible = false
 position = Vector2( -1089, 53 )
 scale = Vector2( 0.698, 1 )
 z_index = -2
@@ -193,6 +191,7 @@ scenes = [ ExtResource( 46 ) ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StageManager/lava pool/StaticBody2D"]
 position = Vector2( 613.5, 834 )
 shape = SubResource( 44 )
+disabled = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -545,10 +544,9 @@ scenes = [ ExtResource( 1 ) ]
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 43 )
-frame = 12
+frame = 13
 playing = true
 
-[connection signal="hasDied" from="StageManager/EnemiesContainer/KronusBoss" to="StageManager/EnemiesContainer" method="_on_KronusBoss_hasDied"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]

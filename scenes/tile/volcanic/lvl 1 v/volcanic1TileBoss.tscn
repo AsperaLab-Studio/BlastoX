@@ -31,27 +31,27 @@ frame = 3
 
 [node name="WallPhF" type="Sprite" parent="."]
 position = Vector2( 236, -159 )
-z_index = -3
+z_index = -4
 texture = ExtResource( 2 )
 hframes = 4
 
 [node name="WallPhF2" type="Sprite" parent="."]
 position = Vector2( 627, -159 )
-z_index = -3
+z_index = -4
 texture = ExtResource( 2 )
 hframes = 4
 frame = 1
 
 [node name="WallPhF3" type="Sprite" parent="."]
 position = Vector2( 1018, -159 )
-z_index = -3
+z_index = -4
 texture = ExtResource( 2 )
 hframes = 4
 frame = 2
 
 [node name="WallPhF4" type="Sprite" parent="."]
 position = Vector2( 1409, -159 )
-z_index = -3
+z_index = -4
 texture = ExtResource( 2 )
 hframes = 4
 frame = 3

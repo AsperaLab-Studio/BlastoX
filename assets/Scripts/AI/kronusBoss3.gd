@@ -95,12 +95,12 @@ func _process(_delta: float) -> void:
 				anim_player.play("hit")
 
 			STATE.CHASE:
-				anim_player.play("move")
+				anim_player.play("chase")
 				if !near_player:
 					move_towards(actual_target.global_position, move_speed)
 
 			STATE.BACKJUMP:
-				anim_player.play("move")
+				anim_player.play("lavastomp")
 				if onEnter:
 					var d1 = abs(actual_target.global_position.x - boss_list_points[0].global_position.x)
 					var d2 = abs(actual_target.global_position.x - boss_list_points[1].global_position.x)
@@ -154,7 +154,7 @@ func _process(_delta: float) -> void:
 							var actual_lava_column_instance = lava_column.instance()
 
 							if pos.name == "1" || pos.name == "2":
-								actual_lava_column_instance.z_index = -2
+								actual_lava_column_instance.z_index = -1
 							else:
 								actual_lava_column_instance.z_index = 3
 							

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/prova salto.png-4c114ef606644db69f6af0f5b39b3496.stex"
+path="res://.import/kornus_spritesheet.png-4f94bc992231545817257349058e32a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/sprites/enemy/bosses/prova salto.png"
-dest_files=[ "res://.import/prova salto.png-4c114ef606644db69f6af0f5b39b3496.stex" ]
+source_file="res://assets/img/sprites/enemy/bosses/kornus_spritesheet.png"
+dest_files=[ "res://.import/kornus_spritesheet.png-4f94bc992231545817257349058e32a7.stex" ]
 
 [params]
 

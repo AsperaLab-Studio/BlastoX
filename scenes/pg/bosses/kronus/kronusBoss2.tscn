@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://assets/img/sprites/enemy/the_vine_spritesheet.png" type="Texture" id=1]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_hit_01.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/img/sprites/enemy/bosses/kornus_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/Scripts/AI/kronusBoss2.gd" type="Script" id=3]
 [ext_resource path="res://assets/img/UI/bosses/boss kronus/2 faste cornice kronus.png" type="Texture" id=4]
 [ext_resource path="res://assets/audio/sfx/Bosses/TheJaw_SFX/boss_krogan_attack_earthquake.ogg" type="AudioStream" id=5]
@@ -16,7 +15,7 @@
 [sub_resource type="Animation" id=2]
 resource_name = "died"
 length = 1.2
-step = 0.2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -24,10 +23,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.8 ),
+"times": PoolRealArray( 0, 0.3, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 18, 19, 20 ]
+"values": [ 13, 14, 15 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -36,7 +35,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -67,10 +66,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 15, 16 ]
+"values": [ 19, 18 ]
 }
 tracks/1/type = "audio"
 tracks/1/path = NodePath("SFX")
@@ -79,26 +78,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
-"end_offset": 0.0576171,
-"start_offset": 0.0,
-"stream": ExtResource( 2 )
-} ],
-"times": PoolRealArray( 0 )
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "stop_hit"
-} ]
+"clips": [  ],
+"times": PoolRealArray(  )
 }
 
 [sub_resource type="Animation" id=4]
@@ -115,7 +96,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 2, 3 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -132,9 +113,48 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=20]
 resource_name = "lavastomp"
-length = 3.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 11, 10, 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "updateCounter"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "missile"
+length = 1.2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -143,10 +163,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.13, 2 ),
+"times": PoolRealArray( 0, 0.4, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 12, 13, 14 ]
+"values": [ 23, 22, 21 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -155,37 +175,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.37 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "updateCounter"
-} ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "missile"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 9, 10, 11 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 0.84 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -193,9 +183,9 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=19]
 resource_name = "shotgun"
-length = 2.0
+length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -203,10 +193,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 9, 10, 11 ]
+"values": [ 25, 26, 27, 25 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -215,7 +205,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.7 ),
+"times": PoolRealArray( 0.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -223,11 +213,12 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="CapsuleShape2D" id=15]
+[sub_resource type="CapsuleShape2D" id=21]
 radius = 19.0
+height = 66.0
 
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 8.4275, 21.8633 )
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 8.4275, 52 )
 
 [node name="KronusBoss" type="KinematicBody2D" groups=["enemy", "pausable"]]
 z_index = -1
@@ -242,35 +233,37 @@ lava_column = ExtResource( 12 )
 position = Vector2( 0.772251, -20.8911 )
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
-hframes = 3
+flip_h = true
+hframes = 4
 vframes = 9
-frame = 15
+frame = 23
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/died = SubResource( 2 )
 anims/hit = SubResource( 3 )
 anims/idle = SubResource( 4 )
-anims/lavastomp = SubResource( 9 )
-anims/missile = SubResource( 16 )
-anims/shotgun = SubResource( 17 )
+anims/lavastomp = SubResource( 20 )
+anims/missile = SubResource( 18 )
+anims/shotgun = SubResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
-shape = SubResource( 15 )
+shape = SubResource( 21 )
 
 [node name="Pivot" type="Node2D" parent="."]
 scale = Vector2( -1, 1 )
 
 [node name="MissilePos" type="Position2D" parent="Pivot"]
-position = Vector2( 120, 1 )
+position = Vector2( 120, -85 )
 
 [node name="HitBox" type="Area2D" parent="Pivot"]
 position = Vector2( -8.5, 0 )
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HitBox"]
-shape = SubResource( 14 )
+position = Vector2( 0, 1.90735e-06 )
+shape = SubResource( 22 )
 
 [node name="HealthDisplay" type="Node2D" parent="."]
 

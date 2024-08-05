@@ -97,7 +97,7 @@ func _process(_delta: float) -> void:
 							var actual_lava_column_instance = lava_column.instance()
 
 							if pos.name == "1" || pos.name == "2":
-								actual_lava_column_instance.z_index = -2
+								actual_lava_column_instance.z_index = -1
 							else:
 								actual_lava_column_instance.z_index = 3
 							
