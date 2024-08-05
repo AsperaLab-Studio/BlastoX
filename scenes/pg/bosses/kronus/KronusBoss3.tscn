@@ -403,8 +403,13 @@ nine_patch_stretch = true
 
 [node name="LavaColumnContainer" type="Node" parent="."]
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
 [connection signal="area_entered" from="Pivot/HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="area_entered" from="Pivot/AttackCollision" to="." method="_on_AttackCollision_area_entered"]
 [connection signal="area_exited" from="Pivot/AttackCollision" to="." method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

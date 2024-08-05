@@ -10,6 +10,7 @@ onready var collition_area2d : CollisionShape2D = $Pivot/AttackCollision/Collisi
 onready var attack_area2d : Area2D = $Pivot/AttackCollision
 onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var cooldown: Timer = $Cooldown
+onready var invincibility_timer = $InvincibilityTimer
 
 enum STATE {IDLE, CHASE, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED, BACKJUMP}
 
@@ -57,6 +58,7 @@ var is_ranged: bool = false
 var ended_back: bool = true
 var bullet_right: bool = false
 var previous_state 
+var invincible = false
 
 var healthBar = null
 var amount = 0
@@ -196,7 +198,8 @@ func select_target() -> Player:
 func hit(dpsTaken, attackType, source) -> void:
 	healthBar.update_healthbar(dpsTaken)
 	amount = amount + dpsTaken
-	hitted = true
+	if invincible == false:	
+		hitted = true
 	
 
 
@@ -285,6 +288,14 @@ func _on_AttackCollision_area_entered(area):
 func _on_Cooldown_timeout():
 	can_ranged = true
 
+
+func _on_AnimationPlayer_animation_started(anim_name:String):
+	if anim_name == "hit":
+		invincibility_timer.start(1)
+		invincible = true
+
+func _on_InvincibilityTimer_timeout():
+	invincible = false
 
 func choose_state():
 	if !can_ranged:
