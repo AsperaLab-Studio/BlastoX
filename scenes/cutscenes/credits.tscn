@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/video/credits.ogv" type="VideoStream" id=1]
-[ext_resource path="res://assets/audio/ost/credits.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/ost/Crediti.oggvorbis.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/Scripts/Managers/cutscene.gd" type="Script" id=3]
 [ext_resource path="res://assets/Scripts/Managers/audioProloguer.gd" type="Script" id=4]
 [ext_resource path="res://assets/fonts/Quickzag-rOzO.otf" type="DynamicFontData" id=5]
@@ -53,9 +53,8 @@ custom_fonts/font = SubResource( 1 )
 text = "press \"V\" button to skip"
 align = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -15.128
 bus = "Music"
 script = ExtResource( 4 )
 

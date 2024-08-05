@@ -54,3 +54,38 @@ func _on_BackBtn_pressed():
 
 func _on_BackBtn_mouse_entered():
 	$MouseEntered.play()
+
+
+func _on_RestartLevelBtn_pressed():
+	$ButtonPressed
+
+func _on_RestartLevelBtn_mouse_entered():
+	$MouseEntered
+
+
+func _on_OptionBtn_pressed():
+	$ButtonPressed
+
+func _on_OptionBtn_mouse_entered():
+	$MouseEntered
+
+
+func _on_MainMenuBtn_pressed():
+	$ButtonPressed
+
+func _on_MainMenuBtn_mouse_entered():
+	$MouseEntered
+
+
+func _on_QuitBtn_pressed():
+	$ButtonPressed
+
+func _on_QuitBtn_mouse_entered():
+	$MouseEntered
+
+
+func _on_backToPauseBtn_pressed():
+	$ButtonPressed
+
+func _on_backToPauseBtn_mouse_entered():
+	$MouseEntered

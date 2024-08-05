@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/video/Prologue.ogv" type="VideoStream" id=1]
 [ext_resource path="res://assets/Scripts/Managers/audioProloguer.gd" type="Script" id=2]
 [ext_resource path="res://assets/Scripts/Managers/cutscene.gd" type="Script" id=3]
-[ext_resource path="res://assets/audio/ost/prologue.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/ost/Cutscene.oggvorbis.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/fonts/Quickzag-rOzO.otf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -53,7 +53,7 @@ custom_fonts/font = SubResource( 1 )
 text = "press \"V\" or \"Select\" button to skip"
 align = 1
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "Music"
 script = ExtResource( 2 )
