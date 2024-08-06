@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/background/desert/DesertBackground.png" type="Texture" id=2]
@@ -17,11 +17,13 @@
 [ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=15]
 [ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=16]
 [ext_resource path="res://assets/Scripts/Player/camera/CameraShake.gd" type="Script" id=17]
+[ext_resource path="res://assets/audio/sfx/Menu/meSFX.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=19]
 [ext_resource path="res://scenes/pg/bosses/props/TheGun/GranadeImpact.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/Scripts/Player/camera/cameraController.gd" type="Script" id=21]
 [ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=22]
 [ext_resource path="res://assets/img/sprites/obj/wind.png" type="Texture" id=23]
+[ext_resource path="res://assets/Scripts/Managers/AudioButtons.gd" type="Script" id=24]
 [ext_resource path="res://assets/img/background/desert/Desert1.png" type="Texture" id=25]
 [ext_resource path="res://assets/Scripts/Managers/BossSceneManager.gd" type="Script" id=26]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=27]
@@ -30,6 +32,15 @@
 [ext_resource path="res://assets/img/frontground/obj/LV2-S OBJ.png" type="Texture" id=30]
 [ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=31]
 [ext_resource path="res://scenes/tile/environment/borders.tscn" type="PackedScene" id=32]
+[ext_resource path="res://assets/Scripts/Managers/AudioLevels.gd" type="Script" id=33]
+[ext_resource path="res://assets/Scripts/Managers/ost pause.gd" type="Script" id=34]
+[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=35]
+[ext_resource path="res://assets/audio/sfx/Menu/bpSFX.ogg" type="AudioStream" id=36]
+[ext_resource path="res://assets/audio/ost/win.oggvorbis.ogg" type="AudioStream" id=37]
+[ext_resource path="res://assets/audio/ost/lose.oggvorbis.ogg" type="AudioStream" id=38]
+[ext_resource path="res://assets/audio/sfx/Levels/NextLevel.oggvorbis.ogg" type="AudioStream" id=39]
+[ext_resource path="res://assets/audio/ost/lvls station/Boss_Station.oggvorbis.ogg" type="AudioStream" id=40]
+[ext_resource path="res://assets/audio/ost/lvls station/Boss_Station_Pause.oggvorbis.ogg" type="AudioStream" id=41]
 
 [sub_resource type="StyleBoxFlat" id=41]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -870,14 +881,75 @@ hframes = 3
 vframes = 3
 frame = 5
 
+[node name="Audio" type="Node2D" parent="."]
+script = ExtResource( 33 )
+
+[node name="Intro_Section" type="AudioStreamPlayer" parent="Audio" groups=["pausable"]]
+bus = "Music"
+script = ExtResource( 35 )
+
+[node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 40 )
+autoplay = true
+bus = "Music"
+script = ExtResource( 35 )
+actualPlaying = true
+
+[node name="Pause_Section" type="AudioStreamPlayer" parent="Audio"]
+pause_mode = 2
+stream = ExtResource( 41 )
+bus = "Music"
+script = ExtResource( 34 )
+
+[node name="NextArea" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 39 )
+bus = "SFX"
+
+[node name="Win" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 37 )
+bus = "Music"
+
+[node name="Lose" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 38 )
+bus = "Music"
+
+[node name="PauseMenu" type="Node2D" parent="Audio"]
+pause_mode = 2
+script = ExtResource( 24 )
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="Audio/PauseMenu"]
+pause_mode = 2
+stream = ExtResource( 36 )
+bus = "SFX"
+
+[node name="MouseEntered" type="AudioStreamPlayer" parent="Audio/PauseMenu"]
+pause_mode = 2
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[connection signal="visibility_changed" from="GUI/UI/GAME OVER" to="Audio" method="_on_GAME_OVER_visibility_changed"]
+[connection signal="visibility_changed" from="GUI/UI/WIN" to="Audio" method="_on_WIN_visibility_changed"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="Audio/PauseMenu" method="_on_ReturnBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="Audio/PauseMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="Audio/PauseMenu" method="_on_RestartLevelBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="Audio/PauseMenu" method="_on_RestartLevelBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="Audio/PauseMenu" method="_on_OptionBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="GUI/pauseMenu" method="_on_OptionBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="Audio/PauseMenu" method="_on_OptionBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="Audio/PauseMenu" method="_on_MainMenuBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="GUI/pauseMenu" method="_on_MainMenuBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="Audio/PauseMenu" method="_on_MainMenuBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="Audio/PauseMenu" method="_on_QuitBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="GUI/pauseMenu" method="_on_QuitBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="Audio/PauseMenu" method="_on_QuitBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="Audio/PauseMenu" method="_on_backToPauseBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="GUI/pauseMenu" method="_on_backToPauseBtn_pressed"]
+[connection signal="pressed" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="Audio/PauseMenu" method="_on_backToPauseBtn_pressed"]
 [connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="GUI/pauseMenu" method="_on_checkFullscreen_toggled"]
+[connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="Audio/PauseMenu" method="_on_checkFullscreen_toggled"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/MusicSlider" to="GUI/pauseMenu" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="GUI/pauseMenu" method="_on_SFXSlider_value_changed"]
 [connection signal="death" from="PlayersList/Blasto" to="StageManager" method="_on_Blasto_death"]
