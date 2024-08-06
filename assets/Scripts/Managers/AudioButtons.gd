@@ -57,35 +57,35 @@ func _on_BackBtn_mouse_entered():
 
 
 func _on_RestartLevelBtn_pressed():
-	$ButtonPressed
+	$ButtonPressed.play()
 
 func _on_RestartLevelBtn_mouse_entered():
-	$MouseEntered
+	$MouseEntered.play()
 
 
 func _on_OptionBtn_pressed():
-	$ButtonPressed
+	$ButtonPressed.play()
 
 func _on_OptionBtn_mouse_entered():
-	$MouseEntered
+	$MouseEntered.play()
 
 
 func _on_MainMenuBtn_pressed():
-	$ButtonPressed
+	$ButtonPressed.play()
 
 func _on_MainMenuBtn_mouse_entered():
-	$MouseEntered
+	$MouseEntered.play()
 
 
 func _on_QuitBtn_pressed():
-	$ButtonPressed
+	$ButtonPressed.play()
 
 func _on_QuitBtn_mouse_entered():
-	$MouseEntered
+	$MouseEntered.play()
 
 
 func _on_backToPauseBtn_pressed():
-	$ButtonPressed
+	$ButtonPressed.play()
 
 func _on_backToPauseBtn_mouse_entered():
-	$MouseEntered
+	$MouseEntered.play()
