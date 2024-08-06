@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://assets/img/sprites/obj/wind.png" type="Texture" id=1]
 [ext_resource path="res://assets/Scripts/Managers/AudioButtons.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://assets/img/UI/go.png" type="Texture" id=5]
 [ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/img/UI/blasto/barra vita.png" type="Texture" id=7]
-[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=8]
 [ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=9]
 [ext_resource path="res://assets/Scripts/Managers/SceneManager.gd" type="Script" id=10]
 [ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=11]
@@ -38,8 +37,6 @@
 [ext_resource path="res://assets/audio/sfx/Menu/bpSFX.ogg" type="AudioStream" id=36]
 [ext_resource path="res://assets/audio/sfx/Levels/NextLevel.oggvorbis.ogg" type="AudioStream" id=37]
 [ext_resource path="res://assets/audio/sfx/Menu/meSFX.ogg" type="AudioStream" id=38]
-[ext_resource path="res://assets/audio/sfx/Levels/box_damaged_01.oggvorbis.ogg" type="AudioStream" id=39]
-[ext_resource path="res://assets/audio/sfx/Levels/heal.oggvorbis.ogg" type="AudioStream" id=40]
 [ext_resource path="res://assets/audio/ost/win.oggvorbis.ogg" type="AudioStream" id=41]
 [ext_resource path="res://assets/audio/ost/lose.oggvorbis.ogg" type="AudioStream" id=42]
 [ext_resource path="res://assets/Scripts/Managers/AudioLevels.gd" type="Script" id=43]
@@ -924,49 +921,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 19 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1009,6 +1006,7 @@ position = Vector2( 174, 1439 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SmallBox"]
 position = Vector2( 7, -86 )
 frames = SubResource( 34 )
+frame = 1
 playing = true
 
 [node name="Audio" type="Node2D" parent="."]
@@ -1024,7 +1022,7 @@ actualPlaying = true
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 44 )
 bus = "Music"
-script = ExtResource( 8 )
+script = ExtResource( 48 )
 
 [node name="Pause_Section" type="AudioStreamPlayer" parent="Audio"]
 pause_mode = 2
@@ -1034,14 +1032,6 @@ script = ExtResource( 45 )
 
 [node name="NextArea" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 37 )
-bus = "SFX"
-
-[node name="Box" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 39 )
-bus = "SFX"
-
-[node name="Heal" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 40 )
 bus = "SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="Audio"]

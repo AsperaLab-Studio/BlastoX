@@ -5,7 +5,6 @@ onready var sprite: Sprite = $Sprite
 onready var collider: CollisionShape2D = $Sprite/Area2D/CollisionShape2D
 onready var static_collider: CollisionShape2D = $Sprite/StaticBody2D/CollisionShape2D
 onready var pos: Position2D = $Position2D
-onready var Box: AudioStreamPlayer = get_parent().get_node("Audio/Box")
 export(int) var hp_box := 2
 export(Array, PackedScene) var powerups_list	
 
@@ -34,5 +33,5 @@ func _process(_delta):
 		
 
 func hit(dps, _type, _source):
-	Box.play()
+	$Box.play()
 	sprite.frame = sprite.frame + dps

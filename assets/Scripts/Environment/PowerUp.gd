@@ -1,8 +1,6 @@
 class_name PowerUp
 extends Node2D
 
-onready var Heal: AudioStreamPlayer = get_parent().get_node("Audio/Heal")
-
 enum POWER_UP_TYPE {GUN, MEDIKIT}
 
 export(POWER_UP_TYPE) var type
@@ -17,7 +15,7 @@ func _on_Area2D_area_entered(area:Area2D):
 				pass
 			POWER_UP_TYPE.MEDIKIT:
 				if area.owner.current_hp != area.owner.hp:
-					Heal.play()
+					$Heal.play()
 					if area.owner.current_hp + amount >= area.owner.hp:
 						area.owner.current_hp = area.owner.hp
 					else:
