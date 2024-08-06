@@ -39,6 +39,10 @@ var temp_list: Array
 var onEnter = true
 var rng
 
+export var FLAGS := "____________________"
+var hitted: bool = false
+var canShoot: bool = true
+var lastAttack = STATE.SHOTGUN
 
 var current_state = STATE.IDLE
 var actual_target: Player = null
@@ -240,3 +244,20 @@ func choose_state():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if (anim_name == "hit"):
 		current_state == STATE.IDLE
+
+func new_choose_state():
+	if hitted:
+		if amount >= HP:
+			set_state_idle()
+			current_state = STATE.DIED
+		else:
+			current_state = STATE.HIT
+	elif canShoot:
+		if lastAttack == STATE.LAVASTOMP:
+			current_state = STATE.SHOTGUN
+		elif lastAttack == STATE.SHOTGUN:
+			current_state = STATE.MISSILES
+		elif lastAttack == STATE.MISSILES:
+			current_state = STATE.LAVASTOMP
+	elif !canShoot:
+		current_state = STATE.IDLE

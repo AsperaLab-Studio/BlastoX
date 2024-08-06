@@ -216,6 +216,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func choose_state():
 	if hitted:
 		if amount >= HP:
+			set_state_idle()
 			current_state = STATE.DIED
 		else:
 			current_state = STATE.HIT
