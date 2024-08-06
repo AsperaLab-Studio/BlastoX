@@ -1,28 +1,34 @@
 extends Node2D
 
-onready var Go: AnimatedSprite = get_parent().get_node("GUI/UI/Go")
-onready var GAME_OVER: Sprite = get_parent().get_node("GUI/UI/GAME OVER")
-onready var WIN: Sprite = get_parent().get_node("GUI/UI/WIN")
-onready var Wall: Area2D = get_parent().get_node("Commands/StaticBody2D")
+onready var go: AnimatedSprite = get_parent().get_node("GUI/UI/Go")
+onready var gameOver: Sprite = get_parent().get_node("GUI/UI/GAME OVER")
+onready var win: Sprite = get_parent().get_node("GUI/UI/WIN")
+onready var wall: Area2D = get_parent().get_node("Commands/StaticBody2D")
 onready var pauseMenu: Control = get_parent().get_node("GUI/pauseMenu")
 
-
 func _on_Go_visibility_changed():
-	if Go.visible == true:
-		Go.play()
+	if go.visible == true:
+		$NextArea.play()
 
 
 func _on_GAME_OVER_visibility_changed():
-	if GAME_OVER.visible == true:
-		GAME_OVER.play()
+	if gameOver.visible == true:
+		$Lose.play()
+		EnableSection(false, false)
 
 
 func _on_WIN_visibility_changed():
-	if WIN.visible == true:
-		WIN.play()
+	if win.visible == true:
+		$Win.play()
+		EnableSection(false, false)
 
 
 func _on_StaticBody2D_area_entered(area):
 	if area.name != "BulletArea":
-		Wall.visible = false
+		wall.visible = false
+		EnableSection(true, false)
+
+func EnableSection(main: bool, intro: bool):
+	$Main_Section.actualPlaying = main	
+	$Intro_Section.actualPlaying = intro
 		
