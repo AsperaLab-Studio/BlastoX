@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 type = 1
 amount = 4
 
-[node name="LV 1-D T-OBJ16" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -43 )
 z_index = 3
 texture = ExtResource( 1 )
@@ -20,10 +20,10 @@ hframes = 3
 vframes = 4
 frame = 2
 
-[node name="Area2D" type="Area2D" parent="LV 1-D T-OBJ16"]
+[node name="Area2D" type="Area2D" parent="Sprite"]
 position = Vector2( 0, -44 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ16/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 position = Vector2( 0, -3.74585 )
 shape = SubResource( 1 )
 
@@ -31,4 +31,4 @@ shape = SubResource( 1 )
 stream = ExtResource( 3 )
 bus = "SFX"
 
-[connection signal="area_entered" from="LV 1-D T-OBJ16/Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Sprite/Area2D" to="." method="_on_Area2D_area_entered"]

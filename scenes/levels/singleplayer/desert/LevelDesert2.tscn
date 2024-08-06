@@ -166,6 +166,7 @@ script = ExtResource( 10 )
 enemy_types = [ ExtResource( 34 ), ExtResource( 19 ), ExtResource( 17 ) ]
 next_stage = "desert/LevelDesert3"
 current_level = "desert/LevelDesert2"
+totalFightPhases = 3
 
 [node name="MovingWall" type="StaticBody2D" parent="StageManager"]
 position = Vector2( 8936, 1272 )
@@ -609,7 +610,6 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 1
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -965,13 +965,13 @@ script = ExtResource( 35 )
 stream = ExtResource( 38 )
 bus = "Music"
 script = ExtResource( 8 )
-actualPlaying = true
 
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 29 )
 autoplay = true
 bus = "Music"
 script = ExtResource( 8 )
+actualPlaying = true
 
 [node name="Pause_Section" type="AudioStreamPlayer" parent="Audio"]
 pause_mode = 2
