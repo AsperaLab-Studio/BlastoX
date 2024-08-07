@@ -80,7 +80,6 @@ func _process(_delta: float) -> void:
 				var actual_zone: int
 
 				if onEnter == true:
-					canAttack = false
 					anim_player.play("lavastomp")
 					onEnter = false
 					temp_list.clear()
@@ -112,6 +111,7 @@ func _process(_delta: float) -> void:
 
 				elif temp_list.size() == 0 && lava_container.get_child_count() == 0:
 					lastAttack = STATE.LAVASTOMP
+					canAttack = false
 					AttackCooldown_timer.wait_time = wait_attack
 					AttackCooldown_timer.start()
 					onEnter = true
