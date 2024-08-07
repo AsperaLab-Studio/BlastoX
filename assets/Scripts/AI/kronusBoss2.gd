@@ -41,8 +41,8 @@ var rng
 
 export var FLAGS := "____________________"
 var hitted: bool = false
-var canShoot: bool = true
-var lastAttack = STATE.SHOTGUN
+var canAttack: bool = true
+var lastAttack = STATE.MISSILES
 
 var current_state = STATE.IDLE
 var actual_target: Player = null
@@ -56,9 +56,6 @@ var targetList = null
 
 var sceneManager = null
 
-var attackCounter = 0
-var canShootMissiles = true
-var canShootShotgun = true
 
 func _ready():
 	healthBar = UIHealthBar
@@ -68,6 +65,7 @@ func _ready():
 func _process(_delta: float) -> void:
 	actual_target = select_target()
 	flip_sprite(actual_target.global_position)
+	choose_state()
 	
 	if(!paused):
 		match current_state:
@@ -82,6 +80,7 @@ func _process(_delta: float) -> void:
 				var actual_zone: int
 
 				if onEnter == true:
+					canAttack = false
 					anim_player.play("lavastomp")
 					onEnter = false
 					temp_list.clear()
@@ -112,15 +111,14 @@ func _process(_delta: float) -> void:
 					temp_list.remove(actual_zone)
 
 				elif temp_list.size() == 0 && lava_container.get_child_count() == 0:
+					lastAttack = STATE.LAVASTOMP
 					AttackCooldown_timer.wait_time = wait_attack
 					AttackCooldown_timer.start()
 					onEnter = true
 
 			
 			STATE.MISSILES:
-				if canShootMissiles:
-					anim_player.play("missile")
-					canShootMissiles = false
+				anim_player.play("missile")
 			
 			STATE.SHOTGUN:
 				anim_player.play("shotgun")
@@ -167,12 +165,10 @@ func flip_sprite(target: Vector2):
 
 
 func hit(dpsTaken, attackType, source) -> void:
+	hitted = true
 	healthBar.update_healthbar(dpsTaken)
 	amount = amount + dpsTaken
-	if amount >= HP:
-		current_state = STATE.DIED
-	else:
-		current_state = STATE.HIT
+
 
 func death():
 	var phaseChanger : kronusPhaseManager = get_parent()
@@ -186,28 +182,27 @@ func set_state_idle():
 	for target in targetList:
 		target.paused = false
 
-func stop_hit():
-	current_state = STATE.IDLE
 
 func shotgun_shoot():
-	if canShootShotgun:
-		canShootShotgun = false
-		var deltaAngle = shootingAmplitude/(numberOfBullets -1)
-		var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
-		var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
+	canAttack = false
+	var deltaAngle = shootingAmplitude/(numberOfBullets -1)
+	var directionRifle = spawnRifle.get_global_position().direction_to(actual_target.global_position)
+	var angle = -sign(directionRifle.y) * acos(abs(directionRifle.x))
 
-		var i = 0
-		for n in numberOfBullets:
-			var bullet_instance = bullet.instance()
-			var angleOffset = shootingAmplitude/2 - deltaAngle * i
-			bullet_instance.rotate(angle + deg2rad(angleOffset))
-			bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
-			get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
-			bullet_instance.set_global_position(spawnRifle.get_global_position())
-			i+=1
-		start_attack_cooldown(shotgunCooldown)
+	var i = 0
+	for n in numberOfBullets:
+		var bullet_instance = bullet.instance()
+		var angleOffset = shootingAmplitude/2 - deltaAngle * i
+		bullet_instance.rotate(angle + deg2rad(angleOffset))
+		bullet_instance.direction = Vector2(cos(bullet_instance.rotation), sin(bullet_instance.rotation))
+		get_parent().get_parent().get_parent().get_parent().add_child(bullet_instance)
+		bullet_instance.set_global_position(spawnRifle.get_global_position())
+		i+=1
+	lastAttack = STATE.SHOTGUN
+	start_attack_cooldown(shotgunCooldown)
 
 func missile_shoot():
+	canAttack = false
 	missile.position2d = spawnMissile
 	missile.shoot(actual_target)
 
@@ -215,49 +210,34 @@ func _on_StompTimer_timeout():
 	set_state_idle()
 
 func _on_Missile_HasShootMissile():
+	lastAttack = STATE.MISSILES
 	start_attack_cooldown(missilesCooldown)
 
 func start_attack_cooldown(value):
 	AttackCooldown_timer.wait_time = value
 	AttackCooldown_timer.one_shot = true
 	AttackCooldown_timer.start()
-	updateCounter()
 
 func _on_AttackCooldownTimer_timeout():
-	current_state = STATE.IDLE
-
-func updateCounter():
-	attackCounter += 1
-	
-
-func choose_state():
-	if (attackCounter % 2 == 0):
-		canShootMissiles = true
-		current_state = STATE.MISSILES
-	elif (attackCounter % 3 == 0):
-		canShootShotgun = true
-		current_state = STATE.SHOTGUN
-	else:
-		current_state = STATE.LAVASTOMP
-
+	canAttack = true
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if (anim_name == "hit"):
-		current_state == STATE.IDLE
+		hitted = false
 
-func new_choose_state():
+func choose_state():
 	if hitted:
 		if amount >= HP:
 			set_state_idle()
 			current_state = STATE.DIED
 		else:
 			current_state = STATE.HIT
-	elif canShoot:
+	elif canAttack:
 		if lastAttack == STATE.LAVASTOMP:
 			current_state = STATE.SHOTGUN
 		elif lastAttack == STATE.SHOTGUN:
 			current_state = STATE.MISSILES
 		elif lastAttack == STATE.MISSILES:
 			current_state = STATE.LAVASTOMP
-	elif !canShoot:
+	elif !canAttack:
 		current_state = STATE.IDLE
