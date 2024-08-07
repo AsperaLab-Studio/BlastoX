@@ -254,9 +254,11 @@ script = ExtResource( 4 )
 
 [node name="OST" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 3 )
+volume_db = -8.0
 autoplay = true
 bus = "Music"
 script = ExtResource( 2 )
+actualPlaying = true
 
 [node name="ButtonPressed" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 9 )

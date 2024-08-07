@@ -115,7 +115,7 @@ func _select_stage(number):
 		
 		var pausable_members = get_tree().get_nodes_in_group("pausable")
 		for member in pausable_members:
-			member.pause()
+			 member.pause()
 			
 		
 	else:

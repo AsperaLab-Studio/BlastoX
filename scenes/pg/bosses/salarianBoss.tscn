@@ -326,12 +326,15 @@ margin_bottom = -63.7829
 
 [node name="Vine_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 7 )
+volume_db = 3.0
 
 [node name="Vine_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 4 )
+volume_db = 3.0
 
 [node name="Vine_Push_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 2 )
+volume_db = 2.5
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

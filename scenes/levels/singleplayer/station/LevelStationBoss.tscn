@@ -890,6 +890,7 @@ script = ExtResource( 35 )
 
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 40 )
+volume_db = -4.5
 autoplay = true
 bus = "Music"
 script = ExtResource( 35 )

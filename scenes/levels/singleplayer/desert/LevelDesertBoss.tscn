@@ -511,49 +511,42 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 39 )
-frame = 7
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 7
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 7
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 7
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 7
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 7
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 7
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -589,6 +582,7 @@ script = ExtResource( 33 )
 
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 8 )
+volume_db = -2.0
 autoplay = true
 bus = "Music"
 script = ExtResource( 33 )
@@ -606,10 +600,12 @@ bus = "SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 35 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="Lose" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 36 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="PauseMenu" type="Node2D" parent="Audio"]

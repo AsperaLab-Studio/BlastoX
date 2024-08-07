@@ -392,15 +392,18 @@ texture = ExtResource( 10 )
 
 [node name="Leg02_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 4 )
+volume_db = -4.5
 
 [node name="Leg02_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 12 )
+volume_db = -3.0
 
 [node name="Leg02_Attack_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 11 )
 
 [node name="Leg02_Jump_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 2 )
+volume_db = -3.0
 
 [node name="Leg02_Sprint_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 7 )

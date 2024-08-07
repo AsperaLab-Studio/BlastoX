@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("SFX")
+tracks/1/path = NodePath("Growth_SFX")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -72,7 +72,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Shoot_SFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -120,7 +120,11 @@ shape = SubResource( 6 )
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( -61, 435 )
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
+[node name="Growth_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -10.0
+
+[node name="Shoot_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -115,5 +115,6 @@ shape = SubResource( 6 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -16.0
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

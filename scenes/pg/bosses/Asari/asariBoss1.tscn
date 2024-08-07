@@ -197,11 +197,11 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "clips": [ {
-"end_offset": 0.0,
+"end_offset": 0.962969,
 "start_offset": 0.0,
 "stream": ExtResource( 6 )
 } ],
-"times": PoolRealArray( -0.8 )
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=22]
@@ -279,7 +279,7 @@ texture = ExtResource( 5 )
 flip_h = true
 hframes = 3
 vframes = 6
-frame = 13
+frame = 17
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -389,15 +389,18 @@ texture = ExtResource( 11 )
 
 [node name="Leg01_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 6 )
+volume_db = -3.0
 
 [node name="Leg01_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 7 )
+volume_db = -3.0
 
 [node name="Leg01_Attack_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 12 )
 
 [node name="Leg01_Jump_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 4 )
+volume_db = -4.5
 
 [node name="Leg01_Sprint_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 2 )

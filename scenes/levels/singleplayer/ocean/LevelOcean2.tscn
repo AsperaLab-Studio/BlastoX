@@ -618,7 +618,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -875,7 +875,7 @@ texture = ExtResource( 3 )
 position = Vector2( 131, 2.00002 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 3
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -883,7 +883,7 @@ playing = true
 position = Vector2( 663, 224 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 3
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -891,7 +891,7 @@ playing = true
 position = Vector2( 1157, -52 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 2
+frame = 11
 speed_scale = 1.8
 playing = true
 
@@ -899,7 +899,7 @@ playing = true
 position = Vector2( 998, 284 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 2
+frame = 11
 speed_scale = 1.8
 playing = true
 
@@ -907,7 +907,7 @@ playing = true
 position = Vector2( 456, -73 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 1
+frame = 10
 speed_scale = 1.8
 playing = true
 
@@ -915,6 +915,7 @@ playing = true
 position = Vector2( 297, 278 )
 frames = SubResource( 19 )
 animation = "New Anim"
+frame = 9
 speed_scale = 1.8
 playing = true
 
@@ -922,6 +923,7 @@ playing = true
 position = Vector2( 1361, 401 )
 frames = SubResource( 19 )
 animation = "New Anim"
+frame = 9
 speed_scale = 1.8
 playing = true
 
@@ -929,7 +931,7 @@ playing = true
 position = Vector2( 1508, 41 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 14
+frame = 8
 speed_scale = 1.8
 playing = true
 
@@ -937,7 +939,7 @@ playing = true
 position = Vector2( 759, 538 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 14
+frame = 8
 speed_scale = 1.8
 playing = true
 
@@ -945,7 +947,7 @@ playing = true
 position = Vector2( 1601, 514 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 13
+frame = 7
 speed_scale = 1.8
 playing = true
 
@@ -953,7 +955,7 @@ playing = true
 position = Vector2( 369, 646 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 13
+frame = 7
 speed_scale = 1.8
 playing = true
 
@@ -961,7 +963,7 @@ playing = true
 position = Vector2( 63, 532 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 12
+frame = 6
 speed_scale = 1.8
 playing = true
 
@@ -969,7 +971,7 @@ playing = true
 position = Vector2( 1046, 637 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 12
+frame = 6
 speed_scale = 1.8
 playing = true
 
@@ -1006,6 +1008,7 @@ script = ExtResource( 8 )
 
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 26 )
+volume_db = -4.5
 autoplay = true
 bus = "Music"
 script = ExtResource( 8 )
@@ -1023,10 +1026,12 @@ bus = "SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 39 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="Lose" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 40 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="PauseMenu" type="Node2D" parent="Audio"]

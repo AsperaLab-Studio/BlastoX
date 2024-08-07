@@ -318,12 +318,11 @@ margin_bottom = -63.7829
 
 [node name="Salarian_Death_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 5 )
-volume_db = -3.0
+volume_db = 2.0
 bus = "SFX"
 
 [node name="Salarian_Pain_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 4 )
-volume_db = -3.0
 bus = "SFX"
 
 [node name="Salarian_Attack_SFX" type="AudioStreamPlayer" parent="Audio"]

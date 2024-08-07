@@ -636,7 +636,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -921,49 +921,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 19 )
-frame = 2
+frame = 8
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 2
+frame = 8
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 2
+frame = 8
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 2
+frame = 8
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 2
+frame = 8
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 2
+frame = 8
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 19 )
-frame = 2
+frame = 8
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1013,6 +1013,7 @@ script = ExtResource( 43 )
 
 [node name="Intro_Section" type="AudioStreamPlayer" parent="Audio" groups=["pausable"]]
 stream = ExtResource( 47 )
+volume_db = -3.0
 autoplay = true
 bus = "Music"
 script = ExtResource( 48 )
@@ -1020,6 +1021,7 @@ actualPlaying = true
 
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 44 )
+volume_db = -3.0
 bus = "Music"
 script = ExtResource( 48 )
 
@@ -1031,14 +1033,17 @@ script = ExtResource( 45 )
 
 [node name="NextArea" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 37 )
+volume_db = 4.5
 bus = "SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 41 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="Lose" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 42 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="PauseMenu" type="Node2D" parent="Audio"]

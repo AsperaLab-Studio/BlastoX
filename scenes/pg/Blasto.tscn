@@ -544,7 +544,6 @@ bus = "SFX"
 
 [node name="Blasto_Jump_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 9 )
-volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Land_SFX" type="AudioStreamPlayer" parent="Audio"]
@@ -554,28 +553,28 @@ bus = "SFX"
 
 [node name="Blasto_Shoot_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 2 )
-volume_db = -3.0
+volume_db = -1.5
 bus = "SFX"
 
 [node name="Blasto_Special_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 6 )
-volume_db = -3.0
+volume_db = -9.0
 bus = "SFX"
 
 [node name="Blasto_Attack01_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 11 )
-volume_db = -4.5
+volume_db = -9.0
 bus = "SFX"
 
 [node name="Blasto_Attack02_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 11 )
-volume_db = -4.5
+volume_db = -9.0
 pitch_scale = 1.37
 bus = "SFX"
 
 [node name="Blasto_Attack03_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 11 )
-volume_db = -4.5
+volume_db = -9.0
 pitch_scale = 1.75
 bus = "SFX"
 

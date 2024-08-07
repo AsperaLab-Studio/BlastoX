@@ -587,7 +587,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -951,10 +951,12 @@ bus = "SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 37 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="Lose" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 38 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="PauseMenu" type="Node2D" parent="Audio"]
