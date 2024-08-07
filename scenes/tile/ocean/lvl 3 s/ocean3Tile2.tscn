@@ -5,7 +5,6 @@
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=4]
 [ext_resource path="res://scenes/tile/environment/objects/BigBox.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
 
@@ -130,3 +129,4 @@ shape = SubResource( 3 )
 
 [node name="BigBox" parent="." instance=ExtResource( 5 )]
 position = Vector2( 167, 3 )
+z_index = -2

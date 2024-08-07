@@ -261,10 +261,11 @@ func select_target() -> Player:
 
 
 func hit(dpsTaken, attackType, source) -> void:
-	if (current_state != STATE.JUMP && current_state != STATE.SPRINT):
-		healthBar.update_healthbar(dpsTaken)
-		amount = amount + dpsTaken
-		received_hit = true 
+	if invincible == false:
+		if (current_state != STATE.JUMP && current_state != STATE.SPRINT):
+			healthBar.update_healthbar(dpsTaken)
+			amount = amount + dpsTaken
+			received_hit = true 
 
 
 

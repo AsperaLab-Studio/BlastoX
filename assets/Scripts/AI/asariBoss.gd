@@ -189,13 +189,14 @@ func select_target() -> Player:
 
 
 func hit(dpsTaken, attackType, source) -> void:
-	if (current_state != STATE.JUMP && current_state != STATE.SPRINT):
-		healthBar.update_healthbar(dpsTaken)
-		amount = amount + dpsTaken
-		if amount >= HP:
-			current_state = STATE.DIED
-		else:
-			current_state = STATE.HIT
+	if invincible == false:
+		if (current_state != STATE.JUMP && current_state != STATE.SPRINT):
+			healthBar.update_healthbar(dpsTaken)
+			amount = amount + dpsTaken
+			if amount >= HP:
+				current_state = STATE.DIED
+			else:
+				current_state = STATE.HIT
 
 
 func move_towards(target: Vector2, speed):

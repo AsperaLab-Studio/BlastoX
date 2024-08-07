@@ -169,7 +169,6 @@ func select_target() -> Player:
 func hit(dpsTaken, attackType, source) -> void:
 	if (current_state != STATE.CHARGE_START && current_state != STATE.CHARGE_MID && current_state != STATE.CHARGE_END):
 		if invincible == false:
-			invincible = true
 			healthBar.update_healthbar(dpsTaken)
 			amount = amount + dpsTaken
 			if amount >= HP:

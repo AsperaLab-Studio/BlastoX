@@ -10,3 +10,5 @@ func _process(_delta):
 	else:
 		stop()
 		
+func pause():
+	pass

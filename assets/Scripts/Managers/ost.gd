@@ -11,4 +11,7 @@ func _process(_delta):
 			play()
 	else:
 		stop()
+
+func pause():
+	pass
 		

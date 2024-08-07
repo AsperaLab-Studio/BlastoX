@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/tile/environment/objects/SmallBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tile/environment/objects/BigBox.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
 
@@ -114,6 +113,7 @@ shape = SubResource( 2 )
 
 [node name="SmallBox" parent="." instance=ExtResource( 5 )]
 position = Vector2( 163, 11 )
+z_index = -2
 
 [node name="BigBox" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1469, 149 )
