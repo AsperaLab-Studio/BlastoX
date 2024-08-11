@@ -200,3 +200,40 @@ func Leg02Death():
 func Leg02Pain():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
 	Wwise.post_event_id(AK.EVENTS.LEG_02_PAIN, self.get_parent())
+
+# ----- Kronus
+func KronusAttack():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_ATTACK.get_parent())
+
+func KronusShotgun():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_SHOTGUN.get_parent())
+
+func KronusRocket():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_ROCKET.get_parent())
+
+func KronusStomp():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_QUAKE.get_parent())
+
+func KronusDeath01():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_I.get_parent())
+
+func KronusDeath02():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_II.get_parent())
+
+func KronusDeath03():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_III.get_parent())
+
+func KronusPain():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_PAIN.get_parent())
+
+func KronusMove():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_MOVE.get_parent())
