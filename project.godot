@@ -54,6 +54,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/Scripts/AI/kroganBoss.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "KronusBoss1",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kronusBoss1.gd"
+}, {
+"base": "Node2D",
+"class": "KronusMissile",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/Kronus/KronusMissile.gd"
+}, {
+"base": "Node2D",
+"class": "KronusMissileBullet",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/Kronus/KronusMissileBullet.gd"
+}, {
 "base": "TurianWeapon",
 "class": "Missile",
 "language": "GDScript",
@@ -108,6 +123,21 @@ _global_script_classes=[ {
 "class": "asariBossAlone",
 "language": "GDScript",
 "path": "res://assets/Scripts/AI/asariBossAlone.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "kronusBoss2",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kronusBoss2.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "kronusBoss3",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kronusBoss3.gd"
+}, {
+"base": "Node",
+"class": "kronusPhaseManager",
+"language": "GDScript",
+"path": "res://assets/Scripts/Managers/KronusPhaseManager.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -119,6 +149,9 @@ _global_script_class_icons={
 "Grenade": "",
 "ImpactZone": "",
 "KroganBoss": "",
+"KronusBoss1": "",
+"KronusMissile": "",
+"KronusMissileBullet": "",
 "Missile": "",
 "Player": "",
 "PowerUp": "",
@@ -129,7 +162,10 @@ _global_script_class_icons={
 "VineGun": "",
 "VineSpear": "",
 "asariBoss": "",
-"asariBossAlone": ""
+"asariBossAlone": "",
+"kronusBoss2": "",
+"kronusBoss3": "",
+"kronusPhaseManager": ""
 }
 
 [application]
