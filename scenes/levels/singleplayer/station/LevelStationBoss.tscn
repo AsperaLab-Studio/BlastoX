@@ -285,7 +285,6 @@ margin_bottom = 994.0
 script = ExtResource( 1 )
 rate_list = [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 7 ) ]
 boss = true
-rate_points = [ 3600, 7200, 10800, 14400 ]
 
 [node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
 visible = false
