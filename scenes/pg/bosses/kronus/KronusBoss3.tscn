@@ -190,7 +190,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=20]
 resource_name = "punch"
-length = 0.6
+length = 0.7
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -198,7 +199,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
+"times": PoolRealArray( 0, 0.2, 0.35 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 31, 30, 29 ]
@@ -210,7 +211,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -229,7 +230,7 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 4 )
 } ],
-"times": PoolRealArray( 0.1 )
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=26]
@@ -277,14 +278,14 @@ tracks/2/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=28]
-radius = 19.0
-height = 66.0
+radius = 43.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 8.4275, 52 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 38.0066, 6 )
+extents = Vector2( 50.6699, 6 )
 
 [node name="kronusBoss3" type="KinematicBody2D" groups=["enemy", "pausable"]]
 z_index = -1
@@ -298,12 +299,13 @@ bullet = ExtResource( 8 )
 lava_column = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -39 )
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 5 )
 flip_h = true
 hframes = 4
 vframes = 9
-frame = 25
+frame = 29
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -352,12 +354,12 @@ position = Vector2( 0, 1.90735e-06 )
 shape = SubResource( 27 )
 
 [node name="AttackCollision" type="Area2D" parent="Pivot"]
-position = Vector2( 12.3744, 0 )
+position = Vector2( 38, 0 )
 collision_layer = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/AttackCollision"]
-position = Vector2( 33.6256, 0 )
+position = Vector2( 41.2236, 0 )
 scale = Vector2( 0.600001, 1 )
 shape = SubResource( 8 )
 
@@ -404,6 +406,9 @@ nine_patch_stretch = true
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 0.25
 
+[node name="AttackDelayTimer" type="Timer" parent="."]
+wait_time = 0.25
+
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="Death" type="AudioStreamPlayer" parent="Audio"]
@@ -429,5 +434,6 @@ stream = ExtResource( 13 )
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
 [connection signal="area_entered" from="Pivot/HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="area_entered" from="Pivot/AttackCollision" to="." method="_on_AttackCollision_area_entered"]
-[connection signal="area_exited" from="Pivot/AttackCollision" to="." method="_on_Area2D_area_exited"]
+[connection signal="area_exited" from="Pivot/AttackCollision" to="." method="_on_AttackCollision_area_exited"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+[connection signal="timeout" from="AttackDelayTimer" to="." method="_on_AttackDelayTimer_timeout"]

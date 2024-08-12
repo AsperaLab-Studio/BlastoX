@@ -79,7 +79,8 @@ extents = Vector2( 22.5, 8.5 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -150 )
+visible = false
+position = Vector2( 0, -129 )
 texture = ExtResource( 3 )
 hframes = 3
 frame = 2

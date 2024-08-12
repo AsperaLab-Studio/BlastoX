@@ -11,6 +11,7 @@ onready var attack_area2d : Area2D = $Pivot/AttackCollision
 onready var UIHealthBar: Node2D = $UI/HealthContainer
 onready var cooldown: Timer = $Cooldown
 onready var invincibility_timer = $InvincibilityTimer
+onready var attack_delay_timer: Timer = $AttackDelayTimer
 
 enum STATE {IDLE, CHASE, SHOTGUN, LAVASTOMP, PUNCH, HIT, DIED, BACKJUMP}
 
@@ -58,7 +59,8 @@ var is_ranged: bool = false
 var ended_back: bool = true
 var bullet_right: bool = false
 var previous_state 
-var invincible = false
+var invincible: bool = false
+var canPunch: bool = false
 
 var healthBar = null
 var amount = 0
@@ -89,7 +91,13 @@ func _process(_delta: float) -> void:
 
 		match current_state:
 			STATE.IDLE:
-				anim_player.play("idle")
+				if near_player:
+					anim_player.play("idle")
+					if attack_delay_timer.is_stopped():
+						attack_delay_timer.wait_time = 1
+						attack_delay_timer.start()
+				else:
+					anim_player.play("idle")
 
 			STATE.HIT:
 				anim_player.play("hit")
@@ -122,8 +130,6 @@ func _process(_delta: float) -> void:
 			STATE.PUNCH:
 				if near_player && !actual_target.invincible:
 					anim_player.play("punch")
-				
-				near_player = false
 					
 				if anim_player.current_animation != "punch":
 					ended_punch = true
@@ -237,6 +243,7 @@ func attack():
 	for area in attack_area2d.get_overlapping_areas():
 		if area.owner.is_in_group("player"):
 			actual_target.hit(dps_punch, "melee", self)
+			canPunch = false
 
 
 func shoot():
@@ -283,11 +290,15 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 func _on_AttackCollision_area_entered(area):
 	if area.owner.is_in_group("player"):
 		near_player = true
+		canPunch = true
 
+func _on_AttackCollision_area_exited(area:Area2D):
+	if area.owner.is_in_group("player"):
+		near_player = false
+		canPunch = false
 
 func _on_Cooldown_timeout():
 	can_ranged = true
-
 
 func _on_AnimationPlayer_animation_started(anim_name:String):
 	if anim_name == "hit":
@@ -296,6 +307,9 @@ func _on_AnimationPlayer_animation_started(anim_name:String):
 
 func _on_InvincibilityTimer_timeout():
 	invincible = false
+	
+func _on_AttackDelayTimer_timeout():
+	canPunch = true
 
 func choose_state():
 	if !can_ranged:
@@ -311,7 +325,10 @@ func choose_state():
 		if onEnter == false:
 			onEnter = true
 	elif near_player:
-		current_state = STATE.PUNCH
+		if canPunch:
+			current_state = STATE.PUNCH
+		else:
+			current_state = STATE.IDLE
 	elif !near_player:
 		var distance = global_position.distance_to(actual_target.global_position)
 		if distance <= range_chase:
@@ -332,6 +349,4 @@ func choose_state():
 			else:
 				ended_back = false
 				current_state = STATE.BACKJUMP
-	elif ended_punch:
-		current_state = STATE.IDLE
-	
+
