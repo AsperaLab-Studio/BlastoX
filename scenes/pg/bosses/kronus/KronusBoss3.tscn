@@ -1,16 +1,19 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/img/sprites/VFX/dustCloudVFX.png" type="Texture" id=1]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheLeg_SFX/boss_asari_hit_01.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/shotgun_03.oggvorbis.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/img/sprites/VFX/enemyMeleeHittedVFX.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/punch.oggvorbis.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/img/sprites/enemy/bosses/kornus_spritesheet.png" type="Texture" id=5]
-[ext_resource path="res://assets/audio/sfx/Bosses/TheLeg_SFX/boss_asari_kick.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/hit_03.oggvorbis.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/Scripts/AI/kronusBoss3.gd" type="Script" id=7]
 [ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletRifle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/img/UI/bosses/boss kronus/3 fase vita kronus.png" type="Texture" id=9]
 [ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=10]
 [ext_resource path="res://assets/img/UI/bosses/boss kronus/3 fase cornice kronus.png" type="Texture" id=11]
 [ext_resource path="res://scenes/pg/bosses/props/Kronus/Lava Column.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/move.oggvorbis.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/stomp.oggvorbis.ogg" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=24]
 resource_name = "chase"
@@ -40,14 +43,18 @@ tracks/1/keys = {
 "values": [  ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Chase")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0.4 )
 }
 
 [sub_resource type="Animation" id=21]
@@ -82,14 +89,18 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Death")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=22]
@@ -107,16 +118,16 @@ tracks/0/keys = {
 "values": [ 19, 18 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("SFX")
+tracks/1/path = NodePath("Audio/Pain")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.0576171,
+"end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 2 )
+"stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -163,14 +174,18 @@ tracks/1/keys = {
 "values": [  ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Stomp")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=20]
@@ -203,7 +218,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Attack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -212,9 +227,9 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 6 )
+"stream": ExtResource( 4 )
 } ],
-"times": PoolRealArray( 0.4 )
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=26]
@@ -247,14 +262,18 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("SFX")
+tracks/2/path = NodePath("Audio/Shotgun")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="CapsuleShape2D" id=28]
@@ -359,10 +378,6 @@ margin_top = -77.7829
 margin_right = 19.8185
 margin_bottom = -63.7829
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-bus = "SFX"
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HealthContainer" type="Node2D" parent="UI"]
@@ -388,6 +403,26 @@ nine_patch_stretch = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Death" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 6 )
+
+[node name="Pain" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 6 )
+
+[node name="Shotgun" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 2 )
+
+[node name="Attack" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 4 )
+
+[node name="Stomp" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 14 )
+
+[node name="Chase" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 13 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
