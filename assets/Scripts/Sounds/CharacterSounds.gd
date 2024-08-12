@@ -204,36 +204,40 @@ func Leg02Pain():
 # ----- Kronus
 func KronusAttack():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_ATTACK.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_ATTACK, self.get_parent())
 
 func KronusShotgun():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_SHOTGUN.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_SHOTGUN, self.get_parent())
 
 func KronusRocket():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_ROCKET.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_ROCKET, self.get_parent())
 
 func KronusStomp():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_QUAKE.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_QUAKE, self.get_parent())
+
+func KronusLava():
+	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+	Wwise.post_event_id(AK.EVENTS.KRONUS_LAVA, self.get_parent())
 
 func KronusDeath01():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_I.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_I, self.get_parent())
 
 func KronusDeath02():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_II.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_II, self.get_parent())
 
 func KronusDeath03():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_III.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_DEATH_III, self.get_parent())
 
 func KronusPain():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_PAIN.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_PAIN, self.get_parent())
 
 func KronusMove():
 	Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
-	Wwise.post_event_id(AK.EVENTS.KRONUS_MOVE.get_parent())
+	Wwise.post_event_id(AK.EVENTS.KRONUS_MOVE, self.get_parent())

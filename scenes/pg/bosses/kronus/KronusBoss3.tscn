@@ -38,6 +38,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray(  ),
 "values": [  ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusMove"
+} ]
+}
 
 [sub_resource type="Animation" id=21]
 resource_name = "died"
@@ -70,6 +84,20 @@ tracks/1/keys = {
 "method": "death"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusDeath03"
+} ]
+}
 
 [sub_resource type="Animation" id=22]
 length = 0.6
@@ -84,6 +112,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 19, 18 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusPain"
+} ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -127,6 +169,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray(  ),
 "values": [  ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusStomp"
+} ]
+}
 
 [sub_resource type="Animation" id=20]
 resource_name = "punch"
@@ -155,6 +211,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "attack"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusAttack"
 } ]
 }
 
@@ -187,6 +257,20 @@ tracks/1/keys = {
 "method": "shoot"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusShotgun"
+} ]
+}
 
 [sub_resource type="CapsuleShape2D" id=28]
 radius = 19.0
@@ -210,7 +294,6 @@ bullet = ExtResource( 8 )
 lava_column = ExtResource( 12 )
 
 [node name="Audio" type="Node2D" parent="."]
-scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -219,7 +302,7 @@ texture = ExtResource( 5 )
 flip_h = true
 hframes = 4
 vframes = 9
-frame = 7
+frame = 25
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="Node2D" type="Node2D" parent="."]

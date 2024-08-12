@@ -40,6 +40,20 @@ tracks/1/keys = {
 "method": "death"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusDeath01"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.4
@@ -54,6 +68,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 19, 18 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusPain"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -103,6 +131,20 @@ tracks/1/keys = {
 "method": "missile_shoot"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.78 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusRocket"
+} ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "shotgun"
@@ -131,6 +173,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "shotgun_shoot"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusShotgun"
 } ]
 }
 
@@ -164,6 +220,20 @@ tracks/1/keys = {
 "method": "stomp"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "KronusStomp"
+} ]
+}
 
 [sub_resource type="CapsuleShape2D" id=15]
 radius = 19.0
@@ -181,7 +251,6 @@ HP = 20
 bullet = ExtResource( 4 )
 
 [node name="Audio" type="Node2D" parent="."]
-scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -190,7 +259,7 @@ texture = ExtResource( 1 )
 flip_h = true
 hframes = 4
 vframes = 9
-frame = 25
+frame = 11
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
