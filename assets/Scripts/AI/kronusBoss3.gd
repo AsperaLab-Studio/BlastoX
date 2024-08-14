@@ -202,9 +202,10 @@ func select_target() -> Player:
 
 
 func hit(dpsTaken, attackType, source) -> void:
-	healthBar.update_healthbar(dpsTaken)
-	amount = amount + dpsTaken
 	if invincible == false:	
+		healthBar.update_healthbar(dpsTaken)
+		amount = amount + dpsTaken
+	
 		hitted = true
 	
 
@@ -317,13 +318,8 @@ func choose_state():
 	if hitted:
 		if amount >= hp:
 			current_state = STATE.DIED
-		else:
+		elif is_ranged == false:
 			current_state = STATE.HIT
-
-		if is_ranged == true:
-			is_ranged = false
-		if onEnter == false:
-			onEnter = true
 	elif near_player:
 		if canPunch:
 			current_state = STATE.PUNCH

@@ -273,14 +273,14 @@ tracks/2/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=28]
-radius = 19.0
-height = 66.0
+radius = 43.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 8.4275, 52 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 38.0066, 6 )
+extents = Vector2( 50.67, 6 )
 
 [node name="kronusBoss3" type="KinematicBody2D" groups=["enemy", "pausable"]]
 z_index = -1
@@ -297,12 +297,13 @@ lava_column = ExtResource( 12 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -39 )
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 5 )
 flip_h = true
 hframes = 4
 vframes = 9
-frame = 25
+frame = 2
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -351,12 +352,12 @@ position = Vector2( 0, 1.90735e-06 )
 shape = SubResource( 27 )
 
 [node name="AttackCollision" type="Area2D" parent="Pivot"]
-position = Vector2( 12.3744, 0 )
+position = Vector2( 38, 0 )
 collision_layer = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/AttackCollision"]
-position = Vector2( 33.6256, 0 )
+position = Vector2( 41.224, 0 )
 scale = Vector2( 0.600001, 1 )
 shape = SubResource( 8 )
 
