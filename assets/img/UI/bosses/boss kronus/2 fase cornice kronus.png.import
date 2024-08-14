@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2 faste cornice kronus.png-ac733f605c23587defd3f12b61f95b47.stex"
+path="res://.import/2 fase cornice kronus.png-3cced6f28c566ab911464f0dda90a0be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/UI/bosses/boss kronus/2 faste cornice kronus.png"
-dest_files=[ "res://.import/2 faste cornice kronus.png-ac733f605c23587defd3f12b61f95b47.stex" ]
+source_file="res://assets/img/UI/bosses/boss kronus/2 fase cornice kronus.png"
+dest_files=[ "res://.import/2 fase cornice kronus.png-3cced6f28c566ab911464f0dda90a0be.stex" ]
 
 [params]
 

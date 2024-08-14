@@ -255,12 +255,13 @@ HP = 20
 bullet = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -39 )
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 1 )
 flip_h = true
 hframes = 4
 vframes = 9
-frame = 9
+frame = 2
 region_rect = Rect2( 9, 14, 63, 96 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
