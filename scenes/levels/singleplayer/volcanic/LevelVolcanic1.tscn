@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_19.png" type="Texture" id=1]
 [ext_resource path="res://assets/Scripts/Managers/AudioLevels.gd" type="Script" id=2]
@@ -57,6 +57,9 @@
 [ext_resource path="res://assets/audio/sfx/Menu/bpSFX.ogg" type="AudioStream" id=55]
 [ext_resource path="res://assets/audio/sfx/Menu/meSFX.ogg" type="AudioStream" id=56]
 [ext_resource path="res://assets/audio/sfx/Levels/NextLevel.oggvorbis.ogg" type="AudioStream" id=57]
+[ext_resource path="res://assets/audio/ost/lvl volcan/Metgos_Pause.oggvorbis.ogg" type="AudioStream" id=58]
+[ext_resource path="res://assets/audio/ost/lvl volcan/Metgos_Intro.oggvorbis.ogg" type="AudioStream" id=59]
+[ext_resource path="res://assets/audio/ost/lvl volcan/Metgos_Main.oggvorbis.ogg" type="AudioStream" id=60]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 89.7126, 98.8925 )
@@ -587,7 +590,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -867,7 +870,7 @@ texture = ExtResource( 28 )
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 34 )
-frame = 1
+frame = 10
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -908,17 +911,23 @@ shape = SubResource( 33 )
 script = ExtResource( 2 )
 
 [node name="Intro_Section" type="AudioStreamPlayer" parent="Audio" groups=["pausable"]]
+stream = ExtResource( 59 )
+volume_db = -4.0
 autoplay = true
 bus = "Music"
 script = ExtResource( 24 )
 actualPlaying = true
 
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 60 )
+volume_db = -4.0
 bus = "Music"
 script = ExtResource( 24 )
 
 [node name="Pause_Section" type="AudioStreamPlayer" parent="Audio"]
 pause_mode = 2
+stream = ExtResource( 58 )
+volume_db = -3.0
 bus = "Music"
 script = ExtResource( 51 )
 

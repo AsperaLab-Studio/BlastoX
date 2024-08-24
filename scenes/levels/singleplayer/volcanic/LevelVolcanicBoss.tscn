@@ -548,7 +548,7 @@ scenes = [ ExtResource( 1 ) ]
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 43 )
-frame = 7
+frame = 17
 playing = true
 
 [node name="Audio" type="Node2D" parent="."]
@@ -560,6 +560,7 @@ script = ExtResource( 8 )
 
 [node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 54 )
+volume_db = -4.0
 autoplay = true
 bus = "Music"
 script = ExtResource( 8 )
@@ -573,6 +574,7 @@ script = ExtResource( 13 )
 
 [node name="NextArea" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 52 )
+volume_db = 3.0
 bus = "SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="Audio"]
@@ -582,7 +584,6 @@ bus = "Music"
 
 [node name="Lose" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 48 )
-volume_db = -3.0
 bus = "Music"
 
 [node name="PauseMenu" type="Node2D" parent="Audio"]

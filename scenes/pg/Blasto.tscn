@@ -553,7 +553,7 @@ bus = "SFX"
 
 [node name="Blasto_Shoot_SFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 2 )
-volume_db = -1.5
+volume_db = 2.0
 bus = "SFX"
 
 [node name="Blasto_Special_SFX" type="AudioStreamPlayer" parent="Audio"]
