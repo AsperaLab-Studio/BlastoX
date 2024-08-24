@@ -80,6 +80,8 @@ func _process(_delta: float) -> void:
 				var actual_zone: int
 
 				if onEnter == true:
+					lava_column_list_pos.remove(3)
+					lava_column_list_pos.remove(2)
 					anim_player.play("lavastomp")
 					onEnter = false
 					temp_list.clear()
