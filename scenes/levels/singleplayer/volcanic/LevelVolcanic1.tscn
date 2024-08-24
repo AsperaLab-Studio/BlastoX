@@ -144,8 +144,8 @@ __meta__ = {
 position = Vector2( -680, -496 )
 script = ExtResource( 13 )
 enemy_types = [ ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ) ]
-next_stage = "ocean/LevelOcean2"
-current_level = "ocean/LevelOcean1"
+next_stage = "volcanic/LevelVolcanicBoss"
+current_level = "volcanic/LevelVolcanic1"
 totalFightPhases = 3
 
 [node name="MovingWall" type="StaticBody2D" parent="StageManager"]
@@ -590,7 +590,6 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 2
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -870,7 +869,6 @@ texture = ExtResource( 28 )
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 34 )
-frame = 10
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

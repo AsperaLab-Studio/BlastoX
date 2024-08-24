@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/img/sprites/enemy/bosses/kornus_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/hit_02.oggvorbis.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/Scripts/AI/kronusBoss2.gd" type="Script" id=3]
-[ext_resource path="res://assets/img/UI/bosses/boss kronus/2 faste cornice kronus.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/UI/bosses/boss kronus/2 fase cornice kronus.png" type="Texture" id=4]
 [ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/shotgun_02.oggvorbis.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/img/UI/bosses/boss kronus/2 fase vita kronus.png" type="Texture" id=6]
 [ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/death_02.oggvorbis.ogg" type="AudioStream" id=7]
