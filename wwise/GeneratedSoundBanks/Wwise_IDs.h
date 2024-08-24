@@ -16,16 +16,26 @@ namespace AK
         static const AkUniqueID ASARI_ATTACK = 781605932U;
         static const AkUniqueID ASARI_DEATH = 2365232478U;
         static const AkUniqueID ASARI_HIT = 2677732815U;
-        static const AkUniqueID BLASTO_ATTACK = 1343477887U;
+        static const AkUniqueID BLASTO_ATTACK_01 = 2813900867U;
+        static const AkUniqueID BLASTO_ATTACK_02 = 2813900864U;
+        static const AkUniqueID BLASTO_ATTACK_03 = 2813900865U;
         static const AkUniqueID BLASTO_ATTACK_ELECTRIC = 108846699U;
         static const AkUniqueID BLASTO_ATTACK_SHOOT = 3379541511U;
         static const AkUniqueID BLASTO_DEATH = 2170400111U;
         static const AkUniqueID BLASTO_HIT = 2184510782U;
+        static const AkUniqueID BLASTO_JUMP = 4121141103U;
+        static const AkUniqueID BOX_DAMAGED = 1932060252U;
         static const AkUniqueID CREDITS_PLAY_MUSIC = 3022074870U;
         static const AkUniqueID CUTSCENE_PLAY_MUSIC = 2397774794U;
         static const AkUniqueID DESERT_PLAY_BOSS_MUSIC = 2369939213U;
         static const AkUniqueID DESERT_PLAY_MUSIC = 1387614411U;
         static const AkUniqueID GAMEOVER_PLAY_MUSIC = 362522750U;
+        static const AkUniqueID GUN_DEATH = 1604534730U;
+        static const AkUniqueID GUN_EXPLOSION = 3103876737U;
+        static const AkUniqueID GUN_GRANADE = 1193614498U;
+        static const AkUniqueID GUN_HIT = 1475881115U;
+        static const AkUniqueID GUN_RIFLE = 2177962710U;
+        static const AkUniqueID GUN_ROCKET = 2198651788U;
         static const AkUniqueID JAW_ATTACK = 960940028U;
         static const AkUniqueID JAW_CHARGE_MID = 4202733843U;
         static const AkUniqueID JAW_CHARGE_START = 203922817U;
@@ -36,6 +46,24 @@ namespace AK
         static const AkUniqueID KROGAN_ATTACK = 4128209780U;
         static const AkUniqueID KROGAN_DEATH = 553065750U;
         static const AkUniqueID KROGAN_HIT = 2255747255U;
+        static const AkUniqueID KRONUS_ATTACK = 1481775072U;
+        static const AkUniqueID KRONUS_DEATH_I = 808085602U;
+        static const AkUniqueID KRONUS_DEATH_II = 885150255U;
+        static const AkUniqueID KRONUS_DEATH_III = 1021796244U;
+        static const AkUniqueID KRONUS_LAVA = 4167233094U;
+        static const AkUniqueID KRONUS_MOVE = 1664507547U;
+        static const AkUniqueID KRONUS_PAIN = 2203952148U;
+        static const AkUniqueID KRONUS_QUAKE = 578187831U;
+        static const AkUniqueID KRONUS_ROCKET = 728232404U;
+        static const AkUniqueID KRONUS_SHOTGUN = 974337402U;
+        static const AkUniqueID LEG_01_DEATH = 4008750564U;
+        static const AkUniqueID LEG_01_PAIN = 1136551430U;
+        static const AkUniqueID LEG_02_DEATH = 3263475499U;
+        static const AkUniqueID LEG_02_PAIN = 1455146363U;
+        static const AkUniqueID LEG_ATTACK = 744354954U;
+        static const AkUniqueID LEG_JUMP = 984111278U;
+        static const AkUniqueID LEG_LAND = 3346849305U;
+        static const AkUniqueID LEG_SPRINT = 2643125350U;
         static const AkUniqueID MENU_BUTTON_PRESSED = 1048498120U;
         static const AkUniqueID MENU_MOUSE_OVER = 2785341881U;
         static const AkUniqueID MENU_PLAY_MUSIC = 1092296013U;
@@ -44,6 +72,7 @@ namespace AK
         static const AkUniqueID NEXT_AREA = 923090826U;
         static const AkUniqueID OCEAN_PLAY_BOSS_MUSIC = 1405004590U;
         static const AkUniqueID OCEAN_PLAY_MUSIC = 509704602U;
+        static const AkUniqueID PICK_UP_HEAL = 1086145255U;
         static const AkUniqueID SALARIAN_ATTACK = 405565217U;
         static const AkUniqueID SALARIAN_DEATH = 3201417669U;
         static const AkUniqueID SALARIAN_HIT = 3656616932U;
@@ -58,10 +87,25 @@ namespace AK
         static const AkUniqueID VINE_PLANT_GROW_DOWN = 3224572430U;
         static const AkUniqueID VINE_PLANT_GROW_UP = 2895845717U;
         static const AkUniqueID VINE_PLANT_SHOOT = 1165879959U;
+        static const AkUniqueID VOLCAN_PLAY_BOSS_MUSIC = 953546913U;
+        static const AkUniqueID VOLCAN_PLAY_MUSIC = 2640247479U;
     } // namespace EVENTS
 
     namespace STATES
     {
+        namespace BOSSFASE
+        {
+            static const AkUniqueID GROUP = 1206119301U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ACT_I = 1408244687U;
+                static const AkUniqueID ACT_II = 4059809460U;
+                static const AkUniqueID ACT_III = 2740571445U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace BOSSFASE
+
         namespace MUSICPAUSE
         {
             static const AkUniqueID GROUP = 3502235852U;
@@ -107,10 +151,10 @@ namespace AK
         static const AkUniqueID ATTACKS = 3768541028U;
         static const AkUniqueID AUTO_DUCKING = 2276611188U;
         static const AkUniqueID DEATH = 779278001U;
+        static const AkUniqueID EARTHQUAKE = 1245902094U;
         static const AkUniqueID GAMEPLAY = 89505537U;
         static const AkUniqueID HIT = 1116398592U;
         static const AkUniqueID JAW_CHARGE = 2264234380U;
-        static const AkUniqueID JAW_EARTHQUAKE = 2032028959U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID NEXT_AREA = 923090826U;

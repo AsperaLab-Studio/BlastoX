@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2983914205">
+		<SoundBank Id="1355168291" Language="SFX" Hash="33147572">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
@@ -42,7 +42,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="4042928493">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3340744758">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>3161908922.bnk</Path>
@@ -83,7 +83,23 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1343477887" Name="blasto_attack" ObjectPath="\Events\Default Work Unit\blasto_attack">
+				<Event Id="2813900867" Name="blasto_attack_01" ObjectPath="\Events\Default Work Unit\blasto_attack_01">
+					<IncludedMemoryFiles>
+						<File Id="873558436" Language="SFX">
+							<ShortName>blasto_attack.wav</ShortName>
+							<Path>SFX/blasto_attack_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2813900864" Name="blasto_attack_02" ObjectPath="\Events\Default Work Unit\blasto_attack_02">
+					<IncludedMemoryFiles>
+						<File Id="873558436" Language="SFX">
+							<ShortName>blasto_attack.wav</ShortName>
+							<Path>SFX/blasto_attack_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2813900865" Name="blasto_attack_03" ObjectPath="\Events\Default Work Unit\blasto_attack_03">
 					<IncludedMemoryFiles>
 						<File Id="873558436" Language="SFX">
 							<ShortName>blasto_attack.wav</ShortName>
@@ -102,12 +118,12 @@
 				<Event Id="3379541511" Name="blasto_attack_shoot" ObjectPath="\Events\Default Work Unit\blasto_attack_shoot">
 					<IncludedMemoryFiles>
 						<File Id="236823674" Language="SFX">
-							<ShortName>Blasto_Shoot_02.wav</ShortName>
-							<Path>SFX/Blasto_Shoot_02_10C4C929.wem</Path>
+							<ShortName>blasto_shoot_02.wav</ShortName>
+							<Path>SFX/blasto_shoot_02_10C4C929.wem</Path>
 						</File>
 						<File Id="1027967376" Language="SFX">
-							<ShortName>Blasto_Shoot_01.wav</ShortName>
-							<Path>SFX/Blasto_Shoot_01_10C4C929.wem</Path>
+							<ShortName>blasto_shoot_01.wav</ShortName>
+							<Path>SFX/blasto_shoot_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -134,6 +150,41 @@
 							<Path>SFX/Blasto_Pain_E5ADD1ED.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4121141103" Name="blasto_jump" ObjectPath="\Events\Default Work Unit\blasto_jump">
+					<IncludedMemoryFiles>
+						<File Id="199104505" Language="SFX">
+							<ShortName>blasto_jump.wav</ShortName>
+							<Path>SFX/blasto_jump_F5BFF3BE.wem</Path>
+						</File>
+						<File Id="906237800" Language="SFX">
+							<ShortName>blasto_jump.wav</ShortName>
+							<Path>SFX/blasto_jump_F5E18F5D.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1932060252" Name="box_damaged" ObjectPath="\Events\Default Work Unit\box_damaged">
+					<IncludedMemoryFiles>
+						<File Id="576561447" Language="SFX">
+							<ShortName>box_destroyed_02.wav</ShortName>
+							<Path>SFX/box_destroyed_02_10C4C929.wem</Path>
+						</File>
+						<File Id="686514535" Language="SFX">
+							<ShortName>box_damaged_01.wav</ShortName>
+							<Path>SFX/box_damaged_01_10C4C929.wem</Path>
+						</File>
+						<File Id="963041234" Language="SFX">
+							<ShortName>box_destroyed_01.wav</ShortName>
+							<Path>SFX/box_destroyed_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1060342580" Language="SFX">
+							<ShortName>box_damaged_02.wav</ShortName>
+							<Path>SFX/box_damaged_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="1396213152" Name="Gameplay_Reverb" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Gameplay\Gameplay_Reverb"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3022074870" Name="credits_play_music" ObjectPath="\Events\Default Work Unit\credits_play_music">
 					<IncludedMemoryFiles>
@@ -373,6 +424,58 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="1604534730" Name="gun_death" ObjectPath="\Events\Default Work Unit\gun_death">
+					<IncludedMemoryFiles>
+						<File Id="36167455" Language="SFX">
+							<ShortName>gun_death.wav</ShortName>
+							<Path>SFX/gun_death_36DF9909.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3103876737" Name="gun_explosion" ObjectPath="\Events\Default Work Unit\gun_explosion">
+					<IncludedMemoryFiles>
+						<File Id="610667664" Language="SFX">
+							<ShortName>gun_explosion.wav</ShortName>
+							<Path>SFX/gun_explosion_36DF9909.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1193614498" Name="gun_granade" ObjectPath="\Events\Default Work Unit\gun_granade">
+					<IncludedMemoryFiles>
+						<File Id="197144331" Language="SFX">
+							<ShortName>gun_granade.wav</ShortName>
+							<Path>SFX/gun_granade_36DF9909.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1475881115" Name="gun_hit" ObjectPath="\Events\Default Work Unit\gun_hit">
+					<IncludedMemoryFiles>
+						<File Id="931164490" Language="SFX">
+							<ShortName>gun_pain.wav</ShortName>
+							<Path>SFX/gun_pain_36DF9909.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2177962710" Name="gun_rifle" ObjectPath="\Events\Default Work Unit\gun_rifle">
+					<IncludedMemoryFiles>
+						<File Id="463013555" Language="SFX">
+							<ShortName>gun_rifle_02.wav</ShortName>
+							<Path>SFX/gun_rifle_02_36DF9909.wem</Path>
+						</File>
+						<File Id="776870156" Language="SFX">
+							<ShortName>gun_rifle_01.wav</ShortName>
+							<Path>SFX/gun_rifle_01_36DF9909.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2198651788" Name="gun_rocket" ObjectPath="\Events\Default Work Unit\gun_rocket">
+					<IncludedMemoryFiles>
+						<File Id="877342220" Language="SFX">
+							<ShortName>gun_rocket.wav</ShortName>
+							<Path>SFX/gun_rocket_36DF9909.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="960940028" Name="jaw_attack" ObjectPath="\Events\Default Work Unit\jaw_attack">
 					<IncludedMemoryFiles>
 						<File Id="270783161" Language="SFX">
@@ -477,6 +580,382 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1481775072" Name="kronus_attack" ObjectPath="\Events\Default Work Unit\kronus_attack">
+					<IncludedMemoryFiles>
+						<File Id="593831453" Language="SFX">
+							<ShortName>punch.wav</ShortName>
+							<Path>SFX/punch_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="808085602" Name="kronus_death_I" ObjectPath="\Events\Default Work Unit\kronus_death_I">
+					<IncludedMemoryFiles>
+						<File Id="144837207" Language="SFX">
+							<ShortName>death_01.wav</ShortName>
+							<Path>SFX/death_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="4059809460" Name="Act_II" ObjectPath="\States\Default Work Unit\BossFase\Act_II"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="885150255" Name="kronus_death_II" ObjectPath="\Events\Default Work Unit\kronus_death_II">
+					<IncludedMemoryFiles>
+						<File Id="232379220" Language="SFX">
+							<ShortName>death_02.wav</ShortName>
+							<Path>SFX/death_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="2740571445" Name="Act_III" ObjectPath="\States\Default Work Unit\BossFase\Act_III"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1021796244" Name="kronus_death_III" ObjectPath="\Events\Default Work Unit\kronus_death_III">
+					<IncludedMemoryFiles>
+						<File Id="240090266" Language="SFX">
+							<ShortName>death_03.wav</ShortName>
+							<Path>SFX/death_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4167233094" Name="kronus_lava" ObjectPath="\Events\Default Work Unit\kronus_lava">
+					<IncludedMemoryFiles>
+						<File Id="253122742" Language="SFX">
+							<ShortName>lava.wav</ShortName>
+							<Path>SFX/lava_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1664507547" Name="kronus_move" ObjectPath="\Events\Default Work Unit\kronus_move">
+					<IncludedMemoryFiles>
+						<File Id="684205669" Language="SFX">
+							<ShortName>move.wav</ShortName>
+							<Path>SFX/move_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2203952148" Name="kronus_pain" ObjectPath="\Events\Default Work Unit\kronus_pain">
+					<IncludedMemoryFiles>
+						<File Id="168543833" Language="SFX">
+							<ShortName>hit_01_shout.wav</ShortName>
+							<Path>SFX/hit_01_shout_10C4C929.wem</Path>
+						</File>
+						<File Id="323645882" Language="SFX">
+							<ShortName>hit_02_shout.wav</ShortName>
+							<Path>SFX/hit_02_shout_10C4C929.wem</Path>
+						</File>
+						<File Id="597767144" Language="SFX">
+							<ShortName>hit_03.wav</ShortName>
+							<Path>SFX/hit_03_10C4C929.wem</Path>
+						</File>
+						<File Id="682298513" Language="SFX">
+							<ShortName>hit_01_spark.wav</ShortName>
+							<Path>SFX/hit_01_spark_10C4C929.wem</Path>
+						</File>
+						<File Id="808003633" Language="SFX">
+							<ShortName>hit_02_spark.wav</ShortName>
+							<Path>SFX/hit_02_spark_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="168543833"/>
+								<File Id="682298513"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="323645882"/>
+								<File Id="808003633"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{A97014C2-3DDD-4A7F-8122-ADEA83AD1341}">
+							<Media>
+								<File Id="597767144"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="578187831" Name="kronus_quake" ObjectPath="\Events\Default Work Unit\kronus_quake">
+					<IncludedMemoryFiles>
+						<File Id="80674624" Language="SFX">
+							<ShortName>stomp_quake.wav</ShortName>
+							<Path>SFX/stomp_quake_10C4C929.wem</Path>
+						</File>
+						<File Id="865811504" Language="SFX">
+							<ShortName>stomp.wav</ShortName>
+							<Path>SFX/stomp_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="80674624"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="865811504"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{A97014C2-3DDD-4A7F-8122-ADEA83AD1341}">
+							<Media>
+								<File Id="865811504"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="728232404" Name="kronus_rocket" ObjectPath="\Events\Default Work Unit\kronus_rocket">
+					<IncludedMemoryFiles>
+						<File Id="252859808" Language="SFX">
+							<ShortName>rocket_01.wav</ShortName>
+							<Path>SFX/rocket_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1010106924" Language="SFX">
+							<ShortName>rocket_02.wav</ShortName>
+							<Path>SFX/rocket_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="252859808"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="1010106924"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="974337402" Name="kronus_shotgun" ObjectPath="\Events\Default Work Unit\kronus_shotgun">
+					<IncludedMemoryFiles>
+						<File Id="257022896" Language="SFX">
+							<ShortName>shotgun_01.wav</ShortName>
+							<Path>SFX/shotgun_01_10C4C929.wem</Path>
+						</File>
+						<File Id="446968649" Language="SFX">
+							<ShortName>shotgun_02.wav</ShortName>
+							<Path>SFX/shotgun_02_10C4C929.wem</Path>
+						</File>
+						<File Id="737917791" Language="SFX">
+							<ShortName>shotgun_03.wav</ShortName>
+							<Path>SFX/shotgun_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="257022896"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="446968649"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{A97014C2-3DDD-4A7F-8122-ADEA83AD1341}">
+							<Media>
+								<File Id="737917791"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="4008750564" Name="leg_01_death" ObjectPath="\Events\Default Work Unit\leg_01_death">
+					<IncludedMemoryFiles>
+						<File Id="623310563" Language="SFX">
+							<ShortName>leg01_death_01.wav</ShortName>
+							<Path>SFX/leg01_death_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1010954485" Language="SFX">
+							<ShortName>leg01_death_02.wav</ShortName>
+							<Path>SFX/leg01_death_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="623310563"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="1010954485"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry Id="4059809460" Name="Act_II" ObjectPath="\States\Default Work Unit\BossFase\Act_II"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1136551430" Name="leg_01_pain" ObjectPath="\Events\Default Work Unit\leg_01_pain">
+					<IncludedMemoryFiles>
+						<File Id="69377252" Language="SFX">
+							<ShortName>leg01_pain_02.wav</ShortName>
+							<Path>SFX/leg01_pain_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1064074779" Language="SFX">
+							<ShortName>leg01_pain_01.wav</ShortName>
+							<Path>SFX/leg01_pain_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="1064074779"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="69377252"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3263475499" Name="leg_02_death" ObjectPath="\Events\Default Work Unit\leg_02_death">
+					<IncludedMemoryFiles>
+						<File Id="554847374" Language="SFX">
+							<ShortName>leg02_death_02.wav</ShortName>
+							<Path>SFX/leg02_death_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1059935185" Language="SFX">
+							<ShortName>leg02_death_01.wav</ShortName>
+							<Path>SFX/leg02_death_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="1059935185"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="554847374"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry Id="4059809460" Name="Act_II" ObjectPath="\States\Default Work Unit\BossFase\Act_II"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1455146363" Name="leg_02_pain" ObjectPath="\Events\Default Work Unit\leg_02_pain">
+					<IncludedMemoryFiles>
+						<File Id="670178291" Language="SFX">
+							<ShortName>leg02_pain_01.wav</ShortName>
+							<Path>SFX/leg02_pain_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1026496876" Language="SFX">
+							<ShortName>leg02_pain_02.wav</ShortName>
+							<Path>SFX/leg02_pain_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="670178291"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="1026496876"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="744354954" Name="leg_attack" ObjectPath="\Events\Default Work Unit\leg_attack">
+					<IncludedMemoryFiles>
+						<File Id="366659010" Language="SFX">
+							<ShortName>leg_attack.wav</ShortName>
+							<Path>SFX/leg_attack_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="984111278" Name="leg_jump" ObjectPath="\Events\Default Work Unit\leg_jump">
+					<IncludedMemoryFiles>
+						<File Id="571145463" Language="SFX">
+							<ShortName>asari_jump_01.wav</ShortName>
+							<Path>SFX/asari_jump_01_10C4C929.wem</Path>
+						</File>
+						<File Id="597856979" Language="SFX">
+							<ShortName>asari_jump_02.wav</ShortName>
+							<Path>SFX/asari_jump_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="571145463"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="597856979"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3346849305" Name="leg_land" ObjectPath="\Events\Default Work Unit\leg_land">
+					<IncludedMemoryFiles>
+						<File Id="439593283" Language="SFX">
+							<ShortName>asari_land_01.wav</ShortName>
+							<Path>SFX/asari_land_01_10C4C929.wem</Path>
+						</File>
+						<File Id="691104647" Language="SFX">
+							<ShortName>asari_land_02.wav</ShortName>
+							<Path>SFX/asari_land_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="439593283"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="691104647"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2643125350" Name="leg_sprint" ObjectPath="\Events\Default Work Unit\leg_sprint">
+					<IncludedMemoryFiles>
+						<File Id="443334537" Language="SFX">
+							<ShortName>legs_sprint_02.wav</ShortName>
+							<Path>SFX/legs_sprint_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1071080517" Language="SFX">
+							<ShortName>legs_sprint_01.wav</ShortName>
+							<Path>SFX/legs_sprint_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="1071080517"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="443334537"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="1048498120" Name="menu_button_pressed" ObjectPath="\Events\Default Work Unit\menu_button_pressed">
 					<IncludedMemoryFiles>
 						<File Id="654661834" Language="SFX">
@@ -551,7 +1030,108 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2992688183" Name="metro_play_boss_music" ObjectPath="\Events\Default Work Unit\metro_play_boss_music"/>
+				<Event Id="2992688183" Name="metro_play_boss_music" ObjectPath="\Events\Default Work Unit\metro_play_boss_music">
+					<IncludedMemoryFiles>
+						<File Id="11720279" Language="SFX">
+							<ShortName>Lead1_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Lead1_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="62826312" Language="SFX">
+							<ShortName>Drums_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Drums_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="67444261" Language="SFX">
+							<ShortName>Phase 2\Lead2_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/Phase 2/Lead2_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="102016260" Language="SFX">
+							<ShortName>Phase 2\Bass_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Phase 2/Bass_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="167726575" Language="SFX">
+							<ShortName>Phase 2\Lead1_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/Phase 2/Lead1_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="330660124" Language="SFX">
+							<ShortName>Phase 2\Drums_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/Phase 2/Drums_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="374474568" Language="SFX">
+							<ShortName>Phase 2\Bass_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/Phase 2/Bass_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="388459425" Language="SFX">
+							<ShortName>Lead2_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Lead2_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="394856686" Language="SFX">
+							<ShortName>Drums_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/Drums_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="416278381" Language="SFX">
+							<ShortName>Intro\Bass_183bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Intro/Bass_183bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="584294197" Language="SFX">
+							<ShortName>Bass_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Bass_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="699759549" Language="SFX">
+							<ShortName>Bass_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/Bass_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="837141387" Language="SFX">
+							<ShortName>Phase 2\Lead2_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Phase 2/Lead2_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="879140841" Language="SFX">
+							<ShortName>LEad1_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/LEad1_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="887747343" Language="SFX">
+							<ShortName>Phase 2\Drums_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Phase 2/Drums_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="916467345" Language="SFX">
+							<ShortName>Phase 2\Lead1_183bpm_24beats_Var1.wav</ShortName>
+							<Path>SFX/Phase 2/Lead1_183bpm_24beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1011253626" Language="SFX">
+							<ShortName>Intro\Drums_183bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Intro/Drums_183bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1063228734" Language="SFX">
+							<ShortName>Lead2_183bpm_18beats_Var2.wav</ShortName>
+							<Path>SFX/Lead2_183bpm_18beats_Var2_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="11720279"/>
+								<File Id="62826312"/>
+								<File Id="388459425"/>
+								<File Id="394856686"/>
+								<File Id="584294197"/>
+								<File Id="699759549"/>
+								<File Id="879140841"/>
+								<File Id="1063228734"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="67444261"/>
+								<File Id="102016260"/>
+								<File Id="167726575"/>
+								<File Id="330660124"/>
+								<File Id="374474568"/>
+								<File Id="837141387"/>
+								<File Id="887747343"/>
+								<File Id="916467345"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="408155869" Name="metro_play_music" ObjectPath="\Events\Default Work Unit\metro_play_music">
 					<IncludedMemoryFiles>
 						<File Id="5380462" Language="SFX">
@@ -655,7 +1235,7 @@
 					<IncludedMemoryFiles>
 						<File Id="776841863" Language="SFX">
 							<ShortName>NextLevel.wav</ShortName>
-							<Path>SFX/NextLevel_36DF9909.wem</Path>
+							<Path>SFX/NextLevel_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<AuxBusSends>
@@ -885,6 +1465,17 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="1086145255" Name="pick_up_heal" ObjectPath="\Events\Default Work Unit\pick_up_heal">
+					<IncludedMemoryFiles>
+						<File Id="670840965" Language="SFX">
+							<ShortName>heal.wav</ShortName>
+							<Path>SFX/heal_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="1396213152" Name="Gameplay_Reverb" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Gameplay\Gameplay_Reverb"/>
+					</AuxBusSends>
+				</Event>
 				<Event Id="405565217" Name="salarian_attack" ObjectPath="\Events\Default Work Unit\salarian_attack">
 					<IncludedMemoryFiles>
 						<File Id="376785801" Language="SFX">
@@ -925,7 +1516,58 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3962179328" Name="station_play_boss_music" ObjectPath="\Events\Default Work Unit\station_play_boss_music"/>
+				<Event Id="3962179328" Name="station_play_boss_music" ObjectPath="\Events\Default Work Unit\station_play_boss_music">
+					<IncludedMemoryFiles>
+						<File Id="21709813" Language="SFX">
+							<ShortName>Intro\Lead1_157bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Intro/Lead1_157bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="107601844" Language="SFX">
+							<ShortName>Main\Lead1_157bpm_16beats_Ivar1.wav</ShortName>
+							<Path>SFX/Main/Lead1_157bpm_16beats_Ivar1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="189900006" Language="SFX">
+							<ShortName>Main\Drums_157bpm_16beats_Ivar2.wav</ShortName>
+							<Path>SFX/Main/Drums_157bpm_16beats_Ivar2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="241402291" Language="SFX">
+							<ShortName>Main\Lead1_157bpm_16beats_Ivar2.wav</ShortName>
+							<Path>SFX/Main/Lead1_157bpm_16beats_Ivar2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="301207349" Language="SFX">
+							<ShortName>Main\Bass_157bpm_16beats_Ivar2.wav</ShortName>
+							<Path>SFX/Main/Bass_157bpm_16beats_Ivar2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="413192090" Language="SFX">
+							<ShortName>Main\Lead2_157bpm_16beats_Ivar1.wav</ShortName>
+							<Path>SFX/Main/Lead2_157bpm_16beats_Ivar1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="490625729" Language="SFX">
+							<ShortName>Main\Drums_157bpm_16beats_Ivar1.wav</ShortName>
+							<Path>SFX/Main/Drums_157bpm_16beats_Ivar1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="509098013" Language="SFX">
+							<ShortName>Intro\Lead2_157bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Intro/Lead2_157bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="762856936" Language="SFX">
+							<ShortName>Main\Bass_157bpm_16beats_Ivar1.wav</ShortName>
+							<Path>SFX/Main/Bass_157bpm_16beats_Ivar1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1008114300" Language="SFX">
+							<ShortName>Intro\Bass_157bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Intro/Bass_157bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1037439366" Language="SFX">
+							<ShortName>Intro\Drums_157bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Intro/Drums_157bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1059517764" Language="SFX">
+							<ShortName>Main\Lead2_157bpm_16beats_Ivar2.wav</ShortName>
+							<Path>SFX/Main/Lead2_157bpm_16beats_Ivar2_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2703159004" Name="station_play_music" ObjectPath="\Events\Default Work Unit\station_play_music">
 					<IncludedMemoryFiles>
 						<File Id="49177610" Language="SFX">
@@ -1122,8 +1764,156 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="953546913" Name="volcan_play_boss_music" ObjectPath="\Events\Default Work Unit\volcan_play_boss_music">
+					<IncludedMemoryFiles>
+						<File Id="4430693" Language="SFX">
+							<ShortName>Lead1_Act_III.wav</ShortName>
+							<Path>SFX/Lead1_Act_III_D79FB2B7.wem</Path>
+						</File>
+						<File Id="138221904" Language="SFX">
+							<ShortName>Drum_Act_III.wav</ShortName>
+							<Path>SFX/Drum_Act_III_D79FB2B7.wem</Path>
+						</File>
+						<File Id="220860623" Language="SFX">
+							<ShortName>Bass_Act_III.wav</ShortName>
+							<Path>SFX/Bass_Act_III_D79FB2B7.wem</Path>
+						</File>
+						<File Id="397181214" Language="SFX">
+							<ShortName>Drums_146bpm_12beats_Var1.wav</ShortName>
+							<Path>SFX/Drums_146bpm_12beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="571103197" Language="SFX">
+							<ShortName>Bass_146bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Bass_146bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="629646762" Language="SFX">
+							<ShortName>Lead2_146bpm_12beats_Var1.wav</ShortName>
+							<Path>SFX/Lead2_146bpm_12beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="721329600" Language="SFX">
+							<ShortName>Drums_146bpm_8beats_Intro.wav</ShortName>
+							<Path>SFX/Drums_146bpm_8beats_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="763629569" Language="SFX">
+							<ShortName>Bass_146bpm_12beats_Var1.wav</ShortName>
+							<Path>SFX/Bass_146bpm_12beats_Var1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="939918078" Language="SFX">
+							<ShortName>Lead2_Act_III.wav</ShortName>
+							<Path>SFX/Lead2_Act_III_D79FB2B7.wem</Path>
+						</File>
+						<File Id="953079061" Language="SFX">
+							<ShortName>Lead1_146bpm_12beats_Var1.wav</ShortName>
+							<Path>SFX/Lead1_146bpm_12beats_Var1_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}">
+							<Media>
+								<File Id="571103197"/>
+								<File Id="721329600"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C61D768C-7BB7-4F28-A38C-243303C01010}">
+							<Media>
+								<File Id="397181214"/>
+								<File Id="629646762"/>
+								<File Id="763629569"/>
+								<File Id="953079061"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{A97014C2-3DDD-4A7F-8122-ADEA83AD1341}">
+							<Media>
+								<File Id="4430693"/>
+								<File Id="138221904"/>
+								<File Id="220860623"/>
+								<File Id="939918078"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2640247479" Name="volcan_play_music" ObjectPath="\Events\Default Work Unit\volcan_play_music">
+					<IncludedMemoryFiles>
+						<File Id="67608110" Language="SFX">
+							<ShortName>Bass_Var1_146.wav</ShortName>
+							<Path>SFX/Bass_Var1_146_E0B2C827.wem</Path>
+						</File>
+						<File Id="150829689" Language="SFX">
+							<ShortName>Drum_Intro.wav</ShortName>
+							<Path>SFX/Drum_Intro_E0B2C827.wem</Path>
+						</File>
+						<File Id="322926687" Language="SFX">
+							<ShortName>Lead1_Intro.wav</ShortName>
+							<Path>SFX/Lead1_Intro_E0B2C827.wem</Path>
+						</File>
+						<File Id="348711085" Language="SFX">
+							<ShortName>Bass_Intro_146.wav</ShortName>
+							<Path>SFX/Bass_Intro_146_E0B2C827.wem</Path>
+						</File>
+						<File Id="367627437" Language="SFX">
+							<ShortName>Bass_Var2_146.wav</ShortName>
+							<Path>SFX/Bass_Var2_146_E0B2C827.wem</Path>
+						</File>
+						<File Id="650571315" Language="SFX">
+							<ShortName>Drum_Transition.wav</ShortName>
+							<Path>SFX/Drum_Transition_D79FB2B7.wem</Path>
+						</File>
+						<File Id="884768478" Language="SFX">
+							<ShortName>Bass_Transition_146.wav</ShortName>
+							<Path>SFX/Bass_Transition_146_D79FB2B7.wem</Path>
+						</File>
+						<File Id="911747919" Language="SFX">
+							<ShortName>Drum_Var1.wav</ShortName>
+							<Path>SFX/Drum_Var1_E0B2C827.wem</Path>
+						</File>
+						<File Id="939947047" Language="SFX">
+							<ShortName>Drum_Var2.wav</ShortName>
+							<Path>SFX/Drum_Var2_E0B2C827.wem</Path>
+						</File>
+						<File Id="940444652" Language="SFX">
+							<ShortName>Lead1_Var1.wav</ShortName>
+							<Path>SFX/Lead1_Var1_E0B2C827.wem</Path>
+						</File>
+						<File Id="944213011" Language="SFX">
+							<ShortName>Lead2.wav</ShortName>
+							<Path>SFX/Lead2_E0B2C827.wem</Path>
+						</File>
+						<File Id="983833803" Language="SFX">
+							<ShortName>Lead1_Var2.wav</ShortName>
+							<Path>SFX/Lead1_Var2_E0B2C827.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{79199A5B-A4C0-4509-A52F-E03D226BA0CF}">
+							<Media>
+								<File Id="150829689"/>
+								<File Id="322926687"/>
+								<File Id="348711085"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{EFE9A17D-6624-4C7D-9FE0-CCE49C1426AA}">
+							<Media>
+								<File Id="67608110"/>
+								<File Id="367627437"/>
+								<File Id="911747919"/>
+								<File Id="939947047"/>
+								<File Id="940444652"/>
+								<File Id="944213011"/>
+								<File Id="983833803"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 			</IncludedEvents>
 			<StateGroups>
+				<StateGroup Id="1206119301" Name="BossFase" ObjectPath="\States\Default Work Unit\BossFase" GUID="{FC35E302-3C27-46D7-8948-CE289257BA68}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\BossFase\None" GUID="{D6199DF4-02DE-4740-8A68-EF73C6E51240}"/>
+						<State Id="1408244687" Name="Act_I" ObjectPath="\States\Default Work Unit\BossFase\Act_I" GUID="{84B70B2B-F10C-497B-8ECA-D9461A3C8CB2}"/>
+						<State Id="4059809460" Name="Act_II" ObjectPath="\States\Default Work Unit\BossFase\Act_II" GUID="{C61D768C-7BB7-4F28-A38C-243303C01010}"/>
+						<State Id="2740571445" Name="Act_III" ObjectPath="\States\Default Work Unit\BossFase\Act_III" GUID="{A97014C2-3DDD-4A7F-8122-ADEA83AD1341}"/>
+					</States>
+				</StateGroup>
 				<StateGroup Id="1927797142" Name="MusicTrigger" ObjectPath="\States\Default Work Unit\MusicTrigger" GUID="{96697E5E-130C-4DA5-B5E5-6EA9704D8853}">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\MusicTrigger\None" GUID="{CC38A415-16BE-4607-839C-ADA2902C3399}"/>
@@ -1134,6 +1924,12 @@
 					</States>
 				</StateGroup>
 				<StateGroup Id="2244230815" Name="Safe_Zone" ObjectPath="\States\Default Work Unit\MusicTrigger\Safe_Zone" GUID="{79199A5B-A4C0-4509-A52F-E03D226BA0CF}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2740571445" Name="Act_III" ObjectPath="\States\Default Work Unit\BossFase\Act_III" GUID="{A97014C2-3DDD-4A7F-8122-ADEA83AD1341}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="4059809460" Name="Act_II" ObjectPath="\States\Default Work Unit\BossFase\Act_II" GUID="{C61D768C-7BB7-4F28-A38C-243303C01010}">
 					<States/>
 				</StateGroup>
 			</StateGroups>

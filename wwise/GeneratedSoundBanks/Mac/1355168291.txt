@@ -1,8 +1,13 @@
 State Group	ID	Name			Wwise Object Path	Notes
+	1206119301	BossFase			\Default Work Unit\BossFase	
 	1927797142	MusicTrigger			\Default Work Unit\MusicTrigger	
 	3502235852	MusicPause			\Default Work Unit\MusicPause	
 
 State	ID	Name	State Group			Notes
+	748895195	None	BossFase			
+	1408244687	Act_I	BossFase			
+	2740571445	Act_III	BossFase			
+	4059809460	Act_II	BossFase			
 	748895195	None	MusicTrigger			
 	1593864692	Defeat	MusicTrigger			
 	2244230815	Safe_Zone	MusicTrigger			
@@ -27,7 +32,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	779278001	death			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\death	
 	923090826	next_area			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\next_area	
 	1116398592	hit			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\hit	
-	2032028959	jaw_earthquake			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\jaw_earthquake	
+	1245902094	earthquake			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\earthquake	
 	2264234380	jaw_charge			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking\jaw_charge	
 	2276611188	auto_ducking			\Default Work Unit\Master Audio Bus\SFX\Gameplay\auto_ducking	
 	3768541028	attacks			\Default Work Unit\Master Audio Bus\SFX\Gameplay\attacks	
