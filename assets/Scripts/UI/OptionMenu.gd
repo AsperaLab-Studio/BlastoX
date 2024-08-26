@@ -44,7 +44,6 @@ func _ready():
 		current_volume_db = AudioServer.get_bus_volume_db(bus_index)
 		sfxSlider.value = pow(10, current_volume_db / 20)
 
-
 func _process(_delta):
 	if(main == false):
 		var sceneManager = get_parent().get_parent().get_node("StageManager")
@@ -52,7 +51,6 @@ func _process(_delta):
 			if (Input.is_action_just_pressed(Global.player1_input[7]) || Input.is_action_just_pressed(Global.player2_input[7])) && !main:
 				get_tree().paused = !get_tree().paused
 				visible = !visible
-				
 
 func _on_ReturnBtn_pressed():
 	if main:
@@ -62,7 +60,7 @@ func _on_ReturnBtn_pressed():
 	else:
 		get_tree().paused = !get_tree().paused
 		visible = !visible
-	
+
 func _on_SFXSlider_value_changed(value: float) -> void:
 	var newValue = (log(value) / log(10)) * 20
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), newValue);
@@ -102,11 +100,9 @@ func _on_MainMenuBtn_pressed():
 func _on_QuitBtn_pressed():
 	get_tree().quit()
 
-
 func _on_CommandBtn_pressed():
 	commandMenu.visible = true
 	visible = false
-
 
 func _on_RestartLevelBtn_pressed():
 	var stageManager = get_parent().get_parent().get_node("StageManager")

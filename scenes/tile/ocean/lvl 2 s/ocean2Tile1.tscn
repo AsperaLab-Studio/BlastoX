@@ -5,7 +5,6 @@
 [ext_resource path="res://assets/img/frontground/obj/LV1-D OBJ.png" type="Texture" id=3]
 [ext_resource path="res://scenes/tile/environment/objects/BigBox.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
 
@@ -93,6 +92,7 @@ vframes = 5
 frame = 12
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LV 1-D T-OBJ3"]
+z_index = -2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LV 1-D T-OBJ3/StaticBody2D"]
 position = Vector2( -24.6178, -43.4524 )

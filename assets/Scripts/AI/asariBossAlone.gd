@@ -261,10 +261,12 @@ func select_target() -> Player:
 
 
 func hit(dpsTaken, attackType, source) -> void:
-	if (current_state != STATE.JUMP && current_state != STATE.SPRINT):
-		healthBar.update_healthbar(dpsTaken)
-		amount = amount + dpsTaken
-		received_hit = true 
+	if invincible == false:
+		invincible = true
+		if (current_state != STATE.JUMP && current_state != STATE.SPRINT):
+			healthBar.update_healthbar(dpsTaken)
+			amount = amount + dpsTaken
+			received_hit = true 
 
 
 
@@ -365,7 +367,7 @@ func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
 	if anim_name == "hit":
 		invincibility_timer.start(1)
 		invincible = true
-
+		
 func _on_InvincibilityTimer_timeout() -> void:
 	invincible = false
 	

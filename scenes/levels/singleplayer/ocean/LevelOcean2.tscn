@@ -1,13 +1,13 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://assets/img/sprites/obj/booble.png" type="Texture" id=1]
-[ext_resource path="res://assets/audio/ost/lvls sub/lvl 2-sub.ogg" type="AudioStream" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/background/sea/sea2.jpg" type="Texture" id=3]
 [ext_resource path="res://assets/img/UI/game over cornice.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/UI/go.png" type="Texture" id=5]
 [ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/img/UI/blasto/barra vita.png" type="Texture" id=7]
-[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=8]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=8]
 [ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=9]
 [ext_resource path="res://assets/Scripts/Managers/SceneManager.gd" type="Script" id=10]
 [ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=11]
@@ -24,6 +24,8 @@
 [ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=22]
 [ext_resource path="res://scenes/pg/singleplayer/salarian group.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=24]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=25]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=26]
 [ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=27]
 [ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=28]
 [ext_resource path="res://assets/Scripts/Player/camera/CameraShake.gd" type="Script" id=29]
@@ -31,6 +33,8 @@
 [ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=31]
 [ext_resource path="res://assets/img/UI/rating/C.png" type="Texture" id=32]
 [ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=33]
+[ext_resource path="res://assets/Scripts/Sounds/LevelSounds.gd" type="Script" id=34]
+[ext_resource path="res://assets/Scripts/Sounds/MenuSounds.gd" type="Script" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 89.7126, 98.8925 )
@@ -159,6 +163,44 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 1020.87 ]
 }
 
+[node name="Audio" type="Node2D" parent="."]
+script = ExtResource( 34 )
+
+[node name="AkBank" type="Node" parent="Audio"]
+script = ExtResource( 2 )
+bank = {
+"Id": 3161908922,
+"Name": "MAIN"
+}
+load_on = 3
+
+[node name="AkState" type="Node" parent="Audio"]
+script = ExtResource( 8 )
+state_group = {
+"Id": 1927797142,
+"Name": "MUSICTRIGGER"
+}
+state_value = {
+"Id": 2764240573,
+"Name": "COMBAT"
+}
+trigger_on = 3
+
+[node name="AkEvent2D" type="Node2D" parent="Audio"]
+script = ExtResource( 25 )
+event = {
+"Id": 509704602,
+"Name": "OCEAN PLAY MUSIC"
+}
+trigger_on = 3
+stop_on = 2
+
+[node name="AkListener2D" type="Node2D" parent="Audio"]
+script = ExtResource( 26 )
+
+[node name="AudioMenu" type="Node2D" parent="Audio"]
+script = ExtResource( 35 )
+
 [node name="StageManager" type="Node2D" parent="."]
 position = Vector2( -680, -496 )
 script = ExtResource( 10 )
@@ -205,8 +247,6 @@ scale = Vector2( 0.58, 0.57 )
 position = Vector2( 4500, 776.694 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="EnemiesContainer" type="Node" parent="StageManager"]
-
 [node name="EnemiesSpawn" type="Node" parent="StageManager"]
 
 [node name="0" type="Node" parent="StageManager/EnemiesSpawn"]
@@ -214,55 +254,55 @@ scale = Vector2( 0.58, 0.57 )
 [node name="0" type="Node" parent="StageManager/EnemiesSpawn/0"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 141.321, 866.724 )
+position = Vector2( 150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 438.611, 924.672 )
+position = Vector2( 350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 955.147, 939.328 )
+position = Vector2( 1150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 1352, 872 )
+position = Vector2( 1350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn/0"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 181.8, 867.276 )
+position = Vector2( 150, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 603.407, 959.48 )
+position = Vector2( 350, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 902.211, 967.45 )
+position = Vector2( 1150, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 1403.19, 887.64 )
+position = Vector2( 1350, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn/0"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 181.8, 818 )
+position = Vector2( 150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 603.407, 847.904 )
+position = Vector2( 350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 902.211, 855.874 )
+position = Vector2( 1150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/2"]
-position = Vector2( 1403.19, 776.064 )
+position = Vector2( 1350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn"]
@@ -270,55 +310,55 @@ scale = Vector2( 0.58, 0.57 )
 [node name="0" type="Node" parent="StageManager/EnemiesSpawn/1"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 1760, 784 )
+position = Vector2( 1650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 1944, 904 )
+position = Vector2( 1850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 2656, 888 )
+position = Vector2( 2650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 2808, 800 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
+position = Vector2( 2850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn/1"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 1641.49, 866.7 )
+position = Vector2( 1650, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 2063.09, 958.907 )
+position = Vector2( 1850, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 2361.9, 966.867 )
+position = Vector2( 2650, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 2862.87, 887.064 )
+position = Vector2( 2850, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn/1"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 1641.49, 866.7 )
+position = Vector2( 1650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 2063.09, 958.907 )
+position = Vector2( 1850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 2361.9, 966.867 )
+position = Vector2( 2650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/2"]
-position = Vector2( 2862.87, 887.064 )
+position = Vector2( 2850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn"]
@@ -326,55 +366,55 @@ scale = Vector2( 0.58, 0.57 )
 [node name="0" type="Node" parent="StageManager/EnemiesSpawn/2"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 3256, 808 )
+position = Vector2( 3150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 3456, 904 )
+position = Vector2( 3350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 4152, 904 )
+position = Vector2( 4150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 4233.9, 852.699 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
+position = Vector2( 4350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="1" type="Node" parent="StageManager/EnemiesSpawn/2"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 3235.82, 840.7 )
+position = Vector2( 3150, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 3444.81, 958.762 )
+position = Vector2( 3350, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 4049.99, 955.402 )
+position = Vector2( 4150, 900 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 4209, 853.337 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
+position = Vector2( 4350, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Node" parent="StageManager/EnemiesSpawn/2"]
 
 [node name="1" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 3235.82, 840.7 )
+position = Vector2( 3150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="2" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 3444.81, 958.762 )
+position = Vector2( 3350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 4049.99, 955.402 )
+position = Vector2( 4150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
-[node name="5" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
-position = Vector2( 4209, 853.337 )
+[node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/2"]
+position = Vector2( 4350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Node" parent="StageManager/EnemiesSpawn"]
@@ -509,6 +549,8 @@ scale = Vector2( 0.58, 0.57 )
 position = Vector2( 10285.8, 773.7 )
 scale = Vector2( 0.58, 0.57 )
 
+[node name="EnemiesContainer" type="Node" parent="StageManager"]
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="GUI"]
@@ -609,6 +651,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
+frame = 3
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -666,7 +709,6 @@ margin_right = 1804.0
 margin_bottom = 994.0
 script = ExtResource( 33 )
 rate_list = [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 27 ) ]
-rate_points = [ 1200, 2400, 3600, 4800 ]
 
 [node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
 visible = false
@@ -836,13 +878,6 @@ value = 1.0
 position = Vector2( -7, 1321 )
 scale = Vector2( 1, 1 )
 
-[node name="ost" type="AudioStreamPlayer" parent="." groups=["pausable"]]
-pause_mode = 2
-stream = ExtResource( 2 )
-volume_db = 2.0
-bus = "Music"
-script = ExtResource( 8 )
-
 [node name="floor" type="Node2D" parent="."]
 position = Vector2( -2407.87, 512 )
 z_index = -2
@@ -873,7 +908,7 @@ texture = ExtResource( 3 )
 position = Vector2( 131, 2.00002 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 6
+frame = 5
 speed_scale = 1.8
 playing = true
 
@@ -881,7 +916,7 @@ playing = true
 position = Vector2( 663, 224 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 6
+frame = 5
 speed_scale = 1.8
 playing = true
 
@@ -889,7 +924,7 @@ playing = true
 position = Vector2( 1157, -52 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 5
+frame = 4
 speed_scale = 1.8
 playing = true
 
@@ -897,7 +932,7 @@ playing = true
 position = Vector2( 998, 284 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 5
+frame = 4
 speed_scale = 1.8
 playing = true
 
@@ -905,7 +940,7 @@ playing = true
 position = Vector2( 456, -73 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 4
+frame = 3
 speed_scale = 1.8
 playing = true
 
@@ -913,7 +948,7 @@ playing = true
 position = Vector2( 297, 278 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 3
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -921,7 +956,7 @@ playing = true
 position = Vector2( 1361, 401 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 3
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -929,7 +964,7 @@ playing = true
 position = Vector2( 1508, 41 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 2
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -937,7 +972,7 @@ playing = true
 position = Vector2( 759, 538 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 2
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -945,7 +980,6 @@ playing = true
 position = Vector2( 1601, 514 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -953,7 +987,6 @@ playing = true
 position = Vector2( 369, 646 )
 frames = SubResource( 19 )
 animation = "New Anim"
-frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -961,6 +994,7 @@ playing = true
 position = Vector2( 63, 532 )
 frames = SubResource( 19 )
 animation = "New Anim"
+frame = 14
 speed_scale = 1.8
 playing = true
 
@@ -968,6 +1002,7 @@ playing = true
 position = Vector2( 1046, 637 )
 frames = SubResource( 19 )
 animation = "New Anim"
+frame = 14
 speed_scale = 1.8
 playing = true
 
@@ -996,15 +1031,33 @@ script = ExtResource( 29 )
 [node name="borders" parent="." instance=ExtResource( 21 )]
 
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
+[connection signal="visibility_changed" from="GUI/UI/GAME OVER" to="Audio" method="_on_GAME_OVER_visibility_changed"]
+[connection signal="visibility_changed" from="GUI/UI/WIN" to="Audio" method="_on_WIN_visibility_changed"]
+[connection signal="visibility_changed" from="GUI/UI/Go" to="Audio" method="_on_Go_visibility_changed"]
 [connection signal="value_changed" from="GUI/UI/HealthPlayerContainer/Blasto/HealthBar" to="PlayersList/Blasto" method="_on_HealthBar_value_changed"]
+[connection signal="visibility_changed" from="GUI/pauseMenu" to="Audio" method="_on_pauseMenu_visibility_changed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="Audio/AudioMenu" method="_on_ReturnBtn_mouse_entered"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="Audio/AudioMenu" method="_on_ReturnBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/ReturnBtn" to="GUI/pauseMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="Audio/AudioMenu" method="_on_RestartLevelBtn_mouse_entered"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="Audio/AudioMenu" method="_on_RestartLevelBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/RestartLevelBtn" to="GUI/pauseMenu" method="_on_RestartLevelBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="Audio/AudioMenu" method="_on_OptionBtn_mouse_entered"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="Audio/AudioMenu" method="_on_OptionBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/OptionBtn" to="GUI/pauseMenu" method="_on_OptionBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="Audio/AudioMenu" method="_on_MainMenuBtn_mouse_entered"]
+[connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="Audio/AudioMenu" method="_on_MainMenuBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/MainMenuBtn" to="GUI/pauseMenu" method="_on_MainMenuBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="Audio/AudioMenu" method="_on_QuitBtn_mouse_entered"]
 [connection signal="pressed" from="GUI/pauseMenu/mainPauseMenu/QuitBtn" to="GUI/pauseMenu" method="_on_QuitBtn_pressed"]
+[connection signal="mouse_entered" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="Audio/AudioMenu" method="_on_backToPauseBtn_mouse_entered"]
+[connection signal="pressed" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="Audio/AudioMenu" method="_on_backToPauseBtn_pressed"]
 [connection signal="pressed" from="GUI/pauseMenu/OptionMenu/backToPauseBtn" to="GUI/pauseMenu" method="_on_backToPauseBtn_pressed"]
+[connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="Audio/AudioMenu" method="_on_checkFullscreen_toggled"]
 [connection signal="toggled" from="GUI/pauseMenu/OptionMenu/checkFullscreen" to="GUI/pauseMenu" method="_on_checkFullscreen_toggled"]
+[connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/MusicSlider" to="Audio/AudioMenu" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/MusicSlider" to="GUI/pauseMenu" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="Audio/AudioMenu" method="_on_SFXSlider_value_changed"]
 [connection signal="value_changed" from="GUI/pauseMenu/OptionMenu/SFXSlider" to="GUI/pauseMenu" method="_on_SFXSlider_value_changed"]
 [connection signal="death" from="PlayersList/Blasto" to="StageManager" method="_on_Blasto_death"]
 [connection signal="update_healthbar" from="PlayersList/Blasto" to="GUI/UI/HealthPlayerContainer" method="_on_Blasto_update_healthbar"]

@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/Scripts/UI/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=2]
-[ext_resource path="res://assets/audio/ost/main_menu_team.ogg" type="AudioStream" id=3]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=3]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=4]
 [ext_resource path="res://assets/img/mainMenuBackground.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=7]
 [ext_resource path="res://assets/Scripts/UI/PlayMenu.gd" type="Script" id=8]
+[ext_resource path="res://assets/Scripts/Sounds/MenuSounds.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -28,11 +30,28 @@ shadow_color = Color( 1, 0.6, 0.6, 0.6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="mainTheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-autoplay = true
-bus = "Music"
+[node name="Audio" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="AkBank" type="Node" parent="Audio"]
 script = ExtResource( 2 )
+bank = {
+"Id": 3161908922,
+"Name": "MAIN"
+}
+load_on = 3
+
+[node name="AkEvent2D" type="Node2D" parent="Audio"]
+script = ExtResource( 3 )
+event = {
+"Id": 1092296013,
+"Name": "MENU PLAY MUSIC"
+}
+trigger_on = 3
+stop_on = 2
+
+[node name="AkListener2D" type="Node2D" parent="Audio"]
+script = ExtResource( 4 )
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 970.519, 539.208 )
@@ -252,15 +271,35 @@ custom_styles/normal = SubResource( 4 )
 action_mode = 0
 text = "BACK"
 
+[connection signal="mouse_entered" from="MiscMenu/StartBtn" to="Audio" method="_on_StartBtn_mouse_entered"]
+[connection signal="pressed" from="MiscMenu/StartBtn" to="Audio" method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="MiscMenu/StartBtn" to="MiscMenu" method="_on_StartBtn_pressed"]
+[connection signal="mouse_entered" from="MiscMenu/OptionsBtn" to="Audio" method="_on_OptionsBtn_mouse_entered"]
+[connection signal="pressed" from="MiscMenu/OptionsBtn" to="Audio" method="_on_OptionsBtn_pressed"]
 [connection signal="pressed" from="MiscMenu/OptionsBtn" to="MiscMenu" method="_on_OptionsBtn_pressed"]
+[connection signal="mouse_entered" from="MiscMenu/CreditsBtn" to="Audio" method="_on_CreditsBtn_mouse_entered"]
+[connection signal="pressed" from="MiscMenu/CreditsBtn" to="Audio" method="_on_CreditsBtn_pressed"]
 [connection signal="pressed" from="MiscMenu/CreditsBtn" to="MiscMenu" method="_on_CreditsBtn_pressed"]
+[connection signal="mouse_entered" from="MiscMenu/ExitBtn" to="Audio" method="_on_ExitBtn_mouse_entered"]
 [connection signal="pressed" from="MiscMenu/ExitBtn" to="MiscMenu" method="_on_ExitBtn_pressed"]
+[connection signal="mouse_entered" from="OptionMenu/ReturnBtn" to="Audio" method="_on_ReturnBtn_mouse_entered"]
+[connection signal="pressed" from="OptionMenu/ReturnBtn" to="Audio" method="_on_ReturnBtn_pressed"]
 [connection signal="pressed" from="OptionMenu/ReturnBtn" to="OptionMenu" method="_on_ReturnBtn_pressed"]
+[connection signal="toggled" from="OptionMenu/checkFullscreen" to="Audio" method="_on_checkFullscreen_toggled"]
 [connection signal="toggled" from="OptionMenu/checkFullscreen" to="OptionMenu" method="_on_checkFullscreen_toggled"]
+[connection signal="value_changed" from="OptionMenu/MusicSlider" to="Audio" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="OptionMenu/MusicSlider" to="OptionMenu" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="OptionMenu/SFXSlider" to="Audio" method="_on_SFXSlider_value_changed"]
 [connection signal="value_changed" from="OptionMenu/SFXSlider" to="OptionMenu" method="_on_SFXSlider_value_changed"]
+[connection signal="mouse_entered" from="PlayMenu/SingleBtn" to="Audio" method="_on_SingleBtn_mouse_entered"]
+[connection signal="pressed" from="PlayMenu/SingleBtn" to="Audio" method="_on_SingleBtn_pressed"]
 [connection signal="pressed" from="PlayMenu/SingleBtn" to="PlayMenu" method="_on_SingleBtn_pressed"]
+[connection signal="mouse_entered" from="PlayMenu/MultiBtn" to="Audio" method="_on_MultiBtn_mouse_entered"]
+[connection signal="pressed" from="PlayMenu/MultiBtn" to="Audio" method="_on_MultiBtn_pressed"]
 [connection signal="pressed" from="PlayMenu/MultiBtn" to="PlayMenu" method="_on_MultiBtn_pressed"]
+[connection signal="mouse_entered" from="PlayMenu/LoadBtn" to="Audio" method="_on_LoadBtn_mouse_entered"]
+[connection signal="pressed" from="PlayMenu/LoadBtn" to="Audio" method="_on_LoadBtn_pressed"]
 [connection signal="pressed" from="PlayMenu/LoadBtn" to="PlayMenu" method="_on_LoadBtn_pressed"]
+[connection signal="mouse_entered" from="PlayMenu/BackBtn" to="Audio" method="_on_BackBtn_mouse_entered"]
+[connection signal="pressed" from="PlayMenu/BackBtn" to="Audio" method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="PlayMenu/BackBtn" to="PlayMenu" method="_on_BackBtn_pressed"]

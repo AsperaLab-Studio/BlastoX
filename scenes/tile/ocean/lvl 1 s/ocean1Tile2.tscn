@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/tile/environment/objects/SmallBoxBigBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tile/environment/objects/BigBox.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.7187, 2.01658 )
 

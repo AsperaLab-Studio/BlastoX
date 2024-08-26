@@ -20,12 +20,15 @@ onready var gun_list_pos: Array = get_parent().get_parent().get_node("gunZones")
 onready var cooldown: Timer = $Cooldown
 enum STATE {KNOCKBACK, SELECTING_VINE, VINE, ATTACK, IDLE, HIT, DIED}
 
+export var GENERAL_VARS := "--------------------"
 export(int) var death_speed := 150
 export(int) var moving_speed := 50
 
+export var DELAY_VARS := "--------------------"
 export(float) var delay_after_spear := 3.0
 export(float) var delay_after_gun := 3.0
 
+export var ATTACKS_VARS := "--------------------"
 export(int) var dps := 10
 export(int) var HP := 5
 export(PackedScene) var vine_spear

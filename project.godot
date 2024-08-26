@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "AK",
+"language": "GDScript",
+"path": "res://wwise/GeneratedSoundBanks/wwise_ids.gd"
+}, {
+"base": "Reference",
+"class": "AkUtils",
+"language": "GDScript",
+"path": "res://addons/wwise/runtime/helpers/ak_utils.gd"
+}, {
 "base": "Node2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -53,6 +63,21 @@ _global_script_classes=[ {
 "class": "KroganBoss",
 "language": "GDScript",
 "path": "res://assets/Scripts/AI/kroganBoss.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "KronusBoss1",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kronusBoss1.gd"
+}, {
+"base": "Node2D",
+"class": "KronusMissile",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/Kronus/KronusMissile.gd"
+}, {
+"base": "Node2D",
+"class": "KronusMissileBullet",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/props/Kronus/KronusMissileBullet.gd"
 }, {
 "base": "TurianWeapon",
 "class": "Missile",
@@ -108,8 +133,25 @@ _global_script_classes=[ {
 "class": "asariBossAlone",
 "language": "GDScript",
 "path": "res://assets/Scripts/AI/asariBossAlone.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "kronusBoss2",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kronusBoss2.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "kronusBoss3",
+"language": "GDScript",
+"path": "res://assets/Scripts/AI/kronusBoss3.gd"
+}, {
+"base": "Node",
+"class": "kronusPhaseManager",
+"language": "GDScript",
+"path": "res://assets/Scripts/Managers/KronusPhaseManager.gd"
 } ]
 _global_script_class_icons={
+"AK": "",
+"AkUtils": "",
 "Bullet": "",
 "BulletGrenade": "",
 "BulletMissile": "",
@@ -119,6 +161,9 @@ _global_script_class_icons={
 "Grenade": "",
 "ImpactZone": "",
 "KroganBoss": "",
+"KronusBoss1": "",
+"KronusMissile": "",
+"KronusMissileBullet": "",
 "Missile": "",
 "Player": "",
 "PowerUp": "",
@@ -129,13 +174,16 @@ _global_script_class_icons={
 "VineGun": "",
 "VineSpear": "",
 "asariBoss": "",
-"asariBossAlone": ""
+"asariBossAlone": "",
+"kronusBoss2": "",
+"kronusBoss3": "",
+"kronusPhaseManager": ""
 }
 
 [application]
 
 config/name="Mass Effect - Blasto X"
-run/main_scene="res://scenes/misc/MainMenu.tscn"
+run/main_scene="res://scenes/misc/intro sh.tscn"
 config/icon="res://ico.png"
 config/windows_native_icon="res://ico.ico"
 
@@ -147,6 +195,9 @@ mix_rate=48000
 
 Global="*res://assets/Scripts/Global.gd"
 SaveManager="*res://assets/Scripts/SaveManager.gd"
+WwiseSettings="*res://addons/wwise/editor/wwise_settings.gd"
+Wwise="*res://addons/wwise/bin/wwise-gdnative.gdns"
+Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
 
 [display]
 
@@ -156,6 +207,10 @@ window/size/test_width=1920
 window/size/test_height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/wwise/plugin.cfg" )
 
 [importer_defaults]
 
@@ -387,3 +442,7 @@ common/enable_pause_aware_picking=true
 
 2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
+
+[wwise]
+
+common_user_settings/load_init_bank_at_startup=true

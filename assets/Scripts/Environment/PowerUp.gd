@@ -15,6 +15,8 @@ func _on_Area2D_area_entered(area:Area2D):
 				pass
 			POWER_UP_TYPE.MEDIKIT:
 				if area.owner.current_hp != area.owner.hp:
+					Wwise.register_game_obj(self.get_parent(), self.get_parent().name)
+					Wwise.post_event_id(AK.EVENTS.PICK_UP_HEAL, self.get_parent())
 					if area.owner.current_hp + amount >= area.owner.hp:
 						area.owner.current_hp = area.owner.hp
 					else:
