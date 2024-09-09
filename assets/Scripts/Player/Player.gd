@@ -60,6 +60,8 @@ var canAttack2 = true
 var attack1count = 0
 var jumping = false
 
+var knockbackerPos
+
 var inputManager
 var lifesList
 var lifeCount: int
@@ -164,10 +166,12 @@ func _process(_delta: float) -> void:
 
 				phisicBody.disabled = true
 
+				var dir = (global_position - knockbackerPos).normalized()
+
 				var pos = Vector2()
 				pos.y = global_position.y
 				
-				if direction.x < 0:
+				if dir.x > 0:
 					pos.x = global_position.x + rebonuce_distance
 				else:
 					pos.x = global_position.x - rebonuce_distance
@@ -271,7 +275,8 @@ func pause():
 	set_process(false)
 	
 
-func knockback():
+func knockback(pos):
+	knockbackerPos = pos
 	current_state = STATE.KNOCKBACK
 
 func switchLayers(jump):

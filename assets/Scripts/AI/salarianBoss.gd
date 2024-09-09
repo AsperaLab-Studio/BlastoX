@@ -181,7 +181,7 @@ func hit(dpsTaken, attackType, source) -> void:
 				current_state = STATE.HIT
 				
 func do_knockback():
-	actual_target.knockback()
+	actual_target.knockback(global_position)
 	choosed_pos = 0
 	vine_shield = true
 
