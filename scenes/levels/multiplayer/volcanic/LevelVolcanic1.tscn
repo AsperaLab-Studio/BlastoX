@@ -1,50 +1,69 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=82 format=2]
 
-[ext_resource path="res://assets/img/sprites/obj/wind.png" type="Texture" id=1]
-[ext_resource path="res://assets/audio/sfx/Menu/meSFX.ogg" type="AudioStream" id=2]
-[ext_resource path="res://assets/img/background/sea/sea1.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_19.png" type="Texture" id=1]
+[ext_resource path="res://assets/Scripts/Managers/AudioLevels.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_20.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/UI/game over cornice.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/UI/go.png" type="Texture" id=5]
-[ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/img/UI/blasto/barra vita.png" type="Texture" id=7]
-[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=8]
-[ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=9]
-[ext_resource path="res://assets/Scripts/Managers/SceneManager.gd" type="Script" id=10]
-[ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=11]
-[ext_resource path="res://assets/img/UI/blasto/cornice barra vita.png" type="Texture" id=12]
-[ext_resource path="res://scenes/tile/station/lvl 2 s/station2Tile1.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/tile/station/lvl 2 s/station2Tile2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/img/UI/blasto/barra vita.png" type="Texture" id=6]
+[ext_resource path="res://assets/Scripts/Player/Commands.gd" type="Script" id=7]
+[ext_resource path="res://assets/Scripts/FloorCreator.gd" type="Script" id=8]
+[ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=9]
+[ext_resource path="res://assets/Scripts/Player/camera/CameraShake.gd" type="Script" id=10]
+[ext_resource path="res://assets/Scripts/UI/PlayerHealthBar.gd" type="Script" id=11]
+[ext_resource path="res://assets/Scripts/Player/camera/cameraController.gd" type="Script" id=12]
+[ext_resource path="res://assets/Scripts/Managers/SceneManager.gd" type="Script" id=13]
+[ext_resource path="res://assets/img/UI/blasto/cornice barra vita.png" type="Texture" id=14]
 [ext_resource path="res://assets/img/UI/you win cornice.png" type="Texture" id=15]
-[ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=16]
-[ext_resource path="res://scenes/pg/singleplayer/salarian.tscn" type="PackedScene" id=17]
-[ext_resource path="res://assets/img/frontground/lvl desert/desert1 door.png" type="Texture" id=18]
-[ext_resource path="res://scenes/pg/singleplayer/asari.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/tile/station/lvl 2 s/station2Tile3.tscn" type="PackedScene" id=20]
-[ext_resource path="res://assets/img/frontground/obj/LV2-S OBJ.png" type="Texture" id=21]
-[ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=22]
-[ext_resource path="res://scenes/pg/singleplayer/turian group.tscn" type="PackedScene" id=23]
-[ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=24]
-[ext_resource path="res://scenes/tile/environment/borders.tscn" type="PackedScene" id=25]
-[ext_resource path="res://assets/Scripts/Managers/AudioButtons.gd" type="Script" id=26]
-[ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=27]
-[ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=28]
-[ext_resource path="res://assets/Scripts/Player/camera/CameraShake.gd" type="Script" id=29]
-[ext_resource path="res://assets/Scripts/Player/camera/cameraController.gd" type="Script" id=30]
-[ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=31]
-[ext_resource path="res://assets/img/UI/rating/C.png" type="Texture" id=32]
-[ext_resource path="res://assets/Scripts/UI/Rating.gd" type="Script" id=33]
-[ext_resource path="res://assets/Scripts/Managers/AudioLevels.gd" type="Script" id=34]
-[ext_resource path="res://assets/Scripts/Managers/ost pause.gd" type="Script" id=35]
-[ext_resource path="res://assets/audio/sfx/Menu/bpSFX.ogg" type="AudioStream" id=36]
-[ext_resource path="res://assets/audio/ost/win.oggvorbis.ogg" type="AudioStream" id=37]
-[ext_resource path="res://assets/audio/ost/lose.oggvorbis.ogg" type="AudioStream" id=38]
-[ext_resource path="res://assets/audio/sfx/Levels/NextLevel.oggvorbis.ogg" type="AudioStream" id=39]
-[ext_resource path="res://assets/audio/ost/lvls station/Station_Main.oggvorbis.ogg" type="AudioStream" id=40]
-[ext_resource path="res://assets/audio/ost/lvls station/Station_Pause.oggvorbis.ogg" type="AudioStream" id=41]
-[ext_resource path="res://assets/img/UI/cerulean star/icona numero vite.png" type="Texture" id=42]
-[ext_resource path="res://assets/img/UI/cerulean star/cerulean star barra vita.png" type="Texture" id=43]
-[ext_resource path="res://assets/img/UI/cerulean star/cerulean star cornice vita.png" type="Texture" id=44]
-[ext_resource path="res://scenes/pg/Cerulean Star.tscn" type="PackedScene" id=45]
+[ext_resource path="res://scenes/pg/Blasto.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/tile/volcanic/lvl 1 v/volcanic1Tile1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/tile/volcanic/lvl 1 v/volcanic1Tile3.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/pg/singleplayer/salarian group.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/tile/volcanic/lvl 1 v/volcanic1Tile2.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/pg/singleplayer/krogan.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/pg/singleplayer/turian.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=23]
+[ext_resource path="res://assets/Scripts/Managers/ost.gd" type="Script" id=24]
+[ext_resource path="res://assets/Scripts/UI/OptionMenu.gd" type="Script" id=25]
+[ext_resource path="res://assets/img/UI/rating/C.png" type="Texture" id=26]
+[ext_resource path="res://assets/img/UI/rating/B.png" type="Texture" id=27]
+[ext_resource path="res://assets/img/frontground/lvl desert/desert1 door.png" type="Texture" id=28]
+[ext_resource path="res://assets/img/UI/commandsSingleplayer.png" type="Texture" id=29]
+[ext_resource path="res://assets/img/UI/rating/S.png" type="Texture" id=30]
+[ext_resource path="res://assets/img/UI/blasto/icona numero vite.png" type="Texture" id=31]
+[ext_resource path="res://assets/img/UI/rating/A.png" type="Texture" id=32]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_15.png" type="Texture" id=33]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_16.png" type="Texture" id=34]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_17.png" type="Texture" id=35]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_12.png" type="Texture" id=36]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_13.png" type="Texture" id=37]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_2.png" type="Texture" id=38]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_3.png" type="Texture" id=39]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_5.png" type="Texture" id=40]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_1.png" type="Texture" id=41]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_4.png" type="Texture" id=42]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_6.png" type="Texture" id=43]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_8.png" type="Texture" id=44]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_9.png" type="Texture" id=45]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_7.png" type="Texture" id=46]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_10.png" type="Texture" id=47]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_11.png" type="Texture" id=48]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_18.png" type="Texture" id=49]
+[ext_resource path="res://assets/img/frontground/lvl volcanic/Wall_PH_14.png" type="Texture" id=50]
+[ext_resource path="res://assets/Scripts/Managers/ost pause.gd" type="Script" id=51]
+[ext_resource path="res://assets/audio/ost/win.oggvorbis.ogg" type="AudioStream" id=52]
+[ext_resource path="res://assets/audio/ost/lose.oggvorbis.ogg" type="AudioStream" id=53]
+[ext_resource path="res://assets/Scripts/Managers/AudioButtons.gd" type="Script" id=54]
+[ext_resource path="res://assets/audio/sfx/Menu/bpSFX.ogg" type="AudioStream" id=55]
+[ext_resource path="res://assets/audio/sfx/Menu/meSFX.ogg" type="AudioStream" id=56]
+[ext_resource path="res://assets/audio/sfx/Levels/NextLevel.oggvorbis.ogg" type="AudioStream" id=57]
+[ext_resource path="res://assets/audio/ost/lvl volcan/Metgos_Pause.oggvorbis.ogg" type="AudioStream" id=58]
+[ext_resource path="res://assets/audio/ost/lvl volcan/Metgos_Intro.oggvorbis.ogg" type="AudioStream" id=59]
+[ext_resource path="res://assets/audio/ost/lvl volcan/Metgos_Main.oggvorbis.ogg" type="AudioStream" id=60]
+[ext_resource path="res://assets/img/UI/cerulean star/icona numero vite.png" type="Texture" id=61]
+[ext_resource path="res://assets/img/UI/cerulean star/cerulean star barra vita.png" type="Texture" id=62]
+[ext_resource path="res://assets/img/UI/cerulean star/cerulean star cornice vita.png" type="Texture" id=63]
+[ext_resource path="res://scenes/pg/Cerulean Star.tscn" type="PackedScene" id=64]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 89.7126, 98.8925 )
@@ -99,60 +118,25 @@ border_width_bottom = 23
 border_color = Color( 0.839216, 0, 1, 1 )
 shadow_color = Color( 1, 0.6, 0.6, 0.6 )
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 199, 114 )
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 15745.8, 285.783 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 1 )
-region = Rect2( 199, 0, 199, 114 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1990.15, 120.176 )
 
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 1 )
-region = Rect2( 398, 0, 199, 114 )
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 7890.29, 291.611 )
 
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 1 )
-region = Rect2( 597, 0, 199, 114 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 1 )
-region = Rect2( 796, 0, 199, 114 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 1 )
-region = Rect2( 995, 0, 199, 114 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 1 )
-region = Rect2( 1194, 0, 199, 114 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 1 )
-region = Rect2( 1393, 0, 199, 114 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 1 )
-region = Rect2( 1592, 0, 199, 114 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 1 )
-region = Rect2( 1791, 0, 199, 114 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 1 )
-region = Rect2( 1990, 0, 199, 114 )
-
-[sub_resource type="SpriteFrames" id=19]
+[sub_resource type="SpriteFrames" id=34]
 animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ ExtResource( 41 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 46 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 50 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 49 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 12.0
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=34]
-extents = Vector2( 63.75, 3.5 )
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 10, 136.5 )
 
 [node name="testing" type="Node2D"]
 position = Vector2( 63, -456 )
@@ -162,17 +146,17 @@ __meta__ = {
 
 [node name="StageManager" type="Node2D" parent="."]
 position = Vector2( -680, -496 )
-script = ExtResource( 10 )
-enemy_types = [ ExtResource( 19 ), ExtResource( 17 ), ExtResource( 23 ) ]
-next_stage = "station/LevelStation3"
-current_level = "station/LevelStation2"
+script = ExtResource( 13 )
+enemy_types = [ ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ) ]
+next_stage = "volcanic/LevelVolcanicBoss"
+current_level = "volcanic/LevelVolcanic1"
 totalFightPhases = 3
 
 [node name="MovingWall" type="StaticBody2D" parent="StageManager"]
 position = Vector2( 8936, 1272 )
 scale = Vector2( 0.58, 0.57 )
 collision_layer = 2
-collision_mask = 29
+collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StageManager/MovingWall"]
 position = Vector2( 0.000293732, 56.1404 )
@@ -221,7 +205,7 @@ position = Vector2( 350, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
-position = Vector2( 1150, 910 )
+position = Vector2( 1150, 820 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/0"]
@@ -239,7 +223,7 @@ position = Vector2( 350, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
-position = Vector2( 1150, 820 )
+position = Vector2( 1150, 910 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/0/1"]
@@ -277,7 +261,7 @@ position = Vector2( 1850, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
-position = Vector2( 2650, 890 )
+position = Vector2( 2650, 840 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/0"]
@@ -295,7 +279,7 @@ position = Vector2( 1850, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
-position = Vector2( 2650, 840 )
+position = Vector2( 2650, 890 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/1/1"]
@@ -333,7 +317,7 @@ position = Vector2( 3350, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
-position = Vector2( 4150, 900 )
+position = Vector2( 4150, 830 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/0"]
@@ -351,7 +335,7 @@ position = Vector2( 3350, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="3" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
-position = Vector2( 4150, 830 )
+position = Vector2( 4150, 900 )
 scale = Vector2( 0.58, 0.57 )
 
 [node name="4" type="Position2D" parent="StageManager/EnemiesSpawn/2/1"]
@@ -610,7 +594,7 @@ visible = false
 position = Vector2( 1480, 512 )
 scale = Vector2( 0.815703, 0.801639 )
 frames = SubResource( 32 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="LifesList" type="Node2D" parent="GUI/UI"]
@@ -620,44 +604,44 @@ playing = true
 [node name="Ceru1" type="Sprite" parent="GUI/UI/LifesList/Blasto"]
 position = Vector2( 235, 140 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 22 )
+texture = ExtResource( 31 )
 
 [node name="Ceru2" type="Sprite" parent="GUI/UI/LifesList/Blasto"]
 position = Vector2( 204, 140 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 22 )
+texture = ExtResource( 31 )
 
 [node name="Ceru3" type="Sprite" parent="GUI/UI/LifesList/Blasto"]
 position = Vector2( 172, 140 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 22 )
+texture = ExtResource( 31 )
 
 [node name="Ceru" type="Node2D" parent="GUI/UI/LifesList"]
 
 [node name="Ceru1" type="Sprite" parent="GUI/UI/LifesList/Ceru"]
 position = Vector2( 815, 140 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 42 )
+texture = ExtResource( 61 )
 
 [node name="Ceru2" type="Sprite" parent="GUI/UI/LifesList/Ceru"]
 position = Vector2( 784, 140 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 42 )
+texture = ExtResource( 61 )
 
 [node name="Ceru3" type="Sprite" parent="GUI/UI/LifesList/Ceru"]
 position = Vector2( 752, 140 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 42 )
+texture = ExtResource( 61 )
 
 [node name="HealthPlayerContainer" type="Node2D" parent="GUI/UI"]
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 
 [node name="Blasto" type="Node2D" parent="GUI/UI/HealthPlayerContainer"]
 
 [node name="ConiceBarraVita" type="Sprite" parent="GUI/UI/HealthPlayerContainer/Blasto"]
 position = Vector2( 293.239, 82.7536 )
 scale = Vector2( 0.295394, 0.289558 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 
 [node name="HealthBar" type="TextureProgress" parent="GUI/UI/HealthPlayerContainer/Blasto"]
 margin_left = 146.0
@@ -667,14 +651,14 @@ margin_bottom = 232.0
 rect_scale = Vector2( 0.293, 0.296 )
 max_value = 10.0
 value = 10.0
-texture_progress = ExtResource( 7 )
+texture_progress = ExtResource( 6 )
 
 [node name="Ceru" type="Node2D" parent="GUI/UI/HealthPlayerContainer"]
 
 [node name="ConiceBarraVita" type="Sprite" parent="GUI/UI/HealthPlayerContainer/Ceru"]
 position = Vector2( 880.239, 82.7536 )
 scale = Vector2( 0.295394, 0.289558 )
-texture = ExtResource( 44 )
+texture = ExtResource( 63 )
 
 [node name="HealthBar" type="TextureProgress" parent="GUI/UI/HealthPlayerContainer/Ceru"]
 margin_left = 734.0
@@ -684,7 +668,7 @@ margin_bottom = 231.0
 rect_scale = Vector2( 0.293, 0.296 )
 max_value = 10.0
 value = 10.0
-texture_progress = ExtResource( 43 )
+texture_progress = ExtResource( 62 )
 
 [node name="ShowedPoints" type="Label" parent="GUI/UI"]
 margin_left = 1716.0
@@ -700,21 +684,21 @@ margin_left = 1764.0
 margin_top = 954.0
 margin_right = 1804.0
 margin_bottom = 994.0
-script = ExtResource( 33 )
-rate_list = [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 27 ) ]
+script = ExtResource( 9 )
+rate_list = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 32 ), ExtResource( 30 ) ]
 
 [node name="Sprite" type="Sprite" parent="GUI/UI/Rating"]
 visible = false
 scale = Vector2( 0.520833, 0.520833 )
 z_index = 1
-texture = ExtResource( 28 )
+texture = ExtResource( 32 )
 
 [node name="pauseMenu" type="Control" parent="GUI"]
 pause_mode = 2
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 16 )
+script = ExtResource( 25 )
 
 [node name="mainPauseMenu" type="Control" parent="GUI/pauseMenu"]
 margin_right = 40.0
@@ -728,7 +712,7 @@ margin_bottom = 455.715
 custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 custom_styles/hover = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )
 action_mode = 0
@@ -742,7 +726,7 @@ margin_bottom = 547.0
 custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
 custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 custom_styles/hover = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )
 action_mode = 0
@@ -756,7 +740,7 @@ margin_bottom = 636.0
 custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 custom_styles/hover = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )
 action_mode = 0
@@ -770,7 +754,7 @@ margin_bottom = 719.061
 custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
 custom_colors/font_color_hover = Color( 0.811765, 0.235294, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 custom_styles/hover = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )
 action_mode = 0
@@ -784,7 +768,7 @@ margin_bottom = 808.0
 custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 custom_styles/hover = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )
 action_mode = 0
@@ -805,7 +789,7 @@ margin_bottom = 651.0
 custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0.164706, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 custom_styles/hover = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )
 action_mode = 0
@@ -822,7 +806,7 @@ custom_colors/font_color_hover_pressed = Color( 0, 0.72549, 0.164706, 1 )
 custom_colors/font_color = Color( 0, 0.72549, 0.164706, 1 )
 custom_colors/font_color_hover = Color( 0, 0.72549, 0.164706, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.72549, 0.164706, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 text = "FullScreen"
 
 [node name="music" type="Label" parent="GUI/pauseMenu/OptionMenu"]
@@ -831,7 +815,7 @@ margin_top = 675.0
 margin_right = 721.0
 margin_bottom = 765.0
 custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 text = "MUSIC"
 
 [node name="MusicSlider" type="HSlider" parent="GUI/pauseMenu/OptionMenu"]
@@ -851,7 +835,7 @@ margin_top = 879.0
 margin_right = 753.0
 margin_bottom = 969.0
 custom_colors/font_color = Color( 0.682353, 0, 0.901961, 1 )
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 23 )
 text = "EFFECTS"
 
 [node name="SFXSlider" type="HSlider" parent="GUI/pauseMenu/OptionMenu"]
@@ -865,268 +849,73 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
+[node name="border" type="Node" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="border"]
+position = Vector2( 121.151, 321.426 )
+scale = Vector2( 0.58, 0.57 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Top"]
+position = Vector2( 15527.8, 482.173 )
+shape = SubResource( 6 )
+
+[node name="Left" type="StaticBody2D" parent="border"]
+position = Vector2( 386.667, 12.83 )
+rotation = 1.5708
+scale = Vector2( 0.57, 0.58 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Left"]
+position = Vector2( 870.27, 780.269 )
+shape = SubResource( 7 )
+
+[node name="Bottom" type="StaticBody2D" parent="border"]
+position = Vector2( 0, 627.875 )
+scale = Vector2( 0.58, 0.57 )
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border/Bottom"]
+position = Vector2( 7826.08, 843.656 )
+shape = SubResource( 22 )
+
 [node name="PlayersList" type="Node2D" parent="."]
 
-[node name="Blasto" parent="PlayersList" instance=ExtResource( 6 )]
-position = Vector2( -2, 1313 )
+[node name="Blasto" parent="PlayersList" instance=ExtResource( 16 )]
+position = Vector2( 25.4528, 1232.18 )
 scale = Vector2( 1, 1 )
 
-[node name="Ceru Star" parent="PlayersList" instance=ExtResource( 45 )]
+[node name="Ceru Star" parent="PlayersList" instance=ExtResource( 64 )]
 position = Vector2( 77, 1356 )
 scale = Vector2( 1, 1 )
 z_index = 1
 isPlayerTwo = true
 
 [node name="floor" type="Node2D" parent="."]
-position = Vector2( -2408, 512 )
+position = Vector2( -2407.87, 509 )
 z_index = -2
-script = ExtResource( 11 )
-increment = 1568
+script = ExtResource( 8 )
+increment = 1564
 n_positions = 8
-scenes = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 20 ) ]
+scenes = [ ExtResource( 17 ), ExtResource( 20 ), ExtResource( 18 ) ]
 
 [node name="desert1 door" type="Sprite" parent="."]
 visible = false
 position = Vector2( 8872, 1192 )
 scale = Vector2( 0.995586, 0.97842 )
 z_index = 5
-texture = ExtResource( 18 )
+texture = ExtResource( 28 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
-[node name="background2" type="Node" parent="ParallaxBackground"]
-
-[node name="Sea1" type="Sprite" parent="ParallaxBackground/background2"]
-position = Vector2( 960, 540 )
-texture = ExtResource( 3 )
-
-[node name="obj" type="Node" parent="ParallaxBackground"]
-
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="ParallaxBackground/obj"]
-position = Vector2( 1368.43, 522.308 )
-scale = Vector2( 0.812395, 0.784622 )
-frames = SubResource( 19 )
+[node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
+position = Vector2( 960, 367 )
+frames = SubResource( 34 )
 frame = 1
 playing = true
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
-position = Vector2( 588.103, 50.5414 )
-scale = Vector2( 0.901329, 0.885789 )
-frames = SubResource( 19 )
-frame = 1
-playing = true
-
-[node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
-position = Vector2( 1644.18, 125.905 )
-scale = Vector2( 0.901329, 0.885789 )
-frames = SubResource( 19 )
-frame = 1
-playing = true
-
-[node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
-position = Vector2( 294.987, 271.825 )
-scale = Vector2( 0.901329, 0.885789 )
-frames = SubResource( 19 )
-frame = 1
-playing = true
-
-[node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
-position = Vector2( 564.379, 635.503 )
-scale = Vector2( 0.901329, 0.885789 )
-frames = SubResource( 19 )
-frame = 1
-playing = true
-
-[node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
-position = Vector2( 1799.08, 696.116 )
-scale = Vector2( 0.901329, 0.885789 )
-frames = SubResource( 19 )
-frame = 1
-playing = true
-
-[node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
-position = Vector2( 1022.34, 361.622 )
-scale = Vector2( 0.901329, 0.885789 )
-frames = SubResource( 19 )
-frame = 1
-playing = true
-
-[node name="obj" type="Node" parent="."]
-
-[node name="up" type="Node2D" parent="obj"]
-visible = false
-position = Vector2( -392, 3 )
-
-[node name="Lv2-SObj2" type="Sprite" parent="obj/up"]
-position = Vector2( 693, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Lv2-SObj2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Lv2-SObj2/StaticBody2D"]
-position = Vector2( -29, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj3" type="Sprite" parent="obj/up"]
-position = Vector2( 1462, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-frame = 4
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Lv2-SObj3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Lv2-SObj3/StaticBody2D"]
-position = Vector2( -29, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj4" type="Sprite" parent="obj/up"]
-position = Vector2( 2941, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Lv2-SObj4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Lv2-SObj4/StaticBody2D"]
-position = Vector2( -29, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj5" type="Sprite" parent="obj/up"]
-position = Vector2( 4159, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Lv2-SObj5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Lv2-SObj5/StaticBody2D"]
-position = Vector2( -29, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj6" type="Sprite" parent="obj/up"]
-position = Vector2( 5372, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Lv2-SObj6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Lv2-SObj6/StaticBody2D"]
-position = Vector2( -29, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj7" type="Sprite" parent="obj/up"]
-position = Vector2( 6105, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Lv2-SObj7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Lv2-SObj7/StaticBody2D"]
-position = Vector2( -29, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj8" type="Sprite" parent="obj/up"]
-position = Vector2( 7215, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Lv2-SObj8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Lv2-SObj8/StaticBody2D"]
-position = Vector2( -29, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Node2D" type="Node2D" parent="obj/up"]
-
-[node name="Node2D2" type="Node2D" parent="obj/up"]
-
-[node name="Lv2-SObj9" type="Sprite" parent="obj/up/Node2D2"]
-position = Vector2( 2546, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-frame = 6
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Node2D2/Lv2-SObj9"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Node2D2/Lv2-SObj9/StaticBody2D"]
-position = Vector2( -5.5, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj10" type="Sprite" parent="obj/up/Node2D2"]
-position = Vector2( 2637, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-frame = 8
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Node2D2/Lv2-SObj10"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Node2D2/Lv2-SObj10/StaticBody2D"]
-position = Vector2( -11.75, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Node2D3" type="Node2D" parent="obj/up"]
-position = Vector2( 1775, 0 )
-
-[node name="Lv2-SObj9" type="Sprite" parent="obj/up/Node2D3"]
-position = Vector2( 2546, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-frame = 6
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Node2D3/Lv2-SObj9"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Node2D3/Lv2-SObj9/StaticBody2D"]
-position = Vector2( -5.5, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj10" type="Sprite" parent="obj/up/Node2D3"]
-position = Vector2( 2637, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-frame = 7
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Node2D3/Lv2-SObj10"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Node2D3/Lv2-SObj10/StaticBody2D"]
-position = Vector2( -11.75, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj11" type="Sprite" parent="obj/up/Node2D3"]
-position = Vector2( 2749, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-frame = 7
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Node2D3/Lv2-SObj11"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Node2D3/Lv2-SObj11/StaticBody2D"]
-position = Vector2( -11.75, -41.5 )
-shape = SubResource( 34 )
-
-[node name="Lv2-SObj12" type="Sprite" parent="obj/up/Node2D3"]
-position = Vector2( 2861, 816 )
-texture = ExtResource( 21 )
-hframes = 3
-vframes = 3
-frame = 8
-
-[node name="StaticBody2D" type="StaticBody2D" parent="obj/up/Node2D3/Lv2-SObj12"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/up/Node2D3/Lv2-SObj12/StaticBody2D"]
-position = Vector2( -11.75, -41.5 )
-shape = SubResource( 34 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 329, 1208 )
@@ -1142,62 +931,76 @@ drag_margin_left = 0.11
 drag_margin_right = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 30 )
+script = ExtResource( 12 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="shake" type="Node2D" parent="Camera2D"]
-script = ExtResource( 29 )
+script = ExtResource( 10 )
 
-[node name="borders" parent="." instance=ExtResource( 25 )]
+[node name="Commands" type="Sprite" parent="."]
+position = Vector2( 459, 1126 )
+texture = ExtResource( 29 )
+script = ExtResource( 7 )
+
+[node name="StaticBody2D" type="Area2D" parent="Commands"]
+position = Vector2( 126, 178 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Commands/StaticBody2D"]
+position = Vector2( -4, 14.5 )
+shape = SubResource( 33 )
 
 [node name="Audio" type="Node2D" parent="."]
-script = ExtResource( 34 )
+script = ExtResource( 2 )
 
 [node name="Intro_Section" type="AudioStreamPlayer" parent="Audio" groups=["pausable"]]
-bus = "Music"
-script = ExtResource( 8 )
-
-[node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 40 )
-volume_db = -3.0
+stream = ExtResource( 59 )
+volume_db = -4.0
 autoplay = true
 bus = "Music"
-script = ExtResource( 8 )
+script = ExtResource( 24 )
 actualPlaying = true
+
+[node name="Main_Section" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 60 )
+volume_db = -4.0
+bus = "Music"
+script = ExtResource( 24 )
 
 [node name="Pause_Section" type="AudioStreamPlayer" parent="Audio"]
 pause_mode = 2
-stream = ExtResource( 41 )
+stream = ExtResource( 58 )
+volume_db = -3.0
 bus = "Music"
-script = ExtResource( 35 )
+script = ExtResource( 51 )
 
 [node name="NextArea" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 39 )
+stream = ExtResource( 57 )
 bus = "SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 37 )
+stream = ExtResource( 52 )
 volume_db = -3.0
 bus = "Music"
 
 [node name="Lose" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 38 )
+stream = ExtResource( 53 )
+volume_db = -3.0
 bus = "Music"
 
 [node name="PauseMenu" type="Node2D" parent="Audio"]
 pause_mode = 2
-script = ExtResource( 26 )
+script = ExtResource( 54 )
 
 [node name="ButtonPressed" type="AudioStreamPlayer" parent="Audio/PauseMenu"]
 pause_mode = 2
-stream = ExtResource( 36 )
+stream = ExtResource( 55 )
 bus = "SFX"
 
 [node name="MouseEntered" type="AudioStreamPlayer" parent="Audio/PauseMenu"]
 pause_mode = 2
-stream = ExtResource( 2 )
+stream = ExtResource( 56 )
 bus = "SFX"
 
 [connection signal="area_entered" from="StageManager/MovingWall/AreaGo" to="PlayersList/Blasto" method="_on_AreaGo_area_entered"]
@@ -1232,3 +1035,5 @@ bus = "SFX"
 [connection signal="update_healthbar" from="PlayersList/Blasto" to="GUI/UI/HealthPlayerContainer" method="_on_Blasto_update_healthbar"]
 [connection signal="death" from="PlayersList/Ceru Star" to="StageManager" method="_on_Ceru_Star_death"]
 [connection signal="update_healthbar" from="PlayersList/Ceru Star" to="GUI/UI/HealthPlayerContainer" method="_on_Ceru_Star_update_healthbar"]
+[connection signal="area_entered" from="Commands/StaticBody2D" to="Commands" method="_on_StaticBody2D_area_entered"]
+[connection signal="area_entered" from="Commands/StaticBody2D" to="Audio" method="_on_StaticBody2D_area_entered"]
