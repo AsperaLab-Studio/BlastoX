@@ -206,7 +206,6 @@ action_mode = 0
 text = "SINGLEPLAYER"
 
 [node name="MultiBtn" type="Button" parent="PlayMenu"]
-visible = false
 margin_left = 801.0
 margin_top = 608.0
 margin_right = 1135.0
