@@ -66,6 +66,8 @@ func _ready():
 	
 	sceneManager = get_parent().get_parent()
 	jumpPos = jump_position2D.global_position
+	$UI/HealthContainer/HealthBar.max_value = HP
+	$UI/HealthContainer/HealthBar.value = HP
 
 func _process(_delta: float) -> void:
 	gp = global_position

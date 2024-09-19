@@ -136,7 +136,7 @@ current_level = "station/LevelStationBoss"
 
 [node name="TurianBoss" parent="StageManager/EnemiesContainer" instance=ExtResource( 28 )]
 position = Vector2( 817, 867 )
-HP = 20
+HP = 40
 shoot_delay = 3.0
 
 [node name="respawnPoint" type="Node2D" parent="StageManager"]
@@ -272,8 +272,8 @@ margin_left = -1085.0
 margin_top = -26.0
 margin_right = -89.0
 margin_bottom = 60.0
-max_value = 20.0
-value = 20.0
+max_value = 40.0
+value = 40.0
 texture_progress = ExtResource( 11 )
 nine_patch_stretch = true
 
@@ -517,49 +517,49 @@ flip_h = true
 position = Vector2( 1368.43, 522.308 )
 scale = Vector2( 0.812395, 0.784622 )
 frames = SubResource( 39 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 588.103, 50.5414 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1644.18, 125.905 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 294.987, 271.825 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 564.379, 635.503 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1799.08, 696.116 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="ParallaxBackground/obj"]
 position = Vector2( 1022.34, 361.622 )
 scale = Vector2( 0.901329, 0.885789 )
 frames = SubResource( 39 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="obj" type="Node" parent="."]

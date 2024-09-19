@@ -147,7 +147,7 @@ current_level = "ocean/LevelOceanBoss"
 [node name="EnemiesContainer" type="Node" parent="StageManager"]
 
 [node name="SalarianBoss" parent="StageManager/EnemiesContainer" instance=ExtResource( 10 )]
-position = Vector2( 901, 860 )
+position = Vector2( 1359, 864 )
 delay_after_spear = 2.0
 dps = 5
 HP = 10
@@ -159,7 +159,7 @@ position = Vector2( 1000, 1826 )
 [node name="spearZones" type="Node" parent="StageManager"]
 
 [node name="1" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 139, 940 )
+position = Vector2( 99, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/1"]
 position = Vector2( -69, -5 )
@@ -186,7 +186,7 @@ position = Vector2( 63, -13 )
 position = Vector2( 36, 55 )
 
 [node name="2" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 226, 940 )
+position = Vector2( 275, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/2"]
 position = Vector2( -69, -5 )
@@ -213,7 +213,7 @@ position = Vector2( 63, -13 )
 position = Vector2( 36, 55 )
 
 [node name="3" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 320, 940 )
+position = Vector2( 413, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/3"]
 position = Vector2( -69, -5 )
@@ -240,7 +240,7 @@ position = Vector2( 63, -13 )
 position = Vector2( 36, 55 )
 
 [node name="4" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 412, 940 )
+position = Vector2( 566, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/4"]
 position = Vector2( -69, -5 )
@@ -267,7 +267,7 @@ position = Vector2( 63, -13 )
 position = Vector2( 36, 55 )
 
 [node name="5" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 522, 940 )
+position = Vector2( 721, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/5"]
 position = Vector2( -69, -5 )
@@ -294,7 +294,7 @@ position = Vector2( 63, -13 )
 position = Vector2( 36, 55 )
 
 [node name="6" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 618, 940 )
+position = Vector2( 887, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/6"]
 position = Vector2( -69, -5 )
@@ -321,7 +321,7 @@ position = Vector2( 63, -13 )
 position = Vector2( 36, 55 )
 
 [node name="7" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 722, 940 )
+position = Vector2( 1060, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/7"]
 position = Vector2( -69, -5 )
@@ -348,7 +348,7 @@ position = Vector2( 63, -13 )
 position = Vector2( 36, 55 )
 
 [node name="8" type="Node2D" parent="StageManager/spearZones"]
-position = Vector2( 50, 940 )
+position = Vector2( 1219, 940 )
 
 [node name="1" type="Position2D" parent="StageManager/spearZones/8"]
 position = Vector2( -69, -5 )
@@ -377,7 +377,7 @@ position = Vector2( 36, 55 )
 [node name="gunZones" type="Node" parent="StageManager"]
 
 [node name="1" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 248, 420 )
+position = Vector2( 459, 420 )
 
 [node name="2" type="Position2D" parent="StageManager/gunZones/1"]
 position = Vector2( -13, -20 )
@@ -389,7 +389,7 @@ position = Vector2( 14, 16 )
 position = Vector2( 43, 52 )
 
 [node name="2" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 342, 416 )
+position = Vector2( 459, 416 )
 
 [node name="1" type="Position2D" parent="StageManager/gunZones/2"]
 position = Vector2( -38, -60 )
@@ -401,7 +401,7 @@ position = Vector2( -13, -20 )
 position = Vector2( 43, 52 )
 
 [node name="3" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 438, 420 )
+position = Vector2( 708, 417 )
 
 [node name="1" type="Position2D" parent="StageManager/gunZones/3"]
 position = Vector2( -38, -60 )
@@ -413,7 +413,7 @@ position = Vector2( 14, 16 )
 position = Vector2( 43, 52 )
 
 [node name="4" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 528, 416 )
+position = Vector2( 707, 416 )
 
 [node name="1" type="Position2D" parent="StageManager/gunZones/4"]
 position = Vector2( -38, -60 )
@@ -425,7 +425,7 @@ position = Vector2( 14, 16 )
 position = Vector2( 43, 52 )
 
 [node name="5" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 624, 420 )
+position = Vector2( 981, 420 )
 
 [node name="1" type="Position2D" parent="StageManager/gunZones/5"]
 position = Vector2( -38, -60 )
@@ -437,7 +437,7 @@ position = Vector2( -13, -20 )
 position = Vector2( 14, 16 )
 
 [node name="6" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 624, 418 )
+position = Vector2( 982, 418 )
 
 [node name="1" type="Position2D" parent="StageManager/gunZones/6"]
 position = Vector2( -38, -59 )
@@ -449,7 +449,7 @@ position = Vector2( 14, 16 )
 position = Vector2( 43, 52 )
 
 [node name="7" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 712, 420 )
+position = Vector2( 1220, 426 )
 
 [node name="1" type="Position2D" parent="StageManager/gunZones/7"]
 position = Vector2( -38, -60 )
@@ -461,7 +461,7 @@ position = Vector2( -13, -20 )
 position = Vector2( 43, 52 )
 
 [node name="8" type="Node2D" parent="StageManager/gunZones"]
-position = Vector2( 712, 420 )
+position = Vector2( 1220, 426 )
 
 [node name="1" type="Position2D" parent="StageManager/gunZones/8"]
 position = Vector2( -38, -60 )
@@ -761,7 +761,7 @@ value = 1.0
 [node name="Border" parent="." instance=ExtResource( 21 )]
 
 [node name="Right" type="StaticBody2D" parent="Border"]
-position = Vector2( 1932.8, 13.7178 )
+position = Vector2( 2421, 16 )
 rotation = 1.5708
 scale = Vector2( 0.57, 0.58 )
 collision_layer = 2
@@ -782,7 +782,7 @@ position = Vector2( -1689, 509 )
 z_index = -2
 script = ExtResource( 11 )
 increment = 1350
-n_positions = 1
+n_positions = 2
 scenes = [ ExtResource( 14 ) ]
 
 [node name="PlayersList" type="Node2D" parent="."]
@@ -816,7 +816,7 @@ texture = ExtResource( 3 )
 position = Vector2( 131, 219 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -824,7 +824,7 @@ playing = true
 position = Vector2( 663, 224 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 3
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -832,7 +832,7 @@ playing = true
 position = Vector2( 1157, 165 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 2
+frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -840,7 +840,6 @@ playing = true
 position = Vector2( 998, 284 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -848,7 +847,6 @@ playing = true
 position = Vector2( 456, 144 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
 speed_scale = 1.8
 playing = true
 
@@ -856,6 +854,7 @@ playing = true
 position = Vector2( 297, 278 )
 frames = SubResource( 56 )
 animation = "New Anim"
+frame = 14
 speed_scale = 1.8
 playing = true
 
@@ -863,7 +862,7 @@ playing = true
 position = Vector2( 1361, 401 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 13
 speed_scale = 1.8
 playing = true
 
@@ -871,7 +870,7 @@ playing = true
 position = Vector2( 1508, 258 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 13
 speed_scale = 1.8
 playing = true
 
@@ -879,7 +878,7 @@ playing = true
 position = Vector2( 759, 538 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 13
 speed_scale = 1.8
 playing = true
 
@@ -887,7 +886,7 @@ playing = true
 position = Vector2( 1601, 514 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 13
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -895,7 +894,7 @@ playing = true
 position = Vector2( 369, 646 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 13
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -903,7 +902,7 @@ playing = true
 position = Vector2( 63, 532 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 12
+frame = 11
 speed_scale = 1.8
 playing = true
 
@@ -911,7 +910,7 @@ playing = true
 position = Vector2( 1046, 637 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 12
+frame = 11
 speed_scale = 1.8
 playing = true
 

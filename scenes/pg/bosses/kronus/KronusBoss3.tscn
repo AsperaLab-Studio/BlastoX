@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/img/sprites/enemy/bosses/kornus_spritesheet.png" type="Texture" id=5]
 [ext_resource path="res://assets/audio/sfx/Bosses/Kronus_SFX/hit_03.oggvorbis.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/Scripts/AI/kronusBoss3.gd" type="Script" id=7]
-[ext_resource path="res://scenes/pg/bosses/props/TheGun/BulletRifle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/pg/bosses/props/Kronus/KronusBullet.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/img/UI/bosses/boss kronus/3 fase vita kronus.png" type="Texture" id=9]
 [ext_resource path="res://assets/Scripts/UI/HealthDisplay.gd" type="Script" id=10]
 [ext_resource path="res://assets/img/UI/bosses/boss kronus/3 fase cornice kronus.png" type="Texture" id=11]
@@ -295,8 +295,11 @@ script = ExtResource( 7 )
 move_speed = 100
 hp = 20
 range_chase = 200.0
+dps_shotgun = 3
 bullet = ExtResource( 8 )
+dps_lavastomp = 5
 lava_column = ExtResource( 12 )
+dps_punch = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -39 )

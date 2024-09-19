@@ -593,7 +593,7 @@ scenes = [ ExtResource( 1 ) ]
 [node name="WallPh1" type="AnimatedSprite" parent="ParallaxBackground"]
 position = Vector2( 960, 367 )
 frames = SubResource( 43 )
-frame = 15
+frame = 7
 playing = true
 
 [node name="Audio" type="Node2D" parent="."]

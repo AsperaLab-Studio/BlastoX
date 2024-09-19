@@ -77,6 +77,7 @@ extents = Vector2( 22.5, 8.5 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
+dps = 5
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
