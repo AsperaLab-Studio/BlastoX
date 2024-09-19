@@ -149,6 +149,7 @@ current_level = "ocean/LevelOceanBoss"
 [node name="SalarianBoss" parent="StageManager/EnemiesContainer" instance=ExtResource( 10 )]
 position = Vector2( 901, 860 )
 delay_after_spear = 2.0
+dps = 5
 HP = 10
 shooot_delay = 0.2
 
@@ -790,12 +791,15 @@ scenes = [ ExtResource( 14 ) ]
 position = Vector2( 25.4528, 1315 )
 scale = Vector2( 1, 1 )
 boss = true
+rebonuce_distance = 700.0
 
 [node name="Ceru Star" parent="PlayersList" instance=ExtResource( 41 )]
-position = Vector2( 79, 1363 )
+position = Vector2( 85, 1347 )
 scale = Vector2( 1, 1 )
 z_index = 1
 isPlayerTwo = true
+boss = true
+rebonuce_distance = 700.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

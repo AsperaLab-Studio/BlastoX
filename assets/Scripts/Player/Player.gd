@@ -61,6 +61,8 @@ var attack1count = 0
 var jumping = false
 
 var knockbackerPos
+var knockbackDestination = Vector2()
+var knockbackDir = Vector2()
 
 var inputManager
 var lifesList
@@ -162,24 +164,16 @@ func _process(_delta: float) -> void:
 			STATE.HIT:
 				anim_player.play("hit")
 			STATE.KNOCKBACK:
-				anim_player.play("hit")
+				anim_player.play("knockback")
 
-				phisicBody.disabled = true
+				move_rebounce(knockbackDestination, rebounce_speed)
 
-				var dir = (global_position - knockbackerPos).normalized()
-
-				var pos = Vector2()
-				pos.y = global_position.y
-				
-				if dir.x > 0:
-					pos.x = global_position.x + rebonuce_distance
+				if knockbackDir.x > 0:
+					if global_position >= knockbackDestination:
+						current_state = STATE.IDLE
 				else:
-					pos.x = global_position.x - rebonuce_distance
-			
-				move_rebounce(pos, rebounce_speed)
-
-				if global_position == pos:
-					current_state = STATE.IDLE
+					if global_position <= knockbackDestination:
+						current_state = STATE.IDLE
 			STATE.SHOOT:
 				anim_player.play("shoot")
 			STATE.MOVE:
@@ -277,6 +271,18 @@ func pause():
 
 func knockback(pos):
 	knockbackerPos = pos
+	phisicBody.disabled = true
+	
+	var x = global_position
+	knockbackDir = (global_position - knockbackerPos).normalized()
+	
+	knockbackDestination.y = global_position.y
+	
+	if knockbackDir.x > 0:
+		knockbackDestination.x = global_position.x + rebonuce_distance
+	else:
+		knockbackDestination.x = global_position.x - rebonuce_distance
+		
 	current_state = STATE.KNOCKBACK
 
 func switchLayers(jump):
@@ -317,7 +323,8 @@ func hit(dps, type, source):
 					sceneManager.points -= 20
 				sceneManager.hit += 1
 			if current_state != STATE.HIT || current_state != STATE.DIED:
-				current_state = STATE.HIT
+				if type != "knockback":
+					current_state = STATE.HIT
 				current_hp = current_hp - dps
 				emit_signal("update_healthbar", current_hp)
 		
