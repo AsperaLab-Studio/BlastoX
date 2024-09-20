@@ -1,14 +1,19 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/img/sprites/Player/Blasto_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_Land.oggvorbis.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/img/sprites/VFX/playerRangedHittedVFX.png" type="Texture" id=3]
-[ext_resource path="res://assets/audio/sfx/Player/Blasto_SFX/blasto_shoot.oggvorbis.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_Jump.oggvorbis.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/Scripts/Player/Player.gd" type="Script" id=5]
-[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/cerulean_death.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_Light_02.oggvorbis.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_death.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/img/sprites/VFX/playerMeleeHittedVFX.png" type="Texture" id=8]
-[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/cerulean_attack.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_Light_01.oggvorbis.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_Shoot.oggvorbis.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_Light_03.oggvorbis.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/img/sprites/enemy/the_vine_spritesheet.png" type="Texture" id=12]
-[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/cerulean_pain.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_pain.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/Player/Ceru_SFX/CS_Heavy_part2.oggvorbis.ogg" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=14]
 resource_name = "attack11"
@@ -595,32 +600,37 @@ volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Jump_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 4 )
 bus = "SFX"
 
 [node name="Blasto_Land_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 2 )
 volume_db = -3.0
 bus = "SFX"
 
 [node name="Blasto_Shoot_SFX" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 4 )
+stream = ExtResource( 10 )
 volume_db = 2.0
 bus = "SFX"
 
 [node name="Blasto_Special_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 14 )
 volume_db = -9.0
 bus = "SFX"
 
 [node name="Blasto_Attack01_SFX" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 11 )
+stream = ExtResource( 9 )
 volume_db = -9.0
 bus = "SFX"
 
 [node name="Blasto_Attack02_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 6 )
 volume_db = -9.0
 pitch_scale = 1.37
 bus = "SFX"
 
 [node name="Blasto_Attack03_SFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 11 )
 volume_db = -9.0
 pitch_scale = 1.75
 bus = "SFX"
