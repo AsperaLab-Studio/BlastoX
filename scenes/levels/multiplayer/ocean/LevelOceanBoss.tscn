@@ -816,7 +816,7 @@ texture = ExtResource( 3 )
 position = Vector2( 131, 219 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 2
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -824,7 +824,7 @@ playing = true
 position = Vector2( 663, 224 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 2
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -832,7 +832,7 @@ playing = true
 position = Vector2( 1157, 165 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 1
+frame = 11
 speed_scale = 1.8
 playing = true
 
@@ -840,6 +840,7 @@ playing = true
 position = Vector2( 998, 284 )
 frames = SubResource( 56 )
 animation = "New Anim"
+frame = 10
 speed_scale = 1.8
 playing = true
 
@@ -847,6 +848,7 @@ playing = true
 position = Vector2( 456, 144 )
 frames = SubResource( 56 )
 animation = "New Anim"
+frame = 10
 speed_scale = 1.8
 playing = true
 
@@ -854,7 +856,7 @@ playing = true
 position = Vector2( 297, 278 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 14
+frame = 9
 speed_scale = 1.8
 playing = true
 
@@ -862,7 +864,7 @@ playing = true
 position = Vector2( 1361, 401 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 13
+frame = 8
 speed_scale = 1.8
 playing = true
 
@@ -870,7 +872,7 @@ playing = true
 position = Vector2( 1508, 258 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 13
+frame = 8
 speed_scale = 1.8
 playing = true
 
@@ -878,7 +880,7 @@ playing = true
 position = Vector2( 759, 538 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 13
+frame = 8
 speed_scale = 1.8
 playing = true
 
@@ -886,7 +888,7 @@ playing = true
 position = Vector2( 1601, 514 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 12
+frame = 7
 speed_scale = 1.8
 playing = true
 
@@ -894,7 +896,7 @@ playing = true
 position = Vector2( 369, 646 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 12
+frame = 7
 speed_scale = 1.8
 playing = true
 
@@ -902,7 +904,7 @@ playing = true
 position = Vector2( 63, 532 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 11
+frame = 6
 speed_scale = 1.8
 playing = true
 
@@ -910,11 +912,9 @@ playing = true
 position = Vector2( 1046, 637 )
 frames = SubResource( 56 )
 animation = "New Anim"
-frame = 11
+frame = 6
 speed_scale = 1.8
 playing = true
-
-[node name="obj" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 329, 1208 )
@@ -922,6 +922,7 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = 0
 limit_top = 379
+limit_right = 1420
 limit_bottom = 1020
 limit_smoothed = true
 drag_margin_h_enabled = true
@@ -937,8 +938,8 @@ __meta__ = {
 
 [node name="shake" type="Node2D" parent="Camera2D"]
 script = ExtResource( 5 )
-boss = true
-randomShackeStrenght = 10.0
+
+[node name="obj" type="Node" parent="."]
 
 [node name="Audio" type="Node2D" parent="."]
 script = ExtResource( 31 )

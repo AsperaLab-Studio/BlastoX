@@ -567,6 +567,7 @@ rotation = 1.5708
 shape = SubResource( 13 )
 
 [node name="StateLabel" type="Label" parent="."]
+visible = false
 margin_left = -64.6671
 margin_top = -154.607
 margin_right = -24.6671
